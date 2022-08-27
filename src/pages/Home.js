@@ -1,15 +1,17 @@
 import React from 'react';
 
-import {Container} from 'react-bootstrap';
+//import page sections here
+import About from './About'
+import Projects from './Projects'
+import ContactMe from './ContactMe'
 
 function Home() {
 
     return (
         <>
-        <Container>
-        <h1 className='text-center'>Home</h1>
-        <p>A bare bones 3 page website template with navigation and basic styling via Bootstrap, just add your own content.</p>
-        </Container>
+        <About />
+        <Projects />
+        <ContactMe />
         </>
     );
 };

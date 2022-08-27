@@ -1,27 +1,27 @@
-# React-3-page-website-template
+# new-react-portfolio
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 ![License](https://img.shields.io/badge/Made%20with-React-darkgreen.svg)
-[![Github Commits](https://img.shields.io/github/commit-activity/w/HobbaZ/react-3-page-website-template)](https://github.com/HobbaZ/react-3-page-website-template/commits)
-[![GitHub latest commit](https://img.shields.io/github/last-commit/HobbaZ/react-3-page-website-template)](https://github.com/HobbaZ/react-3-page-website-template/branches)
+[![Github Commits](https://img.shields.io/github/commit-activity/w/HobbaZ/new-react-portfolio)](https://github.com/HobbaZ/new-react-portfolio/commits)
+[![GitHub latest commit](https://img.shields.io/github/last-commit/HobbaZ/new-react-portfolio)](https://github.com/HobbaZ/new-react-portfolio/branches)
 [![GitHub followers](https://img.shields.io/github/followers/HobbaZ.svg)]()
-![GitHub repo size](https://img.shields.io/github/repo-size/HobbaZ/react-3-page-website-template)
-[![GitHub issues](https://img.shields.io/github/issues/HobbaZ/react-3-page-website-template)](https://img.shields.io/github/issues/HobbaZ/react-3-page-website-template)
-![GitHub forks](https://img.shields.io/github/forks/HobbaZ/react-3-page-website-template)
-![GitHub language count](https://img.shields.io/github/languages/count/HobbaZ/react-3-page-website-template)
+![GitHub repo size](https://img.shields.io/github/repo-size/HobbaZ/new-react-portfolio)
+[![GitHub issues](https://img.shields.io/github/issues/HobbaZ/new-react-portfolio)](https://img.shields.io/github/issues/HobbaZ/new-react-portfolio)
+![GitHub forks](https://img.shields.io/github/forks/HobbaZ/new-react-portfolio)
+![GitHub language count](https://img.shields.io/github/languages/count/HobbaZ/new-react-portfolio)
 
 ## Description
 ### Project Aim ###
-To create a simple static React website template app.
+
 
 ### What Problem Does It Solve ###
-Starting a React basic static website from scratch
+
 
 ### What I Learnt ###
-Remembered to take all files from client folder so Heroku can find buildpack.
+
 
 ## Deployment
-View the deployed website on Heroku [here](https://react-3-page-website-template.herokuapp.com/)
+
 
 ## Table of Contents
 - [Description](#description)
@@ -37,11 +37,10 @@ View the deployed website on Heroku [here](https://react-3-page-website-template
 - [Questions](#questions)
 
 ## User Story
-I Want to create a template for basic setup of a static React SPA.
-So That I can develop static websites faster.
+
 
 ## Screenshots
-![Home Screen](./client/src/images/home-page.png)
+
 
 ## Installation
 1. Clone the repo to your computer by clicking the green code button and copying the SSH version or clicking the blue use template button.
@@ -52,18 +51,16 @@ So That I can develop static websites faster.
 
 4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
 
-5. Finally, type ```npm start``` into the terminal and it will start the dev server at localhost:3000.
+5. Finally, type ```cd client``` then ```npm start``` into the terminal and it will start the dev server.
 
 Note: To make a static React site work on Heroku you need to take all the files out of the folder name you specified in the react-create-app. E.g. if you did create-react-app client, React will create the app in a folder called client, take all the files out of the client folder so they are now all at root level and then delete the empty client folder.
 
 ## Features
-- 3 pages with navigation and footer setup
-- Fontawesome set up for icons
+
 
 ## Technology
 - React
 - Bootstrap
-- Fontawesome
 
 ## Contributors
 [Zachary Hobba](https://github.com/HobbaZ)
@@ -71,11 +68,6 @@ Note: To make a static React site work on Heroku you need to take all the files 
 You can also contribute by opening a pull request or submitting an issue.
 
 ## Acknowledgements
-
-Photo by <a href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">NASA</a> on <a href="https://unsplash.com/s/photos/website?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
-
-Important: If you get a something is running on port 3000 error, , type ```npx kill-port 3000``` into your VS Code terminal and hit enter, will kill port 3000 and let you run the app.
 
 ## Testing
 No tests for this project
