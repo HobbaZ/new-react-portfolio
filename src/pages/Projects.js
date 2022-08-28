@@ -7,8 +7,8 @@ function Projects() {
     return (
         <>
         <Container id='projects'>
-            <h1 className='text-center'>About</h1>
-            <p>This 3 page basic website template was made with React and Bootstrap</p>
+            <h1 className='text-center'>Projects</h1>
+
         </Container>
         </>
     );

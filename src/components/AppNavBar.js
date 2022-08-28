@@ -6,7 +6,7 @@ function AppNavbar () {
   return (
       <Nav className="navbar navbar-expand-lg navbar-light">
       <Container fluid>
-      <Navbar.Brand><a href='#about' onClick={() => 'about'}>About</a></Navbar.Brand>
+      <Navbar.Brand><a href='#about' onClick={() => 'about'}>Zachary Hobba | Software Engineer</a></Navbar.Brand>
 
         {/*Navbar collapse and expand */}
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarResponsive" aria-controls="navBarResponsive" aria-expanded="false" aria-label="Toggle navigation">

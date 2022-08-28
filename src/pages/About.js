@@ -1,22 +1,35 @@
 import React from 'react';
 
-//import profilePic from '../images/profile-pic-large-cutout.png';
-
 import { Container } from 'react-bootstrap';
+
+import CanvasContainer from './threeJS/CanvasContainer';
 
 function About() {
 
     return (
         <>
         <Container id='about'>
-        <div className='aboutImageBox'>
-        <img className="profileImage" src='' alt='Zac'/>
-      </div>
+        <CanvasContainer />
 
       <div className='aboutTextBox'>
         <section>
-      <h1>Hi, I'm Zac</h1><br></br>
-      <h3> CSS3 | HTML5 | JavaScript | MySQL | NoSQL | React | CSS style libraries | NPM modules | Node.js | APIs </h3>
+      <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1><br></br>
+      <h3> <div align="center">
+        <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg"  className='icons' alt='Bootstrap icon' />
+        <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/git.svg"  className='icons' alt='Git icon'/>
+        <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/javascript.svg"  className='icons' alt='JavaScript icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"  className='icons' alt='HTML5 icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"  className='icons' alt='CSS3 icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg"  className='icons' alt='Express icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain-wordmark.svg"  className='icons' alt='GraphQL icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"  className='icons' alt='MongoDB icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"  className='icons' alt='MySQL icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"  className='icons' alt='Node.js icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg"  className='icons' alt='Npm icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"  className='icons' alt='React icon'/>
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg"  className='icons' alt='TailWind CSS icon'/>
+</div>
+</h3>
       <br></br>
       
       <p className="aboutMeDesc">
