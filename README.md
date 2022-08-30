@@ -68,6 +68,7 @@ Note: To make a static React site work on Heroku you need to take all the files 
 You can also contribute by opening a pull request or submitting an issue.
 
 ## Acknowledgements
+[React slider component](https://codesandbox.io/s/56gsb?file=/src/styles.css:59-723)
 
 ## Testing
 No tests for this project

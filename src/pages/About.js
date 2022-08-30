@@ -1,35 +1,70 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { Container } from 'react-bootstrap';
 
 import CanvasContainer from './threeJS/CanvasContainer';
 
+let iconArray = [
+  "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
+  "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/git.svg",
+  "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/javascript.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg" ,
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg"
+];
+
+//Move to edit panel eventually (working now)
+function CheckBoxState ({ checkBoxValue, handleChange }) {
+
+  return (
+    <>
+    <label>Disable icon greyscale</label>
+    <input type="checkbox"
+    defaultChecked= {checkBoxValue}
+    className="checkbox"
+    onChange={handleChange} />
+    </>
+  )
+}
+
+
 function About() {
 
+  const [checkBoxValue, setCheckBoxValue] = useState(false)
+
+  const handleChange = (isChecked ) => {
+    //check if data being passed
+    console.log(isChecked.target.checked)
+    setCheckBoxValue(isChecked.target.checked)
+  };
+
     return (
+
         <>
         <Container id='about'>
         <CanvasContainer />
 
+        <CheckBoxState
+        handleChange={handleChange}
+        />
+
+    <div align="center">
+      {iconArray.map((element) => (
+        <img src={element} alt="icon" className='icons' style={{ filter: `grayscale(${checkBoxValue? '0%' : '100%'})` }} />
+      ))}
+    </div>
+
       <div className='aboutTextBox'>
         <section>
       <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1><br></br>
-      <h3> <div align="center">
-        <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg"  className='icons' alt='Bootstrap icon' />
-        <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/git.svg"  className='icons' alt='Git icon'/>
-        <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/javascript.svg"  className='icons' alt='JavaScript icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"  className='icons' alt='HTML5 icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"  className='icons' alt='CSS3 icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg"  className='icons' alt='Express icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain-wordmark.svg"  className='icons' alt='GraphQL icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"  className='icons' alt='MongoDB icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"  className='icons' alt='MySQL icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"  className='icons' alt='Node.js icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg"  className='icons' alt='Npm icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"  className='icons' alt='React icon'/>
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg"  className='icons' alt='TailWind CSS icon'/>
-</div>
-</h3>
+      
       <br></br>
       
       <p className="aboutMeDesc">
