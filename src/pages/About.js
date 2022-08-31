@@ -40,8 +40,6 @@ function About() {
   const [checkBoxValue, setCheckBoxValue] = useState(false)
 
   const handleChange = (isChecked ) => {
-    //check if data being passed
-    console.log(isChecked.target.checked)
     setCheckBoxValue(isChecked.target.checked)
   };
 
@@ -56,8 +54,8 @@ function About() {
         />
 
     <div align="center">
-      {iconArray.map((element) => (
-        <img src={element} alt="icon" className='icons' style={{ filter: `grayscale(${checkBoxValue? '0%' : '100%'})` }} />
+      {iconArray.map((element, index) => (
+        <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${checkBoxValue? '0%' : '100%'})` }} />
       ))}
     </div>
 
