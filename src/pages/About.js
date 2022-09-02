@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
 
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 
 import CanvasContainer from './threeJS/CanvasContainer';
+
+import GrayscaleCheckbox from '../components/editable-Components/GrayscaleCheckbox'
+
+import MeshColour from '../components/editable-Components/MeshColour'
+
+import ValueEditor from '../components/ValueEditor'
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -20,27 +26,18 @@ let iconArray = [
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg"
 ];
 
-//Move to edit panel eventually (working now)
-function CheckBoxState ({ checkBoxValue, handleChange }) {
-
-  return (
-    <>
-    <label>Disable icon greyscale</label>
-    <input type="checkbox"
-    defaultChecked= {checkBoxValue}
-    className="checkbox"
-    onChange={handleChange} />
-    </>
-  )
-}
-
-
 function About() {
-
   const [checkBoxValue, setCheckBoxValue] = useState(false)
+  const [colourValue, setColourValue] = useState("#000000")
 
-  const handleChange = (isChecked ) => {
-    setCheckBoxValue(isChecked.target.checked)
+  const [showEditForm, setShowEditForm] = useState(false)
+
+  const handleCheckboxChange = (event) => {
+    setCheckBoxValue(event.target.checked)
+  };
+
+  const handleColourChange = (event) => {
+    setColourValue(event.target.value)
   };
 
     return (
@@ -49,9 +46,32 @@ function About() {
         <Container id='about'>
         <CanvasContainer />
 
-        <CheckBoxState
-        handleChange={handleChange}
-        />
+    {/*Click to show or hide edit form*/ }
+    <div className='text-center'>
+              <Button className=' btn btn-primary'
+                    onClick={() => setShowEditForm(!showEditForm)}>
+                        Edit Values
+              </Button>
+            </div>
+ 
+
+              {showEditForm && (
+                <>
+                <GrayscaleCheckbox 
+                handleChange={handleCheckboxChange}
+                />
+
+                <br></br>
+
+                <label>Heading Colour</label>
+                <MeshColour
+                value={colourValue}
+                handleChange={handleColourChange}
+                />
+
+                </>
+              )}
+
 
     <div align="center">
       {iconArray.map((element, index) => (
@@ -61,7 +81,11 @@ function About() {
 
       <div className='aboutTextBox'>
         <section>
-      <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1><br></br>
+      <h1 style={{ color: `${colourValue}`}}>
+      Hi, I'm Zac and I'm a web developer based in inner Sydney
+      </h1>
+      
+      <br></br>
       
       <br></br>
       

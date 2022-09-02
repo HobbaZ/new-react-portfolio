@@ -2,30 +2,45 @@ import React, {useState} from 'react';
 
 import { Container } from 'react-bootstrap';
 
-function ValueEditor(props) {
+import GrayscaleCheckbox from './editable-Components/GrayscaleCheckbox'
 
-    const [materialColour, setMaterialColour] = useState(0);
+import MeshColour from './editable-Components/MeshColour'
 
-    const [iconSaturation, setIconSaturation] = useState(0);
+function ValueEditor() {
+
+  const [checkBoxValue, setCheckBoxValue] = useState(false)
+  const [colourValue, setColourValue] = useState("#000000")
+
+  const handleCheckboxChange = (event) => {
+    setCheckBoxValue(event.target.checked)
+    console.log(event.target.checked)
+  };
+
+  const handleColourChange = (event) => {
+    setColourValue(event.target.value)
+    console.log(event.target.value)
+  };
 
       return (
         <>
         <Container id='valueEditor'>
 
-          <form className="form">
-            
-            <label>Icon Saturation</label><br></br>
-            <input className='slider'
-              defaultValue={0}
-              min={0}
-              max={1}
-              value={props.iconSaturationValue}
-              type="range"
-            />
         
+          <form className="form">
+
+          <GrayscaleCheckbox 
+                handleChange={handleCheckboxChange}
+                value={checkBoxValue}
+                />
+
+                <br></br>
+
+                <MeshColour
+                value={colourValue}
+                handleChange={handleColourChange}
+                />
+
         </form>
-
-
         </Container>
         </>
       )
