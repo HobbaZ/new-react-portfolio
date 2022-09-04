@@ -7,9 +7,10 @@ import AppNavBar from './components/AppNavBar';
 import './App.css';
 
 function App() {
+
   return (
     <div>
-        <AppNavBar/>
+        <AppNavBar />
         <Content />
         <Footer />
     </div>

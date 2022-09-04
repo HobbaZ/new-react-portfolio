@@ -1,21 +1,5 @@
 import React from 'react';
 
-function H1 ({text, colourValue1}) {
-    return (
-        <>
-        <h1 style={{ color: `${colourValue1}`}}>{text}</h1>
-        </>
-    )
-}
-
-function P ({text, colourValue2}) {
-    return (
-        <>
-        <p style={{ color: `${colourValue2}`}}>{text}</p>
-        </>
-    )
-}
-
 //Must set default value otherwise you get console warning everytime colour changes
 function MeshColour ({ colourValue, handleChange }) {
     return (
@@ -23,7 +7,7 @@ function MeshColour ({ colourValue, handleChange }) {
       <input type="color"
       className="MaterialColor"
       value={colourValue}
-      defaultValue="#ffffff"
+      defaultValue={"#ffffff"}
       onChange={handleChange} />
       </>
     )
@@ -32,7 +16,6 @@ function MeshColour ({ colourValue, handleChange }) {
   function GrayscaleCheckbox ({ checkBoxValue, handleChange }) {
     return (
       <>
-      <label>Disable icon greyscale</label>
       <input type="checkbox"
       checked= {checkBoxValue}
       className="checkbox"
@@ -41,4 +24,22 @@ function MeshColour ({ colourValue, handleChange }) {
     )
   }
 
-  export {MeshColour, H1, P, GrayscaleCheckbox} 
+  function FontSizeOptions ({ fontSizeValue, handleChange }) {
+    return (
+      <>
+      <select
+      value={fontSizeValue}
+      className="fontSize"
+      onChange={handleChange} >
+
+      <option value="1">10</option>
+        <option value="2">12</option>
+        <option value="3">15</option>
+        <option value="4">18</option>
+        <option value="5">20</option>
+      </select>
+      </>
+    )
+  }
+
+  export {MeshColour, GrayscaleCheckbox, FontSizeOptions} 

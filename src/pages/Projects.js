@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Container, Button } from 'react-bootstrap';
 
-import {H1, P} from '../components/BaseSettings'
-
-function Projects({colourValue1, colourValue2}) {
+function Projects() {
 
     // state for messages
     const [infoMessage, setInfoMessage] = useState('');
@@ -63,26 +61,19 @@ function Projects({colourValue1, colourValue2}) {
     return (
         <>
         <Container id='projects'>
-            <H1 className='text-center'
-            text="Projects"
-            colourValue1={colourValue1}
-             />
+            <h1 className='text-center'>Projects</h1>
 
             <div className='d-flex flex-row flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (
                 <>
-                <div className='card w-25 p-2 m-2'>
+                <div className='card w-25 p-2 m-1'>
                 <div className='card-body'>
                 <div className='card-title'>
-                <H1 key={index} text= {repo.name.replace(/-/g, " ")} 
-                colourValue1={colourValue1}
-                /> {/*replaces all dashes in name with spaces*/}
+                <h3 key={index}>{repo.name.replace(/-/g, " ")}</h3> 
                 </div>
 
                 <div className='card-text'>
-                <P text={repo.description} 
-                colourValue2={colourValue2}
-                />
+                <p>{repo.description}</p>
                 </div>
 
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>

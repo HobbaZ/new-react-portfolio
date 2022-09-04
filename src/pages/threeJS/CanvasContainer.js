@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {OrbitControls, softShadows } from '@react-three/drei'
 
@@ -12,11 +12,6 @@ import Lights from './Lights'
 softShadows()
 
 function CanvasContainer () {
-  const [colourValue, setColourValue] = useState("#000000")
-
-  const handleColourChange = (event) => {
-    setColourValue(event.target.value)
-  };
 
         return (
             <div id='canvasContainer'>
@@ -29,9 +24,7 @@ function CanvasContainer () {
               dpr={[1, 2]}
             >
               <Lights />
-              <Box 
-              handleChange={handleColourChange}
-              value={colourValue}
+              <Box id="testModel"
               />
               <OrbitControls />
             </Canvas>

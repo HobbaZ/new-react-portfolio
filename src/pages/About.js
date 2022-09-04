@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import { Container, Button } from 'react-bootstrap';
 
 import CanvasContainer from './threeJS/CanvasContainer';
 
-import {H1, P, MeshColour, GrayscaleCheckbox} from '../components/BaseSettings'
+import { MeshColour, GrayscaleCheckbox, FontSizeOptions } from '../components/BaseSettings'
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -23,30 +23,13 @@ let iconArray = [
 ];
 
 function About() {
-  const [checkBoxValue, setCheckBoxValue] = useState(false)
-  const [colourValue1, setColourValue1] = useState("#000")
-  const [colourValue2, setColourValue2] = useState("#000")
-  const [colourValue3, setColourValue3] = useState("#ffffff")
 
   const [showEditForm, setShowEditForm] = useState(false)
 
-  /*useEffect(() => {
-    function getContrast () {
-      handleColour2Change()
-    }
-    getContrast()
-  },[])*/
-
-  /*function getContrast() {
-    //code from https://stackoverflow.com/questions/58184508/html5-input-type-color-read-single-rgb-values
-      const color = colourValue3
-      const r = parseInt(color.substring(1,2), 16)
-      const g = parseInt(color.substring(3,2), 16)
-      const b = parseInt(color.substring(5,2), 16)
-      var yiq = ((r*299)+(g*587)+(b*114))/1000;
-      return (yiq >= 160) ? 'black' : 'white';
-    }*/
-
+  const [checkBoxValue, setCheckBoxValue] = useState(false)
+  const [colourValue1, setColourValue1] = useState("#000000")
+  const [colourValue2, setColourValue2] = useState("#000000")
+  const [colourValue3, setColourValue3] = useState("#ffffff")
 
   const handleCheckboxChange = (event) => {
     setCheckBoxValue(event.target.checked)
@@ -64,7 +47,26 @@ function About() {
     setColourValue3(event.target.value)
   };
 
-  
+  //get all h1s
+  const headings = document.getElementsByTagName("h1");
+
+  for (let index = 0; index < headings.length; index++) {
+    headings[index].style = `color: ${colourValue1}`
+  }
+
+  //get all paragraphs
+  const paragraphs = document.getElementsByTagName("p");
+
+  for (let index = 0; index < paragraphs.length; index++) {
+    paragraphs[index].style = `color: ${colourValue2}`
+  }
+
+  //Get background colour
+  document.body.style = `background: ${colourValue3}`
+
+  //Get mesh box
+  const element = document.getElementById("testModel")
+  console.log(element)
 
     return (
 
@@ -83,6 +85,7 @@ function About() {
 
               {showEditForm && (
                 <>
+                <label>Disable icon greyscale</label>
                 <GrayscaleCheckbox 
                 handleChange={handleCheckboxChange}
                 />
@@ -93,6 +96,7 @@ function About() {
                 <MeshColour
                 value= {colourValue1}
                 handleChange={handleColour1Change}
+                defaultValue= {colourValue1}
                 />
 
                 <br></br>
@@ -101,7 +105,8 @@ function About() {
                 <MeshColour
                 value= {colourValue2}
                 handleChange={handleColour2Change}
-                />
+                defaultValue= {colourValue2}
+              />
 
                 <br></br>
 
@@ -109,6 +114,7 @@ function About() {
                 <MeshColour
                 value= {colourValue3}
                 handleChange={handleBackgroundColourChange}
+                defaultValue= {colourValue3}
                 />
 
                 </>
@@ -122,19 +128,10 @@ function About() {
 
       <div className='aboutTextBox'>
 
-        {/*Accessing the background colour value directly in ghost div, not the way its supposed to be done but it works*/}
-        <div style={{ display: 'none' }}>{document.body.style = `background: ${colourValue3}`}</div>
+      <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1>
 
-      <H1 
-      text= {`Hi, I'm Zac and I'm a web developer based in inner Sydney, color is ${colourValue1}`}
-      colourValue1={colourValue1}
-       />
-      
-      <P 
-      text = {`I'm a junior full stack web developer now based in the greater Sydney area. I enjoy working on interesting projects, color is ${colourValue2}`}
-      colourValue2={colourValue2}
-       />
-      
+      <p>I'm a junior full stack web developer now based in the greater Sydney area. I enjoy working on interesting projects</p>
+  
     </div>
         </Container>
         </>
