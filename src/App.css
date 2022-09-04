@@ -13,7 +13,7 @@ html, body {
   width: 100%;
   margin: 0%;
   overflow-x: hidden;
-  color: var(--dark);
+  background-blend-mode: color;
 }
 
 body {
@@ -24,45 +24,6 @@ body {
   padding-left: 10px;
   width: 70px;
   height: 70px;
-}
-
-.horizontal-slider {
-  width: 10%;
-  height: 40px;
-  margin: auto;
-}
-
-.example-thumb {
-  cursor: pointer;
-  position: absolute;
-  z-index: 100;
-  background: red;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  display: block;
-}
-
-.example-thumb.active {
-  background-color: grey;
-}
-
-.example-track {
-  position: relative;
-  background: rgb(0, 0, 0);
-}
-
-.horizontal-slider .example-track {
-  top: 20px;
-  height: 6px;
-}
-
-.horizontal-slider .example-thumb {
-  top: 12px;
-  width: 20px;
-  outline: none;
-  height: 20px;
-  line-height: 38px;
 }
 
 #canvasContainer {
@@ -80,7 +41,7 @@ body {
   width: 100vw;
 }
 
-.Navbar.Brand :hover {
+.Navbar.Brand:hover {
   color: black;
 }
 
@@ -100,19 +61,22 @@ body {
 }
 
 form {
-  background-color: var(--light);
   color: var(--dark);
   border-radius: 5px;
   height: 100%;
   padding: 10px;
 }
 
-.btn-dark {
-  border: 2px solid var(--light);
+.btn-primary {
+  border: 2px solid black;
   background-color: var(--transparent);
+  color: black;
+  height: fit-content;
+  width: 75%;
+  margin: 10px;
 }
 
-.btn-dark:hover {
+.btn-primary:hover {
   background-color: rgba(255, 255, 255, 0.171);
   border: 2px solid var(--transparent);
 }
@@ -129,20 +93,16 @@ form {
   color: var(--dark);
 }
 
-#hamburgerIcon {
-  font-size: 30px;
-  color: var(--light);
-}
-
-.fa {
+.fab, .fas {
   font-size: 40px;
   padding: 5px;
+  color: black;
 }
+
+
 
 footer {
   margin-top: 20px;
-  background-color: rgb(0, 0, 0);
-  border-top: 2px var(--light) solid;
   align-items: center;
   width: 100vw;
   padding-top: 10px;

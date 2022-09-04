@@ -1,3 +1,5 @@
+import React, {useState} from 'react';
+
 import {OrbitControls, softShadows } from '@react-three/drei'
 
 import { Canvas } from '@react-three/fiber'
@@ -10,19 +12,27 @@ import Lights from './Lights'
 softShadows()
 
 function CanvasContainer () {
+  const [colourValue, setColourValue] = useState("#000000")
+
+  const handleColourChange = (event) => {
+    setColourValue(event.target.value)
+  };
+
         return (
             <div id='canvasContainer'>
             <Canvas 
             shadows={{ 
               type: "PCFSoftShadowMap",
-              color: 'red'
             }}
       
               //display pixel ratio
               dpr={[1, 2]}
             >
               <Lights />
-              <Box />
+              <Box 
+              handleChange={handleColourChange}
+              value={colourValue}
+              />
               <OrbitControls />
             </Canvas>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Home from './pages/Home';
+import Content from './pages/Content';
 import Footer from './components/Footer';
 import AppNavBar from './components/AppNavBar';
 
@@ -8,11 +8,11 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div>
         <AppNavBar/>
-        <Home />
+        <Content />
         <Footer />
-    </>
+    </div>
   );
 }
 

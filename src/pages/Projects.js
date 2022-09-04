@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 
-function Projects() {
+import {H1, P} from '../components/BaseSettings'
+
+function Projects({colourValue1, colourValue2}) {
 
     // state for messages
     const [infoMessage, setInfoMessage] = useState('');
@@ -17,11 +19,13 @@ function Projects() {
 
             //Put the repo title names you want displayed here(must match exactly)
             const projectNames = 
-            ["React-Graphql-Template",
+            [
+            "React-Graphql-Template",
             "CryptoWorld",
             "Password-Generator",
             "Weather-API-app",
-            "Product-Generator-Website"
+            "Product-Generator-Website",
+            "react-portfolio"
             ];
 
             const repoArray=[];
@@ -59,19 +63,36 @@ function Projects() {
     return (
         <>
         <Container id='projects'>
-            <h1 className='text-center'>Projects</h1>
+            <H1 className='text-center'
+            text="Projects"
+            colourValue1={colourValue1}
+             />
 
-            <div className='projectContainer '>
+            <div className='d-flex flex-row flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (
                 <>
-                <div>
-                <h3 key={index}>{repo.name.replace(/-/g, " ")}</h3> {/*replaces all dashes in name with spaces*/}
-                <p>{repo.description}</p>
-                <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
-                    <button><i className="fab fa-github"></i> Github link</button></a>
+                <div className='card w-25 p-2 m-2'>
+                <div className='card-body'>
+                <div className='card-title'>
+                <H1 key={index} text= {repo.name.replace(/-/g, " ")} 
+                colourValue1={colourValue1}
+                /> {/*replaces all dashes in name with spaces*/}
+                </div>
+
+                <div className='card-text'>
+                <P text={repo.description} 
+                colourValue2={colourValue2}
+                />
+                </div>
 
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
-                    <button><i className="fa-solid fa-globe"></i> Deployed link</button></a>
+                    <Button className='btn btn-primary'><i className="fa-solid fa-globe"></i> Github link</Button></a>
+
+                    <br></br>
+
+                <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
+                    <Button className='btn btn-primary'><i className="fa-solid fa-globe"></i> Deployed link</Button></a>
+                </div>
                 </div>
                 </>
             ))}</div>

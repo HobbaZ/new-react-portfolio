@@ -5,7 +5,7 @@ import About from './About'
 import Projects from './Projects'
 import ContactMe from './ContactMe'
 
-function Home() {
+function Content() {
 
     return (
         <>
@@ -16,4 +16,4 @@ function Home() {
     );
 };
 
-export default Home;
+export default Content;
