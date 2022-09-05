@@ -1,4 +1,4 @@
-function Lights () {
+function Lights ({lightColor}) {
     return (
         <>
             <ambientLight 
@@ -14,7 +14,7 @@ function Lights () {
       
               position={[10,10,10]}
               intensity={0.8}
-              color={'yellow'}
+              color={lightColor}
               />
         </>
     );

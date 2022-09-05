@@ -30,6 +30,8 @@ function About() {
   const [colourValue1, setColourValue1] = useState("#000000")
   const [colourValue2, setColourValue2] = useState("#000000")
   const [colourValue3, setColourValue3] = useState("#ffffff")
+  const [lightColor, setLightColor] = useState("#000000")
+  const [modelColor, setModelColor] = useState("#ffffff")
 
   const handleCheckboxChange = (event) => {
     setCheckBoxValue(event.target.checked)
@@ -41,6 +43,14 @@ function About() {
 
   const handleColour2Change = (event) => {
     setColourValue2(event.target.value)
+  };
+
+  const handleLightChange = (event) => {
+    setLightColor(event.target.value)
+  };
+
+  const handleModelChange = (event) => {
+    setModelColor(event.target.value)
   };
 
   const handleBackgroundColourChange = (event) => {
@@ -65,14 +75,13 @@ function About() {
   document.body.style = `background: ${colourValue3}`
 
   //Get mesh box
-  const element = document.getElementById("testModel")
-  console.log(element)
+  //const canvasContainer = document.getElementById("canvasContainer")
 
     return (
 
         <>
         <Container id='about'>
-        <CanvasContainer />
+        <CanvasContainer {...{lightColor, modelColor}}/>
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
@@ -115,6 +124,20 @@ function About() {
                 value= {colourValue3}
                 handleChange={handleBackgroundColourChange}
                 defaultValue= {colourValue3}
+                />
+
+                <label>Model Colour</label>
+                <MeshColour
+                value= {modelColor}
+                handleChange={handleModelChange}
+                defaultValue= {modelColor}
+                />
+
+                <label>Light Colour</label>
+                <MeshColour
+                value= {lightColor}
+                handleChange={handleLightChange}
+                defaultValue= {lightColor}
                 />
 
                 </>
