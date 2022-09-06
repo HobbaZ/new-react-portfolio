@@ -18,8 +18,8 @@ function year() {
 const Footer = () => {
 return (
   <>
-  <Container className='text-center' fluid>
-  <footer className=' fixed-bottom'>
+  <Container>
+  <footer>
       <p>Zachary Hobba, {year()} 
 
           <a href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"><i className="fab fa-linkedin"></i></a>

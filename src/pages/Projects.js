@@ -61,7 +61,7 @@ function Projects() {
     return (
         <>
         <Container id='projects'>
-            <h1 className='text-center'>Projects</h1>
+            <h1 className="text-center" id="projects">Projects</h1>
 
             <div className='d-flex flex-row flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (

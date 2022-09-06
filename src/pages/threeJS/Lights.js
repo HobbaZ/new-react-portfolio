@@ -1,4 +1,4 @@
-function Lights ({lightColor}) {
+function Lights ({lightColor, lightIntensity}) {
     return (
         <>
             <ambientLight 
@@ -13,7 +13,7 @@ function Lights ({lightColor}) {
               shadow-bias={0.0001}
       
               position={[10,10,10]}
-              intensity={0.8}
+              intensity={lightIntensity/100} //devide by the max value, too bright otherwise
               color={lightColor}
               />
         </>

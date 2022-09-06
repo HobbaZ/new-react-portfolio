@@ -70,7 +70,7 @@ Note: To make a static React site work on Heroku you need to take all the files 
 You can also contribute by opening a pull request or submitting an issue.
 
 ## Acknowledgements
-[React slider component](https://codesandbox.io/s/56gsb?file=/src/styles.css:59-723)
+[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
 
 [https://stackoverflow.com/questions/53332321/react-hook-warnings-for-async-function-in-useeffect-useeffect-function-must-ret](https://stackoverflow.com/questions/53332321/react-hook-warnings-for-async-function-in-useeffect-useeffect-function-must-ret)
 

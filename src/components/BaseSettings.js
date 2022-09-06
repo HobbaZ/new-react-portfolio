@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Must set default value otherwise you get console warning everytime colour changes
-function MeshColour ({ colourValue, handleChange }) {
+function ColorInput ({ colourValue, handleChange }) {
     return (
       <>
       <input type="color"
@@ -13,12 +13,24 @@ function MeshColour ({ colourValue, handleChange }) {
     )
   }
 
-  function GrayscaleCheckbox ({ checkBoxValue, handleChange }) {
+  function CheckboxInput ({ checkBoxValue, handleChange }) {
     return (
       <>
       <input type="checkbox"
       checked= {checkBoxValue}
       className="checkbox"
+      onChange={handleChange} />
+      </>
+    )
+  }
+
+  function RangeInput ({value, handleChange, min, max}) {
+    return (
+      <>
+      <input type="range"
+      value={value}
+      min={min}
+      max={max}
       onChange={handleChange} />
       </>
     )
@@ -42,4 +54,4 @@ function MeshColour ({ colourValue, handleChange }) {
     )
   }
 
-  export {MeshColour, GrayscaleCheckbox, FontSizeOptions} 
+  export {ColorInput, CheckboxInput, FontSizeOptions, RangeInput} 

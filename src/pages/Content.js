@@ -13,6 +13,7 @@ function Content() {
         <Projects />
         <ContactMe />
         </>
+        
     );
 };
 

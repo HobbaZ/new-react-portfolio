@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import { Container } from 'react-bootstrap';
+import { Container, Form, FormGroup, Button} from 'react-bootstrap';
 
 function validateEmail(email) {
     const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,7 +40,7 @@ function ContactMe() {
       setErrorMessage('Email needs to be valid');
       return;
     }
-    // If everything goes according to plan, we want to clear out the input after a successful registration.
+    // Clear the form fields after submit
     setUserName('');
     setMsg('');
     setEmail('');
@@ -52,10 +52,11 @@ function ContactMe() {
       <h1 className='text-center'>Contact Me</h1>
       <p>Shoot me an email at <a href="mailto:zachobba@gmail.com">zachobba@gmail.com</a> or find me on <a href='https://www.linkedin.com/in/zachary-hobba-52aaa182/'>LinkedIn</a></p>
 
-      <form className="form">
+      <Form className="form">
+        <FormGroup>
         
         <label>Name:</label><br></br>
-        <input className='formField'
+        <input className='form-control'
           value={userName}
           name="userName"
           onChange={handleInputChange}
@@ -65,7 +66,7 @@ function ContactMe() {
         />
 
         <label>Email:</label><br></br>
-        <input className='formField'
+        <input className='form-control'
           value={email}
           name="email"
           onChange={handleInputChange}
@@ -75,7 +76,7 @@ function ContactMe() {
         />
 
         <label>Subject:</label><br></br>
-        <select className='formField'
+        <select className='form-control'
         value={subject}
         required={true}
         name="subject"
@@ -87,7 +88,7 @@ function ContactMe() {
         </select>
 
         <label>Message:</label><br></br>
-        <textarea className='formField textArea'
+        <textarea className='form-control textArea'
           value={msg}
           name="msg"
           onChange={handleInputChange}
@@ -95,8 +96,11 @@ function ContactMe() {
           required={true}
         />
 
-        <button type="button" onClick={handleFormSubmit}>Submit</button>
-      </form>
+        <div className='text-center'>
+        <Button type="button" className="btn btn-primary" onClick={handleFormSubmit}>Submit</Button>
+        </div>
+        </FormGroup>
+      </Form>
       {errorMessage && (
         <div>
           <p className="error-text">{errorMessage}</p>

@@ -11,7 +11,7 @@ import Lights from './Lights'
 //enable soft shadows
 softShadows()
 
-function CanvasContainer ({lightColor, modelColor}) {
+function CanvasContainer ({lightColor, modelColor, lightIntensity}) {
 
         return (
             <div id='canvasContainer'>
@@ -23,8 +23,8 @@ function CanvasContainer ({lightColor, modelColor}) {
               //display pixel ratio
               dpr={[1, 2]}
             >
-              <Lights {...{lightColor}}/>
-              
+              <Lights {...{lightColor, lightIntensity}}/>
+
               <Box {...{modelColor}}
               />
               <OrbitControls />

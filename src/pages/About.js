@@ -4,7 +4,7 @@ import { Container, Button } from 'react-bootstrap';
 
 import CanvasContainer from './threeJS/CanvasContainer';
 
-import { MeshColour, GrayscaleCheckbox, FontSizeOptions } from '../components/BaseSettings'
+import { RangeInput, ColorInput, CheckboxInput } from '../components/BaseSettings'
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -32,6 +32,7 @@ function About() {
   const [colourValue3, setColourValue3] = useState("#ffffff")
   const [lightColor, setLightColor] = useState("#000000")
   const [modelColor, setModelColor] = useState("#ffffff")
+  const [lightIntensity, setLightIntensity] = useState(0)
 
   const handleCheckboxChange = (event) => {
     setCheckBoxValue(event.target.checked)
@@ -57,6 +58,10 @@ function About() {
     setColourValue3(event.target.value)
   };
 
+  const handleLightIntensityChange = (event) => {
+    setLightIntensity(event.target.value)
+  }
+
   //get all h1s
   const headings = document.getElementsByTagName("h1");
 
@@ -74,6 +79,13 @@ function About() {
   //Get background colour
   document.body.style = `background: ${colourValue3}`
 
+  //get all nav links
+  const navLinks = document.getElementsByClassName("navLink");
+
+  for (let index = 0; index < navLinks.length; index++) {
+    navLinks[index].style = `color: ${colourValue2}`
+  }
+
   //Get mesh box
   //const canvasContainer = document.getElementById("canvasContainer")
 
@@ -81,28 +93,31 @@ function About() {
 
         <>
         <Container id='about'>
-        <CanvasContainer {...{lightColor, modelColor}}/>
+        <CanvasContainer {...{lightColor, modelColor, lightIntensity}}/>
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
               <Button className=' btn btn-primary'
+              
                     onClick={() => setShowEditForm(!showEditForm)}>
-                        Edit Values
+                        {showEditForm ? "Close X" : "Edit Values"}
               </Button>
             </div>
  
-
+              
+              {/*Edit form*/}
               {showEditForm && (
                 <>
+                <h1 className='text-center'>Edit Form</h1>
                 <label>Disable icon greyscale</label>
-                <GrayscaleCheckbox 
+                <CheckboxInput 
                 handleChange={handleCheckboxChange}
                 />
 
                 <br></br>
 
                 <label>H1 Colour</label>
-                <MeshColour
+                <ColorInput
                 value= {colourValue1}
                 handleChange={handleColour1Change}
                 defaultValue= {colourValue1}
@@ -110,36 +125,58 @@ function About() {
 
                 <br></br>
 
-                <label>P Colour</label>
-                <MeshColour
+                <label>Paragrapgh Colour</label>
+                <ColorInput
                 value= {colourValue2}
                 handleChange={handleColour2Change}
                 defaultValue= {colourValue2}
-              />
+                />
+
+                <label>Navigation Link Colour</label>
+                <ColorInput
+                value= {colourValue2}
+                handleChange={handleColour2Change}
+                defaultValue= {colourValue2}
+                />
 
                 <br></br>
 
                 <label>Background Colour</label>
-                <MeshColour
+                <ColorInput
                 value= {colourValue3}
                 handleChange={handleBackgroundColourChange}
                 defaultValue= {colourValue3}
                 />
 
+                <br></br>
+
                 <label>Model Colour</label>
-                <MeshColour
+                <ColorInput
                 value= {modelColor}
                 handleChange={handleModelChange}
                 defaultValue= {modelColor}
                 />
 
+                <br></br>
+
                 <label>Light Colour</label>
-                <MeshColour
+                <ColorInput
                 value= {lightColor}
                 handleChange={handleLightChange}
                 defaultValue= {lightColor}
                 />
 
+                <br></br>
+
+                <label>Light Intensity</label>
+                <RangeInput
+                value= {lightIntensity}
+                min={0}
+                max={100}
+                step={0.1}
+                handleChange={handleLightIntensityChange}
+                defaultValue= {lightIntensity}
+                />
                 </>
               )}
 

@@ -16,8 +16,14 @@ html, body {
   background-blend-mode: color;
 }
 
-body {
-  padding-bottom: 85px;
+.appContainer {
+  position: relative;
+}
+
+.subtitle {
+  font-size: small;
+  font-weight: 800;
+  font-variant: small-caps;
 }
 
 .icons {
@@ -32,51 +38,57 @@ body {
   border-radius: 20px;
 }
 
-.Navbar.Brand {
-  color: black;
-}
-
 .Container {
   width: 100vw;
-}
-
-.Navbar.Brand:hover {
-  color: black;
 }
 
 #about {
   width: 100vw;
 }
 
-.navLink{
+.noEffect, .noEffect:hover {
   text-decoration: none;
-  color: red;
+}
+
+.active {
+  font-weight: 600;
+}
+
+.navbar {
+  filter: blur(50%);
+}
+
+.nav-link{
+  text-decoration: none;
+  color: black;
 }
 
 /* React uses link:hover as a current page link instead of normal hover behaviour, style this to show current page link*/
-.navLink:hover {
+.nav-link:hover {
   text-decoration: none;
+  font-weight: 900;
   color: black;
 }
 
 form {
-  color: var(--dark);
   border-radius: 5px;
   height: 100%;
   padding: 10px;
+  width: 50%;
+  margin: auto;
 }
 
 .btn-primary {
   border: 2px solid black;
-  background-color: var(--transparent);
-  color: black;
+  background-color: black;
+  color: white;
   height: fit-content;
   width: 75%;
   margin: 10px;
 }
 
 .btn-primary:hover {
-  background-color: rgba(255, 255, 255, 0.171);
+  background-color: black;
   border: 2px solid var(--transparent);
 }
 
@@ -103,10 +115,12 @@ p {
 }
 
 footer {
-  margin-top: 20px;
-  align-items: center;
-  width: 100vw;
-  padding-top: 10px;
+  position:absolute;
+  bottom: 0;
+  left:0;
+  text-align: center;
+  width: 100%;
+  height: 20px;
 }
 
 footer a :hover {
