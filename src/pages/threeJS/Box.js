@@ -1,4 +1,4 @@
-function Box ({modelColor}) {
+function Box ({modelColor, metalness, roughness}) {
 
     return (
         <mesh
@@ -12,8 +12,8 @@ function Box ({modelColor}) {
           <meshStandardMaterial 
           color= {modelColor}
           //wireframe={false}
-          roughness={0.3}
-          metalness={0.7}
+          roughness={roughness/10}
+          metalness={metalness/10}
           />
         </mesh>
     )

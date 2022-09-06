@@ -4,7 +4,7 @@ import { Container, Button } from 'react-bootstrap';
 
 import CanvasContainer from './threeJS/CanvasContainer';
 
-import { RangeInput, ColorInput, CheckboxInput } from '../components/BaseSettings'
+import EditValuesForm from '../components/EditValuesForm'
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -30,9 +30,17 @@ function About() {
   const [colourValue1, setColourValue1] = useState("#000000")
   const [colourValue2, setColourValue2] = useState("#000000")
   const [colourValue3, setColourValue3] = useState("#ffffff")
+  const [colourValue4, setColourValue4] = useState("#ffffff")
   const [lightColor, setLightColor] = useState("#000000")
   const [modelColor, setModelColor] = useState("#ffffff")
   const [lightIntensity, setLightIntensity] = useState(0)
+
+  const [roughness, setRoughness] = useState(0)
+  const [metalness, setMetalness] = useState(0)
+
+  const [lightPositionx, setLightPositionX] = useState(0)
+  const [lightPositiony, setLightPositionY] = useState(0)
+  const [lightPositionz, setLightPositionZ] = useState(0)
 
   const handleCheckboxChange = (event) => {
     setCheckBoxValue(event.target.checked)
@@ -44,6 +52,10 @@ function About() {
 
   const handleColour2Change = (event) => {
     setColourValue2(event.target.value)
+  };
+
+  const handleColour4Change = (event) => {
+    setColourValue4(event.target.value)
   };
 
   const handleLightChange = (event) => {
@@ -62,38 +74,31 @@ function About() {
     setLightIntensity(event.target.value)
   }
 
-  //get all h1s
-  const headings = document.getElementsByTagName("h1");
-
-  for (let index = 0; index < headings.length; index++) {
-    headings[index].style = `color: ${colourValue1}`
+  const handleLightPositionXChange = (event) => {
+    setLightPositionX(event.target.value)
   }
 
-  //get all paragraphs
-  const paragraphs = document.getElementsByTagName("p");
-
-  for (let index = 0; index < paragraphs.length; index++) {
-    paragraphs[index].style = `color: ${colourValue2}`
+  const handleLightPositionYChange = (event) => {
+    setLightPositionY(event.target.value)
   }
 
-  //Get background colour
-  document.body.style = `background: ${colourValue3}`
-
-  //get all nav links
-  const navLinks = document.getElementsByClassName("navLink");
-
-  for (let index = 0; index < navLinks.length; index++) {
-    navLinks[index].style = `color: ${colourValue2}`
+  const handleLightPositionZChange = (event) => {
+    setLightPositionZ(event.target.value)
   }
 
-  //Get mesh box
-  //const canvasContainer = document.getElementById("canvasContainer")
+  const handleRoughnessChange = (event) => {
+    setRoughness(event.target.value)
+  }
+
+  const handleMetalnessChange = (event) => {
+    setMetalness(event.target.value)
+  }
 
     return (
 
         <>
         <Container id='about'>
-        <CanvasContainer {...{lightColor, modelColor, lightIntensity}}/>
+        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness}}/>
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
@@ -108,75 +113,11 @@ function About() {
               {/*Edit form*/}
               {showEditForm && (
                 <>
-                <h1 className='text-center'>Edit Form</h1>
-                <label>Disable icon greyscale</label>
-                <CheckboxInput 
-                handleChange={handleCheckboxChange}
-                />
-
-                <br></br>
-
-                <label>H1 Colour</label>
-                <ColorInput
-                value= {colourValue1}
-                handleChange={handleColour1Change}
-                defaultValue= {colourValue1}
-                />
-
-                <br></br>
-
-                <label>Paragrapgh Colour</label>
-                <ColorInput
-                value= {colourValue2}
-                handleChange={handleColour2Change}
-                defaultValue= {colourValue2}
-                />
-
-                <label>Navigation Link Colour</label>
-                <ColorInput
-                value= {colourValue2}
-                handleChange={handleColour2Change}
-                defaultValue= {colourValue2}
-                />
-
-                <br></br>
-
-                <label>Background Colour</label>
-                <ColorInput
-                value= {colourValue3}
-                handleChange={handleBackgroundColourChange}
-                defaultValue= {colourValue3}
-                />
-
-                <br></br>
-
-                <label>Model Colour</label>
-                <ColorInput
-                value= {modelColor}
-                handleChange={handleModelChange}
-                defaultValue= {modelColor}
-                />
-
-                <br></br>
-
-                <label>Light Colour</label>
-                <ColorInput
-                value= {lightColor}
-                handleChange={handleLightChange}
-                defaultValue= {lightColor}
-                />
-
-                <br></br>
-
-                <label>Light Intensity</label>
-                <RangeInput
-                value= {lightIntensity}
-                min={0}
-                max={100}
-                step={0.1}
-                handleChange={handleLightIntensityChange}
-                defaultValue= {lightIntensity}
-                />
+              <EditValuesForm {...{handleCheckboxChange, handleColour1Change, handleColour2Change, colourValue1, colourValue2, 
+                handleBackgroundColourChange, colourValue3, handleModelChange, modelColor, handleLightChange, 
+                handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
+                lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
+                metalness, handleMetalnessChange, roughness, handleRoughnessChange}}/>
                 </>
               )}
 
