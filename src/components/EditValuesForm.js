@@ -6,7 +6,8 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
     handleBackgroundColourChange, colourValue3, handleModelChange, modelColor, handleLightChange, 
     handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, lightPositiony,
      lightColor, lightIntensity, colourValue4, handleColour4Change, lightPositionz, handleLightPositionZChange, roughness,
-      handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, gradientColour1, gradientColour2}) {
+      handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, 
+      gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4}) {
 
         //get all h1s
   const headings = document.getElementsByTagName("h1");
@@ -27,6 +28,14 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
 
   //Get background gradient
   document.body.style = `background: linear-gradient(${gradientColour1}, ${gradientColour2})`;
+
+  //Get all buttons and change gradient
+  const buttons = document.getElementsByTagName("button");
+
+  for (let index = 0; index < buttons.length; index++) {
+    buttons[index].style = `background: linear-gradient(${gradientColour3}, ${gradientColour4})`;
+    
+  }
 
   //get all nav links
   const navLinks = document.getElementsByClassName("nav-link");
@@ -93,6 +102,19 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <ColorInput
                 value= {gradientColour2}
                 handleChange={handleGradientChange2}
+                defaultValue={"#ffffff"}
+                />
+
+                <label>Button Gradient</label>
+                <ColorInput
+                value= {gradientColour3}
+                handleChange={handleGradientChange3}
+                defaultValue={"#ffffff"}
+                />
+
+                <ColorInput
+                value= {gradientColour4}
+                handleChange={handleGradientChange4}
                 defaultValue={"#ffffff"}
                 />
 

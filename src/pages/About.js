@@ -29,10 +29,12 @@ function About() {
   const [checkBoxValue, setCheckBoxValue] = useState(false)
   const [colourValue1, setColourValue1] = useState("#000000")
   const [colourValue2, setColourValue2] = useState("#000000")
-  const [colourValue3, setColourValue3] = useState("#ffffff")
-  const [colourValue4, setColourValue4] = useState("#ffffff")
+  const [colourValue3, setColourValue3] = useState("#000000")
+  const [colourValue4, setColourValue4] = useState("#000000")
   const [gradientColour1, setGradientColour1] = useState("#ffffff")
   const [gradientColour2, setGradientColour2] = useState("#ffffff")
+  const [gradientColour3, setGradientColour3] = useState("#ffffff")
+  const [gradientColour4, setGradientColour4] = useState("#ffffff")
 
   const [lightColor, setLightColor] = useState("#ffffff")
   const [modelColor, setModelColor] = useState("#ff0000")
@@ -107,6 +109,14 @@ function About() {
     setGradientColour2(event.target.value)
   }
 
+  const handleGradientChange3 = (event) => {
+    setGradientColour3(event.target.value)
+  }
+
+  const handleGradientChange4 = (event) => {
+    setGradientColour4(event.target.value)
+  }
+
     return (
 
         <>
@@ -130,7 +140,8 @@ function About() {
                 handleBackgroundColourChange, colourValue3, handleModelChange, modelColor, handleLightChange, 
                 handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
                 lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
-                metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, gradientColour1, gradientColour2}}/>
+                metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, 
+                gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4}}/>
                 </>
               )}
 
