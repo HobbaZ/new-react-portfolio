@@ -8,7 +8,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
      lightColor, lightIntensity, colourValue4, handleColour4Change, lightPositionz, handleLightPositionZChange, roughness,
       handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, 
       gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4,
-      backgroundGradientDirection, handleBackgroundGradientDirection
+      backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection
     }) {
 
         //get all h1s
@@ -35,7 +35,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
   const buttons = document.getElementsByTagName("button");
 
   for (let index = 0; index < buttons.length; index++) {
-    buttons[index].style = `background: linear-gradient(${gradientColour3}, ${gradientColour4})`;
+    buttons[index].style = `background: linear-gradient(${buttonGradientDirection}deg, ${gradientColour3}, ${gradientColour4})`;
     
   }
 
@@ -119,6 +119,13 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <br></br>
 
                 <label>Button Gradient</label>
+
+                <label>Angle: </label>
+                <TextInput
+                value={buttonGradientDirection}
+                handleChange={handleButtonGradientDirection}
+                />
+
                 <ColorInput
                 value= {gradientColour3}
                 handleChange={handleGradientChange3}

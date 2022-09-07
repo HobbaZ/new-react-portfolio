@@ -37,6 +37,7 @@ function About() {
   const [gradientColour4, setGradientColour4] = useState("#000000")
 
   const [backgroundGradientDirection, setBackgroundGradientDirection] = useState(0)
+  const [buttonGradientDirection, setButtonGradientDirection] = useState(0)
 
   const [lightColor, setLightColor] = useState("#ffffff")
   const [modelColor, setModelColor] = useState("#ff0000")
@@ -115,6 +116,10 @@ function About() {
     setBackgroundGradientDirection(event.target.value)
   }
 
+  const handleButtonGradientDirection = (event) => {
+    setButtonGradientDirection(event.target.value)
+  }
+
   const handleGradientChange3 = (event) => {
     setGradientColour3(event.target.value)
   }
@@ -148,7 +153,7 @@ function About() {
                 lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
                 metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, 
                 gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4, 
-                backgroundGradientDirection, handleBackgroundGradientDirection}}/>
+                backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection}}/>
                 </>
               )}
 
