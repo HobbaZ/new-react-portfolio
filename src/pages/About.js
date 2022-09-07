@@ -33,8 +33,10 @@ function About() {
   const [colourValue4, setColourValue4] = useState("#000000")
   const [gradientColour1, setGradientColour1] = useState("#ffffff")
   const [gradientColour2, setGradientColour2] = useState("#ffffff")
-  const [gradientColour3, setGradientColour3] = useState("#ffffff")
-  const [gradientColour4, setGradientColour4] = useState("#ffffff")
+  const [gradientColour3, setGradientColour3] = useState("#000000")
+  const [gradientColour4, setGradientColour4] = useState("#000000")
+
+  const [backgroundGradientDirection, setBackgroundGradientDirection] = useState(0)
 
   const [lightColor, setLightColor] = useState("#ffffff")
   const [modelColor, setModelColor] = useState("#ff0000")
@@ -109,6 +111,10 @@ function About() {
     setGradientColour2(event.target.value)
   }
 
+  const handleBackgroundGradientDirection = (event) => {
+    setBackgroundGradientDirection(event.target.value)
+  }
+
   const handleGradientChange3 = (event) => {
     setGradientColour3(event.target.value)
   }
@@ -141,7 +147,8 @@ function About() {
                 handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
                 lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
                 metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, 
-                gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4}}/>
+                gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4, 
+                backgroundGradientDirection, handleBackgroundGradientDirection}}/>
                 </>
               )}
 

@@ -1,13 +1,15 @@
 import React from 'react';
 
-import { RangeInput, ColorInput, CheckboxInput } from './BaseSettings'
+import { RangeInput, ColorInput, CheckboxInput, TextInput } from './BaseSettings'
 
 function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColour2Change, colourValue1, colourValue2, 
     handleBackgroundColourChange, colourValue3, handleModelChange, modelColor, handleLightChange, 
     handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, lightPositiony,
      lightColor, lightIntensity, colourValue4, handleColour4Change, lightPositionz, handleLightPositionZChange, roughness,
       handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, 
-      gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4}) {
+      gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4,
+      backgroundGradientDirection, handleBackgroundGradientDirection
+    }) {
 
         //get all h1s
   const headings = document.getElementsByTagName("h1");
@@ -27,7 +29,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
   document.body.style = `background: ${colourValue3}`
 
   //Get background gradient
-  document.body.style = `background: linear-gradient(${gradientColour1}, ${gradientColour2})`;
+  document.body.style = `background: linear-gradient(${backgroundGradientDirection}deg, ${gradientColour1}, ${gradientColour2})`;
 
   //Get all buttons and change gradient
   const buttons = document.getElementsByTagName("button");
@@ -93,6 +95,15 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <br></br>
 
                 <label>Background Gradient</label>
+                
+                <label>Angle: </label>
+                <TextInput
+                value={backgroundGradientDirection}
+                handleChange={handleBackgroundGradientDirection}
+                />
+
+                <br></br>
+
                 <ColorInput
                 value= {gradientColour1}
                 handleChange={handleGradientChange1}
@@ -102,14 +113,16 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <ColorInput
                 value= {gradientColour2}
                 handleChange={handleGradientChange2}
-                defaultValue={"#ffffff"}
+                defaultValue={"#000000"}
                 />
+
+                <br></br>
 
                 <label>Button Gradient</label>
                 <ColorInput
                 value= {gradientColour3}
                 handleChange={handleGradientChange3}
-                defaultValue={"#ffffff"}
+                defaultValue={"#000000"}
                 />
 
                 <ColorInput

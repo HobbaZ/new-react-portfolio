@@ -7,7 +7,7 @@ function ColorInput ({ colourValue, handleChange}) {
       <input type="color"
       className="MaterialColor"
       value={colourValue}
-      defaultValue={"#ffffff"}
+      defaultValue={"#00000"}
       onChange={handleChange} />
       </>
     )
@@ -36,22 +36,17 @@ function ColorInput ({ colourValue, handleChange}) {
     )
   }
 
-  function FontSizeOptions ({ fontSizeValue, handleChange }) {
+  function TextInput ({ value, handleChange }) {
     return (
       <>
-      <select
-      value={fontSizeValue}
-      className="fontSize"
+      <input type= "number"
+      value={value}
+      className="textInput"
       onChange={handleChange} >
 
-      <option value="1">10</option>
-        <option value="2">12</option>
-        <option value="3">15</option>
-        <option value="4">18</option>
-        <option value="5">20</option>
-      </select>
+      </input>
       </>
     )
   }
 
-  export {ColorInput, CheckboxInput, FontSizeOptions, RangeInput} 
+  export {ColorInput, CheckboxInput, TextInput, RangeInput} 
