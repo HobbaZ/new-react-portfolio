@@ -31,16 +31,19 @@ function About() {
   const [colourValue2, setColourValue2] = useState("#000000")
   const [colourValue3, setColourValue3] = useState("#ffffff")
   const [colourValue4, setColourValue4] = useState("#ffffff")
-  const [lightColor, setLightColor] = useState("#000000")
-  const [modelColor, setModelColor] = useState("#ffffff")
-  const [lightIntensity, setLightIntensity] = useState(0)
+  const [gradientColour1, setGradientColour1] = useState("#ffffff")
+  const [gradientColour2, setGradientColour2] = useState("#ffffff")
+
+  const [lightColor, setLightColor] = useState("#ffffff")
+  const [modelColor, setModelColor] = useState("#ff0000")
+  const [lightIntensity, setLightIntensity] = useState(100)
 
   const [roughness, setRoughness] = useState(0)
   const [metalness, setMetalness] = useState(0)
 
   const [lightPositionx, setLightPositionX] = useState(0)
   const [lightPositiony, setLightPositionY] = useState(0)
-  const [lightPositionz, setLightPositionZ] = useState(0)
+  const [lightPositionz, setLightPositionZ] = useState(10)
 
   const handleCheckboxChange = (event) => {
     setCheckBoxValue(event.target.checked)
@@ -94,6 +97,16 @@ function About() {
     setMetalness(event.target.value)
   }
 
+  //need handlers for each colour for gradient, can't put all in one handler it won't work
+
+  const handleGradientChange1 = (event) => {
+    setGradientColour1(event.target.value)
+  }
+
+  const handleGradientChange2 = (event) => {
+    setGradientColour2(event.target.value)
+  }
+
     return (
 
         <>
@@ -117,7 +130,7 @@ function About() {
                 handleBackgroundColourChange, colourValue3, handleModelChange, modelColor, handleLightChange, 
                 handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
                 lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
-                metalness, handleMetalnessChange, roughness, handleRoughnessChange}}/>
+                metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, gradientColour1, gradientColour2}}/>
                 </>
               )}
 

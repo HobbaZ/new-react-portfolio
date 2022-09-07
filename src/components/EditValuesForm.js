@@ -6,7 +6,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
     handleBackgroundColourChange, colourValue3, handleModelChange, modelColor, handleLightChange, 
     handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, lightPositiony,
      lightColor, lightIntensity, colourValue4, handleColour4Change, lightPositionz, handleLightPositionZChange, roughness,
-      handleRoughnessChange, metalness, handleMetalnessChange}) {
+      handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, gradientColour1, gradientColour2}) {
 
         //get all h1s
   const headings = document.getElementsByTagName("h1");
@@ -25,6 +25,9 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
   //Get background colour
   document.body.style = `background: ${colourValue3}`
 
+  //Get background gradient
+  document.body.style = `background: linear-gradient(${gradientColour1}, ${gradientColour2})`;
+
   //get all nav links
   const navLinks = document.getElementsByClassName("nav-link");
 
@@ -35,7 +38,8 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
         return (
             <>
 
-<h1 className='text-center'>Edit Form</h1>
+                <h1 className='text-center'>Edit Form</h1>
+
                 <label>Disable icon greyscale</label>
                 <CheckboxInput 
                 handleChange={handleCheckboxChange}
@@ -47,7 +51,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <ColorInput
                 value= {colourValue1}
                 handleChange={handleColour1Change}
-                defaultValue={"#ffffff"}
+                defaultValue={colourValue1}
                 />
 
                 <br></br>
@@ -56,7 +60,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <ColorInput
                 value= {colourValue2}
                 handleChange={handleColour2Change}
-                defaultValue={"#ffffff"}
+                defaultValue={colourValue2}
                 />
 
                 <br></br>
@@ -65,7 +69,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <ColorInput
                 value= {colourValue4}
                 handleChange={handleColour4Change}
-                defaultValue={"#ffffff"}
+                defaultValue={colourValue4}
                 />
 
                 <br></br>
@@ -74,6 +78,21 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <ColorInput
                 value= {colourValue3}
                 handleChange={handleBackgroundColourChange}
+                defaultValue={colourValue3}
+                />
+
+                <br></br>
+
+                <label>Background Gradient</label>
+                <ColorInput
+                value= {gradientColour1}
+                handleChange={handleGradientChange1}
+                defaultValue={"#ffffff"}
+                />
+
+                <ColorInput
+                value= {gradientColour2}
+                handleChange={handleGradientChange2}
                 defaultValue={"#ffffff"}
                 />
 
@@ -83,12 +102,12 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <ColorInput
                 value= {modelColor}
                 handleChange={handleModelChange}
-                defaultValue={"red"}
+                defaultValue={modelColor}
                 />
 
                 <br></br>
 
-                <label>Metalness</label>
+                <label>Model Metalness</label>
                 <RangeInput
                 value={metalness}
                 min={0}
@@ -100,7 +119,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
 
                 <br></br>
 
-                <label>Roughness</label>
+                <label>Model Roughness</label>
                 <RangeInput
                 value={roughness}
                 min={0}
@@ -160,7 +179,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <label>Light Intensity</label>
                 <RangeInput
                 value= {lightIntensity}
-                min={25}
+                min={0}
                 max={100}
                 step={0.1}
                 handleChange={handleLightIntensityChange}

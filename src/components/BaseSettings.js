@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Must set default value otherwise you get console warning everytime colour changes
-function ColorInput ({ colourValue, handleChange }) {
+function ColorInput ({ colourValue, handleChange}) {
     return (
       <>
       <input type="color"
