@@ -9,7 +9,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
       handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, 
       gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4,
       backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, handleModelMatChange,
-      specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange
+      specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange
     }) {
 
         //get all h1s
@@ -53,7 +53,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
       return (
         <>
         <p>The standard mesh material reacts to lights and shadows (and is more expensive to create), metalness and roughness values create a more realistic looking object</p>
-        <br></br>
+        <br />
         <label>Model Colour</label>
                 <ColorInput
                 value= {modelColor}
@@ -61,7 +61,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={modelColor}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Model Metalness</label>
                 <RangeInput
@@ -73,7 +73,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue= {metalness}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Model Roughness</label>
                 <RangeInput
@@ -93,7 +93,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
       return (
         <>
         <p>The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements</p>
-        <br></br>
+        <br />
               <label>Model Colour</label>
                 <ColorInput
                 value= {modelColor}
@@ -109,7 +109,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
       return (
         <>
         <p>Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.</p>
-        <br></br>
+        <br />
               <label>Model Colour</label>
                 <ColorInput
                 value= {modelColor}
@@ -117,7 +117,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={modelColor}
                 />
 
-              <br></br>
+              <br />
 
               <label>Specular Colour</label>
                 <ColorInput
@@ -126,7 +126,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={specularColor}
                 />
 
-              <br></br>
+              <br />
 
               <label>Shininess</label>
               <RangeInput
@@ -153,7 +153,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 handleChange={handleCheckboxChange}
                 />
 
-                <br></br>
+                <br />
 
                 <label>H1 Colour</label>
                 <ColorInput
@@ -162,7 +162,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={colourValue1}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Paragraph Colour</label>
                 <ColorInput
@@ -171,7 +171,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={colourValue2}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Navigation Link Colour</label>
                 <ColorInput
@@ -180,7 +180,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={colourValue4}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Background Colour</label>
                 <ColorInput
@@ -189,18 +189,19 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={colourValue3}
                 />
 
-                <br></br>
+                <br />
 
-                <label>Background Gradient</label>
+                <label>Background Gradient</label><br />
                 
-                <label>Angle: </label>
+                <label>Angle</label>
                 <TextInput
                 value={backgroundGradientDirection}
                 handleChange={handleBackgroundGradientDirection}
                 />
 
-                <br></br>
+                <br />
 
+                <label>Colours</label>
                 <ColorInput
                 value= {gradientColour1}
                 handleChange={handleGradientChange1}
@@ -213,16 +214,19 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={"#000000"}
                 />
 
-                <br></br>
+                <hr />
 
-                <label>Button Gradient</label>
+                <label>Button Gradient</label><br />
 
-                <label>Angle: </label>
+                <label>Angle</label>
                 <TextInput
                 value={buttonGradientDirection}
                 handleChange={handleButtonGradientDirection}
                 />
 
+                <br />
+
+                <label>Colours</label>
                 <ColorInput
                 value= {gradientColour3}
                 handleChange={handleGradientChange3}
@@ -235,7 +239,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={"#ffffff"}
                 />
 
-                <br></br>
+                <hr /> 
 
                 <label>Wireframe</label>
                 <CheckboxInput 
@@ -243,9 +247,27 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 value={wireframe}
                 />
 
-                <br></br>
+                <br />
 
-                <label>Model Material</label><br></br>
+                <label>Model Type</label><br />
+                <select 
+                name="modelType"
+                defaultValue={modelType}
+                onChange={handleModelTypeChange}
+                >
+                <option value="cube">Cube</option>
+                <option value="sphere">Sphere</option>
+                <option value="torus">Torus</option>
+                <option value="ring">Ring</option>
+                <option value="tube">Tube</option>
+                <option value="cone">Cone</option>
+                <option value="text">Text</option>
+                <option value="custom">Custom</option>
+                </select>
+
+                <br />
+
+                <label>Model Material</label><br />
                 <select className='formField'
                 name="modelMat"
                 defaultValue={modelMat}
@@ -254,11 +276,12 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <option value="meshStandardMaterial">MeshStandardMaterial</option>
                 <option value="meshBasicMaterial">MeshBasicMaterial</option>
                 <option value="meshPhongMaterial">MeshPhongMaterial</option>
+                <option value="meshToonMaterial">MeshToonMaterial</option>
                 </select>
 
                 {materialOptions()}
 
-                <br></br>
+                <br />
 
                 <label>Light Colour</label>
                 <ColorInput
@@ -267,7 +290,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue={"#ffffff"}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Left/Right Light Position</label>
                 <RangeInput
@@ -279,7 +302,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue= {lightPositionx}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Up/Down Light Position</label>
                 <RangeInput
@@ -291,7 +314,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue= {lightPositionz}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Forward/Back Light Position</label>
                 <RangeInput
@@ -303,7 +326,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 defaultValue= {lightPositiony}
                 />
 
-                <br></br>
+                <br />
 
                 <label>Light Intensity</label>
                 <RangeInput

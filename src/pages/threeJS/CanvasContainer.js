@@ -11,7 +11,7 @@ import Lights from './Lights'
 //enable soft shadows
 softShadows()
 
-function CanvasContainer ({lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat, wireframe, shininess}) {
+function CanvasContainer ({lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat, wireframe, shininess, modelType}) {
 
         return (
             <div id='canvasContainer'>
@@ -25,7 +25,7 @@ function CanvasContainer ({lightColor, modelColor, lightIntensity, lightPosition
             >
               <Lights {...{lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, shininess}}/>
 
-              <Box {...{modelColor, metalness, roughness, modelMat, wireframe}}
+              <Box {...{modelColor, metalness, roughness, modelMat, wireframe, modelType}}
               />
               <OrbitControls />
             </Canvas>

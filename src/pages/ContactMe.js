@@ -50,7 +50,7 @@ function ContactMe() {
     <>
     <Container id='contactMe'>
       <h1 className='text-center'>Contact Me</h1>
-      <p>Shoot me an email at <a href="mailto:zachobba@gmail.com">zachobba@gmail.com</a> or find me on <a href='https://www.linkedin.com/in/zachary-hobba-52aaa182/'>LinkedIn</a></p>
+      <p className='text-center'>Shoot me an email at <a className='nav-link' href="mailto:zachobba@gmail.com">zachobba@gmail.com</a> or find me on <a className='nav-link' href='https://www.linkedin.com/in/zachary-hobba-52aaa182/'>LinkedIn</a></p>
 
       <Form className="form">
         <FormGroup>

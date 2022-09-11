@@ -24,8 +24,10 @@ let iconArray = [
 
 function About() {
 
+  //edit form
   const [showEditForm, setShowEditForm] = useState(false)
 
+  //html modifier factors
   const [checkBoxValue, setCheckBoxValue] = useState(false)
   const [colourValue1, setColourValue1] = useState("#000000")
   const [colourValue2, setColourValue2] = useState("#000000")
@@ -35,18 +37,14 @@ function About() {
   const [gradientColour2, setGradientColour2] = useState("#ffffff")
   const [gradientColour3, setGradientColour3] = useState("#000000")
   const [gradientColour4, setGradientColour4] = useState("#000000")
-
-
-  const [modelMat, setModelMat] = useState("")
-
   const [backgroundGradientDirection, setBackgroundGradientDirection] = useState(0)
   const [buttonGradientDirection, setButtonGradientDirection] = useState(0)
 
-  const [lightColor, setLightColor] = useState("#ffffff")
   
-  const [lightIntensity, setLightIntensity] = useState(100)
 
   // Model factors
+  const [modelMat, setModelMat] = useState("")
+  const [modelType, setModelType] = useState("")
   const [modelColor, setModelColor] = useState("#ff0000")
   const [specularColor, setspecularColor] = useState("#000000")
   const [roughness, setRoughness] = useState(0)
@@ -54,9 +52,12 @@ function About() {
   const [shininess, setShininess] = useState(0)
   const [wireframe, setWireframe] = useState(false)
 
+  //lighting factors
   const [lightPositionx, setLightPositionX] = useState(0)
   const [lightPositiony, setLightPositionY] = useState(0)
   const [lightPositionz, setLightPositionZ] = useState(10)
+  const [lightColor, setLightColor] = useState("#ffffff")
+  const [lightIntensity, setLightIntensity] = useState(100)
 
   const handleCheckboxChange = (event) => {
     setCheckBoxValue(event.target.checked)
@@ -152,11 +153,15 @@ function About() {
     setShininess(event.target.value)
   }
 
+  const handleModelTypeChange = (event) => {
+    setModelType(event.target.value)
+  }
+
     return (
 
         <>
         <Container id='about'>
-        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat, wireframe}}/>
+        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat, wireframe, modelType}}/>
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
@@ -178,24 +183,25 @@ function About() {
                 metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, 
                 gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4, 
                 backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, 
-                handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange}}/>
+                handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange}}/>
                 </>
               )}
 
-    <div align="center">
+    
+
+      <div className='aboutTextBox'>
+
+      <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1>
+
+      <p>I'm a junior full stack web developer based in the greater Sydney area. I enjoy working on interesting projects</p>
+  
+      <div className="text-center">
+      <h2>Skills</h2>
       {iconArray.map((element, index) => (
         <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${checkBoxValue? '0%' : '100%'})` }} />
       ))}
     </div>
 
-      <div className='aboutTextBox'>
-
-        <p>Current material shader is {modelMat}</p>
-
-      <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1>
-
-      <p>I'm a junior full stack web developer now based in the greater Sydney area. I enjoy working on interesting projects</p>
-  
     </div>
         </Container>
         </>
