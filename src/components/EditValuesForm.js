@@ -8,7 +8,8 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
      lightColor, lightIntensity, colourValue4, handleColour4Change, lightPositionz, handleLightPositionZChange, roughness,
       handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, 
       gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4,
-      backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, handleModelMatChange
+      backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, handleModelMatChange,
+      specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange
     }) {
 
         //get all h1s
@@ -46,6 +47,102 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
     navLinks[index].style = `color: ${colourValue4}`
   }
 
+  //Populate material options
+  function materialOptions() {
+    if (modelMat === "meshStandardMaterial") {
+      return (
+        <>
+        <p>The standard mesh material reacts to lights and shadows (and is more expensive to create), metalness and roughness values create a more realistic looking object</p>
+        <br></br>
+        <label>Model Colour</label>
+                <ColorInput
+                value= {modelColor}
+                handleChange={handleModelChange}
+                defaultValue={modelColor}
+                />
+
+                <br></br>
+
+                <label>Model Metalness</label>
+                <RangeInput
+                value={metalness}
+                min={0}
+                max={10}
+                step={0.01}
+                handleChange={handleMetalnessChange}
+                defaultValue= {metalness}
+                />
+
+                <br></br>
+
+                <label>Model Roughness</label>
+                <RangeInput
+                value={roughness}
+                min={0}
+                max={10}
+                step={0.01}
+                handleChange={handleRoughnessChange}
+                defaultValue= {roughness}
+                />
+                <hr />
+        </>
+      )
+    }
+
+    else if (modelMat === "meshBasicMaterial") {
+      return (
+        <>
+        <p>The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements</p>
+        <br></br>
+              <label>Model Colour</label>
+                <ColorInput
+                value= {modelColor}
+                handleChange={handleModelChange}
+                defaultValue={modelColor}
+                />
+                <hr />
+        </>
+      )
+    }
+
+    else if (modelMat === "meshPhongMaterial") {
+      return (
+        <>
+        <p>Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.</p>
+        <br></br>
+              <label>Model Colour</label>
+                <ColorInput
+                value= {modelColor}
+                handleChange={handleModelChange}
+                defaultValue={modelColor}
+                />
+
+              <br></br>
+
+              <label>Specular Colour</label>
+                <ColorInput
+                value= {specularColor}
+                handleChange={handleSpecularColor}
+                defaultValue={specularColor}
+                />
+
+              <br></br>
+
+              <label>Shininess</label>
+              <RangeInput
+                value={shininess}
+                min={0}
+                max={100}
+                step={0.1}
+                handleChange={handleShininessChange}
+                defaultValue= {shininess}
+                />
+                <hr />
+        </>
+      )
+    }
+  }
+
         return (
             <>
 
@@ -67,7 +164,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
 
                 <br></br>
 
-                <label>Paragrapgh Colour</label>
+                <label>Paragraph Colour</label>
                 <ColorInput
                 value= {colourValue2}
                 handleChange={handleColour2Change}
@@ -140,6 +237,14 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
 
                 <br></br>
 
+                <label>Wireframe</label>
+                <CheckboxInput 
+                handleChange={handleWireframeMode}
+                value={wireframe}
+                />
+
+                <br></br>
+
                 <label>Model Material</label><br></br>
                 <select className='formField'
                 name="modelMat"
@@ -151,36 +256,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <option value="meshPhongMaterial">MeshPhongMaterial</option>
                 </select>
 
-                <label>Model Colour</label>
-                <ColorInput
-                value= {modelColor}
-                handleChange={handleModelChange}
-                defaultValue={modelColor}
-                />
-
-                <br></br>
-
-                <label>Model Metalness</label>
-                <RangeInput
-                value={metalness}
-                min={0}
-                max={10}
-                step={0.01}
-                handleChange={handleMetalnessChange}
-                defaultValue= {metalness}
-                />
-
-                <br></br>
-
-                <label>Model Roughness</label>
-                <RangeInput
-                value={roughness}
-                min={0}
-                max={10}
-                step={0.01}
-                handleChange={handleRoughnessChange}
-                defaultValue= {roughness}
-                />
+                {materialOptions()}
 
                 <br></br>
 

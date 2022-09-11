@@ -36,17 +36,23 @@ function About() {
   const [gradientColour3, setGradientColour3] = useState("#000000")
   const [gradientColour4, setGradientColour4] = useState("#000000")
 
+
   const [modelMat, setModelMat] = useState("")
 
   const [backgroundGradientDirection, setBackgroundGradientDirection] = useState(0)
   const [buttonGradientDirection, setButtonGradientDirection] = useState(0)
 
   const [lightColor, setLightColor] = useState("#ffffff")
-  const [modelColor, setModelColor] = useState("#ff0000")
+  
   const [lightIntensity, setLightIntensity] = useState(100)
 
+  // Model factors
+  const [modelColor, setModelColor] = useState("#ff0000")
+  const [specularColor, setspecularColor] = useState("#000000")
   const [roughness, setRoughness] = useState(0)
   const [metalness, setMetalness] = useState(0)
+  const [shininess, setShininess] = useState(0)
+  const [wireframe, setWireframe] = useState(false)
 
   const [lightPositionx, setLightPositionX] = useState(0)
   const [lightPositiony, setLightPositionY] = useState(0)
@@ -66,6 +72,10 @@ function About() {
 
   const handleColour4Change = (event) => {
     setColourValue4(event.target.value)
+  };
+
+  const handleSpecularColor = (event) => {
+    setspecularColor(event.target.value)
   };
 
   const handleLightChange = (event) => {
@@ -134,11 +144,19 @@ function About() {
     setModelMat(event.target.value)
   }
 
+  const handleWireframeMode = (event) => {
+    setWireframe(event.target.checked)
+  }
+
+  const handleShininessChange = (event) => {
+    setShininess(event.target.value)
+  }
+
     return (
 
         <>
         <Container id='about'>
-        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat}}/>
+        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat, wireframe}}/>
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
@@ -159,7 +177,8 @@ function About() {
                 lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
                 metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, 
                 gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4, 
-                backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, handleModelMatChange}}/>
+                backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, 
+                handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange}}/>
                 </>
               )}
 
