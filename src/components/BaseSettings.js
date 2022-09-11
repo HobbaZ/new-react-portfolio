@@ -5,7 +5,7 @@ function ColorInput ({ colourValue, handleChange}) {
     return (
       <>
       <input type="color"
-      className="MaterialColor"
+      className="colorInput w-25 p-0"
       value={colourValue}
       defaultValue={"#ffffff"}
       onChange={handleChange} />
@@ -18,7 +18,7 @@ function ColorInput ({ colourValue, handleChange}) {
       <>
       <input type="checkbox"
       checked= {checkBoxValue}
-      className="checkbox"
+      className="checkboxInput"
       onChange={handleChange} />
       </>
     )

@@ -86,8 +86,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 />
                 <hr />
         </>
-      )
-    }
+      )}
 
     else if (modelMat === "meshBasicMaterial") {
       return (
@@ -102,8 +101,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 />
                 <hr />
         </>
-      )
-    }
+      )}
 
     else if (modelMat === "meshPhongMaterial") {
       return (
@@ -139,8 +137,15 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 />
                 <hr />
         </>
-      )
-    }
+      )}
+
+    else if (modelMat === "meshBasicMaterial") {
+      return (
+        <>
+         <p>The normal mesh material reacts to lights and shadows and will show the geometry normals</p>
+        </>
+      )}
+
   }
 
         return (
@@ -277,6 +282,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <option value="meshBasicMaterial">MeshBasicMaterial</option>
                 <option value="meshPhongMaterial">MeshPhongMaterial</option>
                 <option value="meshToonMaterial">MeshToonMaterial</option>
+                <option value="meshNormalMaterial">MeshNormalMaterial</option>
                 </select>
 
                 {materialOptions()}

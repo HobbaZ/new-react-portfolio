@@ -46,6 +46,13 @@ html, body {
   width: 100vw;
 }
 
+
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  border: none;
+  padding: 0%;
+}
+
 .noEffect, .noEffect:hover {
   text-decoration: none;
 }

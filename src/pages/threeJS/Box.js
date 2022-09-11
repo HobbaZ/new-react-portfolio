@@ -1,7 +1,7 @@
 import { DoubleSide } from "three"
 
 
-function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType}) {
+function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor}) {
 
   // Takes colour and reacts to light
   const standardMat = 
@@ -30,9 +30,14 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
   // Phong material is for cheap rendering of shiny surfaces with specular highlighting
   const phongMat = <meshPhongMaterial 
           color={modelColor}
-          specular={"#ffffff"}
+          specular={specularColor}
           wireframe={wireframe}
           shininess={shininess}
+          side={DoubleSide}
+  />
+
+  const normalMat = <meshNormalMaterial 
+          wireframe={wireframe}
           side={DoubleSide}
   />
 
@@ -105,6 +110,12 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
     else if (modelMat === "meshToonMaterial") {
       return (
         toonMat
+      )
+    }
+
+    else if (modelMat === "meshNormalMaterial") {
+      return (
+        normalMat
       )
     }
   }
