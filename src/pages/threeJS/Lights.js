@@ -2,7 +2,8 @@ function Lights ({lightColor, lightIntensity, lightPositionx, lightPositiony, li
     return (
         <>
             <ambientLight 
-              intensity={0.5}
+              intensity={0.4}
+              position={[20,20, 20]}
               />
       
               <directionalLight

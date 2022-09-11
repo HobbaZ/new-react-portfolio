@@ -36,6 +36,8 @@ function About() {
   const [gradientColour3, setGradientColour3] = useState("#000000")
   const [gradientColour4, setGradientColour4] = useState("#000000")
 
+  const [modelMat, setModelMat] = useState("")
+
   const [backgroundGradientDirection, setBackgroundGradientDirection] = useState(0)
   const [buttonGradientDirection, setButtonGradientDirection] = useState(0)
 
@@ -128,11 +130,15 @@ function About() {
     setGradientColour4(event.target.value)
   }
 
+  const handleModelMatChange = (event) => {
+    setModelMat(event.target.value)
+  }
+
     return (
 
         <>
         <Container id='about'>
-        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness}}/>
+        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat}}/>
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
@@ -153,7 +159,7 @@ function About() {
                 lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
                 metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, 
                 gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4, 
-                backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection}}/>
+                backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, handleModelMatChange}}/>
                 </>
               )}
 
@@ -164,6 +170,8 @@ function About() {
     </div>
 
       <div className='aboutTextBox'>
+
+        <p>Current material shader is {modelMat}</p>
 
       <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1>
 

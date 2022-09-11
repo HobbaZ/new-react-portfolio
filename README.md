@@ -76,6 +76,8 @@ You can also contribute by opening a pull request or submitting an issue.
 
 [https://stackoverflow.com/questions/37623935/react-pass-checkbox-checked-state-to-parent-component](https://stackoverflow.com/questions/37623935/react-pass-checkbox-checked-state-to-parent-component)
 
+[https://www.w3schools.com/css/css3_gradients.asp](https://www.w3schools.com/css/css3_gradients.asp)
+
 ## Testing
 No tests for this project
 

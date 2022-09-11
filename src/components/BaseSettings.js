@@ -7,7 +7,7 @@ function ColorInput ({ colourValue, handleChange}) {
       <input type="color"
       className="MaterialColor"
       value={colourValue}
-      defaultValue={"#00000"}
+      defaultValue={"#ffffff"}
       onChange={handleChange} />
       </>
     )

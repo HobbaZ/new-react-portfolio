@@ -8,7 +8,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
      lightColor, lightIntensity, colourValue4, handleColour4Change, lightPositionz, handleLightPositionZChange, roughness,
       handleRoughnessChange, metalness, handleMetalnessChange, handleGradientChange1, handleGradientChange2, 
       gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4,
-      backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection
+      backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, handleModelMatChange
     }) {
 
         //get all h1s
@@ -139,6 +139,17 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 />
 
                 <br></br>
+
+                <label>Model Material</label><br></br>
+                <select className='formField'
+                name="modelMat"
+                defaultValue={modelMat}
+                onChange={handleModelMatChange}
+                >
+                <option value="meshStandardMaterial">MeshStandardMaterial</option>
+                <option value="meshBasicMaterial">MeshBasicMaterial</option>
+                <option value="meshPhongMaterial">MeshPhongMaterial</option>
+                </select>
 
                 <label>Model Colour</label>
                 <ColorInput
