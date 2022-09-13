@@ -55,17 +55,25 @@ SO THAT it boots user engagement.
 
 5. Finally, type ```npm start``` into the terminal and it will start the dev server.
 
-Note: To make a static React site work on Heroku you need to take all the files out of the folder name you specified in the react-create-app. E.g. if you did create-react-app client, React will create the app in a folder called client, take all the files out of the client folder so they are now all at root level and then delete the empty client folder.
+Note: To make a static no backend React site work on Heroku you need to take all the files out of the folder name you specified in the react-create-app. E.g. if you did create-react-app client, React will create the app in a folder called client, take all the files out of the client folder so they are now all at root level and then delete the empty client folder.
 
 ## Features
 Can change the: 
+
 website background gradient
+
 button gradients
+
 Paragraph text colours
+
 Header text colours
+
 Link text colours
+
 Three,js model colour
+
 model material
+
 model type
 
 ## Technology
