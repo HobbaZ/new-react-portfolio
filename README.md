@@ -12,16 +12,16 @@
 
 ## Description
 ### Project Aim ###
-
+Make a personal portfolio website with interactable elements to boost user engagement.
 
 ### What Problem Does It Solve ###
 
 
 ### What I Learnt ###
-
+How to use React Three/Fiber and Three.js in React.
 
 ## Deployment
-
+Not deployed yet.
 
 ## Table of Contents
 - [Description](#description)
@@ -37,10 +37,12 @@
 - [Questions](#questions)
 
 ## User Story
-
+I WANT to make a personal portfolio website with React
+I WANT to add interactable elements to the website.
+SO THAT it boots user engagement.
 
 ## Screenshots
-![src\images\screencapture-localhost-3000-2022-09-12-07_32_11.png](src\images\screencapture-localhost-3000-2022-09-12-07_32_11.png)
+![src\images\screencapture-localhost-3000-2022-09-12-07_32_11.png](/src/images/screencapture-localhost-3000-2022-09-12-07_32_11.png)
 
 ## Installation
 1. Clone the repo to your computer by clicking the green code button and copying the SSH version or clicking the blue use template button.
@@ -51,12 +53,20 @@
 
 4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
 
-5. Finally, type ```cd client``` then ```npm start``` into the terminal and it will start the dev server.
+5. Finally, type ```npm start``` into the terminal and it will start the dev server.
 
 Note: To make a static React site work on Heroku you need to take all the files out of the folder name you specified in the react-create-app. E.g. if you did create-react-app client, React will create the app in a folder called client, take all the files out of the client folder so they are now all at root level and then delete the empty client folder.
 
 ## Features
-
+Can change the: 
+website background gradient
+button gradients
+Paragraph text colours
+Header text colours
+Link text colours
+Three,js model colour
+model material
+model type
 
 ## Technology
 - React

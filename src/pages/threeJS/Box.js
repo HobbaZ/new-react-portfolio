@@ -49,6 +49,7 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
   const tube = <tubeGeometry/>
   const sphere = <sphereGeometry/>
   const ring = <ringGeometry/>
+  const cylinder = <cylinderGeometry/>
 
   function modelSelector() {
     if (modelType === "cube") {
@@ -84,6 +85,12 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
     if (modelType === "sphere") {
       return (
         sphere
+      )
+    }
+
+    if (modelType === "cylinder") {
+      return (
+        cylinder
       )
     }
   }
