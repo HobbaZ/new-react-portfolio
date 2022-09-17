@@ -1,7 +1,23 @@
 import { DoubleSide } from "three"
 
+import { extend, useFrame } from '@react-three/fiber'
+
+import fontFace from './fonts/helvetiker_regular.typeface.json'
+
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
+import { useRef } from "react"
 
 function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor}) {
+
+
+  //reference the mesh component
+  const mesh = useRef(null)
+
+  //centering the mesh (used for centering 3d text)
+  useFrame(() => {
+    mesh.current.geometry.center()
+  })
 
   // Takes colour and reacts to light
   const standardMat = 
@@ -60,6 +76,18 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
   const torusKnot = <torusKnotGeometry/>
   const dodecahedron = <dodecahedronGeometry/>
 
+
+
+  //Text geometry work around since doesn't exist in r3f
+  extend ({ TextGeometry })
+  const font = new FontLoader().parse(fontFace);
+
+  const customText = <textGeometry args= {['Zachary Hobba', {
+    font, 
+    size:0.5, 
+    height: 0.1}]}
+      />
+
   function modelSelector() {
     if (modelType === "cube") {
       return (
@@ -114,6 +142,12 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
         dodecahedron
       )
     }
+
+    else if (modelType === "text") {
+      return (
+        customText
+    )
+  } 
   }
 
   function materialSelector() {
@@ -155,14 +189,15 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
 
   }
 
-    //render points material by creating points instead of mesh
+    //If not points material,
 
     if (modelMat !== "pointsMaterial") {
       return (
 
         <mesh
-        castShadow        
-        position={[0,0.5,0.02]}
+        castShadow  
+        ref={mesh}      
+        position={[0,0,0]}
         
         >
           {modelSelector()}
@@ -171,9 +206,12 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
         </mesh>
     )
   }
+
+   //render points material by creating points instead of mesh
     else {
       return (
         <points
+        ref={mesh}
         castShadow
         position={[0,0.5,0.02]}
         >
@@ -184,8 +222,6 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
         </points>
       )
     }
-
-    
 }
 
 export default Box

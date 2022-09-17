@@ -184,7 +184,6 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
 
         return (
             <>
-
                 <h1 className='text-center'>Edit Form</h1>
 
                 <label>Disable icon greyscale</label>
@@ -296,7 +295,6 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <option value="torusKnot">Torus Knot</option>
                 <option value="dodecahedron">Dodecahedron</option>
                 <option value="text">Text</option>
-                <option value="custom">Custom</option>
                 </select>
 
                 <br />
@@ -328,11 +326,7 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                     </> : null
                 }
 
-                
-
                 <br />
-
-                <hr />
 
                 <label>Light Colour</label>
                 <ColorInput

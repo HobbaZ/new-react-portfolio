@@ -98,6 +98,8 @@ You can also contribute by opening a pull request or submitting an issue.
 
 [https://stackoverflow.com/questions/72185696/how-do-i-render-points-on-every-vertex-of-my-geometry-in-react-with-three-js-and](https://stackoverflow.com/questions/72185696/how-do-i-render-points-on-every-vertex-of-my-geometry-in-react-with-three-js-and)
 
+[https://www.ilyameerovich.com/simple-3d-text-meshes-in-three-js/](https://www.ilyameerovich.com/simple-3d-text-meshes-in-three-js/)
+
 ## Testing
 No tests for this project
 
