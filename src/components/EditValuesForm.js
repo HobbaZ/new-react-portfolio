@@ -84,7 +84,13 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 handleChange={handleRoughnessChange}
                 defaultValue= {roughness}
                 />
-                <hr />
+
+                <label>Specular Colour</label>
+                <ColorInput
+                value= {specularColor}
+                handleChange={handleSpecularColor}
+                defaultValue={specularColor}
+                />
         </>
       )}
 
@@ -99,7 +105,6 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 handleChange={handleModelChange}
                 defaultValue={modelColor}
                 />
-                <hr />
         </>
       )}
 
@@ -135,16 +140,45 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 handleChange={handleShininessChange}
                 defaultValue= {shininess}
                 />
-                <hr />
         </>
       )}
+
+      else if (modelMat === "meshToonMaterial") {
+        return (
+          <>
+          <p>Toon mesh materials represent cel shading and makes models look cartoonish</p>
+          <br />
+                <label>Model Colour</label>
+                  <ColorInput
+                  value= {modelColor}
+                  handleChange={handleModelChange}
+                  defaultValue={modelColor}
+                  />
+          </>
+        )}
+  
 
     else if (modelMat === "meshBasicMaterial") {
       return (
         <>
-         <p>The normal mesh material reacts to lights and shadows and will show the geometry normals</p>
+         <p>The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending on the closeness of the camera, no tweakable effects for this material.</p>
         </>
       )}
+
+      else if (modelMat === "pointsMaterial") {
+        return (
+          <>
+           <p>The points material shows all the vertices of the selected model.</p>
+
+           <br />
+              <label>Model Colour</label>
+                <ColorInput
+                value= {modelColor}
+                handleChange={handleModelChange}
+                defaultValue={modelColor}
+                />
+          </>
+        )}
 
   }
 
@@ -246,18 +280,10 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
 
                 <hr /> 
 
-                <label>Wireframe</label>
-                <CheckboxInput 
-                handleChange={handleWireframeMode}
-                value={wireframe}
-                />
-
-                <br />
-
                 <label>Model Type</label><br />
                 <select 
                 name="modelType"
-                defaultValue={modelType}
+                value={modelType}
                 onChange={handleModelTypeChange}
                 >
                 <option value="cube">Cube</option>
@@ -266,6 +292,9 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <option value="ring">Ring</option>
                 <option value="tube">Tube</option>
                 <option value="cone">Cone</option>
+                <option value="cylinder">Cylinder</option>
+                <option value="torusKnot">Torus Knot</option>
+                <option value="dodecahedron">Dodecahedron</option>
                 <option value="text">Text</option>
                 <option value="custom">Custom</option>
                 </select>
@@ -283,11 +312,27 @@ function EditValuesForm ({handleCheckboxChange, handleColour1Change, handleColou
                 <option value="meshPhongMaterial">MeshPhongMaterial</option>
                 <option value="meshToonMaterial">MeshToonMaterial</option>
                 <option value="meshNormalMaterial">MeshNormalMaterial</option>
+                <option value="pointsMaterial">PointsMaterial</option>
                 </select>
 
                 {materialOptions()}
 
+                {modelMat !== "pointsMaterial" ? 
+                      <>
+                      <br />
+                      <label>Wireframe</label>
+                      <CheckboxInput 
+                      handleChange={handleWireframeMode}
+                      value={wireframe}
+                      />
+                    </> : null
+                }
+
+                
+
                 <br />
+
+                <hr />
 
                 <label>Light Colour</label>
                 <ColorInput

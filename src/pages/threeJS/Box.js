@@ -9,6 +9,7 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
           color= {modelColor}
           roughness={roughness/10}
           metalness={metalness/10}
+          specular={specularColor}
           wireframe= {wireframe}
           side={DoubleSide}
           />
@@ -41,6 +42,12 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
           side={DoubleSide}
   />
 
+  const pointsMat = <pointsMaterial
+          side={DoubleSide}
+          size= {0.02}
+          color={modelColor}
+  />
+
   //models
 
   const cube = <boxGeometry/>
@@ -50,6 +57,8 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
   const sphere = <sphereGeometry/>
   const ring = <ringGeometry/>
   const cylinder = <cylinderGeometry/>
+  const torusKnot = <torusKnotGeometry/>
+  const dodecahedron = <dodecahedronGeometry/>
 
   function modelSelector() {
     if (modelType === "cube") {
@@ -82,15 +91,27 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
       )
     }
 
-    if (modelType === "sphere") {
+    else if (modelType === "sphere") {
       return (
         sphere
       )
     }
 
-    if (modelType === "cylinder") {
+    else if (modelType === "cylinder") {
       return (
         cylinder
+      )
+    }
+
+    else if (modelType === "torusKnot") {
+      return (
+        torusKnot
+      )
+    }
+
+    else if (modelType === "dodecahedron") {
+      return (
+        dodecahedron
       )
     }
   }
@@ -125,13 +146,22 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
         normalMat
       )
     }
+
+    else if (modelMat === "pointsMaterial") {
+      return (
+        pointsMat
+      )
+    }
+
   }
 
-    return (
+    //render points material by creating points instead of mesh
+
+    if (modelMat !== "pointsMaterial") {
+      return (
 
         <mesh
-        castShadow
-        receiveShadow        
+        castShadow        
         position={[0,0.5,0.02]}
         
         >
@@ -140,6 +170,22 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
           {materialSelector()}
         </mesh>
     )
+  }
+    else {
+      return (
+        <points
+        castShadow
+        position={[0,0.5,0.02]}
+        >
+          {modelSelector()}
+
+          {materialSelector()}
+
+        </points>
+      )
+    }
+
+    
 }
 
 export default Box

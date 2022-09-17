@@ -96,6 +96,8 @@ You can also contribute by opening a pull request or submitting an issue.
 
 [https://www.w3schools.com/css/css3_gradients.asp](https://www.w3schools.com/css/css3_gradients.asp)
 
+[https://stackoverflow.com/questions/72185696/how-do-i-render-points-on-every-vertex-of-my-geometry-in-react-with-three-js-and](https://stackoverflow.com/questions/72185696/how-do-i-render-points-on-every-vertex-of-my-geometry-in-react-with-three-js-and)
+
 ## Testing
 No tests for this project
 
