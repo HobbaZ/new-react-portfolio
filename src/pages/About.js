@@ -161,14 +161,18 @@ function About() {
 
         <>
         <Container id='about'>
-        <CanvasContainer {...{lightColor, modelColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, metalness, roughness, modelMat, wireframe, modelType}}/>
+        <CanvasContainer {...{handleModelChange, modelColor, handleLightChange, 
+                handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
+                lightPositiony, lightColor, lightIntensity, handleColour4Change, handleLightPositionZChange, lightPositionz, 
+                metalness, handleMetalnessChange, roughness, handleRoughnessChange, modelMat, 
+                handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange}}/>
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
-              <Button className=' btn btn-primary'
+              <Button className=' btn btn-primary w-25'
               
                     onClick={() => setShowEditForm(!showEditForm)}>
-                        {showEditForm ? "Close X" : "Edit Values"}
+                        {showEditForm ? "HTML Options ^" : "HTML Options ˅"}
               </Button>
             </div>
  
