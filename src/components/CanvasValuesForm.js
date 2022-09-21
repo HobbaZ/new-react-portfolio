@@ -2,13 +2,22 @@ import React, { useState } from 'react';
 
 import { Button } from 'react-bootstrap';
 
-import { RangeInput, ColorInput, CheckboxInput} from './BaseSettings'
-
-function CanvasValuesForm ({ 
-    handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, lightPositiony,
-     lightColor, handleLightChange, lightIntensity, lightPositionz, handleLightPositionZChange, roughness,
-      handleRoughnessChange, metalness, handleMetalnessChange, modelMat, handleModelMatChange,
-      specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange, modelColor, handleModelColorChange
+function CanvasValuesForm ({
+  // data from canvas Container
+    handleChange, 
+    lightPositionx, 
+    lightPositiony,
+    lightColor, 
+    lightIntensity, 
+    lightPositionz, 
+    roughness, 
+    metalness, 
+    modelMat,
+    specularColor, 
+    wireframe, 
+    shininess, 
+    modelType, 
+    modelColor
     }) {
 
     //Model submenu form
@@ -17,7 +26,7 @@ function CanvasValuesForm ({
     //lights submenu form
     const [showLightOptions, setShowLightOptions] = useState(false)
 
-      const [filesToUpload, setFilesToUpload] = useState(0)
+      const [filesToUpload, setFilesToUpload] = useState("")
 
       const handleFileUpload = (event) => {
         setFilesToUpload(event.target.files[0])
@@ -30,41 +39,41 @@ function CanvasValuesForm ({
         <>
         <p>The standard mesh material reacts to lights and shadows (and is more expensive to create), metalness and roughness values create a more realistic looking object</p>
         <br />
-        <label>Model Colour</label>
-                <ColorInput
-                value= {modelColor}
-                handleChange={handleModelColorChange}
+                <label>Model Colour</label>
+                <input type={"color"}
+                name={"modelColor"}
+                onChange={handleChange}
                 defaultValue={modelColor}
                 />
 
                 <br />
 
                 <label>Model Metalness</label>
-                <RangeInput
-                value={metalness}
+                <input type={"range"}
+                name={"metalness"}
                 min={0}
                 max={10}
                 step={0.01}
-                handleChange={handleMetalnessChange}
+                onChange={handleChange}
                 defaultValue= {metalness}
                 />
 
                 <br />
 
                 <label>Model Roughness</label>
-                <RangeInput
-                value={roughness}
+                <input type={"range"}
+                name={"roughness"}
                 min={0}
                 max={10}
                 step={0.01}
-                handleChange={handleRoughnessChange}
+                onChange={handleChange}
                 defaultValue= {roughness}
                 />
 
                 <label>Specular Colour</label>
-                <ColorInput
-                value= {specularColor}
-                handleChange={handleSpecularColor}
+                <input type={"color"}
+                name={"specularColor"}
+                onChange={handleChange}
                 defaultValue={specularColor}
                 />
         </>
@@ -76,9 +85,9 @@ function CanvasValuesForm ({
         <p>The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements</p>
         <br />
               <label>Model Colour</label>
-                <ColorInput
-                value= {modelColor}
-                handleChange={handleModelColorChange}
+              <input type={"color"}
+                name={"modelColor"}
+                onChange={handleChange}
                 defaultValue={modelColor}
                 />
         </>
@@ -90,30 +99,30 @@ function CanvasValuesForm ({
         <p>Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.</p>
         <br />
               <label>Model Colour</label>
-                <ColorInput
-                value= {modelColor}
-                handleChange={handleModelColorChange}
+              <input type={"color"}
+                name={"modelColor"}
+                onChange={handleChange}
                 defaultValue={modelColor}
                 />
 
               <br />
 
               <label>Specular Colour</label>
-                <ColorInput
-                value= {specularColor}
-                handleChange={handleSpecularColor}
+              <input type={"color"}
+                name={"specularColor"}
+                onChange={handleChange}
                 defaultValue={specularColor}
                 />
 
               <br />
 
               <label>Shininess</label>
-              <RangeInput
-                value={shininess}
+              <input type={"range"}
+                name={"shininess"}
                 min={0}
-                max={100}
-                step={0.1}
-                handleChange={handleShininessChange}
+                max={10}
+                step={0.01}
+                onChange={handleChange}
                 defaultValue= {shininess}
                 />
         </>
@@ -125,11 +134,11 @@ function CanvasValuesForm ({
           <p>Toon mesh materials represent cel shading and makes models look cartoonish</p>
           <br />
                 <label>Model Colour</label>
-                  <ColorInput
-                  value= {modelColor}
-                  handleChange={handleModelColorChange}
-                  defaultValue={modelColor}
-                  />
+                <input type={"color"}
+                name={"modelColor"}
+                onChange={handleChange}
+                defaultValue={modelColor}
+                />
           </>
         )}
   
@@ -148,9 +157,9 @@ function CanvasValuesForm ({
 
            <br />
               <label>Model Colour</label>
-                <ColorInput
-                value= {modelColor}
-                handleChange={handleModelColorChange}
+              <input type={"color"}
+                name={"modelColor"}
+                onChange={handleChange}
                 defaultValue={modelColor}
                 />
           </>
@@ -179,8 +188,10 @@ function CanvasValuesForm ({
                 {/* Might refactor to less model options in the future*/}
                 <label>Model Type</label><br />
                 <select 
+                defaultValue={modelType[0]}
+                name={"modelType"}
+                onChange={handleChange}
                 value={modelType}
-                onChange={handleModelTypeChange}
                 >
                 <option value="cube">Cube</option>
                 <option value="sphere">Sphere</option>
@@ -203,7 +214,8 @@ function CanvasValuesForm ({
                 <label>Upload Model (.fbx, .glb)</label><br />
                   <input 
                     type="file" 
-                    value={filesToUpload}
+                    name={"filesToUpload"}
+                    defaultValue={filesToUpload}
                     accept='.fbx, .glb' 
                     onChange={handleFileUpload}>
                   </input>
@@ -217,8 +229,10 @@ function CanvasValuesForm ({
 
                 <label>Model Material</label><br />
                 <select
-                defaultValue={modelMat}
-                onChange={handleModelMatChange}
+                defaultValue={modelMat[0]}
+                name={"modelMat"}
+                onChange={handleChange}
+                value={modelMat}
                 >
                 <option value="meshStandardMaterial">MeshStandardMaterial</option>
                 <option value="meshBasicMaterial">MeshBasicMaterial</option>
@@ -235,9 +249,10 @@ function CanvasValuesForm ({
                       <>
                       <br />
                       <label>Wireframe</label>
-                      <CheckboxInput 
-                      handleChange={handleWireframeMode}
-                      value={wireframe}
+                      <input type={"checkbox"} 
+                      name={"wireframe"}
+                      onChange={handleChange}
+                      defaultChecked={wireframe}
                       />
                     </> : null
                 }
@@ -260,57 +275,57 @@ function CanvasValuesForm ({
               {showLightOptions && (
                 <>
                 <label>Light Colour</label>
-                <ColorInput
-                value= {lightColor}
-                handleChange={handleLightChange}
-                defaultValue={"#ffffff"}
+                <input type={"color"}
+                name={"lightColor"}
+                onChange={handleChange}
+                defaultValue={lightColor}
                 />
 
                 <br />
 
                 <label>Left/Right Light Position</label>
-                <RangeInput
-                value={lightPositionx}
-                min={-10}
+                <input type={"range"}
+                name={"lightPositionx"}
+                min={0}
                 max={10}
-                step={0.1}
-                handleChange={handleLightPositionXChange}
+                step={0.01}
+                onChange={handleChange}
                 defaultValue= {lightPositionx}
                 />
 
                 <br />
 
                 <label>Up/Down Light Position</label>
-                <RangeInput
-                value={lightPositionz}
-                min={-10}
+                <input type={"range"}
+                name={"lightPositionz"}
+                min={0}
                 max={10}
-                step={0.1}
-                handleChange={handleLightPositionZChange}
+                step={0.01}
+                onChange={handleChange}
                 defaultValue= {lightPositionz}
                 />
 
                 <br />
 
                 <label>Forward/Back Light Position</label>
-                <RangeInput
-                value={lightPositiony}
-                min={-10}
+                <input type={"range"}
+                name={"lightPositiony"}
+                min={0}
                 max={10}
-                step={0.1}
-                handleChange={handleLightPositionYChange}
+                step={0.01}
+                onChange={handleChange}
                 defaultValue= {lightPositiony}
                 />
 
                 <br />
 
                 <label>Light Intensity</label>
-                <RangeInput
-                value= {lightIntensity}
+                <input type={"range"}
+                name={"lightIntensity"}
                 min={0}
-                max={100}
-                step={0.1}
-                handleChange={handleLightIntensityChange}
+                max={10}
+                step={0.01}
+                onChange={handleChange}
                 defaultValue= {lightIntensity}
                 />
                 </>

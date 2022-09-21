@@ -27,145 +27,68 @@ function About() {
   //edit form
   const [showEditForm, setShowEditForm] = useState(false)
 
-  //html modifier factors
-  const [checkBoxValue, setCheckBoxValue] = useState(false)
-  const [colourValue1, setColourValue1] = useState("#000000")
-  const [colourValue2, setColourValue2] = useState("#000000")
-  const [colourValue3, setColourValue3] = useState("#000000")
-  const [colourValue4, setColourValue4] = useState("#000000")
-  const [gradientColour1, setGradientColour1] = useState("#ffffff")
-  const [gradientColour2, setGradientColour2] = useState("#ffffff")
-  const [gradientColour3, setGradientColour3] = useState("#000000")
-  const [gradientColour4, setGradientColour4] = useState("#000000")
-  const [backgroundGradientDirection, setBackgroundGradientDirection] = useState(0)
-  const [buttonGradientDirection, setButtonGradientDirection] = useState(0)
+  const [userInputs, setUserInputs] = useState({
+    
+    // HTML variables
+    greyscale: false,
+    h1Color: "#000000",
+    pColor: "#000000",
+    linkColor: "#000000",
+    backgroundGradientAngle: 0,
+    backgroundGradientColor1: "#ffffff",
+    backgroundGradientColor2: "#ffffff",
+    buttonGradientAngle: 0,
+    buttonGradientColor1: "#000000",
+    buttonGradientColor2: "#000000",
 
-  
+    //model variables
+    modelMat: "",
+    modelType: "",
+    modelColor: "#ff0000",
+    specularColor: "#ffffff",
+    roughness: 0,
+    metalness: 0,
+    shininess: 0,
+    wireframe: false,
 
-  // Model factors
-  const [modelMat, setModelMat] = useState("")
-  const [modelType, setModelType] = useState("")
-  const [modelColor, setModelColor] = useState("#ff0000")
-  const [specularColor, setspecularColor] = useState("#000000")
-  const [roughness, setRoughness] = useState(0)
-  const [metalness, setMetalness] = useState(0)
-  const [shininess, setShininess] = useState(0)
-  const [wireframe, setWireframe] = useState(false)
+    //Lighting variables
+    lightColor: "#ffffff",
+    lightIntensity: 100,
+    lightPositionx: 0,
+    lightPositiony: 0,
+    lightPositionz: 10
+  })
 
-  //lighting factors
-  const [lightPositionx, setLightPositionX] = useState(0)
-  const [lightPositiony, setLightPositionY] = useState(0)
-  const [lightPositionz, setLightPositionZ] = useState(10)
-  const [lightColor, setLightColor] = useState("#ffffff")
-  const [lightIntensity, setLightIntensity] = useState(100)
-
-  const handleCheckboxChange = (event) => {
-    setCheckBoxValue(event.target.checked)
-  };
-
-  const handleColour1Change = (event) => {
-    setColourValue1(event.target.value)
-  };
-
-  const handleColour2Change = (event) => {
-    setColourValue2(event.target.value)
-  };
-
-  const handleColour4Change = (event) => {
-    setColourValue4(event.target.value)
-  };
-
-  const handleSpecularColor = (event) => {
-    setspecularColor(event.target.value)
-  };
-
-  const handleLightChange = (event) => {
-    setLightColor(event.target.value)
-  };
-
-  const handleModelChange = (event) => {
-    setModelColor(event.target.value)
-  };
-
-  const handleBackgroundColourChange = (event) => {
-    setColourValue3(event.target.value)
-  };
-
-  const handleLightIntensityChange = (event) => {
-    setLightIntensity(event.target.value)
-  }
-
-  const handleLightPositionXChange = (event) => {
-    setLightPositionX(event.target.value)
-  }
-
-  const handleLightPositionYChange = (event) => {
-    setLightPositionY(event.target.value)
-  }
-
-  const handleLightPositionZChange = (event) => {
-    setLightPositionZ(event.target.value)
-  }
-
-  const handleRoughnessChange = (event) => {
-    setRoughness(event.target.value)
-  }
-
-  const handleMetalnessChange = (event) => {
-    setMetalness(event.target.value)
-  }
-
-  //need handlers for each colour for gradient, can't put all in one handler it won't work
-
-  const handleGradientChange1 = (event) => {
-    setGradientColour1(event.target.value)
-  }
-
-  const handleGradientChange2 = (event) => {
-    setGradientColour2(event.target.value)
-  }
-
-  const handleBackgroundGradientDirection = (event) => {
-    setBackgroundGradientDirection(event.target.value)
-  }
-
-  const handleButtonGradientDirection = (event) => {
-    setButtonGradientDirection(event.target.value)
-  }
-
-  const handleGradientChange3 = (event) => {
-    setGradientColour3(event.target.value)
-  }
-
-  const handleGradientChange4 = (event) => {
-    setGradientColour4(event.target.value)
-  }
-
-  const handleModelMatChange = (event) => {
-    setModelMat(event.target.value)
-  }
-
-  const handleWireframeMode = (event) => {
-    setWireframe(event.target.checked)
-  }
-
-  const handleShininessChange = (event) => {
-    setShininess(event.target.value)
-  }
-
-  const handleModelTypeChange = (event) => {
-    setModelType(event.target.value)
+  const handleChange = (event) => {
+    //const value = event.target.value
+    const value = event.target.type === "checkbox" ? event.target.checked : event.target.value;
+    setUserInputs({...userInputs, 
+      [event.target.name]: value })
   }
 
     return (
 
         <>
         <Container id='about'>
-        <CanvasContainer {...{handleModelChange, modelColor, handleLightChange, 
-                handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
-                lightPositiony, lightColor, lightIntensity, handleColour4Change, handleLightPositionZChange, lightPositionz, 
-                metalness, handleMetalnessChange, roughness, handleRoughnessChange, modelMat, 
-                handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange}}/>
+          {/*send data to three.js canvas model*/}
+        <CanvasContainer 
+        handleChange= {handleChange}
+        modelMat= {userInputs.modelMat}
+        modelType= {userInputs.modelType}
+        modelColor= {userInputs.modelColor}
+        specularColor= {userInputs.specularColor}
+        roughness= {userInputs.roughness}
+        metalness= {userInputs.metalness}
+        shininess= {userInputs.shininess}
+        wireframe= {userInputs.wireframe}
+
+        //light variables
+        lightColor= {userInputs.lightColor}
+        lightIntensity= {userInputs.lightIntensity}
+        lightPositionx= {userInputs.lightPositionx}
+        lightPositiony= {userInputs.lightPositiony}
+        lightPositionz= {userInputs.lightPositionz}
+        />
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
@@ -180,18 +103,22 @@ function About() {
               {/*Edit form*/}
               {showEditForm && (
                 <>
-              <EditValuesForm {...{handleCheckboxChange, handleColour1Change, handleColour2Change, colourValue1, colourValue2, 
-                handleBackgroundColourChange, colourValue3, handleModelChange, modelColor, handleLightChange, 
-                handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
-                lightPositiony, lightColor, lightIntensity, colourValue4, handleColour4Change, handleLightPositionZChange, lightPositionz, 
-                metalness, handleMetalnessChange, roughness, handleRoughnessChange, handleGradientChange2, handleGradientChange1, 
-                gradientColour1, gradientColour2, gradientColour3, gradientColour4, handleGradientChange3, handleGradientChange4, 
-                backgroundGradientDirection, handleBackgroundGradientDirection, buttonGradientDirection, handleButtonGradientDirection, modelMat, 
-                handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange}}/>
+
+              <EditValuesForm 
+              handleChange= {handleChange} 
+              greyscale = {userInputs.greyscale}
+              h1Color= {userInputs.h1Color}
+              pColor = {userInputs.pColor}
+              linkColor = {userInputs.linkColor}
+              backgroundGradientAngle = {userInputs.backgroundGradientAngle}
+              backgroundGradientColor1 = {userInputs.backgroundGradientColor1}
+              backgroundGradientColor2 = {userInputs.backgroundGradientColor2}
+              buttonGradientAngle = {userInputs.buttonGradientAngle}
+              buttonGradientColor1 = {userInputs.buttonGradientColor1}
+              buttonGradientColor2 = {userInputs.buttonGradientColor2}
+              />
                 </>
               )}
-
-    
 
       <div className='aboutTextBox'>
 
@@ -202,7 +129,7 @@ function About() {
       <div className="text-center">
       <h2>Skills</h2>
       {iconArray.map((element, index) => (
-        <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${checkBoxValue? '0%' : '100%'})` }} />
+        <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${userInputs.greyscale? '0%' : '100%'})` }} />
       ))}
     </div>
 

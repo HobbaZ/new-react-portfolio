@@ -34,7 +34,7 @@ html, body {
 
 #canvasContainer {
   width: 100%;
-  height: fit-content;
+  height: 40vh;
   margin-top: 10%;
   border-radius: 20px;
   position: relative;
@@ -57,7 +57,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   position: absolute;
   top: 0;
   right:0;
-  width: 25%;
+  width: 21%;
 }
 
 .modelForm {
@@ -65,7 +65,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   z-index: 1;
   top: 15%;
   right:0;
-  width: 25%;
+  width: 21%;
   height: fit-content;
   background-color: rgba(253, 253, 253, 0.8);
 }

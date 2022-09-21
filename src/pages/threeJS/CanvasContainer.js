@@ -15,11 +15,23 @@ import Lights from './Lights'
 //enable soft shadows
 softShadows()
 
-function CanvasContainer ({handleModelChange, modelColor, handleLightChange, 
-  handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
-  lightPositiony, lightColor, lightIntensity, handleColour4Change, handleLightPositionZChange, lightPositionz, 
-  metalness, handleMetalnessChange, roughness, handleRoughnessChange, modelMat, 
-  handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange}) {
+function CanvasContainer ({
+    //Data in
+    handleChange, 
+    lightPositionx, 
+    lightPositiony,
+    lightColor, 
+    lightIntensity, 
+    lightPositionz, 
+    roughness, 
+    metalness, 
+    modelMat,
+    specularColor, 
+    wireframe, 
+    shininess, 
+    modelType, 
+    modelColor
+}) {
 
   //edit form
   const [showEditModelForm, setShowEditModelForm] = useState(false)
@@ -54,11 +66,22 @@ function CanvasContainer ({handleModelChange, modelColor, handleLightChange,
                     {/*Edit form*/}
               {showEditModelForm && (
                 <>
-              <CanvasValuesForm {...{handleModelChange, modelColor, handleLightChange, 
-                handleLightIntensityChange, handleLightPositionXChange, handleLightPositionYChange, lightPositionx, 
-                lightPositiony, lightColor, lightIntensity, handleColour4Change, handleLightPositionZChange, lightPositionz, 
-                metalness, handleMetalnessChange, roughness, handleRoughnessChange, modelMat, 
-                handleModelMatChange, specularColor, handleSpecularColor, handleWireframeMode, wireframe, shininess, handleShininessChange, modelType, handleModelTypeChange}}/>
+              <CanvasValuesForm {...{
+                //Send data to canvas menu
+                handleChange, 
+                modelColor, 
+                lightPositionx, 
+                lightPositiony, 
+                lightColor, 
+                lightIntensity, 
+                lightPositionz, 
+                metalness, 
+                roughness, 
+                modelMat, 
+                specularColor, 
+                wireframe, 
+                shininess, 
+                modelType}}/>
                 </>
 
               )}
