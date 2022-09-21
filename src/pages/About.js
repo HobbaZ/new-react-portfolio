@@ -95,7 +95,7 @@ function About() {
               <Button className=' btn btn-primary w-25'
               
                     onClick={() => setShowEditForm(!showEditForm)}>
-                        {showEditForm ? "HTML Options ^" : "HTML Options ˅"}
+                        Edit HTML Values {showEditForm ? "^" : "˅"}
               </Button>
             </div>
  

@@ -177,7 +177,7 @@ function CanvasValuesForm ({
                       <Button className=' btn btn-primary'
                       
                             onClick={() => setShowModelOptions(!showModelOptions)}>
-                                {showModelOptions ? "Edit Model ^" : "Edit Model ˅"}
+                                Edit Model {showModelOptions ? "^" : "˅"}
                       </Button>
                     </div>
 
@@ -267,7 +267,7 @@ function CanvasValuesForm ({
                       <Button className=' btn btn-primary'
                       
                             onClick={() => setShowLightOptions(!showLightOptions)}>
-                                {showLightOptions ? "Edit Lights ^" : "Edit Lights ˅"}
+                                Edit Lights {showLightOptions ? "^" : "˅"}
                       </Button>
                     </div>
 

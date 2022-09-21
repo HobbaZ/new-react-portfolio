@@ -59,7 +59,7 @@ function CanvasContainer ({
                       <Button className=' btn btn-primary w-75'
                       
                             onClick={() => setShowEditModelForm(!showEditModelForm)}>
-                                {showEditModelForm ? "Edit Model Values ^" : "Edit Model Values ˅"}
+                                Edit Model Values {showEditModelForm ? "^" : "˅"}
                       </Button>
                     </div>
 
