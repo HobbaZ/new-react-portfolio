@@ -37,12 +37,14 @@ Not deployed yet.
 - [Questions](#questions)
 
 ## User Story
-I WANT to make a personal portfolio website with React
+I WANT to make a personal portfolio website with React.
+
 I WANT to add interactable elements to the website.
+
 SO THAT it boots user engagement.
 
 ## Screenshots
-![src\images\screencapture-localhost-3000-2022-09-12-07_32_11.png](/src/images/screencapture-localhost-3000-2022-09-12-07_32_11.png)
+![Picture of landing page of website](/src/images/screencapture-localhost-3000-2022-09-21-23_30_34.png)
 
 ## Installation
 1. Clone the repo to your computer by clicking the green code button and copying the SSH version or clicking the blue use template button.
@@ -60,9 +62,9 @@ Note: To make a static no backend React site work on Heroku you need to take all
 ## Features
 Can change the: 
 
-website background gradient
+website background gradient and angle
 
-button gradients
+Button gradients and angle
 
 Paragraph text colours
 
@@ -70,11 +72,15 @@ Header text colours
 
 Link text colours
 
-Three,js model colour
+Model colour
 
-model material
+Model material
 
-model type
+Model type
+
+Light color
+
+Light position
 
 ## Technology
 - React
@@ -100,6 +106,8 @@ You can also contribute by opening a pull request or submitting an issue.
 
 [https://www.ilyameerovich.com/simple-3d-text-meshes-in-three-js/](https://www.ilyameerovich.com/simple-3d-text-meshes-in-three-js/)
 
+[https://www.geeksforgeeks.org/how-to-pass-property-from-a-parent-component-props-to-a-child-component/](https://www.geeksforgeeks.org/how-to-pass-property-from-a-parent-component-props-to-a-child-component/)
+
 ## Testing
 No tests for this project
 
@@ -118,6 +126,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Find me on Github at [HobbaZ](https://github.com/HobbaZ)
 
-If this has helped you with your web development, consider buying me a Coffee (only costs $3) at [zachobba](    https://buymeacoffee.com/zachobbaS)
+If this has helped you with your web development, consider buying me a Coffee (only costs $3) at [zachobba](https://buymeacoffee.com/zachobbaS)
 
 Email me at [zachobba@gmail.com](zachobba@gmail.com)
