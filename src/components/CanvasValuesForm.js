@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 function CanvasValuesForm ({
   // data from canvas Container
     handleChange, 
+    ambientLightColor,
     lightPositionx, 
     lightPositiony,
     lightColor, 
@@ -119,11 +120,11 @@ function CanvasValuesForm ({
               <label>Shininess</label>
               <input type={"range"}
                 name={"shininess"}
-                min={0}
-                max={10}
+                min={30}
+                max={100}
                 step={0.01}
                 onChange={handleChange}
-                defaultValue= {shininess}
+                defaultValue={shininess}
                 />
         </>
       )}
@@ -188,7 +189,7 @@ function CanvasValuesForm ({
                 {/* Might refactor to less model options in the future*/}
                 <label>Model Type</label><br />
                 <select 
-                defaultValue={modelType[0]}
+                defaultValue={modelType}
                 name={"modelType"}
                 onChange={handleChange}
                 value={modelType}
@@ -196,9 +197,7 @@ function CanvasValuesForm ({
                 <option value="cube">Cube</option>
                 <option value="sphere">Sphere</option>
                 <option value="torus">Torus</option>
-                <option value="ring">Ring</option>
                 <option value="tube">Tube</option>
-                <option value="cone">Cone</option>
                 <option value="cylinder">Cylinder</option>
                 <option value="torusKnot">Torus Knot</option>
                 <option value="dodecahedron">Dodecahedron</option>
@@ -229,7 +228,7 @@ function CanvasValuesForm ({
 
                 <label>Model Material</label><br />
                 <select
-                defaultValue={modelMat[0]}
+                defaultValue={modelMat}
                 name={"modelMat"}
                 onChange={handleChange}
                 value={modelMat}
@@ -274,6 +273,15 @@ function CanvasValuesForm ({
                     {/*Light options*/}
               {showLightOptions && (
                 <>
+                <label>Ambient Light Colour</label>
+                <input type={"color"}
+                name={"ambientLightColor"}
+                onChange={handleChange}
+                defaultValue={ambientLightColor}
+                />
+
+                <br />
+                
                 <label>Light Colour</label>
                 <input type={"color"}
                 name={"lightColor"}
@@ -286,7 +294,7 @@ function CanvasValuesForm ({
                 <label>Left/Right Light Position</label>
                 <input type={"range"}
                 name={"lightPositionx"}
-                min={0}
+                min={-10}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
@@ -298,7 +306,7 @@ function CanvasValuesForm ({
                 <label>Up/Down Light Position</label>
                 <input type={"range"}
                 name={"lightPositionz"}
-                min={0}
+                min={-10}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
@@ -310,7 +318,7 @@ function CanvasValuesForm ({
                 <label>Forward/Back Light Position</label>
                 <input type={"range"}
                 name={"lightPositiony"}
-                min={0}
+                min={-10}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
@@ -323,7 +331,7 @@ function CanvasValuesForm ({
                 <input type={"range"}
                 name={"lightIntensity"}
                 min={0}
-                max={10}
+                max={100}
                 step={0.01}
                 onChange={handleChange}
                 defaultValue= {lightIntensity}

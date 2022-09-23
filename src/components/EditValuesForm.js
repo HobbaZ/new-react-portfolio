@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
   function EditValuesForm ({
     handleChange,
@@ -45,6 +45,12 @@ import React from 'react';
   for (let index = 0; index < navLinks.length; index++) {
     navLinks[index].style = `color: ${linkColor}`
   }
+
+  //set values on form side
+  useEffect(() => {
+    localStorage.setItem("greyscale", JSON.stringify(greyscale));
+  }, [greyscale]);
+
 
         return (
             <>

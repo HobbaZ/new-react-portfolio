@@ -108,6 +108,8 @@ You can also contribute by opening a pull request or submitting an issue.
 
 [https://www.geeksforgeeks.org/how-to-pass-property-from-a-parent-component-props-to-a-child-component/](https://www.geeksforgeeks.org/how-to-pass-property-from-a-parent-component-props-to-a-child-component/)
 
+[https://blog.logrocket.com/using-localstorage-react-hooks/](https://blog.logrocket.com/using-localstorage-react-hooks/)
+
 ## Testing
 No tests for this project
 

@@ -1,9 +1,10 @@
-function Lights ({lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz}) {
+function Lights ({lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, ambientLightColor}) {
     return (
         <>
             <ambientLight 
-              intensity={0.4}
+              intensity={0.3}
               position={[20,20, 20]}
+              color={ambientLightColor}
               />
       
               <directionalLight

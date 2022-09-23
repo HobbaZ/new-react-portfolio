@@ -17,7 +17,8 @@ softShadows()
 
 function CanvasContainer ({
     //Data in
-    handleChange, 
+    handleChange,
+    ambientLightColor, 
     lightPositionx, 
     lightPositiony,
     lightColor, 
@@ -47,9 +48,9 @@ function CanvasContainer ({
               //display pixel ratio
               dpr={[1, 2]}
             >
-              <Lights {...{lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, shininess}}/>
+              <Lights {...{lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, ambientLightColor}}/>
 
-              <Model {...{modelColor, metalness, roughness, modelMat, wireframe, modelType, specularColor}}
+              <Model {...{modelColor, metalness, roughness, modelMat, wireframe, modelType, specularColor, shininess}}
               />
               <OrbitControls />
             </Canvas>
@@ -69,6 +70,7 @@ function CanvasContainer ({
               <CanvasValuesForm {...{
                 //Send data to canvas menu
                 handleChange, 
+                ambientLightColor,
                 modelColor, 
                 lightPositionx, 
                 lightPositiony, 

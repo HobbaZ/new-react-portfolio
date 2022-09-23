@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Container, Button } from 'react-bootstrap';
 
@@ -30,7 +30,9 @@ function About() {
   const [userInputs, setUserInputs] = useState({
     
     // HTML variables
-    greyscale: false,
+
+    //get values from form with localstorage
+    greyscale: JSON.parse(localStorage.getItem("greyscale")),
     h1Color: "#000000",
     pColor: "#000000",
     linkColor: "#000000",
@@ -52,6 +54,7 @@ function About() {
     wireframe: false,
 
     //Lighting variables
+    ambientLightColor: "#ffffff",
     lightColor: "#ffffff",
     lightIntensity: 100,
     lightPositionx: 0,
@@ -83,6 +86,7 @@ function About() {
         wireframe= {userInputs.wireframe}
 
         //light variables
+        ambientLightColor = {userInputs.ambientLightColor}
         lightColor= {userInputs.lightColor}
         lightIntensity= {userInputs.lightIntensity}
         lightPositionx= {userInputs.lightPositionx}
