@@ -33,33 +33,33 @@ function About() {
 
     //get values from form with localstorage
     greyscale: JSON.parse(localStorage.getItem("greyscale")),
-    h1Color: "#000000",
-    pColor: "#000000",
-    linkColor: "#000000",
-    backgroundGradientAngle: 0,
-    backgroundGradientColor1: "#ffffff",
-    backgroundGradientColor2: "#ffffff",
-    buttonGradientAngle: 0,
-    buttonGradientColor1: "#000000",
-    buttonGradientColor2: "#000000",
+    h1Color: JSON.parse(localStorage.getItem("h1Color")),
+    pColor: JSON.parse(localStorage.getItem("pColor")),
+    linkColor: JSON.parse(localStorage.getItem("linkColor")),
+    backgroundGradientAngle: JSON.parse(localStorage.getItem("backgroundGradientAngle")),
+    backgroundGradientColor1: JSON.parse(localStorage.getItem("backgroundGradientColor1")),
+    backgroundGradientColor2: JSON.parse(localStorage.getItem("backgroundGradientColor2")),
+    buttonGradientAngle: JSON.parse(localStorage.getItem("buttonGradientAngle")),
+    buttonGradientColor1: JSON.parse(localStorage.getItem("buttonGradientColor1")),
+    buttonGradientColor2: JSON.parse(localStorage.getItem("buttonGradientColor2")),
 
     //model variables
-    modelMat: "",
-    modelType: "",
-    modelColor: "#ff0000",
-    specularColor: "#ffffff",
-    roughness: 0,
-    metalness: 0,
-    shininess: 0,
-    wireframe: false,
+    modelMat: JSON.parse(localStorage.getItem("modelMat")),
+    modelType: JSON.parse(localStorage.getItem("modelType")),
+    modelColor: JSON.parse(localStorage.getItem("modelColor")),
+    specularColor: JSON.parse(localStorage.getItem("specularColor")),
+    roughness: JSON.parse(localStorage.getItem("roughness")),
+    metalness: JSON.parse(localStorage.getItem("metalness")),
+    shininess: JSON.parse(localStorage.getItem("shininess")),
+    wireframe: JSON.parse(localStorage.getItem("wireframe")),
 
     //Lighting variables
-    ambientLightColor: "#ffffff",
-    lightColor: "#ffffff",
-    lightIntensity: 100,
-    lightPositionx: 0,
-    lightPositiony: 0,
-    lightPositionz: 10
+    ambientLightColor: JSON.parse(localStorage.getItem("ambientLightColor")),
+    lightColor: JSON.parse(localStorage.getItem("lightColor")),
+    lightIntensity: JSON.parse(localStorage.getItem("lightIntensity")),
+    lightPositionx: JSON.parse(localStorage.getItem("lightPositionx")),
+    lightPositiony: JSON.parse(localStorage.getItem("lightPositiony")),
+    lightPositionz: JSON.parse(localStorage.getItem("lightPositionz"))
   })
 
   const handleChange = (event) => {
@@ -68,6 +68,67 @@ function About() {
     setUserInputs({...userInputs, 
       [event.target.name]: value })
   }
+
+    //get all h1s
+    const headings = document.querySelectorAll("h1, h2, h3, h4, h5");
+
+    for (let index = 0; index < headings.length; index++) {
+      headings[index].style = `color: ${userInputs.h1Color}`
+    }
+  
+    //get all paragraphs
+    const paragraphs = document.querySelectorAll("p, label");
+  
+    for (let index = 0; index < paragraphs.length; index++) {
+      paragraphs[index].style = `color: ${userInputs.pColor}`
+    }
+
+    //get all cards
+    const cardBorders = document.getElementsByClassName("card");
+  
+    for (let index = 0; index < cardBorders.length; index++) {
+      cardBorders[index].style = `border: 1px solid ${userInputs.pColor}`
+    }
+
+    //get all labels
+    const labels = document.getElementsByClassName("label");
+  
+    for (let index = 0; index < labels.length; index++) {
+      labels[index].style = `color: ${userInputs.pColor}`
+    }
+
+    //set nav bar background color
+    /*const navBar = document.getElementById("navbar-nav");
+    navBar.style = `background: ${userInputs.backgroundGradientColor2}`*/
+  
+    //set model form background color
+    /*const modelForm = document.getElementById("modelForm");
+    modelForm.style = `background: ${backgroundGradientColor2}`*/
+  
+    //Get background gradient
+    document.body.style = `background: linear-gradient(${userInputs.backgroundGradientAngle}deg, ${userInputs.backgroundGradientColor1}, ${userInputs.backgroundGradientColor2})`;
+  
+    //Get all buttons and change gradient
+    const buttons = document.getElementsByTagName("button");
+  
+    for (let index = 0; index < buttons.length; index++) {
+      buttons[index].style = `background: linear-gradient(${userInputs.buttonGradientAngle}deg, ${userInputs.buttonGradientColor1}, ${userInputs.buttonGradientColor2}`;
+      //buttons[index].style = `color: ${buttonTextColor}`;
+    }
+  
+    //get all nav links
+    const navLinks = document.getElementsByClassName("nav-link");
+  
+    for (let index = 0; index < navLinks.length; index++) {
+      navLinks[index].style = `color: ${userInputs.linkColor}`
+    }
+
+  /* useEffect?
+  
+  useEffect(() => {
+    userInputs.greyscale = JSON.parse(localStorage.getItem("greyscale"))
+    userInputs.h1Color = JSON.parse(localStorage.getItem("h1Color"))
+  }, [userInputs])*/
 
     return (
 

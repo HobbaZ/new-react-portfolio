@@ -15,7 +15,7 @@ function Lights ({lightColor, lightIntensity, lightPositionx, lightPositiony, li
               shadow-bias={0.0001}
       
               position={[lightPositiony,lightPositionz, lightPositionx]}
-              intensity={lightIntensity/100} //devide by the max value, too bright otherwise
+              intensity={lightIntensity/100} //divide by the max value, too bright otherwise
               color={lightColor}
               />
         </>

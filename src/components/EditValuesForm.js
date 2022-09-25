@@ -14,50 +14,39 @@ import React, { useEffect } from 'react';
     buttonGradientColor2
   }) {
 
-  //get all h1s
-  const headings = document.getElementsByTagName("h1");
+//set values on form side
+useEffect(() => {
+  localStorage.setItem("greyscale", JSON.stringify(greyscale))
+  localStorage.setItem("h1Color", JSON.stringify(h1Color))
+  localStorage.setItem("pColor", JSON.stringify(pColor))
+  localStorage.setItem("linkColor", JSON.stringify(linkColor))
+  localStorage.setItem("backgroundGradientAngle", JSON.stringify(backgroundGradientAngle))
+  localStorage.setItem("backgroundGradientColor1", JSON.stringify(backgroundGradientColor1))
+  localStorage.setItem("backgroundGradientColor2", JSON.stringify(backgroundGradientColor2))
+  localStorage.setItem("buttonGradientAngle", JSON.stringify(buttonGradientAngle))
+  localStorage.setItem("buttonGradientColor1", JSON.stringify(buttonGradientColor1))
+  localStorage.setItem("buttonGradientColor2", JSON.stringify(buttonGradientColor2))
 
-  for (let index = 0; index < headings.length; index++) {
-    headings[index].style = `color: ${h1Color}`
-  }
-
-  //get all paragraphs
-  const paragraphs = document.getElementsByTagName("p");
-
-  for (let index = 0; index < paragraphs.length; index++) {
-    paragraphs[index].style = `color: ${pColor}`
-  }
-
-  //Get background gradient
-  document.body.style = `background: linear-gradient(${backgroundGradientAngle}deg, ${backgroundGradientColor1}, ${backgroundGradientColor2})`;
-
-  //Get all buttons and change gradient
-  const buttons = document.getElementsByTagName("button");
-
-  for (let index = 0; index < buttons.length; index++) {
-    buttons[index].style = `background: linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`;
-    //buttons[index].style = `color: ${buttonTextColor}`;
-  }
-
-  //get all nav links
-  const navLinks = document.getElementsByClassName("nav-link");
-
-  for (let index = 0; index < navLinks.length; index++) {
-    navLinks[index].style = `color: ${linkColor}`
-  }
-
-  //set values on form side
-  useEffect(() => {
-    localStorage.setItem("greyscale", JSON.stringify(greyscale));
-  }, [greyscale]);
-
+}, [
+  greyscale, 
+  h1Color, 
+  pColor, 
+  linkColor, 
+  backgroundGradientAngle, 
+  backgroundGradientColor1, 
+  backgroundGradientColor2, 
+  buttonGradientAngle, 
+  buttonGradientColor1, 
+  buttonGradientColor2
+]);
 
         return (
             <>
-                <h1 className='text-center'>Edit Form</h1>
+                
                 <form>
+                <h1 className='text-center'>HTML Edit Options</h1>
 
-                <label>{greyscale ? "Enable": "Disable"} Greyscale</label>
+                <label className='label'>{greyscale ? "Enable": "Disable"} Greyscale</label>
                 <input type={"checkbox"}
                 name= {"greyscale"}
                 onChange={handleChange}
@@ -66,7 +55,7 @@ import React, { useEffect } from 'react';
 
                 <br />
 
-                <label>H1 Colour</label>
+                <label className='label'>Heading Colour</label>
                 <input type={"color"}
                 name= {"h1Color"}
                 onChange={handleChange}
@@ -75,7 +64,7 @@ import React, { useEffect } from 'react';
 
                 <br />
 
-                <label>Paragraph Colour</label>
+                <label className='label'>Paragraph / label Colour</label>
                 <input type={"color"}
                 name= {"pColor"}
                 onChange={handleChange}
@@ -84,7 +73,7 @@ import React, { useEffect } from 'react';
 
                 <br />
 
-                <label>Link Colour</label>
+                <label className='label'>Link Colour</label>
                 <input type={"color"}
                 name= {"linkColor"}
                 onChange={handleChange}
@@ -93,9 +82,9 @@ import React, { useEffect } from 'react';
 
                 <br />
 
-                <label>Background Gradient</label><br />
+                <label className='label'>Background Gradient</label><br />
                 
-                <label>Angle</label>
+                <label className='label'>Angle</label>
                 <input type={"text"}
                 name= {'backgroundGradientAngle'}
                 onChange={handleChange}
@@ -104,7 +93,7 @@ import React, { useEffect } from 'react';
 
                 <br />
 
-                <label>Colours</label>
+                <label className='label'>Colours</label>
                 <input type={"color"}
                 name= {"backgroundGradientColor2"}
                 onChange={handleChange}
@@ -119,9 +108,9 @@ import React, { useEffect } from 'react';
 
                 <hr />
 
-                <label>Button Gradient</label><br />
+                <label className='label'>Button Gradient</label><br />
 
-                <label>Angle</label>
+                <label className='label'>Angle</label>
                 <input type={"text"}
                 name= {"buttonGradientAngle"}
                 onChange={handleChange}
@@ -130,7 +119,7 @@ import React, { useEffect } from 'react';
 
                 <br />
 
-                <label>Colours</label>
+                <label className='label'>Colours</label>
                 <input type={"color"}
                 name= {"buttonGradientColor2"}
                 onChange={handleChange}
