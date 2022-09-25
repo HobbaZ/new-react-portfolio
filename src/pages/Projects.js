@@ -77,12 +77,18 @@ function Projects() {
                 </div>
 
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
-                    <Button className='btn btn-primary'><i className="fa-solid fa-globe"></i> Github link</Button></a>
+                    <Button className='btn btn-primary'>
+                        <div className="buttonText">
+                        <i className="fab fa-github"></i> Github</div>
+                            </Button></a>
 
                     <br></br>
 
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
-                    <Button className='btn btn-primary'><i className="fa-solid fa-globe"></i> Deployed link</Button></a>
+                    <Button className='btn btn-primary'>
+                        <div className="buttonText">
+                            <i className="fas fa-globe"></i> Website</div>
+                            </Button></a>
                 </div>
                 </div>
                 </>

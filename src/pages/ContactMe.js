@@ -97,7 +97,7 @@ function ContactMe() {
         />
 
         <div className='text-center'>
-        <Button type="button" className="btn btn-primary" onClick={handleFormSubmit}>Submit</Button>
+        <Button type="button" className="btn btn-primary" onClick={handleFormSubmit}><div className="buttonText">Submit</div></Button>
         </div>
         </FormGroup>
       </Form>

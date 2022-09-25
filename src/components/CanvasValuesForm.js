@@ -28,7 +28,7 @@ function CanvasValuesForm ({
       localStorage.setItem("lightPositionz", JSON.stringify(lightPositionz))
       localStorage.setItem("lightColor", JSON.stringify(lightColor))
       localStorage.setItem("lightIntensity", JSON.stringify(lightIntensity))
-      localStorage.setItem("rougness", JSON.stringify(roughness))
+      localStorage.setItem("roughness", JSON.stringify(roughness))
       localStorage.setItem("metalness", JSON.stringify(metalness))
       localStorage.setItem("modelMat", JSON.stringify(modelMat))
       localStorage.setItem("specularColor", JSON.stringify(specularColor))
@@ -72,46 +72,42 @@ function CanvasValuesForm ({
         <>
         <p>The standard mesh material reacts to lights and shadows (and is more expensive to create), metalness and roughness values create a more realistic looking object</p>
         <br />
-                <label className="label">Model Colour</label>
+                <label>Model Colour</label>
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor}
-                defaultValue={"#ff000"}
+                value={modelColor || ''}
                 />
 
                 <br />
 
-                <label className="label">Model Metalness</label>
+                <label>Model Metalness</label>
                 <input type={"range"}
                 name={"metalness"}
                 min={0}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                value= {metalness}
-                defaultValue={5}
+                value= {metalness || 0}
                 />
 
                 <br />
 
-                <label className="label">Model Roughness</label>
+                <label>Model Roughness</label>
                 <input type={"range"}
                 name={"roughness"}
                 min={0}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                value= {roughness}
-                defaultValue= {5}
+                value= {roughness || 0}
                 />
 
-                <label className="label">Specular Colour</label>
+                <label>Specular Colour</label>
                 <input type={"color"}
                 name={"specularColor"}
                 onChange={handleChange}
-                value={specularColor}
-                defaultValue={"#ffffff"}
+                value={specularColor || ''}
                 />
         </>
       )}
@@ -121,12 +117,11 @@ function CanvasValuesForm ({
         <>
         <p>The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements</p>
         <br />
-              <label className="label">Model Colour</label>
+              <label>Model Colour</label>
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor}
-                defaultValue={"#ff000"}
+                value={modelColor || ''}
                 />
         </>
       )}
@@ -136,35 +131,32 @@ function CanvasValuesForm ({
         <>
         <p>Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.</p>
         <br />
-              <label className="label">Model Colour</label>
+              <label>Model Colour</label>
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor}
-                defaultValue={"#ff000"}
+                value={modelColor || ''}
                 />
 
               <br />
 
-              <label className="label">Specular Colour</label>
+              <label>Specular Colour</label>
               <input type={"color"}
                 name={"specularColor"}
                 onChange={handleChange}
-                value={specularColor}
-                defaultValue={"#ffffff"}
+                value={specularColor || ''}
                 />
 
               <br />
 
-              <label className="label">Shininess</label>
+              <label>Shininess</label>
               <input type={"range"}
                 name={"shininess"}
                 min={30}
                 max={100}
                 step={0.01}
                 onChange={handleChange}
-                value={shininess}
-                defaultValue={0}
+                value={shininess || 0}
                 />
         </>
       )}
@@ -174,12 +166,11 @@ function CanvasValuesForm ({
           <>
           <p>Toon mesh materials represent cel shading and makes models look cartoonish</p>
           <br />
-                <label className="label">Model Colour</label>
+                <label>Model Colour</label>
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor}
-                defaultValue={"#ff000"}
+                value={modelColor || ''}
                 />
           </>
         )}
@@ -198,12 +189,11 @@ function CanvasValuesForm ({
            <p>The points material shows all the vertices of the selected model.</p>
 
            <br />
-              <label className="label">Model Colour</label>
+              <label>Model Colour</label>
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor}
-                defaultValue={"#ff000"}
+                value={modelColor || ''}
                 />
           </>
         )}
@@ -217,10 +207,10 @@ function CanvasValuesForm ({
 
                 {/*Click to show or hide light options form*/ }
                 <div className='text-center'>
-                      <Button className=' btn btn-primary'
+                      <Button className=' btn btn-primary buttonText'
                       
                             onClick={() => setShowModelOptions(!showModelOptions)}>
-                                Edit Model {showModelOptions ? "^" : "˅"}
+                                <div className="buttonText">Edit Model {showModelOptions ? "^" : "˅"}</div>
                       </Button>
                     </div>
 
@@ -229,10 +219,9 @@ function CanvasValuesForm ({
                 <>
 
                 {/* Might refactor to less model options in the future*/}
-                <label className="label">Model Type</label><br />
+                <label>Model Type</label><br />
                 <select 
-                defaultValue={modelType[1]}
-                value={modelType}
+                value={modelType || ""}
                 name={"modelType"}
                 onChange={handleChange}
                 >
@@ -252,26 +241,25 @@ function CanvasValuesForm ({
                 {modelType === "customModel" ? 
               <>
               <br />
-                <label className="label">Upload Model (.fbx, .glb)</label><br />
+                <label>Upload Model (.fbx, .glb)</label><br />
                   <input 
                     type="file" 
                     name={"filesToUpload"}
-                    defaultValue={filesToUpload}
+                    value={filesToUpload}
                     accept='.fbx, .glb' 
                     onChange={handleFileUpload}>
                   </input>
                   <div>
-                    <Button className=' btn btn-primary w-25'>Submit</Button>
+                    <Button className=' btn btn-primary w-25'><div className="buttonText">Submit</div></Button>
                   </div>
               </> : null
               }
 
                 <br />
 
-                <label className="label">Model Material</label><br />
+                <label>Model Material</label><br />
                 <select
-                defaultValue={modelMat[1]}
-                value={modelMat}
+                value={modelMat || ""}
                 name={"modelMat"}
                 onChange={handleChange}
                 >
@@ -289,12 +277,11 @@ function CanvasValuesForm ({
                 {modelMat !== "pointsMaterial" ? 
                       <>
                       <br />
-                      <label className="label">Wireframe</label>
+                      <label>Wireframe</label>
                       <input type={"checkbox"} 
                       name={"wireframe"}
                       onChange={handleChange}
-                      defaultChecked={false}
-                      value={wireframe}
+                      value={wireframe || false}
                       />
                     </> : null
                 }
@@ -309,81 +296,75 @@ function CanvasValuesForm ({
                       <Button className=' btn btn-primary'
                       
                             onClick={() => setShowLightOptions(!showLightOptions)}>
-                                Edit Lights {showLightOptions ? "^" : "˅"}
+                                <div className="buttonText">Edit Lights {showLightOptions ? "^" : "˅"}</div>
                       </Button>
                     </div>
 
                     {/*Light options*/}
               {showLightOptions && (
                 <>
-                <label className="label">Ambient Light Colour</label>
+                <label>Ambient Light Colour</label>
                 <input type={"color"}
                 name={"ambientLightColor"}
                 onChange={handleChange}
-                defaultValue={"#ffffff"}
-                value={ambientLightColor}
+                value={ambientLightColor || undefined}
                 />
 
                 <br />
                 
-                <label className="label">Light Colour</label>
+                <label>Light Colour</label>
                 <input type={"color"}
                 name={"lightColor"}
                 onChange={handleChange}
-                defaultValue={"#ffffff"}
-                value={lightColor}
+                value={lightColor || '#ffffff'}
                 />
 
                 <br />
 
-                <label className="label">Left/Right Light Position</label>
+                <label>Left/Right Light Position</label>
                 <input type={"range"}
                 name={"lightPositionx"}
                 min={-10}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                defaultValue= {0}
-                value={lightPositionx}
+                value={lightPositionx || 0}
                 />
 
                 <br />
 
-                <label className="label">Up/Down Light Position</label>
+                <label>Up/Down Light Position</label>
                 <input type={"range"}
                 name={"lightPositionz"}
                 min={-10}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                defaultValue= {10}
-                value={lightPositionz}
+                value={lightPositionz || 10}
                 />
 
                 <br />
 
-                <label className="label">Forward/Back Light Position</label>
+                <label>Forward/Back Light Position</label>
                 <input type={"range"}
                 name={"lightPositiony"}
                 min={-10}
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                defaultValue= {0}
-                value={lightPositiony}
+                value={lightPositiony || 0}
                 />
 
                 <br />
 
-                <label className="label">Light Intensity</label>
+                <label>Light Intensity</label>
                 <input type={"range"}
                 name={"lightIntensity"}
                 min={0}
                 max={100}
                 step={0.01}
                 onChange={handleChange}
-                defaultValue= {50}
-                value={lightIntensity}
+                value={lightIntensity || 50}
                 />
                 </>
               )}

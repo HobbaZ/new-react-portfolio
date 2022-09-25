@@ -42,6 +42,8 @@ function About() {
     buttonGradientAngle: JSON.parse(localStorage.getItem("buttonGradientAngle")),
     buttonGradientColor1: JSON.parse(localStorage.getItem("buttonGradientColor1")),
     buttonGradientColor2: JSON.parse(localStorage.getItem("buttonGradientColor2")),
+    labelColor: JSON.parse(localStorage.getItem("labelColor")),
+    buttonTextColor: JSON.parse(localStorage.getItem("buttonTextColor")),
 
     //model variables
     modelMat: JSON.parse(localStorage.getItem("modelMat")),
@@ -69,15 +71,15 @@ function About() {
       [event.target.name]: value })
   }
 
-    //get all h1s
+    //get all headings
     const headings = document.querySelectorAll("h1, h2, h3, h4, h5");
 
     for (let index = 0; index < headings.length; index++) {
       headings[index].style = `color: ${userInputs.h1Color}`
     }
   
-    //get all paragraphs
-    const paragraphs = document.querySelectorAll("p, label");
+    //get all paragraphs and footer anchors
+    const paragraphs = document.querySelectorAll("p, a");
   
     for (let index = 0; index < paragraphs.length; index++) {
       paragraphs[index].style = `color: ${userInputs.pColor}`
@@ -91,10 +93,10 @@ function About() {
     }
 
     //get all labels
-    const labels = document.getElementsByClassName("label");
+    const labels = document.querySelectorAll("label");
   
     for (let index = 0; index < labels.length; index++) {
-      labels[index].style = `color: ${userInputs.pColor}`
+      labels[index].style = `color: ${userInputs.labelColor}`
     }
 
     //set nav bar background color
@@ -109,11 +111,18 @@ function About() {
     document.body.style = `background: linear-gradient(${userInputs.backgroundGradientAngle}deg, ${userInputs.backgroundGradientColor1}, ${userInputs.backgroundGradientColor2})`;
   
     //Get all buttons and change gradient
-    const buttons = document.getElementsByTagName("button");
+    const buttons = document.querySelectorAll("button");
   
     for (let index = 0; index < buttons.length; index++) {
       buttons[index].style = `background: linear-gradient(${userInputs.buttonGradientAngle}deg, ${userInputs.buttonGradientColor1}, ${userInputs.buttonGradientColor2}`;
-      //buttons[index].style = `color: ${buttonTextColor}`;
+    }
+
+    //Get all button text change color
+    const buttonText = document.getElementsByClassName("buttonText");
+
+    for (let index = 0; index < buttonText.length; index++) {
+      buttonText[index].style = `color: ${userInputs.buttonTextColor}`;
+      
     }
   
     //get all nav links
@@ -160,7 +169,7 @@ function About() {
               <Button className=' btn btn-primary w-25'
               
                     onClick={() => setShowEditForm(!showEditForm)}>
-                        Edit HTML Values {showEditForm ? "^" : "˅"}
+                        <div className="buttonText">Edit HTML Values {showEditForm ? "^" : "˅"}</div>
               </Button>
             </div>
  
@@ -181,6 +190,8 @@ function About() {
               buttonGradientAngle = {userInputs.buttonGradientAngle}
               buttonGradientColor1 = {userInputs.buttonGradientColor1}
               buttonGradientColor2 = {userInputs.buttonGradientColor2}
+              labelColor = {userInputs.labelColor}
+              buttonTextColor= {userInputs.buttonTextColor}
               />
                 </>
               )}
