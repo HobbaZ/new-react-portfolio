@@ -104,7 +104,7 @@ useEffect(() => {
                 placeholder="0"
                 name= {'backgroundGradientAngle'}
                 onChange={handleChange}
-                value={backgroundGradientAngle || 0}
+                value={backgroundGradientAngle || "0"}
                 />
 
                 <br />
@@ -131,7 +131,7 @@ useEffect(() => {
                 name= {"buttonGradientAngle"}
                 placeholder="0"
                 onChange={handleChange}
-                value={buttonGradientAngle || 0}
+                value={buttonGradientAngle || "0"}
                 />
 
                 <br />

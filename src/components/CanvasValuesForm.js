@@ -76,7 +76,7 @@ function CanvasValuesForm ({
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || ''}
+                value={modelColor || '#ff0000'}
                 />
 
                 <br />
@@ -107,7 +107,7 @@ function CanvasValuesForm ({
                 <input type={"color"}
                 name={"specularColor"}
                 onChange={handleChange}
-                value={specularColor || ''}
+                value={specularColor || '#ffffff'}
                 />
         </>
       )}
@@ -121,7 +121,7 @@ function CanvasValuesForm ({
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || ''}
+                value={modelColor || '#ff0000'}
                 />
         </>
       )}
@@ -135,7 +135,7 @@ function CanvasValuesForm ({
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || ''}
+                value={modelColor || '#ff0000'}
                 />
 
               <br />
@@ -144,7 +144,7 @@ function CanvasValuesForm ({
               <input type={"color"}
                 name={"specularColor"}
                 onChange={handleChange}
-                value={specularColor || ''}
+                value={specularColor || '#ffffff'}
                 />
 
               <br />
@@ -170,7 +170,7 @@ function CanvasValuesForm ({
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || ''}
+                value={modelColor || '#ff0000'}
                 />
           </>
         )}
@@ -193,10 +193,12 @@ function CanvasValuesForm ({
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || ''}
+                value={modelColor || '#ff0000'}
                 />
           </>
         )}
+
+        
 
   }
 
@@ -221,7 +223,7 @@ function CanvasValuesForm ({
                 {/* Might refactor to less model options in the future*/}
                 <label>Model Type</label><br />
                 <select 
-                value={modelType || ""}
+                value={modelType || "cube"}
                 name={"modelType"}
                 onChange={handleChange}
                 >
@@ -259,7 +261,7 @@ function CanvasValuesForm ({
 
                 <label>Model Material</label><br />
                 <select
-                value={modelMat || ""}
+                value={modelMat || "meshStandardMaterial"}
                 name={"modelMat"}
                 onChange={handleChange}
                 >
@@ -307,7 +309,7 @@ function CanvasValuesForm ({
                 <input type={"color"}
                 name={"ambientLightColor"}
                 onChange={handleChange}
-                value={ambientLightColor || undefined}
+                value={ambientLightColor || '#ffffff'}
                 />
 
                 <br />
