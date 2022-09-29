@@ -36,6 +36,11 @@ function CanvasValuesForm ({
       localStorage.setItem("shininess", JSON.stringify(shininess))
       localStorage.setItem("modelType", JSON.stringify(modelType))
       localStorage.setItem("modelColor", JSON.stringify(modelColor))
+
+      //get form values
+      JSON.parse(localStorage.getItem("labelColor"))
+      JSON.parse(localStorage.getItem("h1Color"))
+      JSON.parse(localStorage.getItem("labelColor"))
     }, [
       ambientLightColor,
       lightPositionx, 
@@ -70,13 +75,13 @@ function CanvasValuesForm ({
     if (modelMat === "meshStandardMaterial") {
       return (
         <>
-        <p>The standard mesh material reacts to lights and shadows (and is more expensive to create), metalness and roughness values create a more realistic looking object</p>
+        <p className='p'>The standard mesh material reacts to lights and shadows (and is more expensive to create), metalness and roughness values create a more realistic looking object</p>
         <br />
                 <label>Model Colour</label>
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || '#ff0000'}
+                value={modelColor || ''}
                 />
 
                 <br />
@@ -88,7 +93,7 @@ function CanvasValuesForm ({
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                value= {metalness || 0}
+                value= {metalness || ""}
                 />
 
                 <br />
@@ -100,14 +105,14 @@ function CanvasValuesForm ({
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                value= {roughness || 0}
+                value= {roughness || ""}
                 />
 
                 <label>Specular Colour</label>
                 <input type={"color"}
                 name={"specularColor"}
                 onChange={handleChange}
-                value={specularColor || '#ffffff'}
+                value={specularColor || ''}
                 />
         </>
       )}
@@ -115,13 +120,13 @@ function CanvasValuesForm ({
     else if (modelMat === "meshBasicMaterial") {
       return (
         <>
-        <p>The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements</p>
+        <p className='p'>The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements</p>
         <br />
               <label>Model Colour</label>
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || '#ff0000'}
+                value={modelColor || ''}
                 />
         </>
       )}
@@ -129,13 +134,13 @@ function CanvasValuesForm ({
     else if (modelMat === "meshPhongMaterial") {
       return (
         <>
-        <p>Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.</p>
+        <p className='p'>Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.</p>
         <br />
               <label>Model Colour</label>
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || '#ff0000'}
+                value={modelColor || ''}
                 />
 
               <br />
@@ -144,7 +149,7 @@ function CanvasValuesForm ({
               <input type={"color"}
                 name={"specularColor"}
                 onChange={handleChange}
-                value={specularColor || '#ffffff'}
+                value={specularColor || ''}
                 />
 
               <br />
@@ -156,7 +161,7 @@ function CanvasValuesForm ({
                 max={100}
                 step={0.01}
                 onChange={handleChange}
-                value={shininess || 0}
+                value={shininess || ""}
                 />
         </>
       )}
@@ -164,13 +169,13 @@ function CanvasValuesForm ({
       else if (modelMat === "meshToonMaterial") {
         return (
           <>
-          <p>Toon mesh materials represent cel shading and makes models look cartoonish</p>
+          <p className='p'>Toon mesh materials represent cel shading and makes models look cartoonish</p>
           <br />
                 <label>Model Colour</label>
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || '#ff0000'}
+                value={modelColor || ''}
                 />
           </>
         )}
@@ -179,21 +184,21 @@ function CanvasValuesForm ({
     else if (modelMat === "meshBasicMaterial") {
       return (
         <>
-         <p>The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending on the closeness of the camera, no tweakable effects for this material.</p>
+         <p className='p'>The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending on the closeness of the camera, no tweakable effects for this material.</p>
         </>
       )}
 
       else if (modelMat === "pointsMaterial") {
         return (
           <>
-           <p>The points material shows all the vertices of the selected model.</p>
+           <p className='p'>The points material shows all the vertices of the selected model.</p>
 
            <br />
               <label>Model Colour</label>
               <input type={"color"}
                 name={"modelColor"}
                 onChange={handleChange}
-                value={modelColor || '#ff0000'}
+                value={modelColor || ''}
                 />
           </>
         )}
@@ -205,11 +210,11 @@ function CanvasValuesForm ({
         return (
             <>
                 <form className='modelForm' id="modelForm">
-                <h4 className='text-center formSubheading'>Model Edit Options</h4>
+                <h4 className='text-center heading'>Model Edit Options</h4>
 
                 {/*Click to show or hide light options form*/ }
                 <div className='text-center'>
-                      <Button className=' btn btn-primary buttonText'
+                      <Button className=' btn btn-primary'
                       
                             onClick={() => setShowModelOptions(!showModelOptions)}>
                                 <div className="buttonText">Edit Model {showModelOptions ? "^" : "˅"}</div>
@@ -283,7 +288,7 @@ function CanvasValuesForm ({
                       <input type={"checkbox"} 
                       name={"wireframe"}
                       onChange={handleChange}
-                      value={wireframe || false}
+                      value={wireframe || ""}
                       />
                     </> : null
                 }
@@ -309,7 +314,7 @@ function CanvasValuesForm ({
                 <input type={"color"}
                 name={"ambientLightColor"}
                 onChange={handleChange}
-                value={ambientLightColor || '#ffffff'}
+                value={ambientLightColor || ''}
                 />
 
                 <br />
@@ -318,7 +323,7 @@ function CanvasValuesForm ({
                 <input type={"color"}
                 name={"lightColor"}
                 onChange={handleChange}
-                value={lightColor || '#ffffff'}
+                value={lightColor || ''}
                 />
 
                 <br />
@@ -330,7 +335,7 @@ function CanvasValuesForm ({
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                value={lightPositionx || 0}
+                value={lightPositionx || ""}
                 />
 
                 <br />
@@ -342,7 +347,7 @@ function CanvasValuesForm ({
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                value={lightPositionz || 10}
+                value={lightPositionz || ""}
                 />
 
                 <br />
@@ -354,7 +359,7 @@ function CanvasValuesForm ({
                 max={10}
                 step={0.01}
                 onChange={handleChange}
-                value={lightPositiony || 0}
+                value={lightPositiony || ""}
                 />
 
                 <br />
@@ -366,7 +371,7 @@ function CanvasValuesForm ({
                 max={100}
                 step={0.01}
                 onChange={handleChange}
-                value={lightIntensity || 50}
+                value={lightIntensity || ""}
                 />
                 </>
               )}

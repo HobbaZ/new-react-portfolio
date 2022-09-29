@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+import {Heading, heading, P, Label} from '../components/BaseSettings'
 
   function EditValuesForm ({
     handleChange,
@@ -16,10 +18,12 @@ import React, { useEffect } from 'react';
     buttonTextColor
   }) {
 
+    const headingRef = useRef(null)
+
 //set values on form side
 useEffect(() => {
   localStorage.setItem("greyscale", JSON.stringify(greyscale))
-  localStorage.setItem("h1Color", JSON.stringify(h1Color))
+  localStorage.setItem("h1Color", JSON.stringify(h1Color)) 
   localStorage.setItem("pColor", JSON.stringify(pColor))
   localStorage.setItem("linkColor", JSON.stringify(linkColor))
   localStorage.setItem("backgroundGradientAngle", JSON.stringify(backgroundGradientAngle))
@@ -43,16 +47,26 @@ useEffect(() => {
   buttonGradientColor1, 
   buttonGradientColor2,
   labelColor,
-  buttonTextColor
+  buttonTextColor,
 ]);
+
+/*useEffect(() => {
+  h1Color = JSON.parse(localStorage.getItem("h1Color")) || "#000000"
+}, [h1Color])*/
 
         return (
             <>
                 
-                <form>
-                <h1 className='text-center'>HTML Edit Options</h1>
+                <form id='HTMLEditForm'>
+                <Heading  
+                valueToChange={h1Color}
+                text="HTML Edit Options">
+                </Heading>
 
-                <label>{greyscale ? "Enable": "Disable"} Greyscale</label>
+                <Label
+                valueToChange={labelColor}
+                text = {greyscale ? "Enable Greyscale": "Disable Greyscale"}
+                ></Label>
                 <input type={"checkbox"}
                 name= {"greyscale"}
                 onChange={handleChange}
@@ -63,9 +77,10 @@ useEffect(() => {
 
                 <label>Heading Colour</label>
                 <input type={"color"}
+                ref={headingRef}
                 name= {"h1Color"}
                 onChange={handleChange}
-                value={h1Color || '#000000'}
+                value={h1Color || ''}
                 />
 
                 <br />
@@ -74,7 +89,7 @@ useEffect(() => {
                 <input type={"color"}
                 name= {"pColor"}
                 onChange={handleChange}
-                value={pColor || '#000000'}
+                value={pColor || ''}
                 />
 
                 <br />
@@ -83,7 +98,7 @@ useEffect(() => {
                 <input type={"color"}
                 name= {"labelColor"}
                 onChange={handleChange}
-                value={labelColor || '#000000'}
+                value={labelColor || ''}
                 />
 
                 <br />
@@ -92,7 +107,7 @@ useEffect(() => {
                 <input type={"color"}
                 name= {"linkColor"}
                 onChange={handleChange}
-                value={linkColor || '#000000'}
+                value={linkColor || ''}
                 />
 
                 <br />
@@ -104,7 +119,7 @@ useEffect(() => {
                 placeholder="0"
                 name= {'backgroundGradientAngle'}
                 onChange={handleChange}
-                value={backgroundGradientAngle || "0"}
+                value={backgroundGradientAngle || ""}
                 />
 
                 <br />
@@ -113,13 +128,13 @@ useEffect(() => {
                 <input type={"color"}
                 name= {"backgroundGradientColor2"}
                 onChange={handleChange}
-                value={backgroundGradientColor2 || '#ffffff'}
+                value={backgroundGradientColor2 || ''}
                 />
 
                 <input type={"color"}
                 name= {"backgroundGradientColor1"}
                 onChange={handleChange}
-                value={backgroundGradientColor1 || '#ffffff'}
+                value={backgroundGradientColor1 || ''}
                 />
 
                 <br />
@@ -131,7 +146,7 @@ useEffect(() => {
                 name= {"buttonGradientAngle"}
                 placeholder="0"
                 onChange={handleChange}
-                value={buttonGradientAngle || "0"}
+                value={buttonGradientAngle || ""}
                 />
 
                 <br />
@@ -140,13 +155,13 @@ useEffect(() => {
                 <input type={"color"}
                 name= {"buttonGradientColor2"}
                 onChange={handleChange}
-                value={buttonGradientColor2 || '#000000'}
+                value={buttonGradientColor2 || ''}
                 />
 
                 <input type={"color"}
                 name= {"buttonGradientColor1"}
                 onChange={handleChange}
-                value={buttonGradientColor1 || '#000000'}
+                value={buttonGradientColor1 || ''}
                 />
 
                 <br />
@@ -155,7 +170,7 @@ useEffect(() => {
                 <input type={"color"}
                 name= {"buttonTextColor"}
                 onChange={handleChange}
-                value={buttonTextColor || '#ffffff'}
+                value={buttonTextColor || ''}
                 />
 
                 </form>

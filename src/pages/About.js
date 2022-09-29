@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 
 import { Container, Button } from 'react-bootstrap';
 
 import CanvasContainer from './threeJS/CanvasContainer';
 
 import EditValuesForm from '../components/EditValuesForm'
+
+import {Heading, P, Label} from '../components/BaseSettings'
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -32,7 +34,7 @@ function About() {
     // HTML variables
 
     //get values from form with localstorage
-    greyscale: JSON.parse(localStorage.getItem("greyscale")) || false,
+    greyscale: false,
     h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#000000",
     pColor: JSON.parse(localStorage.getItem("pColor")) || "#000000",
     linkColor: JSON.parse(localStorage.getItem("linkColor")) || "#000000",
@@ -65,21 +67,27 @@ function About() {
   })
 
   const handleChange = (event) => {
-    //const value = event.target.value
     const value = event.target.type === "checkbox" ? event.target.checked : event.target.value;
-    setUserInputs({...userInputs, 
-      [event.target.name]: value })
-  }
+    setUserInputs(previousState => {
+      return {...previousState, [event.target.name]: value}
+  })}
 
-    //get all headings
-    const headings = document.querySelectorAll("h1, h2, h3, h4, h5");
+   
+
+    useEffect(() => {
+      userInputs.greyscale = JSON.parse(localStorage.getItem("greyscale"))
+      userInputs.h1Color = JSON.parse(localStorage.getItem("h1Color"))
+      /*userInputs.pColor = JSON.parse(localStorage.getItem("pColor"))
+
+       //get all headings
+    const headings = document.getElementsByClassName("heading");
 
     for (let index = 0; index < headings.length; index++) {
-      headings[index].style = `color: ${userInputs.h1Color}`
+      headings[index].style = `background-Color: ${userInputs.h1Color}`
     }
   
     //get all paragraphs and footer
-    const paragraphs = document.querySelectorAll("p, a");
+    const paragraphs = document.getElementsByClassName("p");
   
     for (let index = 0; index < paragraphs.length; index++) {
       paragraphs[index].style = `color: ${userInputs.pColor}`
@@ -98,20 +106,12 @@ function About() {
     for (let index = 0; index < labels.length; index++) {
       labels[index].style = `color: ${userInputs.labelColor}`
     }
-
-    //set nav bar background color
-    /*const navBar = document.getElementById("navbar-nav");
-    navBar.style = `background: ${userInputs.backgroundGradientColor2}`*/
-  
-    //set model form background color
-    /*const modelForm = document.getElementById("modelForm");
-    modelForm.style = `background: ${backgroundGradientColor2}`*/
   
     //Get background gradient
     document.body.style = `background: linear-gradient(${userInputs.backgroundGradientAngle}deg, ${userInputs.backgroundGradientColor1}, ${userInputs.backgroundGradientColor2})`;
   
     //Get all buttons and change gradient
-    const buttons = document.querySelectorAll("button");
+    const buttons = document.getElementsByClassName("btn");
   
     for (let index = 0; index < buttons.length; index++) {
       buttons[index].style = `background: linear-gradient(${userInputs.buttonGradientAngle}deg, ${userInputs.buttonGradientColor1}, ${userInputs.buttonGradientColor2}`;
@@ -130,14 +130,9 @@ function About() {
   
     for (let index = 0; index < navLinks.length; index++) {
       navLinks[index].style = `color: ${userInputs.linkColor}`
-    }
+    } */
 
-  // useEffect?
-  
-  /*useEffect(() => {
-    userInputs.greyscale = JSON.parse(localStorage.getItem("greyscale"))
-    userInputs.h1Color = JSON.parse(localStorage.getItem("h1Color"))
-  })*/
+    }, [])
 
     return (
 
@@ -167,12 +162,10 @@ function About() {
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
               <Button className=' btn btn-primary w-25'
-              
-                    onClick={() => setShowEditForm(!showEditForm)}>
-                        <div className="buttonText">Edit HTML Values {showEditForm ? "^" : "˅"}</div>
+                  onClick={() => setShowEditForm(!showEditForm)}>
+                  <div className="buttonText">Edit HTML Values {showEditForm ? "^" : "˅"}</div>
               </Button>
             </div>
- 
               
               {/*Edit form*/}
               {showEditForm && (
@@ -198,12 +191,23 @@ function About() {
 
       <div className='aboutTextBox'>
 
-      <h1>Hi, I'm Zac and I'm a web developer based in inner Sydney</h1>
+      <Heading 
+      valueToChange={userInputs.h1Color}
+      text ="Hi, I'm Zac and I'm a web developer based in inner Sydney"
+      >
+      </Heading>
 
-      <p>I'm a junior full stack web developer based in the greater Sydney area. I enjoy working on interesting projects</p>
-  
+      <P  
+      valueToChange={userInputs.pColor}
+      text="I'm a junior full stack web developer based in the greater Sydney area. I enjoy working on interesting projects">
+      </P>
+
       <div className="text-center">
-      <h2>Skills</h2>
+      <Heading 
+      valueToChange={userInputs.h1Color}
+      text ="Skills"
+      >
+      </Heading>
       {iconArray.map((element, index) => (
         <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${userInputs.greyscale? '0%' : '100%'})` }} />
       ))}

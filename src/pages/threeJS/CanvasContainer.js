@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {OrbitControls, softShadows } from '@react-three/drei'
 
@@ -33,6 +33,12 @@ function CanvasContainer ({
     modelType, 
     modelColor
 }) {
+
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("labelColor"))
+    JSON.parse(localStorage.getItem("h1Color"))
+    JSON.parse(localStorage.getItem("labelColor"))
+  })
 
   //edit form
   const [showEditModelForm, setShowEditModelForm] = useState(false)

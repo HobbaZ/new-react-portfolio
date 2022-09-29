@@ -61,7 +61,7 @@ function Projects() {
     return (
         <>
         <Container id='projects'>
-            <h1 className="text-center" id="projects">Projects</h1>
+            <h1 className="text-center heading" id="projects">Projects</h1>
 
             <div className='d-flex flex-row flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (
@@ -69,11 +69,11 @@ function Projects() {
                 <div className='card w-25 p-2 m-1'>
                 <div className='card-body'>
                 <div className='card-title'>
-                <h3 key={index}>{repo.name.replace(/-/g, " ")}</h3> 
+                <h3 className='heading' key={index}>{repo.name.replace(/-/g, " ")}</h3> 
                 </div>
 
                 <div className='card-text'>
-                <p>{repo.description}</p>
+                <p className='p'>{repo.description}</p>
                 </div>
 
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
