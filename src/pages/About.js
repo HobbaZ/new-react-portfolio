@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Container, Button } from 'react-bootstrap';
 
@@ -6,7 +6,7 @@ import CanvasContainer from './threeJS/CanvasContainer';
 
 import EditValuesForm from '../components/EditValuesForm'
 
-import {Heading, P, Label} from '../components/BaseSettings'
+import {Heading, P} from '../components/BaseSettings'
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -24,7 +24,35 @@ let iconArray = [
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg"
 ];
 
-function About() {
+function About(/*{
+  handleChange,
+  labelColor,
+  greyscale, 
+  h1Color, 
+  pColor,
+  linkColor,
+  backgroundGradientAngle,
+  backgroundGradientColor1,
+  backgroundGradientColor2,
+  buttonGradientAngle,
+  buttonGradientColor1,
+  buttonGradientColor2,
+  buttonTextColor,
+  ambientLightColor,
+  lightPositionx, 
+  lightPositiony,
+  lightColor, 
+  lightIntensity, 
+  lightPositionz, 
+  roughness, 
+  metalness, 
+  modelMat,
+  specularColor, 
+  wireframe, 
+  shininess, 
+  modelType, 
+  modelColor
+}*/) {
 
   //edit form
   const [showEditForm, setShowEditForm] = useState(false)
@@ -75,53 +103,53 @@ function About() {
    
 
     useEffect(() => {
-      userInputs.greyscale = JSON.parse(localStorage.getItem("greyscale"))
-      userInputs.h1Color = JSON.parse(localStorage.getItem("h1Color"))
-      /*userInputs.pColor = JSON.parse(localStorage.getItem("pColor"))
+      //greyscale = JSON.parse(localStorage.getItem("greyscale"))
+      //h1Color = JSON.parse(localStorage.getItem("h1Color"))
+      /*pColor = JSON.parse(localStorage.getItem("pColor"))
 
        //get all headings
     const headings = document.getElementsByClassName("heading");
 
     for (let index = 0; index < headings.length; index++) {
-      headings[index].style = `background-Color: ${userInputs.h1Color}`
+      headings[index].style = `background-Color: ${h1Color}`
     }
   
     //get all paragraphs and footer
     const paragraphs = document.getElementsByClassName("p");
   
     for (let index = 0; index < paragraphs.length; index++) {
-      paragraphs[index].style = `color: ${userInputs.pColor}`
+      paragraphs[index].style = `color: ${pColor}`
     }
 
     //get all cards
     const cardBorders = document.getElementsByClassName("card");
   
     for (let index = 0; index < cardBorders.length; index++) {
-      cardBorders[index].style = `border: 1px solid ${userInputs.pColor}`
+      cardBorders[index].style = `border: 1px solid ${pColor}`
     }
 
     //get all labels
     const labels = document.querySelectorAll("label");
   
     for (let index = 0; index < labels.length; index++) {
-      labels[index].style = `color: ${userInputs.labelColor}`
+      labels[index].style = `color: ${labelColor}`
     }
   
     //Get background gradient
-    document.body.style = `background: linear-gradient(${userInputs.backgroundGradientAngle}deg, ${userInputs.backgroundGradientColor1}, ${userInputs.backgroundGradientColor2})`;
+    document.body.style = `background: linear-gradient(${backgroundGradientAngle}deg, ${backgroundGradientColor1}, ${backgroundGradientColor2})`;
   
     //Get all buttons and change gradient
     const buttons = document.getElementsByClassName("btn");
   
     for (let index = 0; index < buttons.length; index++) {
-      buttons[index].style = `background: linear-gradient(${userInputs.buttonGradientAngle}deg, ${userInputs.buttonGradientColor1}, ${userInputs.buttonGradientColor2}`;
+      buttons[index].style = `background: linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`;
     }
 
     //Get all button text change color
     const buttonText = document.getElementsByClassName("buttonText");
 
     for (let index = 0; index < buttonText.length; index++) {
-      buttonText[index].style = `color: ${userInputs.buttonTextColor}`;
+      buttonText[index].style = `color: ${buttonTextColor}`;
       
     }
   
@@ -129,7 +157,7 @@ function About() {
     const navLinks = document.getElementsByClassName("nav-link");
   
     for (let index = 0; index < navLinks.length; index++) {
-      navLinks[index].style = `color: ${userInputs.linkColor}`
+      navLinks[index].style = `color: ${linkColor}`
     } */
 
     }, [])
@@ -171,7 +199,9 @@ function About() {
               {showEditForm && (
                 <>
 
-              <EditValuesForm 
+              {/*send data to html edit form*/}
+              <EditValuesForm
+               
               handleChange= {handleChange} 
               greyscale = {userInputs.greyscale}
               h1Color= {userInputs.h1Color}

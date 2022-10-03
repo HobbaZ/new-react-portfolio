@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { Container, Button } from 'react-bootstrap';
 
+import {Heading, P} from '../components/BaseSettings'
+
 function Projects() {
 
     // state for messages
@@ -61,7 +63,11 @@ function Projects() {
     return (
         <>
         <Container id='projects'>
-            <h1 className="text-center heading" id="projects">Projects</h1>
+        {/*<Heading 
+      valueToChange={h1Color}
+      text ="Projects"
+      >
+      </Heading>*/}
 
             <div className='d-flex flex-row flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (

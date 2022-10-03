@@ -1,53 +1,39 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
-import {Heading, heading, P, Label} from '../components/BaseSettings'
+import {Heading, Label} from '../components/BaseSettings'
 
   function EditValuesForm ({
-    handleChange,
-    labelColor,
-    greyscale, 
-    h1Color, 
-    pColor,
-    linkColor,
-    backgroundGradientAngle,
-    backgroundGradientColor1,
-    backgroundGradientColor2,
-    buttonGradientAngle,
-    buttonGradientColor1,
-    buttonGradientColor2,
-    buttonTextColor
+    ...props
   }) {
-
-    const headingRef = useRef(null)
 
 //set values on form side
 useEffect(() => {
-  localStorage.setItem("greyscale", JSON.stringify(greyscale))
-  localStorage.setItem("h1Color", JSON.stringify(h1Color)) 
-  localStorage.setItem("pColor", JSON.stringify(pColor))
-  localStorage.setItem("linkColor", JSON.stringify(linkColor))
-  localStorage.setItem("backgroundGradientAngle", JSON.stringify(backgroundGradientAngle))
-  localStorage.setItem("backgroundGradientColor1", JSON.stringify(backgroundGradientColor1))
-  localStorage.setItem("backgroundGradientColor2", JSON.stringify(backgroundGradientColor2))
-  localStorage.setItem("buttonGradientAngle", JSON.stringify(buttonGradientAngle))
-  localStorage.setItem("buttonGradientColor1", JSON.stringify(buttonGradientColor1))
-  localStorage.setItem("buttonGradientColor2", JSON.stringify(buttonGradientColor2))
-  localStorage.setItem("labelColor", JSON.stringify(labelColor))
-  localStorage.setItem("buttonTextColor", JSON.stringify(buttonTextColor))
+  localStorage.setItem("greyscale", JSON.stringify(props.greyscale))
+  localStorage.setItem("h1Color", JSON.stringify(props.h1Color)) 
+  localStorage.setItem("pColor", JSON.stringify(props.pColor))
+  localStorage.setItem("linkColor", JSON.stringify(props.linkColor))
+  localStorage.setItem("backgroundGradientAngle", JSON.stringify(props.backgroundGradientAngle))
+  localStorage.setItem("backgroundGradientColor1", JSON.stringify(props.backgroundGradientColor1))
+  localStorage.setItem("backgroundGradientColor2", JSON.stringify(props.backgroundGradientColor2))
+  localStorage.setItem("buttonGradientAngle", JSON.stringify(props.buttonGradientAngle))
+  localStorage.setItem("buttonGradientColor1", JSON.stringify(props.buttonGradientColor1))
+  localStorage.setItem("buttonGradientColor2", JSON.stringify(props.buttonGradientColor2))
+  localStorage.setItem("labelColor", JSON.stringify(props.labelColor))
+  localStorage.setItem("buttonTextColor", JSON.stringify(props.buttonTextColor))
 
 } ,[
-  greyscale, 
-  h1Color, 
-  pColor, 
-  linkColor, 
-  backgroundGradientAngle, 
-  backgroundGradientColor1, 
-  backgroundGradientColor2, 
-  buttonGradientAngle, 
-  buttonGradientColor1, 
-  buttonGradientColor2,
-  labelColor,
-  buttonTextColor,
+  props.greyscale, 
+  props.h1Color, 
+  props.pColor, 
+  props.linkColor, 
+  props.backgroundGradientAngle, 
+  props.backgroundGradientColor1, 
+  props.backgroundGradientColor2, 
+  props.buttonGradientAngle, 
+  props.buttonGradientColor1, 
+  props.buttonGradientColor2,
+  props.labelColor,
+  props.buttonTextColor,
 ]);
 
 /*useEffect(() => {
@@ -59,118 +45,152 @@ useEffect(() => {
                 
                 <form id='HTMLEditForm'>
                 <Heading  
-                valueToChange={h1Color}
+                valueToChange={props.h1Color}
                 text="HTML Edit Options">
                 </Heading>
 
                 <Label
-                valueToChange={labelColor}
-                text = {greyscale ? "Enable Greyscale": "Disable Greyscale"}
+                valueToChange={props.labelColor}
+                text = {props.greyscale ? "Enable Greyscale": "Disable Greyscale"}
                 ></Label>
                 <input type={"checkbox"}
                 name= {"greyscale"}
-                onChange={handleChange}
-                checked={greyscale || false}
+                onChange={props.handleChange}
+                checked={props.greyscale || false}
                 />
 
                 <br />
 
-                <label>Heading Colour</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Heading Colour"
+                ></Label>
                 <input type={"color"}
-                ref={headingRef}
                 name= {"h1Color"}
-                onChange={handleChange}
-                value={h1Color || ''}
+                onChange={props.handleChange}
+                value={props.h1Color || ''}
                 />
 
                 <br />
 
-                <label>Paragraph Colour</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Paragraph Colour"
+                ></Label>
                 <input type={"color"}
                 name= {"pColor"}
-                onChange={handleChange}
-                value={pColor || ''}
+                onChange={props.handleChange}
+                value={props.pColor || ''}
                 />
 
                 <br />
 
-                <label>label Colour</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Label Colour"
+                ></Label>
                 <input type={"color"}
                 name= {"labelColor"}
-                onChange={handleChange}
-                value={labelColor || ''}
+                onChange={props.handleChange}
+                value={props.labelColor || ''}
                 />
 
                 <br />
 
-                <label>Link Colour</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Link Colour"
+                ></Label>
                 <input type={"color"}
                 name= {"linkColor"}
-                onChange={handleChange}
-                value={linkColor || ''}
+                onChange={props.handleChange}
+                value={props.linkColor || ''}
                 />
 
                 <br />
 
-                <label>Background Gradient</label><br />
+                <Label
+                valueToChange={props.labelColor}
+                text = "Background Gradient"
+                ></Label>
+                <br />
                 
-                <label>Angle</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Angle"
+                ></Label>
                 <input type={"text"}
                 placeholder="0"
                 name= {'backgroundGradientAngle'}
-                onChange={handleChange}
-                value={backgroundGradientAngle || ""}
+                onChange={props.handleChange}
+                value={props.backgroundGradientAngle || ""}
                 />
 
                 <br />
 
-                <label>Colours</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Colours"
+                ></Label>
                 <input type={"color"}
                 name= {"backgroundGradientColor2"}
-                onChange={handleChange}
-                value={backgroundGradientColor2 || ''}
+                onChange={props.handleChange}
+                value={props.backgroundGradientColor2 || ''}
                 />
 
                 <input type={"color"}
                 name= {"backgroundGradientColor1"}
-                onChange={handleChange}
-                value={backgroundGradientColor1 || ''}
+                onChange={props.handleChange}
+                value={props.backgroundGradientColor1 || ''}
                 />
 
                 <br />
 
-                <label>Button Gradient</label><br />
+                <Label
+                valueToChange={props.labelColor}
+                text = "Button Gradient"
+                ></Label>
+                <br />
 
-                <label>Angle</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Angle"
+                ></Label>
                 <input type={"text"}
                 name= {"buttonGradientAngle"}
                 placeholder="0"
-                onChange={handleChange}
-                value={buttonGradientAngle || ""}
+                onChange={props.handleChange}
+                value={props.buttonGradientAngle || ""}
                 />
 
                 <br />
 
-                <label>Colours</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Colours"
+                ></Label>
                 <input type={"color"}
                 name= {"buttonGradientColor2"}
-                onChange={handleChange}
-                value={buttonGradientColor2 || ''}
+                onChange={props.handleChange}
+                value={props.buttonGradientColor2 || ''}
                 />
 
                 <input type={"color"}
                 name= {"buttonGradientColor1"}
-                onChange={handleChange}
-                value={buttonGradientColor1 || ''}
+                onChange={props.handleChange}
+                value={props.buttonGradientColor1 || ''}
                 />
 
                 <br />
 
-                <label>Button Text Colour</label>
+                <Label
+                valueToChange={props.labelColor}
+                text = "Button Text"
+                ></Label>
                 <input type={"color"}
                 name= {"buttonTextColor"}
-                onChange={handleChange}
-                value={buttonTextColor || ''}
+                onChange={props.handleChange}
+                value={props.buttonTextColor || ''}
                 />
 
                 </form>
