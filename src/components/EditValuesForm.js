@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import {Heading, Label} from '../components/BaseSettings'
+import {Heading, Label, ColorInput} from '../components/BaseSettings'
 
   function EditValuesForm ({
     ...props
@@ -65,34 +65,36 @@ useEffect(() => {
                 valueToChange={props.labelColor}
                 text = "Heading Colour"
                 ></Label>
-                <input type={"color"}
-                name= {"h1Color"}
-                onChange={props.handleChange}
-                value={props.h1Color || ''}
-                />
 
+                <ColorInput
+                colourValue={props.h1Color}
+                defaultValue={"#000000"}
+                fieldName={"h1Color"}
+                handleChange={props.handleChange}
+                />
                 <br />
 
                 <Label
                 valueToChange={props.labelColor}
                 text = "Paragraph Colour"
                 ></Label>
-                <input type={"color"}
-                name= {"pColor"}
-                onChange={props.handleChange}
-                value={props.pColor || ''}
+                <ColorInput
+                colourValue={props.pColor}
+                defaultValue={"#000000"}
+                fieldName={"pColor"}
+                handleChange={props.handleChange}
                 />
-
                 <br />
 
                 <Label
                 valueToChange={props.labelColor}
                 text = "Label Colour"
                 ></Label>
-                <input type={"color"}
-                name= {"labelColor"}
-                onChange={props.handleChange}
-                value={props.labelColor || ''}
+                <ColorInput
+                colourValue={props.labelColor}
+                defaultValue={"#000000"}
+                fieldName={"labelColor"}
+                handleChange={props.handleChange}
                 />
 
                 <br />
@@ -101,10 +103,11 @@ useEffect(() => {
                 valueToChange={props.labelColor}
                 text = "Link Colour"
                 ></Label>
-                <input type={"color"}
-                name= {"linkColor"}
-                onChange={props.handleChange}
-                value={props.linkColor || ''}
+                <ColorInput
+                colourValue={props.linkColor}
+                defaultValue={"#000000"}
+                fieldName={"linkColor"}
+                handleChange={props.handleChange}
                 />
 
                 <br />

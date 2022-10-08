@@ -8,8 +8,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import { useRef } from "react"
 
-function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor}) {
-
+function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor}) {
 
   //reference the mesh component
   const mesh = useRef(null)
@@ -67,16 +66,12 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
   //models
 
   const cube = <boxGeometry/>
-  const cone= <coneGeometry/>
   const torus = <torusGeometry/>
   const tube = <tubeGeometry/>
   const sphere = <sphereGeometry/>
-  const ring = <ringGeometry/>
   const cylinder = <cylinderGeometry/>
   const torusKnot = <torusKnotGeometry/>
   const dodecahedron = <dodecahedronGeometry/>
-
-
 
   //Text geometry work around since doesn't exist in r3f
   extend ({ TextGeometry })
@@ -95,21 +90,9 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
       )
     }
 
-    else if (modelType === "cone") {
-      return (
-        cone
-      )
-    }
-
     else if (modelType === "torus") {
       return (
         torus
-      )
-    }
-
-    else if (modelType === "ring") {
-      return (
-        ring
       )
     }
 
@@ -224,4 +207,4 @@ function Box ({modelColor, metalness, roughness, modelMat, wireframe, shininess,
     }
 }
 
-export default Box
+export default ModelSettings

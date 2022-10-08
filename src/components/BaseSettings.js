@@ -1,10 +1,13 @@
 import React from 'react';
 
+import { Button } from 'react-bootstrap';
+
 //Must set default value otherwise you get console warning everytime colour changes
-function ColorInput ({ colourValue, handleChange, defaultValue}) {
+function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
     return (
       <>
       <input type="color"
+      name={fieldName}
       className="colorInput w-25 p-0"
       value={colourValue || defaultValue}
       onChange={handleChange} />
@@ -78,4 +81,25 @@ function ColorInput ({ colourValue, handleChange, defaultValue}) {
     )
   }
 
-  export {ColorInput, CheckboxInput, P, Heading, Label, TextInput, RangeInput} 
+  function FormButton ({buttonGradientAngle, buttonGradientColor1, buttonGradientColor2, text, className, onClick, colour}) {
+    return (
+        <>
+        <Button style = {{background: `linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`}}
+        onClick ={onClick}
+        className={className}
+        >
+            <div style = {{color: `${colour}`}}>{text}</div>
+        </Button>
+        </>
+    )
+  }
+
+  /*function ButtonText ({colour}) {
+    return (
+        <>
+        <Button style = {{color: `${colour}`}} />
+        </>
+    )
+  }*/
+
+  export {ColorInput, CheckboxInput, P, Heading, Label, TextInput, RangeInput, FormButton} 

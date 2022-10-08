@@ -2,12 +2,28 @@ import React, {useState} from 'react';
 
 import { Container, Form, FormGroup, Button} from 'react-bootstrap';
 
+import {Heading, P, Label} from '../components/BaseSettings'
+
 function validateEmail(email) {
     const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return checkEmail.test(String(email).toLowerCase());
   }
 
 function ContactMe() {
+
+  const [userInputs, setUserInputs] = useState({
+    
+    // HTML variables
+
+    //get values from form with localstorage
+    h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#000000",
+    pColor: JSON.parse(localStorage.getItem("pColor")) || "#000000",
+    buttonGradientAngle: JSON.parse(localStorage.getItem("buttonGradientAngle")) || 0,
+    buttonGradientColor1: JSON.parse(localStorage.getItem("buttonGradientColor1")) || "#000000",
+    buttonGradientColor2: JSON.parse(localStorage.getItem("buttonGradientColor2")) || "#000000",
+    buttonTextColor: JSON.parse(localStorage.getItem("buttonTextColor")) || "#ffffff",
+    labelColor: JSON.parse(localStorage.getItem("labelColor")) || "#000000",
+  })
 
     const [email, setEmail] = useState('');
     const [userName, setUserName] = useState('');
@@ -49,13 +65,31 @@ function ContactMe() {
   return (
     <>
     <Container id='contactMe'>
-      <h1 className='text-center heading'>Contact Me</h1>
-      <p className='text-center p'>Shoot me an email at <a className='nav-link' href="mailto:zachobba@gmail.com">zachobba@gmail.com</a> or find me on <a className='nav-link' href='https://www.linkedin.com/in/zachary-hobba-52aaa182/'>LinkedIn</a></p>
+    <div className="text-center">
+      <Heading 
+      valueToChange={userInputs.h1Color}
+      text ="Contact Me"
+      >
+      </Heading>
+    </div>
+
+    <div className="text-center">
+      <P  
+      valueToChange={userInputs.pColor}
+      text= "Have a question? Fill in the enquiry form below and I'll get back to you as soon as possible."
+      >
+      </P>
+    </div>
 
       <Form className="form">
         <FormGroup>
         
-        <label>Name:</label><br></br>
+        <Label
+        valueToChange={userInputs.labelColor}
+        text = "Name:"
+        ></Label>
+        
+        <br></br>
         <input className='form-control'
           value={userName}
           name="userName"
@@ -65,7 +99,12 @@ function ContactMe() {
           required={true}
         />
 
-        <label>Email:</label><br></br>
+        <Label
+        valueToChange={userInputs.labelColor}
+        text = "Email:"
+        ></Label>
+        
+        <br></br>
         <input className='form-control'
           value={email}
           name="email"
@@ -75,7 +114,12 @@ function ContactMe() {
           required={true}
         />
 
-        <label>Subject:</label><br></br>
+        <Label
+        valueToChange={userInputs.labelColor}
+        text = "Subject:"
+        ></Label>
+        
+        <br></br>
         <select className='form-control'
         value={subject}
         required={true}
@@ -87,7 +131,12 @@ function ContactMe() {
         <option value="3">Talk About a Project or Idea</option>
         </select>
 
-        <label>Message:</label><br></br>
+        <Label
+        valueToChange={userInputs.labelColor}
+        text = "Message:"
+        ></Label>
+        
+        <br></br>
         <textarea className='form-control textArea'
           value={msg}
           name="msg"

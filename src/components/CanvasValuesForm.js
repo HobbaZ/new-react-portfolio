@@ -1,52 +1,56 @@
 import React, { useEffect, useState } from 'react';
 
+import {Heading, P, Label, FormButton} from '../components/BaseSettings'
+
 import { Button } from 'react-bootstrap';
 
 function CanvasValuesForm ({
   // data from canvas Container
-    handleChange, 
-    ambientLightColor,
-    lightPositionx, 
-    lightPositiony,
-    lightColor, 
-    lightIntensity, 
-    lightPositionz, 
-    roughness, 
-    metalness, 
-    modelMat,
-    specularColor, 
-    wireframe, 
-    shininess, 
-    modelType, 
-    modelColor
+    ...props
     }) {
 
+    const [userInputs, setUserInputs] = useState({
+  
+      // HTML variables
+  
+      //get values from Edit Values form with localstorage
+      h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#000000",
+      pColor: JSON.parse(localStorage.getItem("pColor")) || "#000000",
+      buttonGradientAngle: JSON.parse(localStorage.getItem("buttonGradientAngle")) || 0,
+      buttonGradientColor1: JSON.parse(localStorage.getItem("buttonGradientColor1")) || "#000000",
+      buttonGradientColor2: JSON.parse(localStorage.getItem("buttonGradientColor2")) || "#000000",
+      buttonTextColor: JSON.parse(localStorage.getItem("buttonTextColor")) || "#ffffff",
+      labelColor: JSON.parse(localStorage.getItem("labelColor")) || "#000000",
+    })
+
     useEffect (() => {
-      localStorage.setItem("ambientLightColor", JSON.stringify(ambientLightColor))
-      localStorage.setItem("lightPositionx", JSON.stringify(lightPositionx))
-      localStorage.setItem("lightPositiony", JSON.stringify(lightPositiony))
-      localStorage.setItem("lightPositionz", JSON.stringify(lightPositionz))
-      localStorage.setItem("lightColor", JSON.stringify(lightColor))
-      localStorage.setItem("lightIntensity", JSON.stringify(lightIntensity))
-      localStorage.setItem("roughness", JSON.stringify(roughness))
-      localStorage.setItem("metalness", JSON.stringify(metalness))
-      localStorage.setItem("modelMat", JSON.stringify(modelMat))
-      localStorage.setItem("specularColor", JSON.stringify(specularColor))
-      localStorage.setItem("wireframe", JSON.stringify(wireframe))
-      localStorage.setItem("shininess", JSON.stringify(shininess))
-      localStorage.setItem("modelType", JSON.stringify(modelType))
-      localStorage.setItem("modelColor", JSON.stringify(modelColor))
+      localStorage.setItem("ambientLightColor", JSON.stringify(props.ambientLightColor))
+      localStorage.setItem("lightPositionx", JSON.stringify(props.lightPositionx))
+      localStorage.setItem("lightPositiony", JSON.stringify(props.lightPositiony))
+      localStorage.setItem("lightPositionz", JSON.stringify(props.lightPositionz))
+      localStorage.setItem("lightColor", JSON.stringify(props.lightColor))
+      localStorage.setItem("lightIntensity", JSON.stringify(props.lightIntensity))
+      localStorage.setItem("roughness", JSON.stringify(props.roughness))
+      localStorage.setItem("metalness", JSON.stringify(props.metalness))
+      localStorage.setItem("modelMat", JSON.stringify(props.modelMat))
+      localStorage.setItem("specularColor", JSON.stringify(props.specularColor))
+      localStorage.setItem("wireframe", JSON.stringify(props.wireframe))
+      localStorage.setItem("shininess", JSON.stringify(props.shininess))
+      localStorage.setItem("modelType", JSON.stringify(props.modelType))
+      localStorage.setItem("modelColor", JSON.stringify(props.modelColor))
 
       //get form values
-      JSON.parse(localStorage.getItem("labelColor"))
-      JSON.parse(localStorage.getItem("h1Color"))
-      JSON.parse(localStorage.getItem("labelColor"))
-    }, [
-      ambientLightColor,
-      lightPositionx, 
-      lightPositiony,
-      lightColor, 
-      lightIntensity, 
+      userInputs.pColor= JSON.parse(localStorage.getItem("pColor"))
+      userInputs.h1Color = JSON.parse(localStorage.getItem("h1Color"))
+      userInputs.labelColor= JSON.parse(localStorage.getItem("labelColor"))
+    }, /*[
+      userInputs,
+      ...props
+      /*props.ambientLightColor,
+      props.lightPositionx, 
+      props.lightPositiony,
+      props.lightColor, 
+      props.lightIntensity, 
       lightPositionz, 
       roughness, 
       metalness, 
@@ -56,7 +60,7 @@ function CanvasValuesForm ({
       shininess, 
       modelType, 
       modelColor
-    ])
+    ]*/)
 
     //Model submenu form
     const [showModelOptions, setShowModelOptions] = useState(false)
@@ -72,153 +76,215 @@ function CanvasValuesForm ({
 
   //Populate material options
   function materialOptions() {
-    if (modelMat === "meshStandardMaterial") {
+    if (props.modelMat === "meshStandardMaterial") {
       return (
         <>
-        <p className='p'>The standard mesh material reacts to lights and shadows (and is more expensive to create), metalness and roughness values create a more realistic looking object</p>
+
+      <P  
+      valueToChange={userInputs.pColor}
+      text="The standard mesh material reacts to lights and shadows (and is more expensive to create), 
+      metalness and roughness values create a more realistic looking object">
+      </P>
         <br />
-                <label>Model Colour</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Model Colour"
+                ></Label>
                 <input type={"color"}
                 name={"modelColor"}
-                onChange={handleChange}
-                value={modelColor || ''}
+                onChange={props.handleChange}
+                value={props.modelColor || ''}
                 />
 
                 <br />
 
-                <label>Model Metalness</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Model Metalness"
+                ></Label>
                 <input type={"range"}
                 name={"metalness"}
                 min={0}
                 max={10}
                 step={0.01}
-                onChange={handleChange}
-                value= {metalness || ""}
+                onChange={props.handleChange}
+                value= {props.metalness || ""}
                 />
 
                 <br />
 
-                <label>Model Roughness</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Model Roughness"
+                ></Label>
                 <input type={"range"}
                 name={"roughness"}
                 min={0}
                 max={10}
                 step={0.01}
-                onChange={handleChange}
-                value= {roughness || ""}
+                onChange={props.handleChange}
+                value= {props.roughness || ""}
                 />
 
-                <label>Specular Colour</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Specular Colour"
+                ></Label>
                 <input type={"color"}
                 name={"specularColor"}
-                onChange={handleChange}
-                value={specularColor || ''}
+                onChange={props.handleChange}
+                value={props.specularColor || ''}
                 />
         </>
       )}
 
-    else if (modelMat === "meshBasicMaterial") {
+    else if (props.modelMat === "meshBasicMaterial") {
       return (
         <>
-        <p className='p'>The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements</p>
+        <P  
+        valueToChange={userInputs.pColor}
+        text="The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements">
+        </P>
+
         <br />
-              <label>Model Colour</label>
+              <Label
+                valueToChange={userInputs.labelColor}
+                text = "Model Colour"
+                ></Label>
               <input type={"color"}
                 name={"modelColor"}
-                onChange={handleChange}
-                value={modelColor || ''}
+                onChange={props.handleChange}
+                value={props.modelColor || ''}
                 />
         </>
       )}
 
-    else if (modelMat === "meshPhongMaterial") {
+    else if (props.modelMat === "meshPhongMaterial") {
       return (
         <>
-        <p className='p'>Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.</p>
+        <P  
+        valueToChange={userInputs.pColor}
+        text="Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.">
+        </P>
         <br />
-              <label>Model Colour</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Model Colour"
+                ></Label>
               <input type={"color"}
                 name={"modelColor"}
-                onChange={handleChange}
-                value={modelColor || ''}
+                onChange={props.handleChange}
+                value={props.modelColor || ''}
                 />
 
               <br />
 
-              <label>Specular Colour</label>
+              <Label
+                valueToChange={userInputs.labelColor}
+                text = "Specular Colour"
+                ></Label>
               <input type={"color"}
                 name={"specularColor"}
-                onChange={handleChange}
-                value={specularColor || ''}
+                onChange={props.handleChange}
+                value={props.specularColor || ''}
                 />
 
               <br />
 
-              <label>Shininess</label>
+              <Label
+                valueToChange={userInputs.labelColor}
+                text = "Shininess"
+                ></Label>
               <input type={"range"}
                 name={"shininess"}
                 min={30}
                 max={100}
                 step={0.01}
-                onChange={handleChange}
-                value={shininess || ""}
+                onChange={props.handleChange}
+                value={props.shininess || ""}
                 />
         </>
       )}
 
-      else if (modelMat === "meshToonMaterial") {
+      else if (props.modelMat === "meshToonMaterial") {
         return (
           <>
-          <p className='p'>Toon mesh materials represent cel shading and makes models look cartoonish</p>
+          <P  
+          valueToChange={userInputs.pColor}
+          text="Toon mesh materials represent cel shading and makes models look cartoonish.">
+          </P>
           <br />
-                <label>Model Colour</label>
+          <Label
+          valueToChange={userInputs.labelColor}
+          text = "Model Colour"
+          ></Label>
                 <input type={"color"}
                 name={"modelColor"}
-                onChange={handleChange}
-                value={modelColor || ''}
+                onChange={props.handleChange}
+                value={props.modelColor || ''}
                 />
           </>
         )}
   
 
-    else if (modelMat === "meshBasicMaterial") {
+    else if (props.modelMat === "meshBasicMaterial") {
       return (
         <>
-         <p className='p'>The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending on the closeness of the camera, no tweakable effects for this material.</p>
+        <P  
+          valueToChange={userInputs.pColor}
+          text="The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending 
+          on the closeness of the camera, no tweakable effects for this material.">
+          </P>
         </>
       )}
 
-      else if (modelMat === "pointsMaterial") {
+      else if (props.modelMat === "pointsMaterial") {
         return (
           <>
-           <p className='p'>The points material shows all the vertices of the selected model.</p>
+          <P  
+          valueToChange={userInputs.pColor}
+          text="The points material shows all the vertices of the selected model.">
+          </P>
 
            <br />
-              <label>Model Colour</label>
+           <Label
+            valueToChange={userInputs.labelColor}
+            text = "Model Colour"
+            ></Label>
               <input type={"color"}
                 name={"modelColor"}
-                onChange={handleChange}
-                value={modelColor || ''}
+                onChange={props.handleChange}
+                value={props.modelColor || ''}
                 />
           </>
         )}
-
-        
 
   }
 
         return (
             <>
                 <form className='modelForm' id="modelForm">
-                <h4 className='text-center heading'>Model Edit Options</h4>
+
+                <div className='text-center'>
+                <Heading 
+                valueToChange={userInputs.h1Color}
+                text ="Model Edit Options"
+                >
+                </Heading>
+                </div>
 
                 {/*Click to show or hide light options form*/ }
                 <div className='text-center'>
-                      <Button className=' btn btn-primary'
-                      
-                            onClick={() => setShowModelOptions(!showModelOptions)}>
-                                <div className="buttonText">Edit Model {showModelOptions ? "^" : "˅"}</div>
-                      </Button>
+                      <FormButton 
+                      className='btn btn-primary'
+                      buttonGradientAngle={userInputs.buttonGradientAngle}
+                      buttonGradientColor1={userInputs.buttonGradientColor1}
+                      buttonGradientColor2={userInputs.buttonGradientColor2}
+                      text={showModelOptions ? "Edit Model ^" : "Edit Model ˅"}
+                      colour={userInputs.buttonTextColor}
+
+                      onClick={() => setShowModelOptions(!showModelOptions)}>
+                      </FormButton>
                     </div>
 
                     {/*Light options*/}
@@ -226,11 +292,16 @@ function CanvasValuesForm ({
                 <>
 
                 {/* Might refactor to less model options in the future*/}
-                <label>Model Type</label><br />
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Model Type"
+                ></Label>
+                
+                <br />
                 <select 
-                value={modelType || "cube"}
+                value={props.modelType || "cube"}
                 name={"modelType"}
-                onChange={handleChange}
+                onChange={props.handleChange}
                 >
                 <option value="cube">Cube</option>
                 <option value="sphere">Sphere</option>
@@ -245,10 +316,15 @@ function CanvasValuesForm ({
                 <option value="customModel">Custom Model</option>
                 </select>
 
-                {modelType === "customModel" ? 
+                {props.modelType === "customModel" ? 
               <>
               <br />
-                <label>Upload Model (.fbx, .glb)</label><br />
+              <Label
+                valueToChange={userInputs.labelColor}
+                text = "Upload Model (.fbx, .glb)"
+                ></Label>
+                
+                <br />
                   <input 
                     type="file" 
                     name={"filesToUpload"}
@@ -264,11 +340,15 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <label>Model Material</label><br />
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Model Material"
+                ></Label>
+                <br />
                 <select
-                value={modelMat || "meshStandardMaterial"}
+                value={props.modelMat || "meshStandardMaterial"}
                 name={"modelMat"}
-                onChange={handleChange}
+                onChange={props.handleChange}
                 >
                 <option value="meshStandardMaterial">MeshStandardMaterial</option>
                 <option value="meshBasicMaterial">MeshBasicMaterial</option>
@@ -278,19 +358,22 @@ function CanvasValuesForm ({
                 <option value="pointsMaterial">PointsMaterial</option>
                 </select>
 
-                {materialOptions()}
+                {materialOptions()} {/*call function*/}
 
                 {/* Show wireframe option for any materials other than points material */}
-                {modelMat !== "pointsMaterial" ? 
+                {props.modelMat !== "pointsMaterial" ? 
                       <>
                       <br />
-                      <label>Wireframe</label>
+                      <Label
+                      valueToChange={userInputs.labelColor}
+                      text = "Wireframe"
+                      ></Label>
                       <input type={"checkbox"} 
                       name={"wireframe"}
-                      onChange={handleChange}
-                      value={wireframe || ""}
+                      onChange={props.handleChange}
+                      value={props.wireframe || ""}
                       />
-                    </> : null
+                    </> : null //if false don't show anything
                 }
 
                 </>
@@ -300,78 +383,102 @@ function CanvasValuesForm ({
 
             {/*Click to show or hide light options form*/ }
             <div className='text-center'>
-                      <Button className=' btn btn-primary'
-                      
-                            onClick={() => setShowLightOptions(!showLightOptions)}>
-                                <div className="buttonText">Edit Lights {showLightOptions ? "^" : "˅"}</div>
-                      </Button>
-                    </div>
 
-                    {/*Light options*/}
+            <FormButton 
+              className='btn btn-primary'
+              buttonGradientAngle={userInputs.buttonGradientAngle}
+              buttonGradientColor1={userInputs.buttonGradientColor1}
+              buttonGradientColor2={userInputs.buttonGradientColor2}
+              text={showLightOptions ? "Edit Lights ^" : "Edit Lights ˅"}
+              colour={userInputs.buttonTextColor}
+
+              onClick={() => setShowLightOptions(!showLightOptions)}>
+            </FormButton>
+            </div>
+
+            {/*Light options*/}
               {showLightOptions && (
                 <>
-                <label>Ambient Light Colour</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Ambient Light Colour"
+                ></Label>
                 <input type={"color"}
                 name={"ambientLightColor"}
-                onChange={handleChange}
-                value={ambientLightColor || ''}
+                onChange={props.handleChange}
+                value={props.ambientLightColor || ''}
                 />
 
                 <br />
                 
-                <label>Light Colour</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Light Colour"
+                ></Label>
                 <input type={"color"}
                 name={"lightColor"}
-                onChange={handleChange}
-                value={lightColor || ''}
+                onChange={props.handleChange}
+                value={props.lightColor || ''}
                 />
 
                 <br />
 
-                <label>Left/Right Light Position</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Left/Right Light Position"
+                ></Label>
                 <input type={"range"}
                 name={"lightPositionx"}
                 min={-10}
                 max={10}
                 step={0.01}
-                onChange={handleChange}
-                value={lightPositionx || ""}
+                onChange={props.handleChange}
+                value={props.lightPositionx || ""}
                 />
 
                 <br />
 
-                <label>Up/Down Light Position</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Up/Down Light Position"
+                ></Label>
                 <input type={"range"}
                 name={"lightPositionz"}
                 min={-10}
                 max={10}
                 step={0.01}
-                onChange={handleChange}
-                value={lightPositionz || ""}
+                onChange={props.handleChange}
+                value={props.lightPositionz || ""}
                 />
 
                 <br />
 
-                <label>Forward/Back Light Position</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Forward/Back Light Position"
+                ></Label>
                 <input type={"range"}
                 name={"lightPositiony"}
                 min={-10}
                 max={10}
                 step={0.01}
-                onChange={handleChange}
-                value={lightPositiony || ""}
+                onChange={props.handleChange}
+                value={props.lightPositiony || ""}
                 />
 
                 <br />
 
-                <label>Light Intensity</label>
+                <Label
+                valueToChange={userInputs.labelColor}
+                text = "Light Intensity"
+                ></Label>
                 <input type={"range"}
                 name={"lightIntensity"}
                 min={0}
                 max={100}
                 step={0.01}
-                onChange={handleChange}
-                value={lightIntensity || ""}
+                onChange={props.handleChange}
+                value={props.lightIntensity || ""}
                 />
                 </>
               )}

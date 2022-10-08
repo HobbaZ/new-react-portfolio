@@ -6,6 +6,19 @@ import {Heading, P} from '../components/BaseSettings'
 
 function Projects() {
 
+    const [userInputs, setUserInputs] = useState({
+    
+        // HTML variables
+    
+        //get values from form with localstorage
+        h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#000000",
+        pColor: JSON.parse(localStorage.getItem("pColor")) || "#000000",
+        buttonGradientAngle: JSON.parse(localStorage.getItem("buttonGradientAngle")) || 0,
+        buttonGradientColor1: JSON.parse(localStorage.getItem("buttonGradientColor1")) || "#000000",
+        buttonGradientColor2: JSON.parse(localStorage.getItem("buttonGradientColor2")) || "#000000",
+        buttonTextColor: JSON.parse(localStorage.getItem("buttonTextColor")) || "#ffffff"
+      })
+
     // state for messages
     const [infoMessage, setInfoMessage] = useState('');
 
@@ -13,6 +26,9 @@ function Projects() {
 
     //Get my github repo data when component loads
     useEffect(() => {
+            userInputs.h1Color = JSON.parse(localStorage.getItem("h1Color"))
+            userInputs.pColor = JSON.parse(localStorage.getItem("pColor"))
+      
         function getGithubData () {
 
             let requestUrl = 'https://api.github.com/users/HobbaZ/repos';
@@ -58,7 +74,7 @@ function Projects() {
     };
     getGithubData()
 
-    }, [])
+    }, [userInputs])
 
     return (
         <>
@@ -75,11 +91,21 @@ function Projects() {
                 <div className='card w-25 p-2 m-1'>
                 <div className='card-body'>
                 <div className='card-title'>
-                <h3 className='heading' key={index}>{repo.name.replace(/-/g, " ")}</h3> 
+                <Heading 
+                valueToChange={userInputs.h1Color}
+                key={index}
+                text ={repo.name.replace(/-/g, " ")} //replace all dashes in repo name (-) with spaces
+                >
+                </Heading>
+                
+                {/*<h3 className='heading' key={index}>{repo.name.replace(/-/g, " ")}</h3> {/*replace all dashes in repo name (-) with spaces*/}
                 </div>
 
                 <div className='card-text'>
-                <p className='p'>{repo.description}</p>
+                <P  
+                valueToChange={userInputs.pColor}
+                text={repo.description}>
+                </P>
                 </div>
 
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>

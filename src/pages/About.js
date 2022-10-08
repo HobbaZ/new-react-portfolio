@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 import CanvasContainer from './threeJS/CanvasContainer';
 
 import EditValuesForm from '../components/EditValuesForm'
 
-import {Heading, P} from '../components/BaseSettings'
+import {Heading, P, FormButton} from '../components/BaseSettings'
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -100,19 +100,26 @@ function About(/*{
       return {...previousState, [event.target.name]: value}
   })}
 
-   
-
     useEffect(() => {
-      //greyscale = JSON.parse(localStorage.getItem("greyscale"))
-      //h1Color = JSON.parse(localStorage.getItem("h1Color"))
+
+      //Get background gradient
+      document.body.style = `background: linear-gradient(${userInputs.backgroundGradientAngle}deg, ${userInputs.backgroundGradientColor1}, ${userInputs.backgroundGradientColor2})`;
+
+      //get all nav links
+      const navLinks = document.getElementsByClassName("nav-link");
+    
+      for (let index = 0; index < navLinks.length; index++) {
+        navLinks[index].style = `color: ${userInputs.linkColor}`
+      }
+
+      //get all cards
+      const cardBorders = document.getElementsByClassName("card");
+    
+      for (let index = 0; index < cardBorders.length; index++) {
+        cardBorders[index].style = `border: 1px solid ${userInputs.pColor}`
+      }
+
       /*pColor = JSON.parse(localStorage.getItem("pColor"))
-
-       //get all headings
-    const headings = document.getElementsByClassName("heading");
-
-    for (let index = 0; index < headings.length; index++) {
-      headings[index].style = `background-Color: ${h1Color}`
-    }
   
     //get all paragraphs and footer
     const paragraphs = document.getElementsByClassName("p");
@@ -120,31 +127,7 @@ function About(/*{
     for (let index = 0; index < paragraphs.length; index++) {
       paragraphs[index].style = `color: ${pColor}`
     }
-
-    //get all cards
-    const cardBorders = document.getElementsByClassName("card");
   
-    for (let index = 0; index < cardBorders.length; index++) {
-      cardBorders[index].style = `border: 1px solid ${pColor}`
-    }
-
-    //get all labels
-    const labels = document.querySelectorAll("label");
-  
-    for (let index = 0; index < labels.length; index++) {
-      labels[index].style = `color: ${labelColor}`
-    }
-  
-    //Get background gradient
-    document.body.style = `background: linear-gradient(${backgroundGradientAngle}deg, ${backgroundGradientColor1}, ${backgroundGradientColor2})`;
-  
-    //Get all buttons and change gradient
-    const buttons = document.getElementsByClassName("btn");
-  
-    for (let index = 0; index < buttons.length; index++) {
-      buttons[index].style = `background: linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`;
-    }
-
     //Get all button text change color
     const buttonText = document.getElementsByClassName("buttonText");
 
@@ -152,22 +135,24 @@ function About(/*{
       buttonText[index].style = `color: ${buttonTextColor}`;
       
     }
-  
-    //get all nav links
-    const navLinks = document.getElementsByClassName("nav-link");
-  
-    for (let index = 0; index < navLinks.length; index++) {
-      navLinks[index].style = `color: ${linkColor}`
     } */
 
-    }, [])
+    }, [userInputs])
 
     return (
 
         <>
         <Container id='about'>
           {/*send data to three.js canvas model*/}
-        <CanvasContainer 
+        <CanvasContainer
+        pColor= {userInputs.pColor}
+        h1Color= {userInputs.h1Color}
+        labelColor= {userInputs.labelColor}
+        buttonGradientAngle= {userInputs.buttonGradientAngle}
+        buttonGradientColor1= {userInputs.buttonGradientColor1}
+        buttonGradientColor2= {userInputs.buttonGradientColor2}
+        buttonTextColor= {userInputs.buttonTextColor}
+
         handleChange= {handleChange}
         modelMat= {userInputs.modelMat}
         modelType= {userInputs.modelType}
@@ -189,11 +174,20 @@ function About(/*{
 
     {/*Click to show or hide edit form*/ }
     <div className='text-center'>
-              <Button className=' btn btn-primary w-25'
-                  onClick={() => setShowEditForm(!showEditForm)}>
-                  <div className="buttonText">Edit HTML Values {showEditForm ? "^" : "˅"}</div>
-              </Button>
-            </div>
+
+        <FormButton 
+          className='btn btn-primary w-25'
+          buttonGradientAngle={userInputs.buttonGradientAngle}
+          buttonGradientColor1={userInputs.buttonGradientColor1}
+          buttonGradientColor2={userInputs.buttonGradientColor2}
+          text={showEditForm ? "Edit HTML Values ^" : "Edit HTML Values ˅"}
+          colour={userInputs.buttonTextColor}
+
+          onClick={() => setShowEditForm(!showEditForm)}>
+        </FormButton>
+      </div>
+
+
               
               {/*Edit form*/}
               {showEditForm && (

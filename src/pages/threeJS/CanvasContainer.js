@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 
 import {OrbitControls, softShadows } from '@react-three/drei'
-
-import { Button } from 'react-bootstrap';
 
 import { Canvas } from '@react-three/fiber'
 
@@ -12,33 +10,36 @@ import Model from './Model'
 
 import Lights from './Lights'
 
+import {FormButton} from '../../components/BaseSettings'
+
 //enable soft shadows
 softShadows()
 
 function CanvasContainer ({
     //Data in
+    pColor = JSON.parse(localStorage.getItem("pColor")),
+    h1Color = JSON.parse(localStorage.getItem("h1Color")),
+    labelColor = JSON.parse(localStorage.getItem("labelColor")),
+    buttonGradientAngle = JSON.parse(localStorage.getItem("backgroundGradientAngle")),
+    buttonGradientColor1 = JSON.parse(localStorage.getItem("buttonGradientColor1")),
+    buttonGradientColor2 = JSON.parse(localStorage.getItem("buttonGradientColor2")),
+    buttonTextColor = JSON.parse(localStorage.getItem("buttonTextColor")),
     handleChange,
-    ambientLightColor, 
-    lightPositionx, 
-    lightPositiony,
-    lightColor, 
-    lightIntensity, 
-    lightPositionz, 
-    roughness, 
-    metalness, 
-    modelMat,
-    specularColor, 
-    wireframe, 
-    shininess, 
-    modelType, 
-    modelColor
+    ambientLightColor = JSON.parse(localStorage.getItem("ambientLightColour")), 
+    lightPositionx = JSON.parse(localStorage.getItem("lightPositionx")), 
+    lightPositiony = JSON.parse(localStorage.getItem("lightPositiony")),
+    lightColor = JSON.parse(localStorage.getItem("lightColor")), 
+    lightIntensity = JSON.parse(localStorage.getItem("lightIntensity")), 
+    lightPositionz = JSON.parse(localStorage.getItem("lightPositionz")), 
+    roughness = JSON.parse(localStorage.getItem("roughness")), 
+    metalness = JSON.parse(localStorage.getItem("metalness")), 
+    modelMat = JSON.parse(localStorage.getItem("modelMat")),
+    specularColor = JSON.parse(localStorage.getItem("specularColor")), 
+    wireframe = JSON.parse(localStorage.getItem("wireframe")), 
+    shininess = JSON.parse(localStorage.getItem("shininess")), 
+    modelType = JSON.parse(localStorage.getItem("modelType")), 
+    modelColor = JSON.parse(localStorage.getItem("modelColor"))
 }) {
-
-  useEffect(() => {
-    JSON.parse(localStorage.getItem("labelColor"))
-    JSON.parse(localStorage.getItem("h1Color"))
-    JSON.parse(localStorage.getItem("labelColor"))
-  })
 
   //edit form
   const [showEditModelForm, setShowEditModelForm] = useState(false)
@@ -56,18 +57,24 @@ function CanvasContainer ({
             >
               <Lights {...{lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, ambientLightColor}}/>
 
-              <Model {...{modelColor, metalness, roughness, modelMat, wireframe, modelType, specularColor, shininess}}
+              <Model {...{handleChange, modelColor, metalness, roughness, modelMat, wireframe, modelType, specularColor, shininess}}
               />
               <OrbitControls />
             </Canvas>
 
             {/*Click to show or hide edit form*/ }
             <div className='text-center modelFormButton'>
-                      <Button className=' btn btn-primary w-75'
-                      
-                            onClick={() => setShowEditModelForm(!showEditModelForm)}>
-                                <div className="buttonText">Edit Model Values {showEditModelForm ? "^" : "˅"}</div>
-                      </Button>
+
+            <FormButton 
+              className='btn btn-primary w-75'
+              buttonGradientAngle={buttonGradientAngle}
+              buttonGradientColor1={buttonGradientColor1}
+              buttonGradientColor2={buttonGradientColor2}
+              text={showEditModelForm ? "Edit Model Values ^" : "Edit Model Values ˅"}
+              colour={buttonTextColor}
+
+              onClick={() => setShowEditModelForm(!showEditModelForm)}>
+          </FormButton>
                     </div>
 
                     {/*Edit form*/}
@@ -75,6 +82,14 @@ function CanvasContainer ({
                 <>
               <CanvasValuesForm {...{
                 //Send data to canvas menu
+                pColor,
+                h1Color,
+                labelColor,
+                buttonGradientAngle,
+                buttonGradientColor1,
+                buttonGradientColor2,
+                buttonTextColor,
+
                 handleChange, 
                 ambientLightColor,
                 modelColor, 
