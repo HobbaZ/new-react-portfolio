@@ -15,13 +15,13 @@
 Make a personal portfolio website with interactable elements to boost user engagement.
 
 ### What Problem Does It Solve ###
-
+Increasing interactivity of my personal website.
 
 ### What I Learnt ###
 How to use React Three/Fiber and Three.js in React.
 
 ## Deployment
-Not deployed yet.
+Deployed on AWS here [here](https://main.d28cs3498hz9re.amplifyapp.com/)
 
 ## Table of Contents
 - [Description](#description)
@@ -41,7 +41,7 @@ I WANT to make a personal portfolio website with React.
 
 I WANT to add interactable elements to the website.
 
-SO THAT it boots user engagement.
+SO THAT it boosts user engagement.
 
 ## Screenshots
 ![Picture of landing page of website](/src/images/screencapture-localhost-3000-2022-09-21-23_30_34.png)
@@ -62,9 +62,9 @@ Note: To make a static no backend React site work on Heroku you need to take all
 ## Features
 Can change the: 
 
-website background gradient and angle
+website background gradient colours and gradient angle
 
-Button gradients and angle
+Button gradient colours, gradient angle and text colour
 
 Paragraph text colours
 
@@ -87,6 +87,8 @@ Light position
 - Bootstrap
 - Three.js
 - React-Three/Fiber
+- AWS Amplify
+- AWS Route 53 (domain registration currently in progress)
 
 ## Contributors
 [Zachary Hobba](https://github.com/HobbaZ)
