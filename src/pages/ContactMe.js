@@ -2,28 +2,16 @@ import React, {useState} from 'react';
 
 import { Container, Form, FormGroup, Button} from 'react-bootstrap';
 
-import {Heading, P, Label} from '../components/BaseSettings'
+import {Heading, P, Label, FormButton} from '../components/BaseSettings'
 
 function validateEmail(email) {
     const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return checkEmail.test(String(email).toLowerCase());
   }
 
-function ContactMe() {
-
-  const [userInputs, setUserInputs] = useState({
-    
-    // HTML variables
-
-    //get values from form with localstorage
-    h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#000000",
-    pColor: JSON.parse(localStorage.getItem("pColor")) || "#000000",
-    buttonGradientAngle: JSON.parse(localStorage.getItem("buttonGradientAngle")) || 0,
-    buttonGradientColor1: JSON.parse(localStorage.getItem("buttonGradientColor1")) || "#000000",
-    buttonGradientColor2: JSON.parse(localStorage.getItem("buttonGradientColor2")) || "#000000",
-    buttonTextColor: JSON.parse(localStorage.getItem("buttonTextColor")) || "#ffffff",
-    labelColor: JSON.parse(localStorage.getItem("labelColor")) || "#000000",
-  })
+function ContactMe({
+  ...props
+}) {
 
     const [email, setEmail] = useState('');
     const [userName, setUserName] = useState('');
@@ -65,17 +53,15 @@ function ContactMe() {
   return (
     <>
     <Container id='contactMe'>
-    <div className="text-center">
       <Heading 
-      valueToChange={userInputs.h1Color}
+      valueToChange={props.h1Color}
       text ="Contact Me"
       >
       </Heading>
-    </div>
 
     <div className="text-center">
       <P  
-      valueToChange={userInputs.pColor}
+      valueToChange={props.pColor}
       text= "Have a question? Fill in the enquiry form below and I'll get back to you as soon as possible."
       >
       </P>
@@ -85,7 +71,7 @@ function ContactMe() {
         <FormGroup>
         
         <Label
-        valueToChange={userInputs.labelColor}
+        valueToChange={props.labelColor}
         text = "Name:"
         ></Label>
         
@@ -100,7 +86,7 @@ function ContactMe() {
         />
 
         <Label
-        valueToChange={userInputs.labelColor}
+        valueToChange={props.labelColor}
         text = "Email:"
         ></Label>
         
@@ -115,7 +101,7 @@ function ContactMe() {
         />
 
         <Label
-        valueToChange={userInputs.labelColor}
+        valueToChange={props.labelColor}
         text = "Subject:"
         ></Label>
         
@@ -132,7 +118,7 @@ function ContactMe() {
         </select>
 
         <Label
-        valueToChange={userInputs.labelColor}
+        valueToChange={props.labelColor}
         text = "Message:"
         ></Label>
         
@@ -146,13 +132,22 @@ function ContactMe() {
         />
 
         <div className='text-center'>
-        <Button type="button" className="btn btn-primary" onClick={handleFormSubmit}><div className="buttonText">Submit</div></Button>
+        <FormButton 
+        className='btn btn-primary'
+        buttonGradientAngle={props.buttonGradientAngle}
+        buttonGradientColor1={props.buttonGradientColor1}
+        buttonGradientColor2={props.buttonGradientColor2}
+        text= "Send Email"
+        onClick={handleFormSubmit}
+        colour={props.buttonTextColor}>
+        </FormButton>
+
         </div>
         </FormGroup>
       </Form>
       {errorMessage && (
         <div>
-          <p className="error-text">{errorMessage}</p>
+          <p style={{color: `${props.pColor}`}}>{errorMessage}</p>
         </div>
       )}
       </Container>

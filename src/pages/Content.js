@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 
 //import page sections here
 import About from './About'
-import Projects from './Projects'
-import ContactMe from './ContactMe'
 
 function Content() {
 
@@ -11,9 +9,6 @@ function Content() {
         <>
         <About />
 
-        <Projects />
-
-        <ContactMe />
         </>
     );
 };

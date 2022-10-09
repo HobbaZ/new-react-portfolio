@@ -70,7 +70,7 @@ function CanvasContainer ({
               buttonGradientAngle={buttonGradientAngle}
               buttonGradientColor1={buttonGradientColor1}
               buttonGradientColor2={buttonGradientColor2}
-              text={showEditModelForm ? "Edit Model Values ^" : "Edit Model Values ˅"}
+              text={showEditModelForm ? "Model Values ˅" : "Model Values "}
               colour={buttonTextColor}
 
               onClick={() => setShowEditModelForm(!showEditModelForm)}>

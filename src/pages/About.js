@@ -8,6 +8,9 @@ import EditValuesForm from '../components/EditValuesForm'
 
 import {Heading, P, FormButton} from '../components/BaseSettings'
 
+import Projects from './Projects'
+import ContactMe from './ContactMe'
+
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/git.svg",
@@ -119,24 +122,13 @@ function About(/*{
         cardBorders[index].style = `border: 1px solid ${userInputs.pColor}`
       }
 
-      /*pColor = JSON.parse(localStorage.getItem("pColor"))
-  
-    //get all paragraphs and footer
-    const paragraphs = document.getElementsByClassName("p");
-  
-    for (let index = 0; index < paragraphs.length; index++) {
-      paragraphs[index].style = `color: ${pColor}`
-    }
-  
-    //Get all button text change color
-    const buttonText = document.getElementsByClassName("buttonText");
+      //get footer
+      const footer = document.getElementsByClassName("footer");
 
-    for (let index = 0; index < buttonText.length; index++) {
-      buttonText[index].style = `color: ${buttonTextColor}`;
-      
-    }
-    } */
-
+      for (let index = 0; index < footer.length; index++) {
+        footer[index].style = `color: ${userInputs.pColor}`
+      }
+  
     }, [userInputs])
 
     return (
@@ -180,7 +172,7 @@ function About(/*{
           buttonGradientAngle={userInputs.buttonGradientAngle}
           buttonGradientColor1={userInputs.buttonGradientColor1}
           buttonGradientColor2={userInputs.buttonGradientColor2}
-          text={showEditForm ? "Edit HTML Values ^" : "Edit HTML Values ˅"}
+          text={showEditForm ? "HTML Values ˅" : "HTML Values "}
           colour={userInputs.buttonTextColor}
 
           onClick={() => setShowEditForm(!showEditForm)}>
@@ -195,7 +187,6 @@ function About(/*{
 
               {/*send data to html edit form*/}
               <EditValuesForm
-               
               handleChange= {handleChange} 
               greyscale = {userInputs.greyscale}
               h1Color= {userInputs.h1Color}
@@ -226,18 +217,41 @@ function About(/*{
       text="I'm a junior full stack web developer based in the greater Sydney area. I enjoy working on interesting projects">
       </P>
 
-      <div className="text-center">
       <Heading 
       valueToChange={userInputs.h1Color}
       text ="Skills"
       >
       </Heading>
+
+      <div className="text-center">
       {iconArray.map((element, index) => (
         <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${userInputs.greyscale? '0%' : '100%'})` }} />
       ))}
     </div>
 
     </div>
+
+      <Projects 
+      handleChange= {handleChange}
+      h1Color= {userInputs.h1Color}
+      pColor = {userInputs.pColor}
+      buttonGradientAngle = {userInputs.buttonGradientAngle}
+      buttonGradientColor1 = {userInputs.buttonGradientColor1}
+      buttonGradientColor2 = {userInputs.buttonGradientColor2}
+      labelColor = {userInputs.labelColor}
+      buttonTextColor= {userInputs.buttonTextColor}
+      />
+
+      <ContactMe 
+      handleChange= {handleChange}
+      h1Color= {userInputs.h1Color}
+      pColor = {userInputs.pColor}
+      buttonGradientAngle = {userInputs.buttonGradientAngle}
+      buttonGradientColor1 = {userInputs.buttonGradientColor1}
+      buttonGradientColor2 = {userInputs.buttonGradientColor2}
+      labelColor = {userInputs.labelColor}
+      buttonTextColor= {userInputs.buttonTextColor}
+      />
         </Container>
         </>
     );

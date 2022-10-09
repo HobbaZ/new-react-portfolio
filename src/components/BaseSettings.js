@@ -64,9 +64,19 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
   function Heading ({valueToChange, text}) {
     return (
         <>
-        <h1 style = {{color: (valueToChange)}}>
+        <h1 style = {{color: (valueToChange), textAlign: "center"}}>
         {text}
         </h1>
+        </>
+    )
+  }
+
+  function H4 ({valueToChange, text}) {
+    return (
+        <>
+        <h4 style = {{color: (valueToChange), textAlign: "center"}}>
+        {text}
+        </h4>
         </>
     )
   }
@@ -88,18 +98,10 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
         onClick ={onClick}
         className={className}
         >
-            <div style = {{color: `${colour}`}}>{text}</div>
+            <div style = {{color: `${colour}`, fontSize: '20px'}}>{text}</div>
         </Button>
         </>
     )
   }
 
-  /*function ButtonText ({colour}) {
-    return (
-        <>
-        <Button style = {{color: `${colour}`}} />
-        </>
-    )
-  }*/
-
-  export {ColorInput, CheckboxInput, P, Heading, Label, TextInput, RangeInput, FormButton} 
+  export {ColorInput, CheckboxInput, P, Heading, Label, TextInput, RangeInput, FormButton, H4} 

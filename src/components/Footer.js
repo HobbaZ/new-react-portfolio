@@ -20,11 +20,11 @@ return (
   <>
   <Container>
   <footer>
-      <p>Zachary Hobba, {year()} 
+      <p className='footer'>Zachary Hobba, {year()} 
 
-          <a href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"><i className="fab fa-linkedin"></i></a>
-          <a href="mailto:zachobba@gmail.com"><i className="fas fa-envelope-square"></i></a>
-          <a href="https://github.com/HobbaZ"><i className="fab fa-github"></i></a>
+          <a className='footer' href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"><i className="fab fa-linkedin"></i></a>
+          <a className='footer' href="mailto:zachobba@gmail.com"><i className="fas fa-envelope-square"></i></a>
+          <a className='footer' href="https://github.com/HobbaZ"><i className="fab fa-github"></i></a>
         </p>
   </footer>
   </Container>

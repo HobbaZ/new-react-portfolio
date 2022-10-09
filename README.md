@@ -110,6 +110,8 @@ You can also contribute by opening a pull request or submitting an issue.
 
 [https://blog.logrocket.com/using-localstorage-react-hooks/](https://blog.logrocket.com/using-localstorage-react-hooks/)
 
+[https://docs.github.com/en/rest/guides/traversing-with-pagination](https://docs.github.com/en/rest/guides/traversing-with-pagination)
+
 ## Testing
 No tests for this project
 

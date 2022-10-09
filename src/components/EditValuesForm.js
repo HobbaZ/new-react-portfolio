@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import {Heading, Label, ColorInput} from '../components/BaseSettings'
+import {H4, Label, ColorInput} from '../components/BaseSettings'
 
   function EditValuesForm ({
     ...props
@@ -36,23 +36,20 @@ useEffect(() => {
   props.buttonTextColor,
 ]);
 
-/*useEffect(() => {
-  h1Color = JSON.parse(localStorage.getItem("h1Color")) || "#000000"
-}, [h1Color])*/
-
         return (
             <>
                 
-                <form id='HTMLEditForm'>
-                <Heading  
+                <form>
+                <H4  
                 valueToChange={props.h1Color}
                 text="HTML Edit Options">
-                </Heading>
+                </H4>
 
                 <Label
                 valueToChange={props.labelColor}
                 text = {props.greyscale ? "Enable Greyscale": "Disable Greyscale"}
                 ></Label>
+
                 <input type={"checkbox"}
                 name= {"greyscale"}
                 onChange={props.handleChange}
