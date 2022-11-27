@@ -27,35 +27,7 @@ let iconArray = [
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg"
 ];
 
-function About(/*{
-  handleChange,
-  labelColor,
-  greyscale, 
-  h1Color, 
-  pColor,
-  linkColor,
-  backgroundGradientAngle,
-  backgroundGradientColor1,
-  backgroundGradientColor2,
-  buttonGradientAngle,
-  buttonGradientColor1,
-  buttonGradientColor2,
-  buttonTextColor,
-  ambientLightColor,
-  lightPositionx, 
-  lightPositiony,
-  lightColor, 
-  lightIntensity, 
-  lightPositionz, 
-  roughness, 
-  metalness, 
-  modelMat,
-  specularColor, 
-  wireframe, 
-  shininess, 
-  modelType, 
-  modelColor
-}*/) {
+function About() {
 
   //edit form
   const [showEditForm, setShowEditForm] = useState(false)
@@ -214,7 +186,7 @@ function About(/*{
 
       <P  
       valueToChange={userInputs.pColor}
-      text="I'm a junior full stack web developer based in the greater Sydney area. I enjoy working on interesting projects">
+      text="I'm a full stack web developer based in the greater Sydney area. I enjoy working on interesting projects and experimenting with different technology">
       </P>
 
       <Heading 
@@ -231,6 +203,7 @@ function About(/*{
 
     </div>
 
+      {/* Make every page child of about page to pass values easier (probably not best or proper way but it works)*/}
       <Projects 
       handleChange= {handleChange}
       h1Color= {userInputs.h1Color}

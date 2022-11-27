@@ -13,6 +13,28 @@ function Projects({
 
     const [repoData, setRepoData] = useState([])
 
+    const projectNames = 
+    [
+    "CryptoWorld",
+    "Product-Generator-Website",
+    "React-Graphql-Template",
+    "Vehicle-Generator-Game",
+    "Weather-API-app",
+    "Worthly"
+    ];
+
+    const projectWebsites = 
+    [
+    "https://hobbaz.github.io/CryptoWorld/",
+    "https://hobbaz.github.io/Product-Generator-Website/",
+    "https://react-graphql-template.herokuapp.com/",
+    "https://adrift-dev.itch.io/vehicle-generator",
+    "https://hobbaz.github.io/Weather-API-app/",
+    "https://worthly.herokuapp.com/"
+    ];
+
+    let web = '';
+
     //Get my github repo data when component loads
     useEffect(() => {
       
@@ -20,19 +42,10 @@ function Projects({
 
             let requestUrl = 'https://api.github.com/users/HobbaZ/repos?per_page=40';
 
-            //Put the repo title names you want displayed here (must match exactly)
-            const projectNames = 
-            [
-            "React-Graphql-Template",
-            "CryptoWorld",
-            "Password-Generator",
-            "Weather-API-app",
-            "Product-Generator-Website",
-            "Worthly"
-            ];
-
             const repoArray=[];
 
+            //Put the repo title names you want displayed here (must match exactly)
+            
         try {
             fetch(requestUrl)
             .then(function (response) {
@@ -43,6 +56,8 @@ function Projects({
             .then(function (data) {
                 //loop through all github repos and match repo names to project names you've listed in project names array, push the marching array data to another array
             // refactor to use map and reduce later
+
+             
             for (let i = 0; i < data.length; i++) {
                 for (let j = 0; j < projectNames.length; j++) {
                     if (data[i].name === projectNames[j]) {
@@ -50,7 +65,9 @@ function Projects({
                     }
                 }
             }
+
                  setRepoData(repoArray)
+                 console.log(repoArray)
                 })
         }
         catch (err) {
@@ -60,7 +77,48 @@ function Projects({
     };
     getGithubData()
 
-    }, [])
+    }, []);
+
+    function getWebsiteLink(index) {
+        let website = ''
+        switch (index) {
+            case 0:
+                website = projectWebsites[0]
+                break;
+            case 1:
+                website = projectWebsites[1]
+                break;
+            case 2:
+                website = projectWebsites[2]
+                break;
+            case 3:
+                website = projectWebsites[3]
+                break;
+            case 4:
+                website = projectWebsites[4]
+                break;
+            case 5:
+                website = projectWebsites[5]
+                break;
+            case 6:
+                website = projectWebsites[6]
+                break;
+            default:
+                break;
+        }
+
+        
+
+
+                if (index === 1) {
+                    website = projectWebsites[1]
+                }
+
+                else if (index === 2) {
+                    website = projectWebsites[2]
+                }
+                return website
+    }
 
     return (
         <>
@@ -77,12 +135,12 @@ function Projects({
                 <>
                 <div className='card w-25 p-2 m-1'>
                 <div className='card-body'>
-                <div className='card-title'>
+                <div className='card-title' key={index}>
                 
                 <H4 
                 valueToChange={props.h1Color}
-                key={index}
                 text ={repo.name.replace(/-/g, " ")} //replace all dashes in repo name (-) with spaces
+                //text ={repo.name}
                 >
                 </H4>
                 </div>
@@ -105,9 +163,11 @@ function Projects({
                 </FormButton>
                 </a>
 
-                    <br></br>
+                <br></br>
 
-                <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
+                <>
+                <a href={getWebsiteLink(index)} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to `}>
+            
                 <FormButton 
                 className='btn btn-primary'
                 buttonGradientAngle={props.buttonGradientAngle}
@@ -117,8 +177,9 @@ function Projects({
                 colour={props.buttonTextColor}>
                 </FormButton>
                 </a>
-                </div>
+                </>
 
+                </div>
                 </div>
                 </>
             ))}</div>
