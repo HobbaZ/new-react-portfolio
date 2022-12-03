@@ -56,9 +56,11 @@ function ContactMe({
       .then(
         (result) => {
           console.log("Email succeeded", result);
+          setErrorMessage("Email succeeded")
         },
         (error) => {
           console.log("Email failed: ", error);
+          setErrorMessage("Email failed")
         }
       );
   };
@@ -164,12 +166,14 @@ function ContactMe({
 
         </div>
         </FormGroup>
-      </Form>
-      {errorMessage && (
-        <div>
+
+        {errorMessage && (
+        <div className='text-center'>
           <p style={{color: `${props.pColor}`}}>{errorMessage}</p>
         </div>
       )}
+      </Form>
+      
       </Container>
     </>
   );
