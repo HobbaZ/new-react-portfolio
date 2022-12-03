@@ -1,53 +1,66 @@
-import React, {useState} from 'react';
+import emailjs from '@emailjs/browser';
 
-import { Container, Form, FormGroup, Button} from 'react-bootstrap';
+import { Container, Form, FormGroup} from 'react-bootstrap';
 
-import {Heading, P, Label, FormButton} from '../components/BaseSettings'
+import {Heading, P, Label, FormButton} from '../components/BaseSettings';
 
-function validateEmail(email) {
-    const checkEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return checkEmail.test(String(email).toLowerCase());
-  }
+import React, {useState, useRef} from 'react';
+import FormCheckInput from 'react-bootstrap/esm/FormCheckInput';
+
+let emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 function ContactMe({
   ...props
 }) {
+    const formRef = useRef();
 
-    const [email, setEmail] = useState('');
-    const [userName, setUserName] = useState('');
-    const [subject, setSubject] = useState('');
-    const [msg, setMsg] = useState('');
+    const [formInput, setFormInput] = useState({email: '', username: '', msg: '', subject: ''});
+
+    const [validated] = useState(false);
+   // const [email, setEmail] = useState('');
+    //const [username, setusername] = useState('');
+    //const [subject, setSubject] = useState('');
+    //const [msg, setMsg] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-  const handleInputChange = (e) => {
+  const changeInput = (event) => {
     // Getting the value and name of the input which triggered the change
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
 
-    // Based on the input type, we set the state of either email, username
-    if (inputType === 'email') {
-      setEmail(inputValue);
-    } else if (inputType === 'userName') {
-      setUserName(inputValue);
-    } else {
-      setMsg(inputValue);
-      setSubject(inputValue)
-    }
+    //setEmail(event.target.value);
+    //setusername(event.target.value);
+    //setSubject(event.target.value);
+    //setMsg(event.target.value);
+
+    setFormInput({...FormCheckInput,
+    [event.target.name]: event.target.value})
+
   };
 
-  const handleFormSubmit = (e) => {
+  const submitForm = async (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
-    e.preventDefault();
+    event.preventDefault();
 
-    if (!validateEmail(email)) {
-      setErrorMessage('Email needs to be valid');
-      return;
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
     }
-    // Clear the form fields after submit
-    setUserName('');
-    setMsg('');
-    setEmail('');
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICEID,
+        process.env.REACT_APP_TEMPLATEID,
+        formRef.current,
+        process.env.REACT_APP_USERID
+      )
+      .then(
+        (result) => {
+          console.log("Email succeeded", result);
+        },
+        (error) => {
+          console.log("Email failed: ", error);
+        }
+      );
   };
 
   return (
@@ -67,7 +80,7 @@ function ContactMe({
       </P>
     </div>
 
-      <Form className="form">
+      <Form className="form" validated={validated} ref={formRef} onSubmit={submitForm}>
         <FormGroup>
         
         <Label
@@ -77,13 +90,16 @@ function ContactMe({
         
         <br></br>
         <input className='form-control'
-          value={userName}
-          name="userName"
-          onChange={handleInputChange}
+          value={formInput.username}
+          name="from_name"
+          onChange={changeInput}
           type="text"
           placeholder="Name"
           required={true}
         />
+
+        {/*{formInput.username.length < 8 ? 
+        <div className="text-center text-danger">{"Password must be minimum 8 characters"}</div> : ''}*/}
 
         <Label
         valueToChange={props.labelColor}
@@ -92,13 +108,16 @@ function ContactMe({
         
         <br></br>
         <input className='form-control'
-          value={email}
-          name="email"
-          onChange={handleInputChange}
+          value={formInput.email}
+          name="user_email"
+          onChange={changeInput}
           type="email"
           placeholder="Email"
           required={true}
         />
+
+        {/*{!emailRegex.test(formInput.email) ? 
+        <div className="text-center text-danger">{"Invalid email entered"}</div> : ''}*/}
 
         <Label
         valueToChange={props.labelColor}
@@ -107,14 +126,14 @@ function ContactMe({
         
         <br></br>
         <select className='form-control'
-        value={subject}
+        value={formInput.subject}
         required={true}
-        name="subject"
-        onChange={handleInputChange}
+        name="user_subject"
+        onChange={changeInput}
         >
-        <option value="1">Make a General Enquiry</option>
-        <option value="2">Make a Complaint</option>
-        <option value="3">Talk About a Project or Idea</option>
+        <option value="Make a General Enquiry">Make a General Enquiry</option>
+        <option value="Make a Complaint">Make a Complaint</option>
+        <option value="Talk About a Project or Idea">Talk About a Project or Idea</option>
         </select>
 
         <Label
@@ -124,23 +143,24 @@ function ContactMe({
         
         <br></br>
         <textarea className='form-control textArea'
-          value={msg}
-          name="msg"
-          onChange={handleInputChange}
+          value={formInput.msg}
+          name="message"
+          onChange={changeInput}
           placeholder="message"
           required={true}
         />
+        <br></br>
 
         <div className='text-center'>
         <FormButton 
+        type="submit"
         className='btn btn-primary'
         buttonGradientAngle={props.buttonGradientAngle}
         buttonGradientColor1={props.buttonGradientColor1}
         buttonGradientColor2={props.buttonGradientColor2}
         text= "Send Email"
-        onClick={handleFormSubmit}
         colour={props.buttonTextColor}>
-        </FormButton>
+      </FormButton>
 
         </div>
         </FormGroup>

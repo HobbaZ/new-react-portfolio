@@ -91,11 +91,12 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
     )
   }
 
-  function FormButton ({buttonGradientAngle, buttonGradientColor1, buttonGradientColor2, text, className, onClick, colour}) {
+  function FormButton ({buttonGradientAngle, buttonGradientColor1, buttonGradientColor2, text, className, onClick, colour, type}) {
     return (
         <>
         <Button style = {{background: `linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`}}
         onClick ={onClick}
+        type={type}
         className={className}
         >
             <div style = {{color: `${colour}`, fontSize: '20px'}}>{text}</div>

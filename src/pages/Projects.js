@@ -33,8 +33,6 @@ function Projects({
     "https://worthly.herokuapp.com/"
     ];
 
-    let web = '';
-
     //Get my github repo data when component loads
     useEffect(() => {
       

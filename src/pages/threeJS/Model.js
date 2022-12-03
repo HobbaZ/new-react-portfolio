@@ -6,7 +6,7 @@ import fontFace from './fonts/helvetiker_regular.typeface.json'
 
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
-import { useRef } from "react"
+import React, { useRef } from "react"
 
 function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor}) {
 

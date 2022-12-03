@@ -87,6 +87,7 @@ Light position
 - Bootstrap
 - Three.js
 - React-Three/Fiber
+- Email.js
 - AWS Amplify
 - AWS Route 53 (domain registration currently in progress)
 
@@ -113,6 +114,11 @@ You can also contribute by opening a pull request or submitting an issue.
 [https://blog.logrocket.com/using-localstorage-react-hooks/](https://blog.logrocket.com/using-localstorage-react-hooks/)
 
 [https://docs.github.com/en/rest/guides/traversing-with-pagination](https://docs.github.com/en/rest/guides/traversing-with-pagination)
+
+Fixes email.js runtime error (I just had to update react-scripts)
+[https://www.freecodecamp.org/news/error-error-0308010c-digital-envelope-routines-unsupported-node-error-solved/](https://www.freecodecamp.org/news/error-error-0308010c-digital-envelope-routines-unsupported-node-error-solved/)
+
+[https://www.emailjs.com/docs/examples/reactjs/](https://www.emailjs.com/docs/examples/reactjs/)
 
 ## Testing
 No tests for this project
