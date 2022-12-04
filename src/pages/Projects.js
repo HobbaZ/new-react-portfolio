@@ -105,9 +105,6 @@ function Projects({
                 break;
         }
 
-        
-
-
                 if (index === 1) {
                     website = projectWebsites[1]
                 }
@@ -120,7 +117,7 @@ function Projects({
 
     return (
         <>
-        <Container id='projects'>
+        <div id='projects w-100 m-auto'>
 
         <Heading 
         valueToChange={props.h1Color}
@@ -128,10 +125,10 @@ function Projects({
         >
         </Heading>
 
-            <div className='d-flex flex-row flex-wrap justify-content-center'>
+            <div className='d-flex flex-row w-100 flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (
                 <>
-                <div className='card w-25 p-2 m-1'>
+                <div className='card col-12 col-md-6 col-lg-4 p-1 m-0'>
                 <div className='card-body'>
                 <div className='card-title' key={index}>
                 
@@ -185,8 +182,7 @@ function Projects({
             {infoMessage && (
               <div style={{color: `${props.pColor}`}} className='text-center'>{infoMessage}</div>
             )}
-
-        </Container>
+        </div>
         </>
     );
 };

@@ -120,6 +120,8 @@ Fixes email.js runtime error (I just had to update react-scripts)
 
 [https://www.emailjs.com/docs/examples/reactjs/](https://www.emailjs.com/docs/examples/reactjs/)
 
+[Create glassmorphism effect CSS](https://albertwalicki.com/blog/glassmorphism-how-to-create)
+
 ## Testing
 No tests for this project
 

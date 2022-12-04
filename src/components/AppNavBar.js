@@ -5,6 +5,7 @@ function AppNavbar () {
 
   return (
     <>
+    <div className='navbackground'>
       <Nav className="navbar navbar-expand-lg navbar-light fixed-top" id="navbar-nav">
       <Container fluid>
       <Navbar.Brand><a className='nav-link noEffect' href='#about' onClick={() => 'about'}>Zachary Hobba<br></br><div className='subtitle text-center'>Software Engineer</div></a></Navbar.Brand>
@@ -23,10 +24,10 @@ function AppNavbar () {
         <a href='#contactMe' onClick={() => 'contactMe'} className='nav-link ml-3 my-2'>Contact Me</a>
 
           </Nav>
-          </div> 
-           </Container>
+      </div> 
+      </Container>
       </Nav>
-
+      </div>
 </>
   );
 };

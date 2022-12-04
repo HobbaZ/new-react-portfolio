@@ -17,20 +17,10 @@ function ContactMe({
     const [formInput, setFormInput] = useState({email: '', username: '', msg: '', subject: ''});
 
     const [validated] = useState(false);
-   // const [email, setEmail] = useState('');
-    //const [username, setusername] = useState('');
-    //const [subject, setSubject] = useState('');
-    //const [msg, setMsg] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
   const changeInput = (event) => {
     // Getting the value and name of the input which triggered the change
-
-    //setEmail(event.target.value);
-    //setusername(event.target.value);
-    //setSubject(event.target.value);
-    //setMsg(event.target.value);
-
     setFormInput({...FormCheckInput,
     [event.target.name]: event.target.value})
 
@@ -46,6 +36,7 @@ function ContactMe({
       event.stopPropagation();
     }
 
+    //send details to email provider
     emailjs
       .sendForm(
         process.env.REACT_APP_SERVICEID,
@@ -74,15 +65,15 @@ function ContactMe({
       >
       </Heading>
 
-    <div className="text-center">
-      <P  
+      <div className='text-center'>
+      <P
       valueToChange={props.pColor}
       text= "Have a question? Fill in the enquiry form below and I'll get back to you as soon as possible."
       >
       </P>
-    </div>
+      </div>
 
-      <Form className="form" validated={validated} ref={formRef} onSubmit={submitForm}>
+      <Form className="col-sm-12 col-md-6 m-auto" validated={validated} ref={formRef} onSubmit={submitForm}>
         <FormGroup>
         
         <Label
@@ -91,7 +82,7 @@ function ContactMe({
         ></Label>
         
         <br></br>
-        <input className='form-control'
+        <input className='form-control col-12'
           value={formInput.username}
           name="from_name"
           onChange={changeInput}

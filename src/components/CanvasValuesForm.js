@@ -280,7 +280,7 @@ function CanvasValuesForm ({
                 <option value="customModel">Custom Model</option>
                 </select>
 
-                {props.modelType === "customModel" ? 
+                {/*{props.modelType === "customModel" ? 
               <>
               <br />
               <Label
@@ -300,7 +300,7 @@ function CanvasValuesForm ({
                     <Button className=' btn btn-primary w-25'><div className="buttonText">Submit</div></Button>
                   </div>
               </> : null
-              }
+              }*/}
 
                 <br />
 
