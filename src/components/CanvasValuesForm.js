@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import {H4, P, Label, FormButton} from '../components/BaseSettings'
 
-import { Button } from 'react-bootstrap';
-
 function CanvasValuesForm ({
   // data from canvas Container
     ...props
@@ -227,7 +225,7 @@ function CanvasValuesForm ({
 
         return (
             <>
-                <form className='modelForm' id="modelForm">
+                <form className='w-100 p-2 modelForm' id="modelForm">
 
                 <div className='text-center'>
                 <H4 
@@ -238,9 +236,9 @@ function CanvasValuesForm ({
                 </div>
 
                 {/*Click to show or hide light options form*/ }
-                <div className='text-center'>
+                <div className='text-center col-12 col-md-6 m-auto'>
                       <FormButton 
-                      className='btn btn-primary'
+                      className=' btn btn-primary'
                       type="button"
                       buttonGradientAngle={props.buttonGradientAngle}
                       buttonGradientColor1={props.buttonGradientColor1}
@@ -250,7 +248,7 @@ function CanvasValuesForm ({
 
                       onClick={() => setShowModelOptions(!showModelOptions)}>
                       </FormButton>
-                    </div>
+                </div>
 
                     {/*Light options*/}
               {showModelOptions && (
@@ -347,7 +345,7 @@ function CanvasValuesForm ({
             {/*End of model options */}
 
             {/*Click to show or hide light options form*/ }
-            <div className='text-center'>
+            <div className='text-center col-12 col-md-6 m-auto'>
 
             <FormButton 
               className='btn btn-primary'

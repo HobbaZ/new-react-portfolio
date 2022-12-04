@@ -63,10 +63,10 @@ function CanvasContainer ({
             </Canvas>
 
             {/*Click to show or hide edit form*/ }
-            <div className='text-center modelFormButton'>
+            <div className='text-center col-12 col-md-6 modelFormButton'>
 
             <FormButton 
-              className='btn btn-primary w-75'
+              className='btn btn-primary'
               buttonGradientAngle={buttonGradientAngle}
               buttonGradientColor1={buttonGradientColor1}
               buttonGradientColor2={buttonGradientColor2}
@@ -106,7 +106,6 @@ function CanvasContainer ({
                 shininess, 
                 modelType}}/>
                 </>
-
               )}
             </div>
         );

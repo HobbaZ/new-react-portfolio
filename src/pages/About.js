@@ -137,27 +137,24 @@ function About() {
         />
 
     {/*Click to show or hide edit form*/ }
-    <div className='text-center'>
 
+        <div className='text-center col-12 col-md-6 htmlEditButton'>
         <FormButton 
-          className='btn btn-primary w-25'
+          className='btn btn-primary'
           buttonGradientAngle={userInputs.buttonGradientAngle}
           buttonGradientColor1={userInputs.buttonGradientColor1}
           buttonGradientColor2={userInputs.buttonGradientColor2}
           text={showEditForm ? "HTML Values ˅" : "HTML Values "}
-          type=""
+          type="button"
           colour={userInputs.buttonTextColor}
 
           onClick={() => setShowEditForm(!showEditForm)}>
         </FormButton>
-      </div>
+        </div>
 
-
-              
               {/*Edit form*/}
               {showEditForm && (
                 <>
-
               {/*send data to html edit form*/}
               <EditValuesForm
               handleChange= {handleChange} 

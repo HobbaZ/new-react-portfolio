@@ -39,7 +39,7 @@ useEffect(() => {
         return (
             <>
                 
-                <form>
+                <form className='w-100 p-2 htmlEditForm'>
                 <H4  
                 valueToChange={props.h1Color}
                 text="HTML Edit Options">
