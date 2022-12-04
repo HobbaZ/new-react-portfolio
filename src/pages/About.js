@@ -145,6 +145,7 @@ function About() {
           buttonGradientColor1={userInputs.buttonGradientColor1}
           buttonGradientColor2={userInputs.buttonGradientColor2}
           text={showEditForm ? "HTML Values ˅" : "HTML Values "}
+          type=""
           colour={userInputs.buttonTextColor}
 
           onClick={() => setShowEditForm(!showEditForm)}>

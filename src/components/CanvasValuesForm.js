@@ -241,6 +241,7 @@ function CanvasValuesForm ({
                 <div className='text-center'>
                       <FormButton 
                       className='btn btn-primary'
+                      type="button"
                       buttonGradientAngle={props.buttonGradientAngle}
                       buttonGradientColor1={props.buttonGradientColor1}
                       buttonGradientColor2={props.buttonGradientColor2}
@@ -277,7 +278,7 @@ function CanvasValuesForm ({
                 <option value="text">Text</option>
 
               {/*Upload model to page (not working yet)*/}
-                <option value="customModel">Custom Model</option>
+                {/*<option value="customModel">Custom Model</option>*/}
                 </select>
 
                 {/*{props.modelType === "customModel" ? 
@@ -355,6 +356,7 @@ function CanvasValuesForm ({
               buttonGradientColor2={props.buttonGradientColor2}
               text={showLightOptions ? "Edit Lights ˅" : "Edit Lights "}
               colour={props.buttonTextColor}
+              type="button"
 
               onClick={() => setShowLightOptions(!showLightOptions)}>
             </FormButton>

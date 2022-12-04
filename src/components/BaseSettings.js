@@ -96,7 +96,7 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
         <>
         <Button style = {{background: `linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`}}
         onClick ={onClick}
-        //type={type}
+        type={type}
         className={className}
         >
             <div style = {{color: `${colour}`, fontSize: '20px'}}>{text}</div>
