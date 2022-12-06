@@ -85,7 +85,7 @@ useEffect(() => {
 
                 <Label
                 valueToChange={props.labelColor}
-                text = "Label Colour"
+                text = "Label Colour "
                 ></Label>
                 <ColorInput
                 colourValue={props.labelColor}
@@ -111,7 +111,7 @@ useEffect(() => {
 
                 <Label
                 valueToChange={props.labelColor}
-                text = "Background Gradient"
+                text = "Background Gradient "
                 ></Label>
                 <br />
                 
@@ -130,7 +130,7 @@ useEffect(() => {
 
                 <Label
                 valueToChange={props.labelColor}
-                text = "Colours"
+                text = "Colours "
                 ></Label>
                 <input type={"color"}
                 name= {"backgroundGradientColor2"}

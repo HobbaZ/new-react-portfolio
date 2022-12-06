@@ -8,7 +8,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import React, { useRef } from "react"
 
-function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor}) {
+function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor, rotateSpeed}) {
 
   //reference the mesh component
   const mesh = useRef(null)
@@ -16,6 +16,10 @@ function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, 
   //centering the mesh (used for centering 3d text)
   useFrame(() => {
     mesh.current.geometry.center()
+
+    //Spin function soon
+    mesh.current.rotation.y += 0.01
+    //mesh.current.rotation.y += {rotateSpeed}
   })
 
   // Takes colour and reacts to light
@@ -52,11 +56,13 @@ function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, 
           side={DoubleSide}
   />
 
+  // Renders colours based on camera distance
   const normalMat = <meshNormalMaterial 
           wireframe={wireframe}
           side={DoubleSide}
   />
 
+  // Renders vector points of shape
   const pointsMat = <pointsMaterial
           side={DoubleSide}
           size= {0.02}
@@ -172,16 +178,14 @@ function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, 
 
   }
 
-    //If not points material,
-
+    //If not points material
     if (modelMat !== "pointsMaterial") {
       return (
 
         <mesh
-        castShadow  
+        //castShadow
         ref={mesh}      
         position={[0,0,0]}
-        
         >
           {modelSelector()}
 

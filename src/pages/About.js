@@ -178,13 +178,20 @@ function About() {
 
       <Heading 
       valueToChange={userInputs.h1Color}
-      text ="Hi, I'm Zac and I'm a web developer based in inner Sydney"
+      text ="Hi, I'm Zac"
       >
       </Heading>
 
       <P  
       valueToChange={userInputs.pColor}
-      text="I'm a full stack web developer based in the greater Sydney area. I enjoy working on interesting projects and experimenting with different technology">
+      text="I'm a full stack web developer based in the greater Sydney area. I enjoy working on interesting projects and experimenting with different technologies.">
+      </P>
+
+      <br />
+      <P  
+      valueToChange={userInputs.pColor}
+      text="You can customise the colours of this website by clicking the HTML Values button and customise the spinning model with the Model Values button. 
+      Once you're done playing with my website, feel free to check out some of my projects, shoot me an email, or look at my social media links.">
       </P>
 
       <Heading 

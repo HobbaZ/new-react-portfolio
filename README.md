@@ -46,6 +46,16 @@ SO THAT it boosts user engagement.
 ## Screenshots
 ![Picture of landing page of website](/src/images/screencapture-localhost-3000-2022-09-21-23_30_34.png)
 
+![Customisable HTML options (mainly colours)](/src/images/HTMLoptions.JPG)
+
+![Customisable model options (type of model, material)](/src/images/modelOptions.JPG)
+
+![Some aHTML customisation](/src/images/HTMLCustomise.JPG)
+
+![Some aHTML customisation](/src/images/modelCustomisation.JPG)
+
+![Some aHTML customisation](/src/images/custom1.JPG)
+
 ## Installation
 1. Clone the repo to your computer by clicking the green code button and copying the SSH version or clicking the blue use template button.
 
@@ -55,12 +65,12 @@ SO THAT it boosts user engagement.
 
 4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
 
-5. Finally, type ```npm start``` into the terminal and it will start the dev server.
+5. Finally, type ```npm run start``` into the terminal and it will start the dev server.
 
 Note: To make a static no backend React site work on Heroku you need to take all the files out of the folder name you specified in the react-create-app. E.g. if you did create-react-app client, React will create the app in a folder called client, take all the files out of the client folder so they are now all at root level and then delete the empty client folder.
 
 ## Features
-Can change the: 
+You can change the: 
 
 website background gradient colours and gradient angle
 
@@ -89,7 +99,7 @@ Light position
 - React-Three/Fiber
 - Email.js
 - AWS Amplify
-- AWS Route 53 (domain registration currently in progress)
+- AWS Route 53
 
 ## Contributors
 [Zachary Hobba](https://github.com/HobbaZ)

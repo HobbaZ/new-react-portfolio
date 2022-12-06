@@ -38,7 +38,8 @@ function CanvasContainer ({
     wireframe = JSON.parse(localStorage.getItem("wireframe")), 
     shininess = JSON.parse(localStorage.getItem("shininess")), 
     modelType = JSON.parse(localStorage.getItem("modelType")), 
-    modelColor = JSON.parse(localStorage.getItem("modelColor"))
+    modelColor = JSON.parse(localStorage.getItem("modelColor")),
+    //rotateSpeed = JSON.parse(localStorage.getItem("rotateSpeed"))
 }) {
 
   //edit form
@@ -47,11 +48,11 @@ function CanvasContainer ({
         return (
             <div id='canvasContainer'>
             <Canvas 
-            camera={[0,0,0]}
+            camera={{position: [0, 0, 0] }}
             shadows={{ 
               type: "PCFSoftShadowMap",
             }}
-      
+
               //display pixel ratio
               dpr={[1, 2]}
             >

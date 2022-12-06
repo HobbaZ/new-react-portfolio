@@ -117,7 +117,7 @@ function Projects({
 
     return (
         <>
-        <div id='projects w-100 m-auto'>
+        <div id='projects' className='w-100 m-auto'>
 
         <Heading 
         valueToChange={props.h1Color}
@@ -128,7 +128,7 @@ function Projects({
             <div className='d-flex flex-row w-100 flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (
                 <>
-                <div className='card col-12 col-md-6 col-lg-4 p-1 m-0'>
+                <div className='card col-12 col-md-6 col-lg-4 p-1'>
                 <div className='card-body'>
                 <div className='card-title' key={index}>
                 
@@ -147,20 +147,22 @@ function Projects({
                 </P>
                 </div>
 
+                <div className='text-center'>
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
                 <FormButton 
                 className='btn btn-primary'
                 buttonGradientAngle={props.buttonGradientAngle}
                 buttonGradientColor1={props.buttonGradientColor1}
                 buttonGradientColor2={props.buttonGradientColor2}
-                text= {<div><i className="fab fa-github"></i>Github</div>}
+                text= {<div><i className="fab fa-github"></i>  Github</div>}
                 colour={props.buttonTextColor}>
                 </FormButton>
                 </a>
+                </div>
 
                 <br></br>
 
-                <>
+                <div className='text-center'>
                 <a href={getWebsiteLink(index)} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to `}>
             
                 <FormButton 
@@ -168,11 +170,11 @@ function Projects({
                 buttonGradientAngle={props.buttonGradientAngle}
                 buttonGradientColor1={props.buttonGradientColor1}
                 buttonGradientColor2={props.buttonGradientColor2}
-                text= {<div><i className="fas fa-globe"></i>Website</div>}
+                text= {<div><i className="fas fa-globe"></i>  Website</div>}
                 colour={props.buttonTextColor}>
                 </FormButton>
                 </a>
-                </>
+                </div>
 
                 </div>
                 </div>

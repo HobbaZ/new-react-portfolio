@@ -4,36 +4,44 @@
   --transparent: rgba(255, 255, 255, 0);
 }
 
+a {
+  font-size: 20px;
+}
+
+#about {
+  width: 100vw;
+}
+
+.active {
+  font-weight: 600;
+}
+
 .App {
   text-align: center;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0%;
-  overflow-x: hidden;
-  background-blend-mode: color;
 }
 
 .appContainer {
   position: relative;
 }
 
-.subtitle {
-  font-size: small;
-  font-weight: 800;
-  font-variant: small-caps;
+.btn-primary {
+  background-color: black;
+  color: white;
+  height: fit-content;
+  width: 75%;
+  margin: 10px;
 }
 
-.icons {
-  padding-left: 10px;
-  width: 70px;
-  height: 70px;
+.btn-primary:hover {
+  border: 2px solid var(--transparent);
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.card-title {
+  text-align: center;
 }
 
 #canvasContainer {
@@ -52,23 +60,97 @@ html, body {
   width: 100vw;
 }
 
-#navbar-nav {
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 252, 252, 0.5);
-  height: fit-content;
+form {
+  border-radius: 5px;
+  height: 100%;
+  padding: 10px;
+  width: 50%;
+  margin: auto;
 }
 
-.navIcon {
-  font-size: 40px;
+.form-btn {
+  border: 2px solid grey;
+  color: var(--dark);
+  background-color: var(--transparent);
 }
 
-#about {
-  width: 100vw;
+.form-btn:hover {
+  border: 2px solid var(--transparent);
+  background-color: var(--transparent);
+  color: var(--dark);
+}
+
+form h4 {
+  font-size: 20px;
+}
+
+footer {
+  position:relative;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.footerIcon {
+  font-size: 25px;
+  padding: 5px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0%;
+  overflow-x: hidden;
+  background-blend-mode: color;
+}
+
+.htmlEditButton {
+  margin: auto;
+  margin-top: 60px;
+}
+
+.htmlEditForm {
+  width: 50%;
+}
+
+.htmlEditForm input {
+  margin-left: 10px;
+}
+
+.icons {
+  padding-left: 10px;
+  width: 70px;
+  height: 70px;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
   border: none;
   padding: 0%;
+}
+
+.lightForm input {
+  margin-left: 10px;
+}
+
+p {
+  font-size: 20px;
+  margin: auto;
+}
+
+.projects {
+  width: 100%;
+  margin: auto;
+}
+
+.menuForm, .modelForm {
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 252, 252, 0.5);
+  height: fit-content;
 }
 
 .modelFormButton {
@@ -88,30 +170,14 @@ input[type="color"]::-webkit-color-swatch-wrapper {
   font-size: 15px;
 }
 
-.htmlEditButton {
-  margin: auto;
-  margin-top: 60px;
+#navbar-nav {
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 252, 252, 0.5);
+  height: fit-content;
 }
 
-.htmlEditForm {
-  width: 50%;
-}
-
-form h4 {
-  font-size: 20px;
-}
-
-.noEffect, .noEffect:hover {
-  text-decoration: none;
-}
-
-.projects {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.active {
-  font-weight: 600;
+.navIcon {
+  font-size: 40px;
 }
 
 .nav-link{
@@ -125,71 +191,16 @@ form h4 {
   font-weight: 600;
 }
 
-form {
-  border-radius: 5px;
-  height: 100%;
-  padding: 10px;
-  width: 50%;
-  margin: auto;
+.noEffect, .noEffect:hover {
+  text-decoration: none;
 }
 
-.btn-primary {
-  background-color: black;
-  color: white;
-  height: fit-content;
-  width: 75%;
-  margin: 10px;
+.subtitle {
+  font-size: small;
+  font-weight: 800;
+  font-variant: small-caps;
 }
 
-.btn-primary:hover {
-  border: 2px solid var(--transparent);
-}
-
-.form-btn {
-  border: 2px solid grey;
-  color: var(--dark);
-  background-color: var(--transparent);
-}
-
-.form-btn:hover {
-  border: 2px solid var(--transparent);
-  background-color: var(--transparent);
-  color: var(--dark);
-}
-
-.footerIcon {
-  font-size: 25px;
-  padding: 5px;
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.card-title {
-  text-align: center;
-}
-
-p {
-  font-size: 20px;
-  margin: auto;
-}
-
-a {
-  font-size: 20px;
-  
-}
-
-footer {
-  position:relative;
-  text-align: center;
-  width: 100%;
-  height: 50px;
-  margin-top: 20px;
-}
-
-.menuForm, .modelForm {
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 252, 252, 0.5);
-  height: fit-content;
+.wireframe {
+  margin-left: 10px;
 }

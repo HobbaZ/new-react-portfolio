@@ -22,6 +22,7 @@ function CanvasValuesForm ({
       localStorage.setItem("shininess", JSON.stringify(props.shininess))
       localStorage.setItem("modelType", JSON.stringify(props.modelType))
       localStorage.setItem("modelColor", JSON.stringify(props.modelColor))
+      localStorage.setItem("rotateSpeed", JSON.stringify(props.rotateSpeed))
     })
 
     //Model submenu form
@@ -75,6 +76,21 @@ function CanvasValuesForm ({
 
                 <br />
 
+                {/*<Label
+                valueToChange={props.rotateSpeed}
+                text = "Rotation Speed"
+                ></Label>
+                <input type={"range"}
+                name={"rotateSpeed"}
+                min={0}
+                max={0.05}
+                step={0.005}
+                onChange={props.handleChange}
+                value= {props.rotateSpeed || ""}
+                />*/}
+
+                <br />
+
                 <Label
                 valueToChange={props.labelColor}
                 text = "Model Roughness"
@@ -87,6 +103,8 @@ function CanvasValuesForm ({
                 onChange={props.handleChange}
                 value= {props.roughness || ""}
                 />
+
+              <br />
 
                 <Label
                 valueToChange={props.labelColor}
@@ -333,6 +351,7 @@ function CanvasValuesForm ({
                       ></Label>
                       <input type={"checkbox"} 
                       name={"wireframe"}
+                      className="wireframe"
                       onChange={props.handleChange}
                       value={props.wireframe || ""}
                       />
@@ -363,6 +382,7 @@ function CanvasValuesForm ({
             {/*Light options*/}
               {showLightOptions && (
                 <>
+                <div className='lightForm'>
                 <Label
                 valueToChange={props.labelColor}
                 text = "Ambient Light Colour"
@@ -444,6 +464,7 @@ function CanvasValuesForm ({
                 onChange={props.handleChange}
                 value={props.lightIntensity || ""}
                 />
+                </div>
                 </>
               )}
 
