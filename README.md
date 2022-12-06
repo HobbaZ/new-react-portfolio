@@ -21,7 +21,7 @@ Increasing interactivity of my personal website.
 How to use React Three/Fiber and Three.js in React.
 
 ## Deployment
-Deployed on AWS here [here](https://main.d28cs3498hz9re.amplifyapp.com/)
+Deployed on AWS here [here](https://www.zachobba.com.au/)
 
 ## Table of Contents
 - [Description](#description)
