@@ -100,6 +100,7 @@ Light position
 - Email.js
 - AWS Amplify
 - AWS Route 53
+- Google Analytics
 
 ## Contributors
 [Zachary Hobba](https://github.com/HobbaZ)
