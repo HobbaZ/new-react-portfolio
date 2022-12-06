@@ -48,7 +48,7 @@ function CanvasContainer ({
         return (
             <div id='canvasContainer'>
             <Canvas 
-            camera={{position: [0, 0, 0] }}
+            camera={{position: [0, 0, 3] }}
             shadows={{ 
               type: "PCFSoftShadowMap",
             }}
