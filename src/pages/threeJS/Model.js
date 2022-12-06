@@ -8,7 +8,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import React, { useRef } from "react"
 
-function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor, rotateSpeed}) {
+function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, shininess, modelType, specularColor}) {
 
   //reference the mesh component
   const mesh = useRef(null)
@@ -186,6 +186,7 @@ function ModelSettings ({modelColor, metalness, roughness, modelMat, wireframe, 
         //castShadow
         ref={mesh}      
         position={[0,0,0]}
+        size={[1,1,1]}
         >
           {modelSelector()}
 
