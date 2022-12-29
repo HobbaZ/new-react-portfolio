@@ -68,14 +68,31 @@ form {
   margin: auto;
 }
 
-.form-btn {
-  border: 2px solid grey;
+.form-btn-primary {
+  border: 2px solid var(--transparent);
   color: var(--dark);
   background-color: var(--transparent);
+  outline: none;
+  font-size: 20px;
 }
 
-.form-btn:hover {
+.form-btn-primary:hover {
   border: 2px solid var(--transparent);
+  background-color: var(--transparent);
+  color: var(--dark);
+}
+
+.form-btn-primary:focus, .form-btn-primary:active {
+  border: none;
+  background-color: var(--transparent);
+  box-shadow: none;
+  outline: none;
+}
+
+.form-btn-primary:disabled {
+  cursor: not-allowed;
+  border: 0;
+  pointer-events: none;
   background-color: var(--transparent);
   color: var(--dark);
 }
@@ -93,8 +110,8 @@ footer {
 }
 
 .footerIcon {
-  font-size: 25px;
-  padding: 5px;
+  font-size: 40px;
+  padding: 10px;
 }
 
 html {
@@ -114,12 +131,25 @@ html, body {
   margin-top: 60px;
 }
 
-.htmlEditForm {
-  width: 50%;
+.htmlEditContainer {
+  position: relative;
+  margin: auto;
 }
 
-.htmlEditForm input {
+.htmlForm {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.htmlForm input {
   margin-left: 10px;
+  justify-items: end;
+}
+
+h1 {
+  text-align: center;
 }
 
 .icons {
@@ -147,7 +177,7 @@ p {
   margin: auto;
 }
 
-.menuForm, .modelForm {
+.menuForm, .modelForm, .htmlForm {
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 252, 252, 0.5);
   height: fit-content;
@@ -193,12 +223,26 @@ p {
 
 .noEffect, .noEffect:hover {
   text-decoration: none;
+  border: none;
 }
 
 .subtitle {
   font-size: small;
   font-weight: 800;
   font-variant: small-caps;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  width: auto;
+}
+
+td {
+  width:auto;
+  font-size: 20px;
 }
 
 .wireframe {

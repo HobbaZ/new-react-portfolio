@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import {H4, Label, ColorInput} from '../components/BaseSettings'
+import {ColorInput} from '../components/BaseSettings'
 
   function EditValuesForm ({
     ...props
@@ -38,30 +38,27 @@ useEffect(() => {
 
         return (
             <>
-                
-                <form className='w-100 p-2 htmlEditForm'>
-                <H4  
-                valueToChange={props.h1Color}
-                text="HTML Edit Options">
-                </H4>
+               <div className="htmlEditContainer"> 
+                <form className='p-2 htmlForm w-100'>
 
-                <Label
-                valueToChange={props.labelColor}
-                text = {props.greyscale ? "Enable Greyscale": "Disable Greyscale"}
-                ></Label>
+                <h4 style={{color: `${props.h1Color}`, 'textAlign': 'center'} }>
+                HTML Edit Options
+                </h4>
+
+                <label style={{color: `${props.labelColor}`}}>
+                  {props.greyscale ? "Enable Greyscale": "Disable Greyscale"}
+                </label>
 
                 <input type={"checkbox"}
                 name= {"greyscale"}
                 onChange={props.handleChange}
                 checked={props.greyscale || false}
                 />
-
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Heading Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Heading Colour
+                </label>
 
                 <ColorInput
                 colourValue={props.h1Color}
@@ -71,10 +68,10 @@ useEffect(() => {
                 />
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Paragraph Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Paragraph Colour
+                </label>
+
                 <ColorInput
                 colourValue={props.pColor}
                 defaultValue={"#000000"}
@@ -83,10 +80,10 @@ useEffect(() => {
                 />
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Label Colour "
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Label Colour
+                </label>
+
                 <ColorInput
                 colourValue={props.labelColor}
                 defaultValue={"#000000"}
@@ -96,10 +93,9 @@ useEffect(() => {
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Link Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Link Colour
+                </label>
                 <ColorInput
                 colourValue={props.linkColor}
                 defaultValue={"#000000"}
@@ -109,29 +105,27 @@ useEffect(() => {
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Background Gradient "
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                <b>Background Gradient</b>
+                </label>
                 <br />
                 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Angle"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Angle
+                </label>
+
                 <input type={"text"}
                 placeholder="0"
                 name= {'backgroundGradientAngle'}
                 onChange={props.handleChange}
                 value={props.backgroundGradientAngle || ""}
                 />
-
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Colours "
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Colours
+                </label>
+
                 <input type={"color"}
                 name= {"backgroundGradientColor2"}
                 onChange={props.handleChange}
@@ -146,29 +140,27 @@ useEffect(() => {
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Button Gradient"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                <b>Button Gradient</b>
+                </label>
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Angle"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Angle
+                </label>
+
                 <input type={"text"}
                 name= {"buttonGradientAngle"}
                 placeholder="0"
                 onChange={props.handleChange}
                 value={props.buttonGradientAngle || ""}
                 />
-
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Colours"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Colours
+                </label>
+
                 <input type={"color"}
                 name= {"buttonGradientColor2"}
                 onChange={props.handleChange}
@@ -180,13 +172,12 @@ useEffect(() => {
                 onChange={props.handleChange}
                 value={props.buttonGradientColor1 || ''}
                 />
-
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Button Text"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Button Text
+                </label>
+
                 <input type={"color"}
                 name= {"buttonTextColor"}
                 onChange={props.handleChange}
@@ -194,6 +185,7 @@ useEffect(() => {
                 />
 
                 </form>
+                </div>
         </>
         )
 }

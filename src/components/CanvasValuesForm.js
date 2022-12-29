@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import {H4, P, Label, FormButton} from '../components/BaseSettings'
+import {FormButton} from '../components/BaseSettings'
 
 function CanvasValuesForm ({
   // data from canvas Container
@@ -43,16 +43,15 @@ function CanvasValuesForm ({
       return (
         <>
 
-      <P  
-      valueToChange={props.pColor}
-      text="The standard mesh material reacts to lights and shadows (and is more expensive to create), 
-      metalness and roughness values create a more realistic looking object">
-      </P>
+<p style={{color: `${props.pColor}`}}>
+      The standard mesh material reacts to lights and shadows (and is more expensive to create), 
+      metalness and roughness values create a more realistic looking object.
+      </p>
         <br />
-                <Label
-                valueToChange={props.labelColor}
-                text = "Model Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Model Colour
+                </label>
+
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={props.handleChange}
@@ -61,10 +60,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Model Metalness"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Model Metalness
+                </label>
+
                 <input type={"range"}
                 name={"metalness"}
                 min={0}
@@ -76,10 +75,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                {/*<Label
+                {/*<label style={{color: `${props.labelColor}`}}>
                 valueToChange={props.rotateSpeed}
-                text = "Rotation Speed"
-                ></Label>
+                Rotation Speed"
+                </label>
                 <input type={"range"}
                 name={"rotateSpeed"}
                 min={0}
@@ -91,10 +90,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Model Roughness"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Model Roughness
+                </label>
+
                 <input type={"range"}
                 name={"roughness"}
                 min={0}
@@ -106,10 +105,10 @@ function CanvasValuesForm ({
 
               <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Specular Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Specular Colour
+                </label>
+
                 <input type={"color"}
                 name={"specularColor"}
                 onChange={props.handleChange}
@@ -121,16 +120,15 @@ function CanvasValuesForm ({
     else if (props.modelMat === "meshBasicMaterial") {
       return (
         <>
-        <P  
-        valueToChange={props.pColor}
-        text="The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements">
-        </P>
+        <p style={{color: `${props.pColor}`}}>
+          The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements.
+        </p>
 
         <br />
-              <Label
-                valueToChange={props.labelColor}
-                text = "Model Colour"
-                ></Label>
+              <label style={{color: `${props.labelColor}`}}>
+                Model Colour
+                </label>
+
               <input type={"color"}
                 name={"modelColor"}
                 onChange={props.handleChange}
@@ -142,15 +140,14 @@ function CanvasValuesForm ({
     else if (props.modelMat === "meshPhongMaterial") {
       return (
         <>
-        <P  
-        valueToChange={props.pColor}
-        text="Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.">
-        </P>
+        <p style={{color: `${props.pColor}`}}>
+          Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.
+        </p>
         <br />
-                <Label
-                valueToChange={props.labelColor}
-                text = "Model Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Model Colour
+                </label>
+
               <input type={"color"}
                 name={"modelColor"}
                 onChange={props.handleChange}
@@ -159,10 +156,10 @@ function CanvasValuesForm ({
 
               <br />
 
-              <Label
-                valueToChange={props.labelColor}
-                text = "Specular Colour"
-                ></Label>
+              <label style={{color: `${props.labelColor}`}}>
+                Specular Colour
+                </label>
+
               <input type={"color"}
                 name={"specularColor"}
                 onChange={props.handleChange}
@@ -171,10 +168,10 @@ function CanvasValuesForm ({
 
               <br />
 
-              <Label
-                valueToChange={props.labelColor}
-                text = "Shininess"
-                ></Label>
+              <label style={{color: `${props.labelColor}`}}>
+                Shininess
+                </label>
+
               <input type={"range"}
                 name={"shininess"}
                 min={30}
@@ -189,15 +186,15 @@ function CanvasValuesForm ({
       else if (props.modelMat === "meshToonMaterial") {
         return (
           <>
-          <P  
-          valueToChange={props.pColor}
-          text="Toon mesh materials represent cel shading and makes models look cartoonish.">
-          </P>
+          <p style={{color: `${props.pColor}`}}>
+            Toon mesh materials represent cel shading and makes models look cartoonish.
+          </p>
           <br />
-          <Label
-          valueToChange={props.labelColor}
-          text = "Model Colour"
-          ></Label>
+
+          <label style={{color: `${props.labelColor}`}}>
+          Model Colour
+          </label>
+
                 <input type={"color"}
                 name={"modelColor"}
                 onChange={props.handleChange}
@@ -210,27 +207,26 @@ function CanvasValuesForm ({
     else if (props.modelMat === "meshBasicMaterial") {
       return (
         <>
-        <P  
-          valueToChange={props.pColor}
-          text="The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending 
-          on the closeness of the camera, no tweakable effects for this material.">
-          </P>
+        <p style={{color: `${props.pColor}`}}>
+          The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending 
+          on the closeness of the camera, no tweakable effects for this material.
+          </p>
         </>
       )}
 
       else if (props.modelMat === "pointsMaterial") {
         return (
           <>
-          <P  
-          valueToChange={props.pColor}
-          text="The points material shows all the vertices of the selected model.">
-          </P>
+          <p style={{color: `${props.pColor}`}}>
+            The points material shows all the vertices of the selected model.
+          </p>
 
-           <br />
-           <Label
-            valueToChange={props.labelColor}
-            text = "Model Colour"
-            ></Label>
+           <br/>
+
+           <label style={{color: `${props.labelColor}`}}>
+            Model Colour"
+            </label>
+
               <input type={"color"}
                 name={"modelColor"}
                 onChange={props.handleChange}
@@ -246,11 +242,9 @@ function CanvasValuesForm ({
                 <form className='w-100 p-2 modelForm' id="modelForm">
 
                 <div className='text-center'>
-                <H4 
-                valueToChange={props.h1Color}
-                text ="Model Edit Options"
-                >
-                </H4>
+                <h4 style={{color: `${props.h1Color}`}}>
+                  Model Edit Options
+                </h4>
                 </div>
 
                 {/*Click to show or hide light options form*/ }
@@ -273,10 +267,9 @@ function CanvasValuesForm ({
                 <>
 
                 {/* Might refactor to less model options in the future*/}
-                <Label
-                valueToChange={props.labelColor}
-                text = "Model Type"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Model Type
+                </label>
                 
                 <br />
                 <select 
@@ -300,10 +293,9 @@ function CanvasValuesForm ({
                 {/*{props.modelType === "customModel" ? 
               <>
               <br />
-              <Label
-                valueToChange={props.labelColor}
-                text = "Upload Model (.fbx, .glb)"
-                ></Label>
+              <label style={{color: `${props.labelColor}`}}>
+                Upload Model (.fbx, .glb)"
+                </label>
                 
                 <br />
                   <input 
@@ -321,10 +313,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Model Material"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Model Material
+                </label>
+
                 <br />
                 <select
                 value={props.modelMat || "meshStandardMaterial"}
@@ -345,10 +337,10 @@ function CanvasValuesForm ({
                 {props.modelMat !== "pointsMaterial" ? 
                       <>
                       <br />
-                      <Label
-                      valueToChange={props.labelColor}
-                      text = "Wireframe"
-                      ></Label>
+                      <label style={{color: `${props.labelColor}`}}>
+                      Wireframe
+                      </label>
+
                       <input type={"checkbox"} 
                       name={"wireframe"}
                       className="wireframe"
@@ -383,10 +375,10 @@ function CanvasValuesForm ({
               {showLightOptions && (
                 <>
                 <div className='lightForm'>
-                <Label
-                valueToChange={props.labelColor}
-                text = "Ambient Light Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Ambient Light Colour
+                </label>
+
                 <input type={"color"}
                 name={"ambientLightColor"}
                 onChange={props.handleChange}
@@ -395,10 +387,10 @@ function CanvasValuesForm ({
 
                 <br />
                 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Light Colour"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Light Colour
+                </label>
+
                 <input type={"color"}
                 name={"lightColor"}
                 onChange={props.handleChange}
@@ -407,10 +399,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Left/Right Light Position"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Left/Right Light Position
+                </label>
+
                 <input type={"range"}
                 name={"lightPositionx"}
                 min={-10}
@@ -422,10 +414,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Up/Down Light Position"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Up/Down Light Position
+                </label>
+
                 <input type={"range"}
                 name={"lightPositionz"}
                 min={-10}
@@ -437,10 +429,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Forward/Back Light Position"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Forward/Back Light Position
+                </label>
+
                 <input type={"range"}
                 name={"lightPositiony"}
                 min={-10}
@@ -452,10 +444,10 @@ function CanvasValuesForm ({
 
                 <br />
 
-                <Label
-                valueToChange={props.labelColor}
-                text = "Light Intensity"
-                ></Label>
+                <label style={{color: `${props.labelColor}`}}>
+                Light Intensity
+                </label>
+
                 <input type={"range"}
                 name={"lightIntensity"}
                 min={0}

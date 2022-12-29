@@ -6,7 +6,7 @@ import CanvasContainer from './threeJS/CanvasContainer';
 
 import EditValuesForm from '../components/EditValuesForm'
 
-import {Heading, P, FormButton} from '../components/BaseSettings'
+import {FormButton} from '../components/BaseSettings'
 
 import Projects from './Projects'
 import ContactMe from './ContactMe'
@@ -176,29 +176,102 @@ function About() {
 
       <div className='aboutTextBox'>
 
-      <Heading 
-      valueToChange={userInputs.h1Color}
-      text ="Hi, I'm Zac"
-      >
-      </Heading>
+      <h1 style={{color: `${userInputs.h1Color}`}}>
+      Hi, I'm Zac
+      </h1>
 
-      <P  
-      valueToChange={userInputs.pColor}
-      text="I'm a full stack web developer based in the greater Sydney area. I enjoy working on interesting projects and experimenting with different technologies.">
-      </P>
+      <p style={{color: `${userInputs.pColor}`}}>
+      I'm a full stack web developer based in the greater Sydney area. I enjoy working on interesting projects and experimenting with different technologies. Currently I'm exploring the use of webXR and AR as well as Three.js for web projects.
 
-      <br />
-      <P  
-      valueToChange={userInputs.pColor}
-      text="You can customise the colours of this website by clicking the HTML Values button and customise the spinning model with the Model Values button. 
-      Once you're done playing with my website, feel free to check out some of my projects, shoot me an email, or look at my social media links.">
-      </P>
+      <br/><br/>
+      You can customise the colours of this website by clicking the HTML Values button and customise the spinning model with the Model Values button. 
+      Once you're done playing with my website, feel free to check out some of my projects, shoot me an email, or look at my social media links.
 
-      <Heading 
-      valueToChange={userInputs.h1Color}
-      text ="Skills"
-      >
-      </Heading>
+      </p>
+
+      <h1 style={{color: `${userInputs.h1Color}`}}>
+      Experience
+      </h1>
+
+      <table style={{color: `${userInputs.pColor}`}}>
+        <tbody>
+        <tr style={{borderTop: `1px solid ${userInputs.labelColor}`, borderBottom: `1px solid ${userInputs.labelColor}`}}>
+          <td>
+          <b>The Star Casino</b>
+          </td>
+
+          <td>
+          ServiceNow Traineeship
+          </td>
+
+          <td>
+          Oct 2022 - Present
+          </td>
+        </tr>
+        
+        {/*Span title over three columns */}
+        <tr>
+          <td colSpan='3'>
+          <br/>
+        <h1 style={{color: `${userInputs.h1Color}`}}>
+        Education
+        </h1>
+        </td>
+        </tr>
+      
+
+
+        <tr style={{borderTop: `1px solid ${userInputs.labelColor}`}}>
+          <td>
+          <b>TAFE NSW</b>
+          </td>
+
+          <td>
+          ICT40120 Certificate IV Information Technology (ServiceNow)
+          </td>
+
+          <td>
+          October 2022 - Present
+          </td>
+
+        </tr>
+
+        <tr>
+          <td>
+          <b>University of Sydney / Trilogy Education</b>
+          </td>
+
+          <td>
+          Full Stack Web Developer Bootcamp
+          </td>
+
+          <td>
+          August 2021 - Feb 2022
+          </td>
+
+        </tr>
+
+        <tr style={{borderBottom: `1px solid ${userInputs.labelColor}`}}>
+          <td>
+          <b>TAFE Digital</b>
+          </td>
+
+          <td>
+          Statement of Attainment in Build your digital literacy with coding
+          </td>
+
+          <td>
+          August 2020 - Oct 2020
+          </td>
+
+        </tr>
+        </tbody>
+      </table>
+      <br/>
+
+      <h1 style={{color: `${userInputs.h1Color}`}}>
+      Skills
+      </h1>
 
       <div className="text-center">
       {iconArray.map((element, index) => (
@@ -207,6 +280,8 @@ function About() {
     </div>
 
     </div>
+
+    <br/>
 
       {/* Make every page child of about page to pass values easier (probably not best or proper way but it works)*/}
       <Projects 
@@ -219,6 +294,8 @@ function About() {
       labelColor = {userInputs.labelColor}
       buttonTextColor= {userInputs.buttonTextColor}
       />
+
+      <br/>
 
       <ContactMe 
       handleChange= {handleChange}

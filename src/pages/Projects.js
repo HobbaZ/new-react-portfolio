@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container } from 'react-bootstrap';
-
-import {Heading, P, FormButton, H4} from '../components/BaseSettings'
+import {FormButton} from '../components/BaseSettings'
 
 function Projects({
     ...props
@@ -69,7 +67,7 @@ function Projects({
                 })
         }
         catch (err) {
-            setInfoMessage('Error getting data', err)
+            setInfoMessage('Error getting Github repo data', err)
             throw new Error (err)
         }
     };
@@ -117,13 +115,11 @@ function Projects({
 
     return (
         <>
-        <div id='projects' className='w-100 m-auto'>
+    <div id='projects' className='w-100 m-auto'>
 
-        <Heading 
-        valueToChange={props.h1Color}
-        text ="Projects"
-        >
-        </Heading>
+    <h1 style={{color: `${props.h1Color}`}}>
+      Projects
+      </h1>
 
             <div className='d-flex flex-row w-100 flex-wrap justify-content-center'>
                 {repoData.map((repo, index) => (
@@ -132,19 +128,16 @@ function Projects({
                 <div className='card-body'>
                 <div className='card-title' key={index}>
                 
-                <H4 
-                valueToChange={props.h1Color}
-                text ={repo.name.replace(/-/g, " ")} //replace all dashes in repo name (-) with spaces
-                //text ={repo.name}
-                >
-                </H4>
+                <h4 style={{color: `${props.h1Color}`}}> 
+                {repo.name.replace(/-/g, " ")} {/*replace all dashes in repo name (-) with spaces*/}
+                </h4>
                 </div>
 
                 <div className='card-text'>
-                <P  
-                valueToChange={props.pColor}
-                text={repo.description}>
-                </P>
+
+                <p style={{color: `${props.pColor}`}}>
+                {repo.description}  
+                </p>
                 </div>
 
                 <div className='text-center'>

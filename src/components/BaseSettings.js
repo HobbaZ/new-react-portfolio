@@ -38,59 +38,6 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
     )
   }
 
-  function TextInput ({ textValue, handleChange, defaultValue }) {
-    return (
-      <>
-      <input type= "number"
-      value={textValue || defaultValue}
-      className="textInput"
-      onChange={handleChange} >
-
-      </input>
-      </>
-    )
-  }
-
-  function P ({valueToChange, text}) {
-    return (
-        <>
-        <p style = {{color: (valueToChange)}}>
-            {text}
-        </p>
-        </>
-    )
-  }
-
-  function Heading ({valueToChange, text}) {
-    return (
-        <>
-        <h1 style = {{color: (valueToChange), textAlign: "center"}}>
-        {text}
-        </h1>
-        </>
-    )
-  }
-
-  function H4 ({valueToChange, text}) {
-    return (
-        <>
-        <h4 style = {{color: (valueToChange), textAlign: "center"}}>
-        {text}
-        </h4>
-        </>
-    )
-  }
-
-  function Label ({valueToChange, text}) {
-    return (
-        <>
-        <label style = {{color: (valueToChange)}}>
-        {text}
-        </label>
-        </>
-    )
-  }
-
   function FormButton ({buttonGradientAngle, buttonGradientColor1, buttonGradientColor2, text, className, onClick, colour, type}) {
     return (
         <>
@@ -105,4 +52,4 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
     )
   }
 
-  export {ColorInput, CheckboxInput, P, Heading, Label, TextInput, RangeInput, FormButton, H4} 
+  export {ColorInput, CheckboxInput, RangeInput, FormButton}
