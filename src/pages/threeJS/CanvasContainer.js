@@ -67,11 +67,11 @@ function CanvasContainer ({
             <div className='text-center col-12 col-md-6 modelFormButton'>
 
             <FormButton 
-              className='btn btn-primary'
+              className='form-btn-primary'
               buttonGradientAngle={buttonGradientAngle}
               buttonGradientColor1={buttonGradientColor1}
               buttonGradientColor2={buttonGradientColor2}
-              text={showEditModelForm ? "Model Values ˅" : "Model Values "}
+              text={showEditModelForm ? "Customise Model -" : "Customise Model"}
               colour={buttonTextColor}
 
               onClick={() => setShowEditModelForm(!showEditModelForm)}>

@@ -143,7 +143,7 @@ function Projects({
                 <div className='text-center'>
                 <a href={repo.html_url} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to" ${repo.html_url}`}>
                 <FormButton 
-                className='btn btn-primary'
+                className='form-btn-primary'
                 buttonGradientAngle={props.buttonGradientAngle}
                 buttonGradientColor1={props.buttonGradientColor1}
                 buttonGradientColor2={props.buttonGradientColor2}
@@ -159,7 +159,7 @@ function Projects({
                 <a href={getWebsiteLink(index)} rel="noreferrer" target="_blank" aria-label={`If clicked this will open to `}>
             
                 <FormButton 
-                className='btn btn-primary'
+                className='form-btn-primary'
                 buttonGradientAngle={props.buttonGradientAngle}
                 buttonGradientColor1={props.buttonGradientColor1}
                 buttonGradientColor2={props.buttonGradientColor2}

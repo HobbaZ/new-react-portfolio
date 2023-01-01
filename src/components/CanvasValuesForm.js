@@ -239,7 +239,8 @@ function CanvasValuesForm ({
 
         return (
             <>
-                <form className='w-100 p-2 modelForm' id="modelForm">
+            <div className='canvasValues'>
+                <form className='p-2 modelForm'>
 
                 <div className='text-center'>
                 <h4 style={{color: `${props.h1Color}`}}>
@@ -255,7 +256,7 @@ function CanvasValuesForm ({
                       buttonGradientAngle={props.buttonGradientAngle}
                       buttonGradientColor1={props.buttonGradientColor1}
                       buttonGradientColor2={props.buttonGradientColor2}
-                      text={showModelOptions ? "Edit Model ˅" : "Edit Model "}
+                      text={showModelOptions ? "Edit Model -" : "Edit Model "}
                       colour={props.buttonTextColor}
 
                       onClick={() => setShowModelOptions(!showModelOptions)}>
@@ -363,7 +364,7 @@ function CanvasValuesForm ({
               buttonGradientAngle={props.buttonGradientAngle}
               buttonGradientColor1={props.buttonGradientColor1}
               buttonGradientColor2={props.buttonGradientColor2}
-              text={showLightOptions ? "Edit Lights ˅" : "Edit Lights "}
+              text={showLightOptions ? "Edit Lights -" : "Edit Lights "}
               colour={props.buttonTextColor}
               type="button"
 
@@ -463,6 +464,7 @@ function CanvasValuesForm ({
               {/*End of light options */}
 
             </form>
+            </div>
                 </>
         )
 

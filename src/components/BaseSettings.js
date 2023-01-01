@@ -15,35 +15,12 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
     )
   }
 
-  function CheckboxInput ({ checkBoxValue, handleChange, defaultValue }) {
-    return (
-      <>
-      <input type="checkbox"
-      checked= {checkBoxValue || defaultValue}
-      className="checkboxInput"
-      onChange={handleChange} />
-      </>
-    )
-  }
-
-  function RangeInput ({rangeValue, handleChange, min, max, defaultValue}) {
-    return (
-      <>
-      <input type="range"
-      value={rangeValue || defaultValue}
-      min={min}
-      max={max}
-      onChange={handleChange} />
-      </>
-    )
-  }
-
   function FormButton ({buttonGradientAngle, buttonGradientColor1, buttonGradientColor2, text, className, onClick, colour, type}) {
     return (
         <>
         <Button style = {{background: `linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`}}
         onClick ={onClick}
-        type={type}
+        //type={type}
         className={className}
         >
             <div style = {{color: `${colour}`, fontSize: '20px'}}>{text}</div>
@@ -52,4 +29,4 @@ function ColorInput ({ colourValue, handleChange, defaultValue, fieldName}) {
     )
   }
 
-  export {ColorInput, CheckboxInput, RangeInput, FormButton}
+  export {ColorInput, FormButton} 

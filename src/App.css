@@ -24,11 +24,14 @@ a {
   position: relative;
 }
 
+body {
+  background-color: var(--light);
+}
+
 .btn-primary {
-  background-color: black;
-  color: white;
+  background-color: var(--dark);
+  color: var(--light);
   height: fit-content;
-  width: 75%;
   margin: 10px;
 }
 
@@ -47,25 +50,21 @@ a {
 #canvasContainer {
   width: 100%;
   height: 40vh;
-  margin-top: 10%;
-  border-radius: 20px;
-  position: relative;
 }
 
 #canvasContainer:hover {
   border: 1px solid red;
 }
 
-.Container {
-  width: 100vw;
+.canvasValues {
+  top:-80px;
+  position: relative;
 }
 
 form {
   border-radius: 5px;
   height: 100%;
   padding: 10px;
-  width: 50%;
-  margin: auto;
 }
 
 .form-btn-primary {
@@ -77,14 +76,12 @@ form {
 }
 
 .form-btn-primary:hover {
-  border: 2px solid var(--transparent);
+  border-top: 0px solid var(--transparent);
   background-color: var(--transparent);
   color: var(--dark);
 }
 
-.form-btn-primary:focus, .form-btn-primary:active {
-  border: none;
-  background-color: var(--transparent);
+.form-btn-primary:focus {
   box-shadow: none;
   outline: none;
 }
@@ -95,10 +92,6 @@ form {
   pointer-events: none;
   background-color: var(--transparent);
   color: var(--dark);
-}
-
-form h4 {
-  font-size: 20px;
 }
 
 footer {
@@ -118,6 +111,10 @@ html {
   scroll-behavior: smooth;
 }
 
+h1 {
+  text-align: center;
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -126,30 +123,26 @@ html, body {
   background-blend-mode: color;
 }
 
-.htmlEditButton {
-  margin: auto;
-  margin-top: 60px;
+.htmlEditForm {
+  width: 100%;
 }
 
-.htmlEditContainer {
-  position: relative;
-  margin: auto;
+.htmlEditForm input {
+  float: right;
+}
+
+.htmlEditForm input[type="text"] {
+  width:25%;
 }
 
 .htmlForm {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 1;
+
+  width:100%;
+  height: 100%;
 }
 
-.htmlForm input {
-  margin-left: 10px;
-  justify-items: end;
-}
-
-h1 {
-  text-align: center;
+label {
+  font-size: 15px;
 }
 
 .icons {
@@ -177,23 +170,21 @@ p {
   margin: auto;
 }
 
-.menuForm, .modelForm, .htmlForm {
+.menuForm, .modelForm, #navbar-nav {
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 252, 252, 0.5);
   height: fit-content;
 }
 
 .modelFormButton {
   position: relative;
-  bottom: 0;
-  right: 0;
+  bottom: 70px;
   margin: auto;
 }
 
 .modelForm {
-  z-index: 1;
-  position: relative;
-  width: 50%;
+  width: 100%;
 }
 
 .modelForm p {
@@ -201,8 +192,6 @@ p {
 }
 
 #navbar-nav {
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 252, 252, 0.5);
   height: fit-content;
 }
 
@@ -213,17 +202,30 @@ p {
 .nav-link{
   text-decoration: none;
   color: black;
+  font-size: 20px;
+  border: none;
 }
 
 /* React uses link:hover as a current page link instead of normal hover behaviour, style this to show current page link*/
 .nav-link:hover {
+  text-decoration: underline;
+  border: none;
+}
+
+.noButton {
+  width: 200px;
+  text-align: left;
+  margin-right: 20px;
   text-decoration: none;
-  font-weight: 600;
+  border: none;
+  background-color: var(--transparent);
+  position: relative;
 }
 
 .noEffect, .noEffect:hover {
   text-decoration: none;
   border: none;
+  background-color: var(--transparent);
 }
 
 .subtitle {
