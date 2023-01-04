@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import emailjs from '@emailjs/browser';
 
-import { Container, Button, Form} from 'react-bootstrap';
+import { Container, Button, Form } from 'react-bootstrap';
 
 let emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -48,7 +48,7 @@ function ContactMe({
           setTimeout(() => {
             setInfoMessage("");
           }, 3000);
-          
+
         },
         (error) => {
           console.log("Email failed: ", error);
@@ -62,64 +62,65 @@ function ContactMe({
 
   return (
     <Container>
-              <h1 style={{color: `${props.h1Color}`}}>Contact Me</h1>
+      <h1 style={{ color: `${props.h1Color}` }}>Contact Me</h1>
 
-              <Form validated={validated} onSubmit={submitForm} className='col-sm-12 col-md-6 m-auto' ref={formRef}>
+      <Form validated={validated} onSubmit={submitForm} className='col-sm-12 col-md-6 m-auto' ref={formRef}>
 
-              <Form.Group>
-                  <label style={{color: `${props.labelColor}`}}>Name</label>
-                  <input className='form-control' type="text" name="from_name" value={nameInput || ''} placeholder="Your Name" onChange={(e) => setNameInput(e.target.value)} required/>
-              </Form.Group>
+        <Form.Group>
+          <label style={{ color: `${props.labelColor}` }}>Name</label>
+          <input className='form-control' type="text" name="from_name" value={nameInput || ''} placeholder="Your Name" onChange={(e) => setNameInput(e.target.value)} required />
+        </Form.Group>
 
-              {nameInput !== '' && nameInput?.length < 2 ? 
-                  <div style={{color: `${props.pColor}`}} className="text-center errMessage">{"Name must be at least 2 characters"}</div> : ''}
+        {nameInput !== '' && nameInput?.length < 2 ?
+          <div style={{ color: `${props.pColor}` }} className="text-center errMessage">{"Name must be at least 2 characters"}</div> : ''}
 
-              <br/>
+        <br />
 
-              <Form.Group>
-                  <label style={{color: `${props.labelColor}`}}>Email address</label>
-                  <input className='form-control' type="email" name ="user_email" value={emailInput || ''} placeholder="Enter email" onChange={(e) => setEmailInput(e.target.value)} required/>
-              </Form.Group>
+        <Form.Group>
+          <label style={{ color: `${props.labelColor}` }}>Email address</label>
+          <input className='form-control' type="email" name="user_email" value={emailInput || ''} placeholder="Enter email" onChange={(e) => setEmailInput(e.target.value)} required />
+        </Form.Group>
 
-              {emailInput != null && !emailRegex.test(emailInput) ? 
-                  <div style={{color: `${props.pColor}`}} className="text-center errMessage">{"Invalid email address entered"}</div> : null}
-              <br/>
+        {emailInput != null && !emailRegex.test(emailInput) ?
+          <div style={{ color: `${props.pColor}` }} className="text-center errMessage">{"Invalid email address entered"}</div> : null}
+        <br />
 
-              <Form.Group>
-                  <label style={{color: `${props.labelColor}`}}>Subject</label>
-                  <select className='form-control' value={subjectInput} required name="user_subject" onChange={(e) => setSubjectInput(e.target.value)}>
-                  <option value="Make a General Enquiry">Make a General Enquiry</option>
-                  <option value="Make a Complaint">Make a Complaint</option>
-                  <option value="Talk About a Project or Idea">Talk About a Project or Idea</option>
-                  </select>
-              </Form.Group>
+        <Form.Group>
+          <label style={{ color: `${props.labelColor}` }}>Subject</label>
+          <select className='form-control' value={subjectInput} required name="user_subject" onChange={(e) => setSubjectInput(e.target.value)}>
+            <option value="Make a General Enquiry">Make a General Enquiry</option>
+            <option value="Make a Complaint">Make a Complaint</option>
+            <option value="Talk About a Project or Idea">Talk About a Project or Idea</option>
+          </select>
+        </Form.Group>
 
-              <br/>
+        <br />
 
-              <Form.Group>
-                  <label style={{color: `${props.labelColor}`}}>Message</label>
-                  <textarea className='form-control' type="text" rows="7" name ="message" value={messageInput || ''} placeholder="Type your message (required)" onChange={(e) => setMessageInput(e.target.value)} required/>
-              </Form.Group>
+        <Form.Group>
+          <label style={{ color: `${props.labelColor}` }}>Message</label>
+          <textarea className='form-control' type="text" rows="7" name="message" value={messageInput || ''} placeholder="Type your message (required)" onChange={(e) => setMessageInput(e.target.value)} required />
+        </Form.Group>
 
-              {messageInput !== '' && messageInput?.length < 2 ? 
-                  <div style={{color: `${props.pColor}`}} className="text-center infoMessage">{"message is required"}</div> : ''}
+        {messageInput !== '' && messageInput?.length < 2 ?
+          <div style={{ color: `${props.pColor}` }} className="text-center infoMessage">{"message is required"}</div> : ''}
 
-              <br/>
-        
-              <div className='text-center'>
-                  <Button type="submit" 
-                  style = {{background: `linear-gradient(${props.buttonGradientAngle}deg, ${props.buttonGradientColor1}, ${props.buttonGradientColor2}`}}
-                  className='btn btn-primary'
-                  disabled={!(emailInput && nameInput && messageInput)}>
-                      Send Email
-                  </Button>
-              </div>
+        <br />
 
-              {infoMessage && (
-            <div className='text-center infoMessage'><p style={{color: `${props.pColor}`}}>{infoMessage}</p></div>
-          )}
+        <div className='text-center'>
+          <Button type="submit"
+            style={{ background: `linear-gradient(${props.buttonGradientAngle}deg, ${props.buttonGradientColor1}, ${props.buttonGradientColor2}` }}
+            className='form-btn-primary'
+            disabled={!(emailInput && nameInput && messageInput)}>
+            <div style={{ color: props.buttonTextColor }}>
+              Send Email
+            </div>
+          </Button>
+        </div>
 
-              </Form>
+        {infoMessage && (
+          <div className='text-center infoMessage'><p style={{ color: `${props.pColor}` }}>{infoMessage}</p></div>
+        )}
+      </Form>
     </Container>
   );
 };

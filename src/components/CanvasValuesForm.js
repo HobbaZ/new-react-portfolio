@@ -1,41 +1,41 @@
 import React, { useEffect, useState } from 'react';
 
-import {FormButton} from '../components/BaseSettings'
+import { FormButton } from '../components/BaseSettings'
 
-function CanvasValuesForm ({
+function CanvasValuesForm({
   // data from canvas Container
-    ...props
-    }) {
+  ...props
+}) {
 
-    useEffect (() => {
-      localStorage.setItem("ambientLightColor", JSON.stringify(props.ambientLightColor))
-      localStorage.setItem("lightPositionx", JSON.stringify(props.lightPositionx))
-      localStorage.setItem("lightPositiony", JSON.stringify(props.lightPositiony))
-      localStorage.setItem("lightPositionz", JSON.stringify(props.lightPositionz))
-      localStorage.setItem("lightColor", JSON.stringify(props.lightColor))
-      localStorage.setItem("lightIntensity", JSON.stringify(props.lightIntensity))
-      localStorage.setItem("roughness", JSON.stringify(props.roughness))
-      localStorage.setItem("metalness", JSON.stringify(props.metalness))
-      localStorage.setItem("modelMat", JSON.stringify(props.modelMat))
-      localStorage.setItem("specularColor", JSON.stringify(props.specularColor))
-      localStorage.setItem("wireframe", JSON.stringify(props.wireframe))
-      localStorage.setItem("shininess", JSON.stringify(props.shininess))
-      localStorage.setItem("modelType", JSON.stringify(props.modelType))
-      localStorage.setItem("modelColor", JSON.stringify(props.modelColor))
-      localStorage.setItem("rotateSpeed", JSON.stringify(props.rotateSpeed))
-    })
+  useEffect(() => {
+    localStorage.setItem("ambientLightColor", JSON.stringify(props.ambientLightColor))
+    localStorage.setItem("lightPositionx", JSON.stringify(props.lightPositionx))
+    localStorage.setItem("lightPositiony", JSON.stringify(props.lightPositiony))
+    localStorage.setItem("lightPositionz", JSON.stringify(props.lightPositionz))
+    localStorage.setItem("lightColor", JSON.stringify(props.lightColor))
+    localStorage.setItem("lightIntensity", JSON.stringify(props.lightIntensity))
+    localStorage.setItem("roughness", JSON.stringify(props.roughness))
+    localStorage.setItem("metalness", JSON.stringify(props.metalness))
+    localStorage.setItem("modelMat", JSON.stringify(props.modelMat))
+    localStorage.setItem("specularColor", JSON.stringify(props.specularColor))
+    localStorage.setItem("wireframe", JSON.stringify(props.wireframe))
+    localStorage.setItem("shininess", JSON.stringify(props.shininess))
+    localStorage.setItem("modelType", JSON.stringify(props.modelType))
+    localStorage.setItem("modelColor", JSON.stringify(props.modelColor))
+    localStorage.setItem("rotateSpeed", JSON.stringify(props.rotateSpeed))
+  })
 
-    //Model submenu form
-    const [showModelOptions, setShowModelOptions] = useState(false)
+  //Model submenu form
+  const [showModelOptions, setShowModelOptions] = useState(false)
 
-    //lights submenu form
-    const [showLightOptions, setShowLightOptions] = useState(false)
+  //lights submenu form
+  const [showLightOptions, setShowLightOptions] = useState(false)
 
-      const [filesToUpload, setFilesToUpload] = useState("")
+  const [filesToUpload, setFilesToUpload] = useState("")
 
-      const handleFileUpload = (event) => {
-        setFilesToUpload(event.target.files[0])
-      }
+  const handleFileUpload = (event) => {
+    setFilesToUpload(event.target.files[0])
+  }
 
   //Populate material options
   function materialOptions() {
@@ -43,39 +43,39 @@ function CanvasValuesForm ({
       return (
         <>
 
-<p style={{color: `${props.pColor}`}}>
-      The standard mesh material reacts to lights and shadows (and is more expensive to create), 
-      metalness and roughness values create a more realistic looking object.
-      </p>
-        <br />
-                <label style={{color: `${props.labelColor}`}}>
-                Model Colour
-                </label>
+          <p style={{ color: `${props.pColor}` }}>
+            The standard mesh material reacts to lights and shadows (and is more expensive to create),
+            metalness and roughness values create a more realistic looking object.
+          </p>
+          <br />
+          <label style={{ color: `${props.labelColor}` }}>
+            Model Colour
+          </label>
 
-                <input type={"color"}
-                name={"modelColor"}
-                onChange={props.handleChange}
-                value={props.modelColor || ''}
-                />
+          <input type={"color"}
+            name={"modelColor"}
+            onChange={props.handleChange}
+            value={props.modelColor || ''}
+          />
 
-                <br />
+          <br />
 
-                <label style={{color: `${props.labelColor}`}}>
-                Model Metalness
-                </label>
+          <label style={{ color: `${props.labelColor}` }}>
+            Model Metalness
+          </label>
 
-                <input type={"range"}
-                name={"metalness"}
-                min={0}
-                max={10}
-                step={0.01}
-                onChange={props.handleChange}
-                value= {props.metalness || ""}
-                />
+          <input type={"range"}
+            name={"metalness"}
+            min={0}
+            max={10}
+            step={0.01}
+            onChange={props.handleChange}
+            value={props.metalness || ""}
+          />
 
-                <br />
+          <br />
 
-                {/*<label style={{color: `${props.labelColor}`}}>
+          {/*<label style={{color: `${props.labelColor}`}}>
                 valueToChange={props.rotateSpeed}
                 Rotation Speed"
                 </label>
@@ -88,196 +88,202 @@ function CanvasValuesForm ({
                 value= {props.rotateSpeed || ""}
                 />*/}
 
-                <br />
+          <br />
 
-                <label style={{color: `${props.labelColor}`}}>
-                Model Roughness
-                </label>
+          <label style={{ color: `${props.labelColor}` }}>
+            Model Roughness
+          </label>
 
-                <input type={"range"}
-                name={"roughness"}
-                min={0}
-                max={10}
-                step={0.01}
-                onChange={props.handleChange}
-                value= {props.roughness || ""}
-                />
+          <input type={"range"}
+            name={"roughness"}
+            min={0}
+            max={10}
+            step={0.01}
+            onChange={props.handleChange}
+            value={props.roughness || ""}
+          />
 
-              <br />
+          <br />
 
-                <label style={{color: `${props.labelColor}`}}>
-                Specular Colour
-                </label>
+          <label style={{ color: `${props.labelColor}` }}>
+            Specular Colour
+          </label>
 
-                <input type={"color"}
-                name={"specularColor"}
-                onChange={props.handleChange}
-                value={props.specularColor || ''}
-                />
+          <input type={"color"}
+            name={"specularColor"}
+            onChange={props.handleChange}
+            value={props.specularColor || ''}
+          />
         </>
-      )}
+      )
+    }
 
     else if (props.modelMat === "meshBasicMaterial") {
       return (
         <>
-        <p style={{color: `${props.pColor}`}}>
-          The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements.
-        </p>
+          <p style={{ color: `${props.pColor}` }}>
+            The basic mesh material doesn't react to lights and is flat-shaded, meaning it is cheap to create and best suited for background elements.
+          </p>
 
-        <br />
-              <label style={{color: `${props.labelColor}`}}>
-                Model Colour
-                </label>
+          <br />
+          <label style={{ color: `${props.labelColor}` }}>
+            Model Colour
+          </label>
 
-              <input type={"color"}
-                name={"modelColor"}
-                onChange={props.handleChange}
-                value={props.modelColor || ''}
-                />
+          <input type={"color"}
+            name={"modelColor"}
+            onChange={props.handleChange}
+            value={props.modelColor || ''}
+          />
         </>
-      )}
+      )
+    }
 
     else if (props.modelMat === "meshPhongMaterial") {
       return (
         <>
-        <p style={{color: `${props.pColor}`}}>
-          Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.
-        </p>
-        <br />
-                <label style={{color: `${props.labelColor}`}}>
-                Model Colour
-                </label>
+          <p style={{ color: `${props.pColor}` }}>
+            Phong mesh materials are often used to represent glass or glossy surfaces, for example, plastic.
+          </p>
+          <br />
+          <label style={{ color: `${props.labelColor}` }}>
+            Model Colour
+          </label>
 
-              <input type={"color"}
-                name={"modelColor"}
-                onChange={props.handleChange}
-                value={props.modelColor || ''}
-                />
+          <input type={"color"}
+            name={"modelColor"}
+            onChange={props.handleChange}
+            value={props.modelColor || ''}
+          />
 
-              <br />
+          <br />
 
-              <label style={{color: `${props.labelColor}`}}>
-                Specular Colour
-                </label>
+          <label style={{ color: `${props.labelColor}` }}>
+            Specular Colour
+          </label>
 
-              <input type={"color"}
-                name={"specularColor"}
-                onChange={props.handleChange}
-                value={props.specularColor || ''}
-                />
+          <input type={"color"}
+            name={"specularColor"}
+            onChange={props.handleChange}
+            value={props.specularColor || ''}
+          />
 
-              <br />
+          <br />
 
-              <label style={{color: `${props.labelColor}`}}>
-                Shininess
-                </label>
+          <label style={{ color: `${props.labelColor}` }}>
+            Shininess
+          </label>
 
-              <input type={"range"}
-                name={"shininess"}
-                min={30}
-                max={100}
-                step={0.01}
-                onChange={props.handleChange}
-                value={props.shininess || ""}
-                />
+          <input type={"range"}
+            name={"shininess"}
+            min={30}
+            max={100}
+            step={0.01}
+            onChange={props.handleChange}
+            value={props.shininess || ""}
+          />
         </>
-      )}
+      )
+    }
 
-      else if (props.modelMat === "meshToonMaterial") {
-        return (
-          <>
-          <p style={{color: `${props.pColor}`}}>
+    else if (props.modelMat === "meshToonMaterial") {
+      return (
+        <>
+          <p style={{ color: `${props.pColor}` }}>
             Toon mesh materials represent cel shading and makes models look cartoonish.
           </p>
           <br />
 
-          <label style={{color: `${props.labelColor}`}}>
-          Model Colour
+          <label style={{ color: `${props.labelColor}` }}>
+            Model Colour
           </label>
 
-                <input type={"color"}
-                name={"modelColor"}
-                onChange={props.handleChange}
-                value={props.modelColor || ''}
-                />
-          </>
-        )}
-  
+          <input type={"color"}
+            name={"modelColor"}
+            onChange={props.handleChange}
+            value={props.modelColor || ''}
+          />
+        </>
+      )
+    }
+
 
     else if (props.modelMat === "meshBasicMaterial") {
       return (
         <>
-        <p style={{color: `${props.pColor}`}}>
-          The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending 
-          on the closeness of the camera, no tweakable effects for this material.
+          <p style={{ color: `${props.pColor}` }}>
+            The normal mesh material reacts to lights and shadows and will show the geometry normals with different colours depending
+            on the closeness of the camera, no tweakable effects for this material.
           </p>
         </>
-      )}
+      )
+    }
 
-      else if (props.modelMat === "pointsMaterial") {
-        return (
-          <>
-          <p style={{color: `${props.pColor}`}}>
+    else if (props.modelMat === "pointsMaterial") {
+      return (
+        <>
+          <p style={{ color: `${props.pColor}` }}>
             The points material shows all the vertices of the selected model.
           </p>
 
-           <br/>
+          <br />
 
-           <label style={{color: `${props.labelColor}`}}>
+          <label style={{ color: `${props.labelColor}` }}>
             Model Colour"
-            </label>
+          </label>
 
-              <input type={"color"}
-                name={"modelColor"}
-                onChange={props.handleChange}
-                value={props.modelColor || ''}
-                />
-          </>
-        )}
+          <input type={"color"}
+            name={"modelColor"}
+            onChange={props.handleChange}
+            value={props.modelColor || ''}
+          />
+        </>
+      )
+    }
 
   }
 
-        return (
+  return (
+    <>
+      <div className='canvasValues'>
+        <form className='p-2 modelForm'>
+
+          <div className='text-center'>
+            <h4 style={{ color: `${props.h1Color}` }}>
+              Model Edit Options
+            </h4>
+          </div>
+
+          {/*Click to show or hide light options form*/}
+          <div className='text-center col-12 col-md-6 m-auto'>
+            <FormButton
+              className='form-btn-primary my-2'
+              type="button"
+              buttonGradientAngle={props.buttonGradientAngle}
+              buttonGradientColor1={props.buttonGradientColor1}
+              buttonGradientColor2={props.buttonGradientColor2}
+              text={showModelOptions ? "Edit Model -" : "Edit Model "}
+              colour={props.buttonTextColor}
+
+              onClick={() => setShowModelOptions(!showModelOptions)}>
+            </FormButton>
+          </div>
+
+          {/*Light options*/}
+          {showModelOptions && (
             <>
-            <div className='canvasValues'>
-                <form className='p-2 modelForm'>
 
-                <div className='text-center'>
-                <h4 style={{color: `${props.h1Color}`}}>
-                  Model Edit Options
-                </h4>
-                </div>
-
-                {/*Click to show or hide light options form*/ }
-                <div className='text-center col-12 col-md-6 m-auto'>
-                      <FormButton 
-                      className=' btn btn-primary'
-                      type="button"
-                      buttonGradientAngle={props.buttonGradientAngle}
-                      buttonGradientColor1={props.buttonGradientColor1}
-                      buttonGradientColor2={props.buttonGradientColor2}
-                      text={showModelOptions ? "Edit Model -" : "Edit Model "}
-                      colour={props.buttonTextColor}
-
-                      onClick={() => setShowModelOptions(!showModelOptions)}>
-                      </FormButton>
-                </div>
-
-                    {/*Light options*/}
-              {showModelOptions && (
-                <>
-
-                {/* Might refactor to less model options in the future*/}
-                <label style={{color: `${props.labelColor}`}}>
+              {/* Might refactor to less model options in the future*/}
+              <label style={{ color: `${props.labelColor}` }}>
                 Model Type
-                </label>
-                
-                <br />
-                <select 
+              </label>
+
+              <br />
+              <select
                 value={props.modelType || "cube"}
                 name={"modelType"}
                 onChange={props.handleChange}
-                >
+              >
                 <option value="cube">Cube</option>
                 <option value="sphere">Sphere</option>
                 <option value="torus">Torus</option>
@@ -287,11 +293,11 @@ function CanvasValuesForm ({
                 <option value="dodecahedron">Dodecahedron</option>
                 <option value="text">Text</option>
 
-              {/*Upload model to page (not working yet)*/}
+                {/*Upload model to page (not working yet)*/}
                 {/*<option value="customModel">Custom Model</option>*/}
-                </select>
+              </select>
 
-                {/*{props.modelType === "customModel" ? 
+              {/*{props.modelType === "customModel" ? 
               <>
               <br />
               <label style={{color: `${props.labelColor}`}}>
@@ -312,55 +318,55 @@ function CanvasValuesForm ({
               </> : null
               }*/}
 
-                <br />
+              <br />
 
-                <label style={{color: `${props.labelColor}`}}>
+              <label style={{ color: `${props.labelColor}` }}>
                 Model Material
-                </label>
+              </label>
 
-                <br />
-                <select
+              <br />
+              <select
                 value={props.modelMat || "meshStandardMaterial"}
                 name={"modelMat"}
                 onChange={props.handleChange}
-                >
+              >
                 <option value="meshStandardMaterial">MeshStandardMaterial</option>
                 <option value="meshBasicMaterial">MeshBasicMaterial</option>
                 <option value="meshPhongMaterial">MeshPhongMaterial</option>
                 <option value="meshToonMaterial">MeshToonMaterial</option>
                 <option value="meshNormalMaterial">MeshNormalMaterial</option>
                 <option value="pointsMaterial">PointsMaterial</option>
-                </select>
+              </select>
 
-                {materialOptions()} {/*call function*/}
+              {materialOptions()} {/*call function*/}
 
-                {/* Show wireframe option for any materials other than points material */}
-                {props.modelMat !== "pointsMaterial" ? 
-                      <>
-                      <br />
-                      <label style={{color: `${props.labelColor}`}}>
-                      Wireframe
-                      </label>
+              {/* Show wireframe option for any materials other than points material */}
+              {props.modelMat !== "pointsMaterial" ?
+                <>
+                  <br />
+                  <label style={{ color: `${props.labelColor}` }}>
+                    Wireframe
+                  </label>
 
-                      <input type={"checkbox"} 
-                      name={"wireframe"}
-                      className="wireframe"
-                      onChange={props.handleChange}
-                      value={props.wireframe || ""}
-                      />
-                    </> : null //if false don't show anything
-                }
+                  <input type={"checkbox"}
+                    name={"wireframe"}
+                    className="wireframe"
+                    onChange={props.handleChange}
+                    value={props.wireframe || ""}
+                  />
+                </> : null //if false don't show anything
+              }
 
-                </>
-              )}
+            </>
+          )}
 
-            {/*End of model options */}
+          {/*End of model options */}
 
-            {/*Click to show or hide light options form*/ }
-            <div className='text-center col-12 col-md-6 m-auto'>
+          {/*Click to show or hide light options form*/}
+          <div className='text-center col-12 col-md-6 m-auto'>
 
-            <FormButton 
-              className='btn btn-primary'
+            <FormButton
+              className='form-btn-primary my-1'
               buttonGradientAngle={props.buttonGradientAngle}
               buttonGradientColor1={props.buttonGradientColor1}
               buttonGradientColor2={props.buttonGradientColor2}
@@ -370,103 +376,103 @@ function CanvasValuesForm ({
 
               onClick={() => setShowLightOptions(!showLightOptions)}>
             </FormButton>
-            </div>
+          </div>
 
-            {/*Light options*/}
-              {showLightOptions && (
-                <>
-                <div className='lightForm'>
-                <label style={{color: `${props.labelColor}`}}>
-                Ambient Light Colour
+          {/*Light options*/}
+          {showLightOptions && (
+            <>
+              <div className='lightForm'>
+                <label style={{ color: `${props.labelColor}` }}>
+                  Ambient Light Colour
                 </label>
 
                 <input type={"color"}
-                name={"ambientLightColor"}
-                onChange={props.handleChange}
-                value={props.ambientLightColor || ''}
+                  name={"ambientLightColor"}
+                  onChange={props.handleChange}
+                  value={props.ambientLightColor || ''}
                 />
 
                 <br />
-                
-                <label style={{color: `${props.labelColor}`}}>
-                Light Colour
+
+                <label style={{ color: `${props.labelColor}` }}>
+                  Light Colour
                 </label>
 
                 <input type={"color"}
-                name={"lightColor"}
-                onChange={props.handleChange}
-                value={props.lightColor || ''}
+                  name={"lightColor"}
+                  onChange={props.handleChange}
+                  value={props.lightColor || ''}
                 />
 
                 <br />
 
-                <label style={{color: `${props.labelColor}`}}>
-                Left/Right Light Position
+                <label style={{ color: `${props.labelColor}` }}>
+                  Left/Right Light Position
                 </label>
 
                 <input type={"range"}
-                name={"lightPositionx"}
-                min={-10}
-                max={10}
-                step={0.01}
-                onChange={props.handleChange}
-                value={props.lightPositionx || ""}
+                  name={"lightPositionx"}
+                  min={-10}
+                  max={10}
+                  step={0.01}
+                  onChange={props.handleChange}
+                  value={props.lightPositionx || ""}
                 />
 
                 <br />
 
-                <label style={{color: `${props.labelColor}`}}>
-                Up/Down Light Position
+                <label style={{ color: `${props.labelColor}` }}>
+                  Up/Down Light Position
                 </label>
 
                 <input type={"range"}
-                name={"lightPositionz"}
-                min={-10}
-                max={10}
-                step={0.01}
-                onChange={props.handleChange}
-                value={props.lightPositionz || ""}
+                  name={"lightPositionz"}
+                  min={-10}
+                  max={10}
+                  step={0.01}
+                  onChange={props.handleChange}
+                  value={props.lightPositionz || ""}
                 />
 
                 <br />
 
-                <label style={{color: `${props.labelColor}`}}>
-                Forward/Back Light Position
+                <label style={{ color: `${props.labelColor}` }}>
+                  Forward/Back Light Position
                 </label>
 
                 <input type={"range"}
-                name={"lightPositiony"}
-                min={-10}
-                max={10}
-                step={0.01}
-                onChange={props.handleChange}
-                value={props.lightPositiony || ""}
+                  name={"lightPositiony"}
+                  min={-10}
+                  max={10}
+                  step={0.01}
+                  onChange={props.handleChange}
+                  value={props.lightPositiony || ""}
                 />
 
                 <br />
 
-                <label style={{color: `${props.labelColor}`}}>
-                Light Intensity
+                <label style={{ color: `${props.labelColor}` }}>
+                  Light Intensity
                 </label>
 
                 <input type={"range"}
-                name={"lightIntensity"}
-                min={0}
-                max={100}
-                step={0.01}
-                onChange={props.handleChange}
-                value={props.lightIntensity || ""}
+                  name={"lightIntensity"}
+                  min={0}
+                  max={100}
+                  step={0.01}
+                  onChange={props.handleChange}
+                  value={props.lightIntensity || ""}
                 />
-                </div>
-                </>
-              )}
+              </div>
+            </>
+          )}
 
-              {/*End of light options */}
+          {/*End of light options */}
 
-            </form>
-            </div>
-                </>
-        )
+        </form>
+      </div>
+    </>
+  )
 
 }
 

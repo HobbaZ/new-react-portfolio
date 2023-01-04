@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import { Container } from 'react-bootstrap';
 
@@ -18,17 +18,17 @@ let iconArray = [
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg" ,
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg",
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
   "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg"
 ];
 
-function About({...props}) {
+function About({ ...props }) {
 
   //edit form
 
   const [userInputs, setUserInputs] = useState({
-    
+
     //model variables
     modelMat: JSON.parse(localStorage.getItem("modelMat")) || "meshStandardMaterial",
     modelType: JSON.parse(localStorage.getItem("modelType")) || "cube",
@@ -51,175 +51,175 @@ function About({...props}) {
   const handleChange = (event) => {
     const value = event.target.value;
     setUserInputs(previousState => {
-      return {...previousState, [event.target.name]: value}
-  })}
+      return { ...previousState, [event.target.name]: value }
+    })
+  }
 
-    return (
+  return (
 
-        <>
-        <Container id='about'>
-          {/*send data to three.js canvas model*/}
+    <>
+      <Container id='about'>
+        {/*send data to three.js canvas model*/}
         <CanvasContainer
-        pColor= {props.pColor}
-        h1Color= {props.h1Color}
-        labelColor= {props.labelColor}
-        buttonGradientAngle= {props.buttonGradientAngle}
-        buttonGradientColor1= {props.buttonGradientColor1}
-        buttonGradientColor2= {props.buttonGradientColor2}
-        buttonTextColor= {props.buttonTextColor}
+          pColor={props.pColor}
+          h1Color={props.h1Color}
+          labelColor={props.labelColor}
+          buttonGradientAngle={props.buttonGradientAngle}
+          buttonGradientColor1={props.buttonGradientColor1}
+          buttonGradientColor2={props.buttonGradientColor2}
+          buttonTextColor={props.buttonTextColor}
 
-        handleChange= {handleChange}
-        modelMat= {userInputs.modelMat}
-        modelType= {userInputs.modelType}
-        modelColor= {userInputs.modelColor}
-        specularColor= {userInputs.specularColor}
-        roughness= {userInputs.roughness}
-        metalness= {userInputs.metalness}
-        shininess= {userInputs.shininess}
-        wireframe= {userInputs.wireframe}
+          handleChange={handleChange}
+          modelMat={userInputs.modelMat}
+          modelType={userInputs.modelType}
+          modelColor={userInputs.modelColor}
+          specularColor={userInputs.specularColor}
+          roughness={userInputs.roughness}
+          metalness={userInputs.metalness}
+          shininess={userInputs.shininess}
+          wireframe={userInputs.wireframe}
 
-        //light variables
-        ambientLightColor = {userInputs.ambientLightColor}
-        lightColor= {userInputs.lightColor}
-        lightIntensity= {userInputs.lightIntensity}
-        lightPositionx= {userInputs.lightPositionx}
-        lightPositiony= {userInputs.lightPositiony}
-        lightPositionz= {userInputs.lightPositionz}
+          //light variables
+          ambientLightColor={userInputs.ambientLightColor}
+          lightColor={userInputs.lightColor}
+          lightIntensity={userInputs.lightIntensity}
+          lightPositionx={userInputs.lightPositionx}
+          lightPositiony={userInputs.lightPositiony}
+          lightPositionz={userInputs.lightPositionz}
         />
-      <div className='aboutTextBox'>
+        <div className='aboutTextBox'>
 
-      <h1 style={{color: `${props.h1Color}`}}>
-      Hi, I'm Zac
-      </h1>
+          <h1 style={{ color: `${props.h1Color}` }}>
+            Hi, I'm Zac
+          </h1>
 
-      <p style={{color: `${props.pColor}`}}>
-      I'm a full stack web developer based in the greater Sydney area. I enjoy working on interesting projects and experimenting with different technologies. Currently I'm exploring the use of webXR and AR as well as Three.js for web projects.
+          <p style={{ color: `${props.pColor}` }}>
+            I'm a full stack web developer based in the greater Sydney area. I enjoy working on interesting projects and experimenting with different technologies. Currently I'm exploring the use of webXR and AR as well as Three.js for web projects.
 
-      <br/><br/>
-      You can customise the colours of this website by clicking the HTML Values button and customise the spinning model with the Model Values button. 
-      Once you're done playing with my website, feel free to check out some of my projects, shoot me an email, or look at my social media links.
+            <br /><br />
+            You can customise the colours of this website by clicking the Customise button in the navigation bar and customise the spinning model with the Customise Model button.
+            Once you're done playing with my website, feel free to check out some of my other projects, shoot me an email, or look at my social media links.
+          </p>
 
-      </p>
+          <h1 style={{ color: `${props.h1Color}` }}>
+            Experience
+          </h1>
 
-      <h1 style={{color: `${props.h1Color}`}}>
-      Experience
-      </h1>
+          <table style={{ color: `${props.pColor}` }}>
+            <tbody>
+              <tr style={{ borderTop: `1px solid ${props.labelColor}`, borderBottom: `1px solid ${props.labelColor}` }}>
+                <td>
+                  <b>The Star Casino</b>
+                </td>
 
-      <table style={{color: `${props.pColor}`}}>
-        <tbody>
-        <tr style={{borderTop: `1px solid ${props.labelColor}`, borderBottom: `1px solid ${props.labelColor}`}}>
-          <td>
-          <b>The Star Casino</b>
-          </td>
+                <td>
+                  ServiceNow Traineeship
+                </td>
 
-          <td>
-          ServiceNow Traineeship
-          </td>
+                <td>
+                  Oct 2022 - Present
+                </td>
+              </tr>
 
-          <td>
-          Oct 2022 - Present
-          </td>
-        </tr>
-        
-        {/*Span title over three columns */}
-        <tr>
-          <td colSpan='3'>
-          <br/>
-        <h1 style={{color: `${props.h1Color}`}}>
-        Education
-        </h1>
-        </td>
-        </tr>
-      
-        <tr style={{borderTop: `1px solid ${props.labelColor}`}}>
-          <td>
-          <b>TAFE NSW</b>
-          </td>
+              {/*Span title over three columns */}
+              <tr>
+                <td colSpan='3'>
+                  <br />
+                  <h1 style={{ color: `${props.h1Color}` }}>
+                    Education
+                  </h1>
+                </td>
+              </tr>
 
-          <td>
-          ICT40120 Certificate IV Information Technology (ServiceNow)
-          </td>
+              <tr style={{ borderTop: `1px solid ${props.labelColor}` }}>
+                <td>
+                  <b>TAFE NSW</b>
+                </td>
 
-          <td>
-          October 2022 - Present
-          </td>
+                <td>
+                  ICT40120 Certificate IV Information Technology (ServiceNow)
+                </td>
 
-        </tr>
+                <td>
+                  October 2022 - Present
+                </td>
 
-        <tr>
-          <td>
-          <b>University of Sydney / Trilogy Education</b>
-          </td>
+              </tr>
 
-          <td>
-          Full Stack Web Developer Bootcamp
-          </td>
+              <tr>
+                <td>
+                  <b>University of Sydney / Trilogy Education</b>
+                </td>
 
-          <td>
-          August 2021 - Feb 2022
-          </td>
+                <td>
+                  Full Stack Web Developer Bootcamp
+                </td>
 
-        </tr>
+                <td>
+                  August 2021 - Feb 2022
+                </td>
 
-        <tr style={{borderBottom: `1px solid ${props.labelColor}`}}>
-          <td>
-          <b>TAFE Digital</b>
-          </td>
+              </tr>
 
-          <td>
-          Statement of Attainment in Build your digital literacy with coding
-          </td>
+              <tr style={{ borderBottom: `1px solid ${props.labelColor}` }}>
+                <td>
+                  <b>TAFE Digital</b>
+                </td>
 
-          <td>
-          August 2020 - Oct 2020
-          </td>
+                <td>
+                  Statement of Attainment in Build your digital literacy with coding
+                </td>
 
-        </tr>
-        </tbody>
-      </table>
-      <br/>
+                <td>
+                  August 2020 - Oct 2020
+                </td>
 
-      <h1 style={{color: `${props.h1Color}`}}>
-      Skills
-      </h1>
+              </tr>
+            </tbody>
+          </table>
+          <br />
 
-      <div className="text-center">
-      {iconArray.map((element, index) => (
-        <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${props.greyscale? '0%' : '100%'})` }} />
-      ))}
-    </div>
+          <h1 style={{ color: `${props.h1Color}` }}>
+            Skills
+          </h1>
 
-    </div>
+          <div className="text-center">
+            {iconArray.map((element, index) => (
+              <img key={index} src={element} alt="icon" className='icons' style={{ filter: `grayscale(${props.greyscale ? '0%' : '100%'})` }} />
+            ))}
+          </div>
 
-    <br/>
+        </div>
 
-      {/* Make every page child of about page to pass values easier (probably not best or proper way but it works)*/}
-      <Projects 
-      handleChange= {props.handleChange}
-      h1Color= {props.h1Color}
-      pColor = {props.pColor}
-      buttonGradientAngle = {props.buttonGradientAngle}
-      buttonGradientColor1 = {props.buttonGradientColor1}
-      buttonGradientColor2 = {props.buttonGradientColor2}
-      labelColor = {props.labelColor}
-      buttonTextColor= {props.buttonTextColor}
-      />
+        <br />
 
-      <br/>
+        {/* Make every page child of about page to pass values easier (probably not best or proper way but it works)*/}
+        <Projects
+          handleChange={props.handleChange}
+          h1Color={props.h1Color}
+          pColor={props.pColor}
+          buttonGradientAngle={props.buttonGradientAngle}
+          buttonGradientColor1={props.buttonGradientColor1}
+          buttonGradientColor2={props.buttonGradientColor2}
+          labelColor={props.labelColor}
+          buttonTextColor={props.buttonTextColor}
+        />
 
-      <ContactMe 
-      handleChange= {props.handleChange}
-      h1Color= {props.h1Color}
-      pColor = {props.pColor}
-      buttonGradientAngle = {props.buttonGradientAngle}
-      buttonGradientColor1 = {props.buttonGradientColor1}
-      buttonGradientColor2 = {props.buttonGradientColor2}
-      labelColor = {props.labelColor}
-      buttonTextColor= {props.buttonTextColor}
-      />
-        </Container>
-        </>
-    );
+        <br />
+
+        <ContactMe
+          handleChange={props.handleChange}
+          h1Color={props.h1Color}
+          pColor={props.pColor}
+          buttonGradientAngle={props.buttonGradientAngle}
+          buttonGradientColor1={props.buttonGradientColor1}
+          buttonGradientColor2={props.buttonGradientColor2}
+          labelColor={props.labelColor}
+          buttonTextColor={props.buttonTextColor}
+        />
+      </Container>
+    </>
+  );
 };
 
 export default About;

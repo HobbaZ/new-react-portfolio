@@ -16,21 +16,21 @@ function year() {
 }
 
 const Footer = () => {
-return (
-  <>
-  <Container>
-  <footer>
-      <p className='footer'>Zachary Hobba, {year()}</p>
+  return (
+    <>
+      <Container>
+        <footer>
+          <p className='footer'>Zachary Hobba, {year()}</p>
 
           <div className='iconDiv'>
-          <a className='footer' href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"><i className="fab fa-linkedin footerIcon"></i></a>
-          <a className='footer' href="mailto:zachobba@gmail.com"><i className="fas fa-envelope-square footerIcon"></i></a>
-          <a className='footer' href="https://github.com/HobbaZ"><i className="fab fa-github footerIcon"></i></a>
+            <a className='footer' href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"><i className="fab fa-linkedin footerIcon"></i></a>
+            <a className='footer' href="mailto:zachobba@gmail.com"><i className="fas fa-envelope-square footerIcon"></i></a>
+            <a className='footer' href="https://github.com/HobbaZ"><i className="fab fa-github footerIcon"></i></a>
           </div>
-  </footer>
-  </Container>
-  </>
-);
+        </footer>
+      </Container>
+    </>
+  );
 };
 
 export default Footer;
