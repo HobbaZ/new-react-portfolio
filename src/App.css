@@ -139,7 +139,7 @@ input {
   float: right;
 }
 
-input[type="text"] {
+.htmlEditForm input[type="text"] {
   width: 25%;
 }
 

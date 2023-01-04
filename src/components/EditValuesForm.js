@@ -160,7 +160,7 @@ function EditValuesForm({
 
           <br /><br />
 
-          <label style={{ color: `${props.labelColor}` }}>Button Text</label>
+          <label style={{ color: `${props.labelColor}` }}>Button Text Colour</label>
 
           <ColorInput
             colourValue={props.buttonTextColor}
