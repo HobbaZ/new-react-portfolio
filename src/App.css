@@ -41,7 +41,7 @@ body {
 #canvasContainer {
   width: 100%;
   height: 40vh;
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 #canvasContainer:hover {
@@ -49,7 +49,6 @@ body {
 }
 
 .canvasValues {
-  z-index: 1;
   position: relative;
 }
 
@@ -174,14 +173,14 @@ p {
 
 .modelFormButton {
   position: relative;
-  bottom: 70px;
+  bottom: 40px;
   margin: auto;
   z-index: 1;
 }
 
 .modelForm {
   position: absolute;
-  top: -60px;
+  top: -40px;
   left: 0%;
   width: 100%;
 }

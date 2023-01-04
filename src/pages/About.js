@@ -56,7 +56,6 @@ function About({ ...props }) {
   }
 
   return (
-
     <>
       <Container id='about'>
         {/*send data to three.js canvas model*/}
@@ -88,7 +87,7 @@ function About({ ...props }) {
           lightPositionz={userInputs.lightPositionz}
         />
         <div className='aboutTextBox'>
-
+        <br />
           <h1 style={{ color: `${props.h1Color}` }}>
             Hi, I'm Zac
           </h1>
