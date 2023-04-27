@@ -13,7 +13,7 @@ a {
 }
 
 .active {
-  font-weight: 600;
+  font-weight: bolder;
 }
 
 .App {
@@ -28,8 +28,6 @@ body {
   background-color: var(--light);
 }
 
-
-
 .card {
   background-color: rgba(255, 255, 255, 0);
 }
@@ -39,7 +37,8 @@ body {
 }
 
 #canvasContainer {
-  width: 100%;
+  width: 80%;
+  margin: auto;
   height: 40vh;
   margin-top: 100px;
 }
@@ -48,14 +47,17 @@ body {
   border: 1px solid red;
 }
 
-.canvasValues {
-  position: relative;
-}
+/*.canvasValues {
+  position: absolute;
+  top: 0;
+  transform: translate(-50%);
+}*/
 
 form {
   border-radius: 5px;
   height: 100%;
   padding: 10px;
+  margin: auto;
 }
 
 .form-btn-primary {
@@ -64,6 +66,7 @@ form {
   background-color: var(--transparent);
   outline: none;
   font-size: 20px;
+  width: 100%;
 }
 
 .form-btn-primary:hover {
@@ -83,6 +86,10 @@ form {
   pointer-events: none;
   background-color: var(--transparent);
   color: var(--dark);
+}
+
+.formContainer {
+  position: relative;
 }
 
 footer {
@@ -120,7 +127,6 @@ body {
 }
 
 .htmlForm {
-
   width: 100%;
   height: 100%;
 }
@@ -146,6 +152,10 @@ input {
 input[type="color"]::-webkit-color-swatch-wrapper {
   border: none;
   padding: 0%;
+}
+
+.lightForm {
+  width: 60%;
 }
 
 .lightForm input {
@@ -179,10 +189,8 @@ p {
 }
 
 .modelForm {
-  position: absolute;
   top: -40px;
   left: 0%;
-  width: 100%;
 }
 
 .modelForm p {
@@ -222,9 +230,17 @@ p {
 
 .noEffect,
 .noEffect:hover {
+  position: absolute;
+  top: 0px;
+  left: 0px;
   text-decoration: none;
   border: none;
   background-color: var(--transparent);
+}
+
+.sliderPos {
+  width: 100%;
+  height: 20px;
 }
 
 .subtitle {
@@ -248,4 +264,11 @@ td {
 
 .wireframe {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .lightForm {
+    width: 95%;
+    text-align: left;
+  }
 }

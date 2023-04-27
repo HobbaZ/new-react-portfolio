@@ -1,28 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { OrbitControls, softShadows } from '@react-three/drei'
+import { OrbitControls, softShadows } from "@react-three/drei";
 
-import { Canvas } from '@react-three/fiber'
+import { Canvas } from "@react-three/fiber";
 
-import CanvasValuesForm from '../../components/CanvasValuesForm';
+import CanvasValuesForm from "../../components/CanvasValuesForm";
 
-import Model from './Model'
+import Model from "./Model";
 
-import Lights from './Lights'
+import Lights from "./Lights";
 
-import { FormButton } from '../../components/BaseSettings'
+import { Form } from "react-bootstrap";
+
+import { FormButton } from "../../components/BaseSettings";
 
 //enable soft shadows
-softShadows()
+softShadows();
 
 function CanvasContainer({
   //Data in
   pColor = JSON.parse(localStorage.getItem("pColor")),
   h1Color = JSON.parse(localStorage.getItem("h1Color")),
   labelColor = JSON.parse(localStorage.getItem("labelColor")),
-  buttonGradientAngle = JSON.parse(localStorage.getItem("backgroundGradientAngle")),
-  buttonGradientColor1 = JSON.parse(localStorage.getItem("buttonGradientColor1")),
-  buttonGradientColor2 = JSON.parse(localStorage.getItem("buttonGradientColor2")),
+  buttonGradientAngle = JSON.parse(
+    localStorage.getItem("backgroundGradientAngle")
+  ),
+  buttonGradientColor1 = JSON.parse(
+    localStorage.getItem("buttonGradientColor1")
+  ),
+  buttonGradientColor2 = JSON.parse(
+    localStorage.getItem("buttonGradientColor2")
+  ),
   buttonTextColor = JSON.parse(localStorage.getItem("buttonTextColor")),
   handleChange,
   ambientLightColor = JSON.parse(localStorage.getItem("ambientLightColour")),
@@ -41,74 +49,94 @@ function CanvasContainer({
   modelColor = JSON.parse(localStorage.getItem("modelColor")),
   //rotateSpeed = JSON.parse(localStorage.getItem("rotateSpeed"))
 }) {
-
   //edit form
-  const [showEditModelForm, setShowEditModelForm] = useState(false)
+  const [showEditModelForm, setShowEditModelForm] = useState(false);
 
   return (
-    <div id='canvasContainer'>
+    <div id="canvasContainer">
       <Canvas
         camera={{ position: [0, 0, 5] }}
         shadows={{
           type: "PCFSoftShadowMap",
         }}
-
         //display pixel ratio
         dpr={[1, 2]}
       >
-        <Lights {...{ lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, ambientLightColor }} />
+        <Lights
+          {...{
+            lightColor,
+            lightIntensity,
+            lightPositionx,
+            lightPositiony,
+            lightPositionz,
+            ambientLightColor,
+          }}
+        />
 
-        <Model {...{ handleChange, modelColor, metalness, roughness, modelMat, wireframe, modelType, specularColor, shininess }}
+        <Model
+          {...{
+            handleChange,
+            modelColor,
+            metalness,
+            roughness,
+            modelMat,
+            wireframe,
+            modelType,
+            specularColor,
+            shininess,
+          }}
         />
         <OrbitControls />
       </Canvas>
 
       {/*Click to show or hide edit form*/}
-      <div className='text-center col-12 col-md-6 modelFormButton'>
+      <div className="formContainer">
+        <div className="text-center col-sm-12 col-md-8 col-lg-6 m-auto modelFormButton">
+          <FormButton
+            className="form-btn-primary"
+            buttonGradientAngle={buttonGradientAngle}
+            buttonGradientColor1={buttonGradientColor1}
+            buttonGradientColor2={buttonGradientColor2}
+            text={showEditModelForm ? "Customise Model x" : "Customise Model"}
+            colour={buttonTextColor}
+            onClick={() => setShowEditModelForm(!showEditModelForm)}
+          ></FormButton>
+        </div>
 
-        <FormButton
-          className='form-btn-primary'
-          buttonGradientAngle={buttonGradientAngle}
-          buttonGradientColor1={buttonGradientColor1}
-          buttonGradientColor2={buttonGradientColor2}
-          text={showEditModelForm ? "Customise Model -" : "Customise Model"}
-          colour={buttonTextColor}
+        {/*Edit form*/}
+        {showEditModelForm && (
+          <div className="w-100 m-auto canvasValues">
+            <CanvasValuesForm
+              {...{
+                //Send data to canvas menu
+                pColor,
+                h1Color,
+                labelColor,
+                buttonGradientAngle,
+                buttonGradientColor1,
+                buttonGradientColor2,
+                buttonTextColor,
 
-          onClick={() => setShowEditModelForm(!showEditModelForm)}>
-        </FormButton>
+                handleChange,
+                ambientLightColor,
+                modelColor,
+                lightPositionx,
+                lightPositiony,
+                lightColor,
+                lightIntensity,
+                lightPositionz,
+                metalness,
+                roughness,
+                modelMat,
+                specularColor,
+                wireframe,
+                shininess,
+                modelType,
+              }}
+            />
+          </div>
+        )}
       </div>
-
-      {/*Edit form*/}
-      {showEditModelForm && (
-        <>
-          <CanvasValuesForm {...{
-            //Send data to canvas menu
-            pColor,
-            h1Color,
-            labelColor,
-            buttonGradientAngle,
-            buttonGradientColor1,
-            buttonGradientColor2,
-            buttonTextColor,
-
-            handleChange,
-            ambientLightColor,
-            modelColor,
-            lightPositionx,
-            lightPositiony,
-            lightColor,
-            lightIntensity,
-            lightPositionz,
-            metalness,
-            roughness,
-            modelMat,
-            specularColor,
-            wireframe,
-            shininess,
-            modelType
-          }} />
-        </>
-      )}
     </div>
   );
 }

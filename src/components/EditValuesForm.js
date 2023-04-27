@@ -1,26 +1,43 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import { ColorInput } from '../components/BaseSettings'
+import { ColorInput } from "../components/BaseSettings";
 
-function EditValuesForm({
-  ...props
-}) {
-
+function EditValuesForm({ ...props }) {
   //set values in localStorage
   useEffect(() => {
-    localStorage.setItem("greyscale", JSON.stringify(props.greyscale))
-    localStorage.setItem("h1Color", JSON.stringify(props.h1Color))
-    localStorage.setItem("pColor", JSON.stringify(props.pColor))
-    localStorage.setItem("linkColor", JSON.stringify(props.linkColor))
-    localStorage.setItem("backgroundGradientAngle", JSON.stringify(props.backgroundGradientAngle))
-    localStorage.setItem("backgroundGradientColor1", JSON.stringify(props.backgroundGradientColor1))
-    localStorage.setItem("backgroundGradientColor2", JSON.stringify(props.backgroundGradientColor2))
-    localStorage.setItem("buttonGradientAngle", JSON.stringify(props.buttonGradientAngle))
-    localStorage.setItem("buttonGradientColor1", JSON.stringify(props.buttonGradientColor1))
-    localStorage.setItem("buttonGradientColor2", JSON.stringify(props.buttonGradientColor2))
-    localStorage.setItem("labelColor", JSON.stringify(props.labelColor))
-    localStorage.setItem("buttonTextColor", JSON.stringify(props.buttonTextColor))
-
+    localStorage.setItem("greyscale", JSON.stringify(props.greyscale));
+    localStorage.setItem("h1Color", JSON.stringify(props.h1Color));
+    localStorage.setItem("pColor", JSON.stringify(props.pColor));
+    localStorage.setItem("linkColor", JSON.stringify(props.linkColor));
+    localStorage.setItem(
+      "backgroundGradientAngle",
+      JSON.stringify(props.backgroundGradientAngle)
+    );
+    localStorage.setItem(
+      "backgroundGradientColor1",
+      JSON.stringify(props.backgroundGradientColor1)
+    );
+    localStorage.setItem(
+      "backgroundGradientColor2",
+      JSON.stringify(props.backgroundGradientColor2)
+    );
+    localStorage.setItem(
+      "buttonGradientAngle",
+      JSON.stringify(props.buttonGradientAngle)
+    );
+    localStorage.setItem(
+      "buttonGradientColor1",
+      JSON.stringify(props.buttonGradientColor1)
+    );
+    localStorage.setItem(
+      "buttonGradientColor2",
+      JSON.stringify(props.buttonGradientColor2)
+    );
+    localStorage.setItem("labelColor", JSON.stringify(props.labelColor));
+    localStorage.setItem(
+      "buttonTextColor",
+      JSON.stringify(props.buttonTextColor)
+    );
   }, [
     props.greyscale,
     props.h1Color,
@@ -38,10 +55,9 @@ function EditValuesForm({
 
   return (
     <>
-      <div className='htmlFormBackground'>
-        <form className='htmlEditForm'>
-
-          <label style={{ color: `${props.labelColor}` }}>
+      <div className="htmlFormBackground">
+        <form className="htmlEditForm">
+          {/*<label style={{ color: `${props.labelColor}` }}>
             {props.greyscale ? "Enable Greyscale" : "Disable Greyscale"}
           </label>
 
@@ -50,7 +66,7 @@ function EditValuesForm({
             onChange={props.handleChange}
             checked={props.greyscale || false}
           />
-          <br />
+          <br />*/}
 
           <label style={{ color: `${props.labelColor}` }}>Heading Colour</label>
 
@@ -62,7 +78,9 @@ function EditValuesForm({
           />
           <br />
 
-          <label style={{ color: `${props.labelColor}` }}>Paragraph Colour</label>
+          <label style={{ color: `${props.labelColor}` }}>
+            Paragraph Colour
+          </label>
 
           <ColorInput
             colourValue={props.pColor}
@@ -92,16 +110,20 @@ function EditValuesForm({
             handleChange={props.handleChange}
           />
 
-          <br /><br />
+          <br />
+          <br />
 
-          <label style={{ color: `${props.labelColor}` }}><b>Background Gradient</b></label>
+          <label style={{ color: `${props.labelColor}` }}>
+            <b>Background Gradient</b>
+          </label>
           <br />
 
           <label style={{ color: `${props.labelColor}` }}>Angle</label>
 
-          <input type={"text"}
+          <input
+            type={"text"}
             placeholder="0"
-            name={'backgroundGradientAngle'}
+            name={"backgroundGradientAngle"}
             onChange={props.handleChange}
             value={props.backgroundGradientAngle || ""}
           />
@@ -127,12 +149,15 @@ function EditValuesForm({
 
           <br />
 
-          <label style={{ color: `${props.labelColor}` }}><b>Button Gradient</b></label>
+          <label style={{ color: `${props.labelColor}` }}>
+            <b>Button Gradient</b>
+          </label>
           <br />
 
           <label style={{ color: `${props.labelColor}` }}>Angle</label>
 
-          <input type={"text"}
+          <input
+            type={"text"}
             name={"buttonGradientAngle"}
             placeholder="0"
             onChange={props.handleChange}
@@ -158,9 +183,12 @@ function EditValuesForm({
             handleChange={props.handleChange}
           />
 
-          <br /><br />
+          <br />
+          <br />
 
-          <label style={{ color: `${props.labelColor}` }}>Button Text Colour</label>
+          <label style={{ color: `${props.labelColor}` }}>
+            Button Text Colour
+          </label>
 
           <ColorInput
             colourValue={props.buttonTextColor}
@@ -168,11 +196,10 @@ function EditValuesForm({
             fieldName={"buttonTextColor"}
             handleChange={props.handleChange}
           />
-
         </form>
       </div>
     </>
-  )
+  );
 }
 
-export default EditValuesForm
+export default EditValuesForm;
