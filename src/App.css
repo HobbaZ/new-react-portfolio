@@ -32,6 +32,12 @@ body {
   background-color: rgba(255, 255, 255, 0);
 }
 
+.card-header,
+.card-footer {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .card-title {
   text-align: center;
 }
@@ -46,12 +52,6 @@ body {
 #canvasContainer:hover {
   border: 1px solid red;
 }
-
-/*.canvasValues {
-  position: absolute;
-  top: 0;
-  transform: translate(-50%);
-}*/
 
 form {
   border-radius: 5px;

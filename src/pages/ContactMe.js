@@ -20,6 +20,8 @@ function ContactMe({ ...props }) {
   // state for messages
   const [infoMessage, setInfoMessage] = useState("");
 
+  const [emailSent, setEmailSent] = useState(false);
+
   // submit form
   const submitForm = async (event) => {
     event.preventDefault();
@@ -40,15 +42,18 @@ function ContactMe({ ...props }) {
       )
       .then(
         (result) => {
-          console.log("Email succeeded", result);
-          setInfoMessage("Email Succeeded");
+          console.log("Email Sent", result);
+          setInfoMessage("Email Sent");
+          setEmailSent(true);
           setTimeout(() => {
+            setEmailSent(false);
             setInfoMessage("");
           }, 3000);
         },
         (error) => {
           console.log("Email failed: ", error);
           setInfoMessage("Email Failed");
+          setEmailSent(false);
           setTimeout(() => {
             setInfoMessage("");
           }, 3000);
@@ -79,17 +84,14 @@ function ContactMe({ ...props }) {
           />
         </Form.Group>
 
-        {nameInput !== "" && nameInput?.length < 2 ? (
+        {nameInput !== "" && nameInput?.length < 2 && (
           <div
             style={{ color: `${props.pColor}` }}
             className="text-center errMessage"
           >
             {"Name must be at least 2 characters"}
           </div>
-        ) : (
-          ""
         )}
-
         <br />
 
         <Form.Group>
@@ -105,14 +107,14 @@ function ContactMe({ ...props }) {
           />
         </Form.Group>
 
-        {emailInput != null && !emailRegex.test(emailInput) ? (
+        {emailInput != null && !emailRegex.test(emailInput) && (
           <div
             style={{ color: `${props.pColor}` }}
             className="text-center errMessage"
           >
             {"Invalid email address entered"}
           </div>
-        ) : null}
+        )}
         <br />
 
         <Form.Group>
@@ -133,7 +135,6 @@ function ContactMe({ ...props }) {
             </option>
           </select>
         </Form.Group>
-
         <br />
 
         <Form.Group>
@@ -150,17 +151,14 @@ function ContactMe({ ...props }) {
           />
         </Form.Group>
 
-        {messageInput !== "" && messageInput?.length < 2 ? (
+        {messageInput !== "" && messageInput?.length < 2 && (
           <div
             style={{ color: `${props.pColor}` }}
             className="text-center infoMessage"
           >
             {"message is required"}
           </div>
-        ) : (
-          ""
         )}
-
         <br />
 
         <div className="text-center">
@@ -172,7 +170,19 @@ function ContactMe({ ...props }) {
             className="form-btn-primary"
             disabled={!(emailInput && nameInput && messageInput)}
           >
-            <div style={{ color: props.buttonTextColor }}>Send Email</div>
+            <div style={{ color: props.buttonTextColor }}>
+              {!emailSent ? (
+                "Send Email"
+              ) : emailSent ? (
+                <>
+                  Email Sent <i className="fas fa-check"></i>
+                </>
+              ) : (
+                <>
+                  Email Failed <i className="fas fa-xmark"></i>
+                </>
+              )}
+            </div>
           </Button>
         </div>
 

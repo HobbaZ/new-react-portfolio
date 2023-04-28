@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import { FormButton } from "../components/BaseSettings";
 
 function Projects({ ...props }) {
@@ -113,13 +113,13 @@ function Projects({ ...props }) {
 
   return (
     <>
-      <div id="projects" className="w-100">
+      <Container id="projects" className="w-100">
         <h1 style={{ color: `${props.h1Color}` }}>Projects</h1>
 
-        <div className="d-flex flex-row w-100 flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-content-center">
           {repoData.map((repo, index) => (
             <>
-              <Card className="col-12 col-md-6 col-lg-3 m-1" key={index}>
+              <Card className="col-12 col-md-5 col-lg-3 m-1" key={index}>
                 <Card.Header>
                   <Card.Title style={{ color: `${props.h1Color}` }}>
                     {repo.name.replace(/-/g, " ")}{" "}
@@ -189,7 +189,7 @@ function Projects({ ...props }) {
             {infoMessage}
           </div>
         )}
-      </div>
+      </Container>
     </>
   );
 }

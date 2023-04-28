@@ -1,17 +1,17 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
+import React from "react";
+import Container from "react-bootstrap/Container";
 
 //Change year automatically and keep created date for future references
 function year() {
-  const createdDate = 2022
+  const createdDate = 2022;
 
   let date = new Date();
-  let currentYear = date.getFullYear()
+  let currentYear = date.getFullYear();
 
   if (currentYear !== createdDate) {
-    return `${createdDate} - ${currentYear}`
+    return `${createdDate} - ${currentYear}`;
   } else {
-    return `${createdDate}`
+    return `${createdDate}`;
   }
 }
 
@@ -20,12 +20,23 @@ const Footer = () => {
     <>
       <Container>
         <footer>
-          <p className='footer'>Zachary Hobba, {year()}</p>
+          <p className="footer">Zachary Hobba, {year()}</p>
 
-          <div className='iconDiv'>
-            <a className='footer' href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"><i className="fab fa-linkedin footerIcon"></i></a>
-            <a className='footer' href="mailto:zachobba@gmail.com"><i className="fas fa-envelope-square footerIcon"></i></a>
-            <a className='footer' href="https://github.com/HobbaZ"><i className="fab fa-github footerIcon"></i></a>
+          <div className="iconDiv">
+            <a
+              className="footer"
+              href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"
+              title="Zac Hobba"
+            >
+              <i className="fab fa-linkedin footerIcon"></i>
+            </a>
+            <a
+              className="footer"
+              href="https://github.com/HobbaZ"
+              title="Github icon"
+            >
+              <i className="fab fa-github footerIcon"></i>
+            </a>
           </div>
         </footer>
       </Container>
