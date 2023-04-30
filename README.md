@@ -11,19 +11,25 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/HobbaZ/new-react-portfolio)
 
 ## Description
-### Project Aim ###
+
+### Project Aim
+
 Make a personal portfolio website with interactable elements to boost user engagement.
 
-### What Problem Does It Solve ###
+### What Problem Does It Solve
+
 Increasing interactivity of my personal website.
 
-### What I Learnt ###
+### What I Learnt
+
 How to use React Three/Fiber and Three.js in React.
 
 ## Deployment
+
 Deployed on AWS here [here](https://www.zachobba.com.au/)
 
 ## Table of Contents
+
 - [Description](#description)
 - [User Story](#user-story)
 - [Screenshots](#screenshots)
@@ -37,6 +43,7 @@ Deployed on AWS here [here](https://www.zachobba.com.au/)
 - [Questions](#questions)
 
 ## User Story
+
 I WANT to make a personal portfolio website with React.
 
 I WANT to add interactable elements to the website.
@@ -44,6 +51,7 @@ I WANT to add interactable elements to the website.
 SO THAT it boosts user engagement.
 
 ## Screenshots
+
 ![Picture of landing page of website](/src/images/screencapture-localhost-3000-2022-09-21-23_30_34.png)
 
 ![Customisable HTML options (mainly colours)](/src/images/HTMLoptions.JPG)
@@ -57,20 +65,22 @@ SO THAT it boosts user engagement.
 ![Some aHTML customisation](/src/images/custom1.JPG)
 
 ## Installation
+
 1. Clone the repo to your computer by clicking the green code button and copying the SSH version or clicking the blue use template button.
 
-2. Open Gitbash in your desired folder and type ```git clone ``` then right click to paste the string and hit enter. The repo will then be cloned to your computer.
+2. Open Gitbash in your desired folder and type `git clone ` then right click to paste the string and hit enter. The repo will then be cloned to your computer.
 
-3. Navigate to the repo folder and type ```code .``` into gitbash to open the repo in VS Code.
+3. Navigate to the repo folder and type `code .` into gitbash to open the repo in VS Code.
 
-4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
+4. Open a new Terminal in VS Code and type `npm install` to install the repo dependencies.
 
-5. Finally, type ```npm run start``` into the terminal and it will start the dev server.
+5. Finally, type `npm run start` into the terminal and it will start the dev server.
 
 Note: To make a static no backend React site work on Heroku you need to take all the files out of the folder name you specified in the react-create-app. E.g. if you did create-react-app client, React will create the app in a folder called client, take all the files out of the client folder so they are now all at root level and then delete the empty client folder.
 
 ## Features
-You can change the: 
+
+You can change the:
 
 website background gradient colours and gradient angle
 
@@ -93,6 +103,7 @@ Light color
 Light position
 
 ## Technology
+
 - React
 - Bootstrap
 - Three.js
@@ -101,13 +112,16 @@ Light position
 - AWS Amplify
 - AWS Route 53
 - Google Analytics
+- Favicon
 
 ## Contributors
+
 [Zachary Hobba](https://github.com/HobbaZ)
 
 You can also contribute by opening a pull request or submitting an issue.
 
 ## Acknowledgements
+
 [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
 
 [https://stackoverflow.com/questions/53332321/react-hook-warnings-for-async-function-in-useeffect-useeffect-function-must-ret](https://stackoverflow.com/questions/53332321/react-hook-warnings-for-async-function-in-useeffect-useeffect-function-must-ret)
@@ -133,18 +147,21 @@ Fixes email.js runtime error (I just had to update react-scripts)
 
 [Create glassmorphism effect CSS](https://albertwalicki.com/blog/glassmorphism-how-to-create)
 
+[Favicon creator](https://favicon.io/favicon-generator)
+
 ## Testing
+
 No tests for this project
 
 ## License
 
 MIT
 
-**Copyright 2022 Zachary Hobba**
+**Copyright 2023 Zachary Hobba**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-    
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Questions

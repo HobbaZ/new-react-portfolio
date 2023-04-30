@@ -7,6 +7,8 @@ import CanvasContainer from "./threeJS/CanvasContainer";
 import Projects from "./Projects";
 import ContactMe from "./ContactMe";
 
+import photo from "../images/profile pic cutout.png";
+
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/git.svg",
@@ -86,15 +88,26 @@ function About({ ...props }) {
         />
         <div className="aboutTextBox">
           <br />
-          <h1 style={{ color: `${props.h1Color}` }}>Hi, I'm Zac</h1>
+          <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex flex-column">
+              <h1 style={{ color: `${props.h1Color}` }}>Hi, I'm Zac</h1>
+              <p style={{ color: `${props.h1Color}` }}>Full Stack Developer</p>
+              <p style={{ color: `${props.h1Color}` }}>Greater Sydney Area</p>
+            </div>
+            <img className="profilePic" src={photo} alt="Zac Hobba"></img>
+          </div>
+
+          <br />
+          <br />
 
           <p style={{ color: `${props.pColor}` }}>
-            I'm a full stack web developer based in the greater Sydney area. I
-            enjoy working on interesting projects and experimenting with
-            different technologies. Currently I'm exploring the use of webXR and
-            AR as well as Three.js for web projects.
+            I enjoy finding stylistic solutions to problems, working on
+            interesting projects and experimenting with different technologies.
+            Currently I'm exploring the use of webXR and AR as well as Three.js
+            for web projects.
             <br />
             <br />
+            <h3>Not an ordinary Portfolio site ...</h3>
             You can customise the colours of this website by clicking the
             <b> Customise Page</b> button in the navigation bar and customise
             the spinning model with the <b>Customise Model</b> button. Once

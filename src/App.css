@@ -171,6 +171,23 @@ p {
   margin: auto;
 }
 
+.profilePic {
+  clip-path: circle(48%);
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  background-color: var(--light);
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 550px) {
+  .profilePic {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+  }
+}
+
 .projects {
   width: 100%;
   margin: auto;
