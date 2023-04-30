@@ -13,22 +13,22 @@ function AppNavbar() {
 
     //get values from form with localstorage
     greyscale: false,
-    h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#000000",
-    pColor: JSON.parse(localStorage.getItem("pColor")) || "#000000",
-    linkColor: JSON.parse(localStorage.getItem("linkColor")) || "#000000",
+    h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#ffffff",
+    pColor: JSON.parse(localStorage.getItem("pColor")) || "#ffffff",
+    linkColor: JSON.parse(localStorage.getItem("linkColor")) || "#ffffff",
     backgroundGradientAngle:
       JSON.parse(localStorage.getItem("backgroundGradientAngle")) || 0,
     backgroundGradientColor1:
-      JSON.parse(localStorage.getItem("backgroundGradientColor1")) || "#ffffff",
+      JSON.parse(localStorage.getItem("backgroundGradientColor1")) || "#30253C",
     backgroundGradientColor2:
-      JSON.parse(localStorage.getItem("backgroundGradientColor2")) || "#ffffff",
+      JSON.parse(localStorage.getItem("backgroundGradientColor2")) || "#13213F",
     buttonGradientAngle:
       JSON.parse(localStorage.getItem("buttonGradientAngle")) || 0,
     buttonGradientColor1:
       JSON.parse(localStorage.getItem("buttonGradientColor1")) || "#000000",
     buttonGradientColor2:
       JSON.parse(localStorage.getItem("buttonGradientColor2")) || "#000000",
-    labelColor: JSON.parse(localStorage.getItem("labelColor")) || "#000000",
+    labelColor: JSON.parse(localStorage.getItem("labelColor")) || "#ffffff",
     buttonTextColor:
       JSON.parse(localStorage.getItem("buttonTextColor")) || "#ffffff",
   });
@@ -133,7 +133,7 @@ function AppNavbar() {
                   onClick={() => setShowEditForm(!showEditForm)}
                 >
                   <div style={{ color: `${userInputs.linkColor}` }}>
-                    Customise
+                    Customise Page
                     {showEditForm ? " x" : "  "}
                   </div>
                 </button>

@@ -72,7 +72,7 @@ function EditValuesForm({ ...props }) {
 
           <ColorInput
             colourValue={props.h1Color}
-            defaultValue={"#000000"}
+            defaultValue={"#ffffff"}
             fieldName={"h1Color"}
             handleChange={props.handleChange}
           />
@@ -84,7 +84,7 @@ function EditValuesForm({ ...props }) {
 
           <ColorInput
             colourValue={props.pColor}
-            defaultValue={"#000000"}
+            defaultValue={"#ffffff"}
             fieldName={"pColor"}
             handleChange={props.handleChange}
           />
@@ -94,7 +94,7 @@ function EditValuesForm({ ...props }) {
 
           <ColorInput
             colourValue={props.labelColor}
-            defaultValue={"#000000"}
+            defaultValue={"#ffffff"}
             fieldName={"labelColor"}
             handleChange={props.handleChange}
           />
@@ -105,7 +105,7 @@ function EditValuesForm({ ...props }) {
 
           <ColorInput
             colourValue={props.linkColor}
-            defaultValue={"#000000"}
+            defaultValue={"#ffffff"}
             fieldName={"linkColor"}
             handleChange={props.handleChange}
           />
@@ -121,7 +121,7 @@ function EditValuesForm({ ...props }) {
           <label style={{ color: `${props.labelColor}` }}>Angle</label>
 
           <input
-            type={"text"}
+            type={"number"}
             placeholder="0"
             name={"backgroundGradientAngle"}
             onChange={props.handleChange}
@@ -132,8 +132,8 @@ function EditValuesForm({ ...props }) {
           <label style={{ color: `${props.labelColor}` }}>Colours</label>
 
           <ColorInput
-            colourValue={props.backgroundGradientColor2}
-            defaultValue={"#000000"}
+            colourValue={props.backgroundGradientColor2 || "#30253C"}
+            defaultValue={"#30253C"}
             fieldName={"backgroundGradientColor2"}
             handleChange={props.handleChange}
           />
@@ -141,8 +141,8 @@ function EditValuesForm({ ...props }) {
           <br />
 
           <ColorInput
-            colourValue={props.backgroundGradientColor1}
-            defaultValue={"#000000"}
+            colourValue={props.backgroundGradientColor1 || "#13213F"}
+            defaultValue={"#13213F"}
             fieldName={"backgroundGradientColor1"}
             handleChange={props.handleChange}
           />
@@ -157,7 +157,7 @@ function EditValuesForm({ ...props }) {
           <label style={{ color: `${props.labelColor}` }}>Angle</label>
 
           <input
-            type={"text"}
+            type={"number"}
             name={"buttonGradientAngle"}
             placeholder="0"
             onChange={props.handleChange}
@@ -192,7 +192,7 @@ function EditValuesForm({ ...props }) {
 
           <ColorInput
             colourValue={props.buttonTextColor}
-            defaultValue={"#000000"}
+            defaultValue={"#ffffff"}
             fieldName={"buttonTextColor"}
             handleChange={props.handleChange}
           />

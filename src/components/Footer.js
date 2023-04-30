@@ -26,14 +26,14 @@ const Footer = () => {
             <a
               className="footer"
               href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"
-              title="Zac Hobba"
+              title="Zac Hobba LinkedIn"
             >
               <i className="fab fa-linkedin footerIcon"></i>
             </a>
             <a
               className="footer"
               href="https://github.com/HobbaZ"
-              title="Github icon"
+              title="Zac Hobba Github link"
             >
               <i className="fab fa-github footerIcon"></i>
             </a>

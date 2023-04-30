@@ -10,8 +10,6 @@ import Model from "./Model";
 
 import Lights from "./Lights";
 
-import { Form } from "react-bootstrap";
-
 import { FormButton } from "../../components/BaseSettings";
 
 //enable soft shadows
@@ -55,7 +53,7 @@ function CanvasContainer({
   return (
     <div id="canvasContainer">
       <Canvas
-        camera={{ position: [0, 0, 5] }}
+        camera={{ position: [0, 1, 2] }} //Camera looks down on rotating object intially
         shadows={{
           type: "PCFSoftShadowMap",
         }}
@@ -91,51 +89,53 @@ function CanvasContainer({
 
       {/*Click to show or hide edit form*/}
       <div className="formContainer">
-        <div className="text-center col-sm-12 col-md-8 col-lg-6 m-auto modelFormButton">
-          <FormButton
-            className="form-btn-primary"
-            buttonGradientAngle={buttonGradientAngle}
-            buttonGradientColor1={buttonGradientColor1}
-            buttonGradientColor2={buttonGradientColor2}
-            text={showEditModelForm ? "Customise Model x" : "Customise Model"}
-            colour={buttonTextColor}
-            onClick={() => setShowEditModelForm(!showEditModelForm)}
-          ></FormButton>
-        </div>
-
-        {/*Edit form*/}
-        {showEditModelForm && (
-          <div className="w-100 m-auto canvasValues">
-            <CanvasValuesForm
-              {...{
-                //Send data to canvas menu
-                pColor,
-                h1Color,
-                labelColor,
-                buttonGradientAngle,
-                buttonGradientColor1,
-                buttonGradientColor2,
-                buttonTextColor,
-
-                handleChange,
-                ambientLightColor,
-                modelColor,
-                lightPositionx,
-                lightPositiony,
-                lightColor,
-                lightIntensity,
-                lightPositionz,
-                metalness,
-                roughness,
-                modelMat,
-                specularColor,
-                wireframe,
-                shininess,
-                modelType,
-              }}
-            />
+        <div className="position-absolute w-100 m-auto">
+          <div className="text-center col-12 col-md-8 col-lg-6 m-auto modelFormButton">
+            <FormButton
+              className="form-btn-primary"
+              buttonGradientAngle={buttonGradientAngle}
+              buttonGradientColor1={buttonGradientColor1}
+              buttonGradientColor2={buttonGradientColor2}
+              text={showEditModelForm ? "Customise Model x" : "Customise Model"}
+              colour={buttonTextColor}
+              onClick={() => setShowEditModelForm(!showEditModelForm)}
+            ></FormButton>
           </div>
-        )}
+
+          {/*Edit form*/}
+          {showEditModelForm && (
+            <div className="w-100 m-auto">
+              <CanvasValuesForm
+                {...{
+                  //Send data to canvas menu
+                  pColor,
+                  h1Color,
+                  labelColor,
+                  buttonGradientAngle,
+                  buttonGradientColor1,
+                  buttonGradientColor2,
+                  buttonTextColor,
+
+                  handleChange,
+                  ambientLightColor,
+                  modelColor,
+                  lightPositionx,
+                  lightPositiony,
+                  lightColor,
+                  lightIntensity,
+                  lightPositionz,
+                  metalness,
+                  roughness,
+                  modelMat,
+                  specularColor,
+                  wireframe,
+                  shininess,
+                  modelType,
+                }}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

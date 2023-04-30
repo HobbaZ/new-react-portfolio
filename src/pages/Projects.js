@@ -146,7 +146,7 @@ function Projects({ ...props }) {
                         buttonGradientColor1={props.buttonGradientColor1}
                         buttonGradientColor2={props.buttonGradientColor2}
                         text={
-                          <div>
+                          <div className="buttonText">
                             <i className="fab fa-github"></i> Github
                           </div>
                         }
@@ -162,7 +162,7 @@ function Projects({ ...props }) {
                       href={getWebsiteLink(index)}
                       rel="noreferrer"
                       target="_blank"
-                      aria-label={`If clicked this will open to `}
+                      aria-label={`If clicked this will open to" ${repo.html_url}`}
                     >
                       <FormButton
                         className="form-btn-primary"
@@ -170,7 +170,7 @@ function Projects({ ...props }) {
                         buttonGradientColor1={props.buttonGradientColor1}
                         buttonGradientColor2={props.buttonGradientColor2}
                         text={
-                          <div>
+                          <div className="buttonText">
                             <i className="fas fa-globe"></i> Website
                           </div>
                         }

@@ -43,16 +43,13 @@ function ContactMe({ ...props }) {
       .then(
         (result) => {
           console.log("Email Sent", result);
-          setInfoMessage("Email Sent");
           setEmailSent(true);
           setTimeout(() => {
             setEmailSent(false);
-            setInfoMessage("");
           }, 3000);
         },
         (error) => {
           console.log("Email failed: ", error);
-          setInfoMessage("Email Failed");
           setEmailSent(false);
           setTimeout(() => {
             setInfoMessage("");
@@ -87,7 +84,7 @@ function ContactMe({ ...props }) {
         {nameInput !== "" && nameInput?.length < 2 && (
           <div
             style={{ color: `${props.pColor}` }}
-            className="text-center errMessage"
+            className="text-center text-red"
           >
             {"Name must be at least 2 characters"}
           </div>
@@ -110,7 +107,7 @@ function ContactMe({ ...props }) {
         {emailInput != null && !emailRegex.test(emailInput) && (
           <div
             style={{ color: `${props.pColor}` }}
-            className="text-center errMessage"
+            className="text-center text-red"
           >
             {"Invalid email address entered"}
           </div>
@@ -154,9 +151,9 @@ function ContactMe({ ...props }) {
         {messageInput !== "" && messageInput?.length < 2 && (
           <div
             style={{ color: `${props.pColor}` }}
-            className="text-center infoMessage"
+            className="text-center text-red"
           >
-            {"message is required"}
+            {"Message is required"}
           </div>
         )}
         <br />
@@ -185,12 +182,6 @@ function ContactMe({ ...props }) {
             </div>
           </Button>
         </div>
-
-        {infoMessage && (
-          <div className="text-center infoMessage">
-            <p style={{ color: `${props.pColor}` }}>{infoMessage}</p>
-          </div>
-        )}
       </Form>
     </Container>
   );
