@@ -98,6 +98,7 @@ form {
 .formContainer {
   position: relative;
   width: 100%;
+  z-index: 2;
 }
 
 footer {
@@ -178,6 +179,7 @@ p {
   object-fit: contain;
   background-color: var(--light);
   margin-left: 50px;
+  z-index: 1;
 }
 
 @media screen and (max-width: 550px) {
