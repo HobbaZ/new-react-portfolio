@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { FormButton } from "../components/BaseSettings";
 
+import { useGLTF } from "@react-three/drei";
+
 function CanvasValuesForm({
   // data from canvas Container
   ...props
@@ -304,26 +306,27 @@ function CanvasValuesForm({
               {/*Upload model to page (not working yet)*/}
               {/*<option value="customModel">Custom Model</option>*/}
             </select>
-            {/*{props.modelType === "customModel" ? 
+            {/*{props.modelType === "customModel" && (
               <>
-              <br />
-              <label style={{color: `${props.labelColor}`}}>
-                Upload Model (.fbx, .glb)"
-                </label>
-                
                 <br />
-                  <input 
-                    type="file" 
-                    name={"filesToUpload"}
-                    value={filesToUpload}
-                    accept='.fbx, .glb' 
-                    onChange={handleFileUpload}>
-                  </input>
-                  <div>
-                    <Button className=' btn btn-primary w-25'><div className="buttonText">Submit</div></Button>
-                  </div>
-              </> : null
-              }*/}
+                <label style={{ color: `${props.labelColor}` }}>
+                  Upload Model (.fbx, .glb, .blend)"
+                </label>
+
+                <br />
+                <input
+                  type="file"
+                  name={"filesToUpload"}
+                  value={filesToUpload}
+                  accept=".fbx, .glb"
+                  onChange={handleFileUpload}
+                ></input>
+
+                <button className=" btn btn-primary w-25">
+                  <div className="buttonText">Submit</div>
+                </button>
+              </>
+            )} */}
             <br />
             <label style={{ color: `${props.labelColor}` }}>
               Model Material

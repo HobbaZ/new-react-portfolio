@@ -182,7 +182,7 @@ p {
   z-index: 1;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 990px) {
   .profilePic {
     width: 100px;
     height: 100px;

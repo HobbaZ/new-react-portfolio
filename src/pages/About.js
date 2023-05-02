@@ -87,30 +87,39 @@ function About({ ...props }) {
           lightPositionz={userInputs.lightPositionz}
         />
         <div className="aboutTextBox">
-          <br />
-          <div className="d-flex justify-content-center align-items-center">
-            <div className="d-flex flex-column">
-              <h1 style={{ color: `${props.h1Color}` }}>Hi, I'm Zac</h1>
-              <p style={{ color: `${props.h1Color}` }}>Full Stack Developer</p>
-              <p style={{ color: `${props.h1Color}` }}>Greater Sydney Area</p>
+          <div className="d-flex flex-column flex-md-row mt-5">
+            <div className="d-flex justify-content-center align-items-center col-12 col-md-6">
+              <div className="d-flex flex-column flex-shrink-0">
+                <h1 style={{ color: `${props.h1Color}` }}>Hi, I'm Zac</h1>
+                <p style={{ color: `${props.pColor}` }}>Full Stack Developer</p>
+                <p style={{ color: `${props.pColor}` }}>Greater Sydney Area</p>
+              </div>
+              <img className="profilePic" src={photo} alt="Zac Hobba"></img>
             </div>
-            <img className="profilePic" src={photo} alt="Zac Hobba"></img>
+
+            <div className="align-items-center p-2 col-12 col-md-6 align-items-center">
+              <h3 style={{ color: `${props.h1Color}` }}>About Me</h3>
+              <p style={{ color: `${props.pColor}` }}>
+                I enjoy finding stylistic solutions to problems, working on
+                interesting projects and experimenting with different
+                technologies. Currently I'm exploring the use of webXR, AR, as
+                well as Three.js for web projects.
+              </p>
+            </div>
           </div>
 
           <br />
           <br />
 
+          <br />
+          <h3 style={{ color: `${props.h1Color}` }}>
+            Not an ordinary Portfolio site ...
+          </h3>
           <p style={{ color: `${props.pColor}` }}>
-            I enjoy finding stylistic solutions to problems, working on
-            interesting projects and experimenting with different technologies.
-            Currently I'm exploring the use of webXR and AR as well as Three.js
-            for web projects.
-            <br />
-            <br />
-            <h3>Not an ordinary Portfolio site ...</h3>
             You can customise the colours of this website by clicking the
             <b> Customise Page</b> button in the navigation bar and customise
-            the spinning model with the <b>Customise Model</b> button. Once
+            the spinning model with the <b>Customise Model</b> button, you can
+            also rotate the camera and zoom in/zoom out with your mouse. Once
             you're done playing with my website, feel free to check out some of
             my other projects, shoot me an email, or look at my social media
             links.
