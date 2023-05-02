@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container } from "react-bootstrap";
 import { FormButton } from "../components/BaseSettings";
+import Image1 from "../images/cryptoworld.WebP";
+import image3 from "../images/graphql-template.WebP";
+import image4 from "../images/vehicle.WebP";
+import image5 from "../images/weather-api-app.WebP";
+import image6 from "../images/worthly.WebP";
 
 function Projects({ ...props }) {
   // state for messages
@@ -10,12 +15,13 @@ function Projects({ ...props }) {
 
   const projectWebsites = [
     "https://hobbaz.github.io/CryptoWorld/",
-    "https://hobbaz.github.io/Product-Generator-Website/",
     "https://react-graphql-template.herokuapp.com/",
     "https://adrift-dev.itch.io/vehicle-generator",
     "https://hobbaz.github.io/Weather-API-app/",
     "https://worthly.herokuapp.com/",
   ];
+
+  const projectImages = [Image1, image3, image4, image5, image6];
 
   //Get my github repo data when component loads
   useEffect(() => {
@@ -28,7 +34,6 @@ function Projects({ ...props }) {
 
       const projectNames = [
         "CryptoWorld",
-        "Product-Generator-Website",
         "React-Graphql-Template",
         "Vehicle-Generator-Game",
         "Weather-API-app",
@@ -75,6 +80,14 @@ function Projects({ ...props }) {
     getGithubData();
   }, []);
 
+  function getImage(index) {
+    let image = "";
+    if (index >= 0 && index < projectImages.length) {
+      image = projectImages[index];
+    }
+    return image;
+  }
+
   function getWebsiteLink(index) {
     let website = "";
     switch (index) {
@@ -96,9 +109,9 @@ function Projects({ ...props }) {
       case 5:
         website = projectWebsites[5];
         break;
-      case 6:
+      /*case 6:
         website = projectWebsites[6];
-        break;
+        break;*/
       default:
         break;
     }
@@ -113,19 +126,26 @@ function Projects({ ...props }) {
 
   return (
     <>
-      <Container id="projects" className="w-100">
+      <Container id="projects">
         <h1 style={{ color: `${props.h1Color}` }}>Projects</h1>
 
         <div className="d-flex flex-wrap justify-content-center">
           {repoData.map((repo, index) => (
             <>
               <Card className="col-12 col-md-5 col-lg-3 m-1" key={index}>
+                <img
+                  className="card-img-top projectImage"
+                  src={getImage(index)}
+                  alt={`${repo.name} website`}
+                />
+
                 <Card.Header>
                   <Card.Title style={{ color: `${props.h1Color}` }}>
                     {repo.name.replace(/-/g, " ")}{" "}
                     {/*replace all dashes in repo name (-) with spaces*/}
                   </Card.Title>
                 </Card.Header>
+
                 <Card.Body>
                   <Card.Text style={{ color: `${props.pColor}` }}>
                     {repo.description}

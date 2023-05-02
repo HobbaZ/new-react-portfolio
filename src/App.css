@@ -32,6 +32,8 @@ a {
 
 .card {
   background-color: var(--transparent);
+  padding: 0;
+  margin: 0;
 }
 
 .card-header,
@@ -172,6 +174,10 @@ p {
   margin: auto;
 }
 
+.projectImage {
+  object-fit: contain;
+}
+
 .profilePic {
   clip-path: circle(48%);
   width: 150px;
@@ -190,9 +196,9 @@ p {
   }
 }
 
-.projects {
-  width: 100%;
-  margin: auto;
+#projects {
+  margin: 0;
+  padding: 0;
 }
 
 .modelForm,
