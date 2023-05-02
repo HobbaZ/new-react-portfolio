@@ -7,7 +7,7 @@ import CanvasContainer from "./threeJS/CanvasContainer";
 import Projects from "./Projects";
 import ContactMe from "./ContactMe";
 
-import photo from "../images/profile pic cutout.png";
+import photo from "../images/profile pic cutout.jpg";
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",

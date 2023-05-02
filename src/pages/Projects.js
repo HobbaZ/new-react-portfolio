@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container } from "react-bootstrap";
 import { FormButton } from "../components/BaseSettings";
-import Image1 from "../images/cryptoworld.WebP";
-import image3 from "../images/graphql-template.WebP";
-import image4 from "../images/vehicle.png";
-import image5 from "../images/weather-api-app.WebP";
-import image6 from "../images/worthly.WebP";
+import Image1 from "../images/cryptoworld.jpg";
+import image3 from "../images/graphql-template.jpg";
+import image4 from "../images/vehicle.jpg";
+import image5 from "../images/weather-api-app.jpg";
+import image6 from "../images/worthly.jpg";
 
 function Projects({ ...props }) {
   // state for messages
