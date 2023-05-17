@@ -54,15 +54,13 @@ function AppNavbar() {
       navLinks[index].style = `color: ${userInputs.linkColor}`;
     }
 
-    //get all cards
-    const cardBorders = document.getElementsByClassName("card");
-
-    for (let index = 0; index < cardBorders.length; index++) {
-      cardBorders[index].style = `border: 1px solid ${userInputs.pColor}`;
-    }
-
     //get footer
-    const footer = document.getElementsByClassName("footer");
+    const footer = document.getElementsByClassName("footerText");
+    const footerLinks = document.getElementsByClassName("footerLink");
+
+    for (let index = 0; index < footerLinks.length; index++) {
+      footerLinks[index].style = `color: ${userInputs.linkColor}`;
+    }
 
     for (let index = 0; index < footer.length; index++) {
       footer[index].style = `color: ${userInputs.pColor}`;

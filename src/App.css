@@ -180,11 +180,11 @@ p {
 
 .profilePic {
   clip-path: circle(48%);
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   background-color: var(--light);
-  margin-left: 50px;
+  margin-left: 20px;
   z-index: 1;
 }
 
@@ -192,7 +192,14 @@ p {
   .profilePic {
     width: 100px;
     height: 100px;
-    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profilePic {
+    width: 200px;
+    height: 200px;
+    float: right;
   }
 }
 

@@ -87,17 +87,19 @@ function About({ ...props }) {
           lightPositionz={userInputs.lightPositionz}
         />
         <div className="aboutTextBox">
-          <div className="d-flex flex-column flex-md-row mt-5">
-            <div className="d-flex justify-content-center align-items-center col-12 col-md-6">
-              <div className="d-flex flex-column flex-shrink-0">
+          <div className="d-flex flex-column flex-md-row mt-5 justify-content-space-between">
+            <div className="d-flex align-items-center col-12 col-md-6 profilePicBox justify-content-space-between">
+              <div className="d-flex flex-column flex-shrink-0 ">
                 <h1 style={{ color: `${props.h1Color}` }}>Hi, I'm Zac</h1>
                 <p style={{ color: `${props.pColor}` }}>Full Stack Developer</p>
                 <p style={{ color: `${props.pColor}` }}>Greater Sydney Area</p>
               </div>
-              <img className="profilePic" src={photo} alt="Zac Hobba"></img>
+              <div className="m-auto">
+                <img className="profilePic" src={photo} alt="Zac Hobba"></img>
+              </div>
             </div>
 
-            <div className="align-items-center p-2 col-12 col-md-6 align-items-center">
+            <div className="align-items-center p-2 col-12 col-md-6">
               <h3 style={{ color: `${props.h1Color}` }}>About Me</h3>
               <p style={{ color: `${props.pColor}` }}>
                 I enjoy finding stylistic solutions to problems, working on
@@ -134,12 +136,17 @@ function About({ ...props }) {
             style={{ color: `${props.pColor}` }}
           >
             <tbody>
-              <tr
-                style={{
-                  borderTop: `1px solid ${props.labelColor}`,
-                  borderBottom: `1px solid ${props.labelColor}`,
-                }}
-              >
+              <tr>
+                <td>
+                  <b>Code.Sydney</b>
+                </td>
+
+                <td>Volunteer Software Engineer</td>
+
+                <td>May 2023 - Present</td>
+              </tr>
+
+              <tr>
                 <td>
                   <b>The Star Casino</b>
                 </td>
@@ -157,7 +164,7 @@ function About({ ...props }) {
                 </td>
               </tr>
 
-              <tr style={{ borderTop: `1px solid ${props.labelColor}` }}>
+              <tr>
                 <td>
                   <b>TAFE NSW</b>
                 </td>
@@ -179,7 +186,7 @@ function About({ ...props }) {
                 <td>August 2021 - Feb 2022</td>
               </tr>
 
-              <tr style={{ borderBottom: `1px solid ${props.labelColor}` }}>
+              <tr style={{ borderBottom: `1px solid white` }}>
                 <td>
                   <b>TAFE Digital</b>
                 </td>

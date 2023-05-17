@@ -20,18 +20,18 @@ const Footer = () => {
     <>
       <Container>
         <footer>
-          <p className="footer">Zachary Hobba, {year()}</p>
+          <p className="footerText">Zachary Hobba, {year()}</p>
 
           <div className="iconDiv">
             <a
-              className="footer"
+              className="footerLink"
               href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"
               title="Zac Hobba LinkedIn"
             >
               <i className="fab fa-linkedin footerIcon"></i>
             </a>
             <a
-              className="footer"
+              className="footerLink"
               href="https://github.com/HobbaZ"
               title="Zac Hobba Github link"
             >

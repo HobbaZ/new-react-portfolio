@@ -55,7 +55,6 @@ function Projects({ ...props }) {
             .then(function (data) {
               //loop through all github repos and match repo names to project names you've listed in project names array, push the marching array data to another array
               // refactor to use map and reduce later
-
               for (let i = 0; i < data.length; i++) {
                 for (let j = 0; j < projectNames.length; j++) {
                   if (data[i].name === projectNames[j]) {
@@ -126,13 +125,16 @@ function Projects({ ...props }) {
 
   return (
     <>
-      <Container id="projects">
+      <Container id="projects" className="p-0 m-0">
         <h1 style={{ color: `${props.h1Color}` }}>Projects</h1>
 
         <div className="d-flex flex-wrap justify-content-center">
           {repoData.map((repo, index) => (
             <>
-              <Card className="col-12 col-md-5 col-lg-3 m-1" key={index}>
+              <Card
+                className="col-sm-12 col-md-6 col-lg-4 p-2 border-0"
+                key={index}
+              >
                 <img
                   className="card-img-top projectImage"
                   src={getImage(index)}
@@ -209,6 +211,57 @@ function Projects({ ...props }) {
             {infoMessage}
           </div>
         )}
+
+        <br />
+
+        <h1 style={{ color: `${props.h1Color}` }}>Volunteer Projects</h1>
+
+        <div className="d-flex flex-wrap justify-content-center">
+          <Card className="col-12 p-2 border-0">
+            <Card.Header>
+              <Card.Title style={{ color: `${props.h1Color}` }}>
+                {" "}
+                Prisoners Aid (ACT) Website Revamp
+              </Card.Title>
+            </Card.Header>
+
+            <Card.Body>
+              <Card.Text style={{ color: `${props.pColor}` }}>
+                Prisoners Aid has been operating as a community organisation in
+                Canberra since 1963. Over the years they have assisted thousands
+                of clients - including prisoners, released prisoners, families
+                of prisoners, and those involved in the court system. The
+                project is to modernise and make Prisoners Aid ACT's website
+                more engaging for potential clients, partners and the general
+                public.
+              </Card.Text>
+            </Card.Body>
+
+            <Card.Footer>
+              <div className="text-center">
+                <a
+                  href="https://www.paact.org.au/"
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label={`If clicked this will open to https://www.paact.org.au/`}
+                >
+                  <FormButton
+                    className="form-btn-primary col-sm-12 col-md-6 col-lg-4"
+                    buttonGradientAngle={props.buttonGradientAngle}
+                    buttonGradientColor1={props.buttonGradientColor1}
+                    buttonGradientColor2={props.buttonGradientColor2}
+                    text={
+                      <div className="buttonText">
+                        <i className="fab fa-github"></i> PAACT Website
+                      </div>
+                    }
+                    colour={props.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+            </Card.Footer>
+          </Card>
+        </div>
       </Container>
     </>
   );
