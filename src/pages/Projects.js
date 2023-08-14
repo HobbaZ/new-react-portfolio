@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container } from "react-bootstrap";
 import { FormButton } from "../components/BaseSettings";
-import Image1 from "../images/cryptoworld.png";
+import image1 from "../images/cryptoworld.png";
+import image2 from "../images/filter.png";
 import image3 from "../images/graphql-template.png";
 import image4 from "../images/vehicle.jpg";
 import image5 from "../images/weather-api-app.png";
@@ -15,13 +16,14 @@ function Projects({ ...props }) {
 
   const projectWebsites = [
     "https://hobbaz.github.io/CryptoWorld/",
+    "https://hobbaz.github.io/job_search_website/",
     "https://react-graphql-template.herokuapp.com/",
     "https://adrift-dev.itch.io/vehicle-generator",
     "https://hobbaz.github.io/Weather-API-app/",
     "https://worthly.herokuapp.com/",
   ];
 
-  const projectImages = [Image1, image3, image4, image5, image6];
+  const projectImages = [image1, image2, image3, image4, image5, image6];
 
   //Get my github repo data when component loads
   useEffect(() => {
@@ -34,6 +36,7 @@ function Projects({ ...props }) {
 
       const projectNames = [
         "CryptoWorld",
+        "job_search_website",
         "React-Graphql-Template",
         "Vehicle-Generator-Game",
         "Weather-API-app",
@@ -108,9 +111,9 @@ function Projects({ ...props }) {
       case 5:
         website = projectWebsites[5];
         break;
-      /*case 6:
+      case 6:
         website = projectWebsites[6];
-        break;*/
+        break;
       default:
         break;
     }
@@ -231,7 +234,7 @@ function Projects({ ...props }) {
                 Canberra since 1963. Over the years they have assisted thousands
                 of clients - including prisoners, released prisoners, families
                 of prisoners, and those involved in the court system. The
-                project is to modernise and make Prisoners Aid ACT's website
+                project was to modernise and make Prisoners Aid ACT's website
                 more engaging for potential clients, partners and the general
                 public.
               </Card.Text>
@@ -260,6 +263,48 @@ function Projects({ ...props }) {
                 </a>
               </div>
             </Card.Footer>
+          </Card>
+        </div>
+
+        <div className="d-flex flex-wrap justify-content-center">
+          <Card className="col-12 p-2 border-0">
+            <Card.Header>
+              <Card.Title style={{ color: `${props.h1Color}` }}>
+                {" "}
+                Code.Sydney JrDev website
+              </Card.Title>
+            </Card.Header>
+
+            <Card.Body>
+              <Card.Text style={{ color: `${props.pColor}` }}>
+                Assist in the development of Code.Sydney's junior developer
+                resume review website. Not deployed yet.
+              </Card.Text>
+            </Card.Body>
+
+            {/*} <Card.Footer>
+              <div className="text-center">
+                <a
+                  href="https://www.paact.org.au/"
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label={`If clicked this will open to https://www.paact.org.au/`}
+                >
+                  <FormButton
+                    className="form-btn-primary col-sm-12 col-md-6 col-lg-4"
+                    buttonGradientAngle={props.buttonGradientAngle}
+                    buttonGradientColor1={props.buttonGradientColor1}
+                    buttonGradientColor2={props.buttonGradientColor2}
+                    text={
+                      <div className="buttonText">
+                        <i className="fab fa-github"></i> PAACT Website
+                      </div>
+                    }
+                    colour={props.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+            </Card.Footer> */}
           </Card>
         </div>
       </Container>
