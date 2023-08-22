@@ -3,6 +3,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 
 import EditValuesForm from "../components/EditValuesForm";
 import About from "../pages/About";
+import resume from "../files/ZACHARY_HOBBA_TECHNICAL_RESUME.pdf";
 
 function AppNavbar() {
   //edit form
@@ -118,7 +119,7 @@ function AppNavbar() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/zachary-hobba/details/featured/1635538145063/single-media-viewer/?profileId=ACoAABGaS7IBPx97Qph_Fm2UiiCqxjXcDwofTsM"
+                href={`${resume}`}
                 className="nav-link ml-3 my-1"
                 rel="noreferrer"
                 target="_blank"
