@@ -118,6 +118,15 @@ function AppNavbar() {
               </a>
 
               <a
+                href="https://www.linkedin.com/in/zachary-hobba/details/featured/1635538145063/single-media-viewer/?profileId=ACoAABGaS7IBPx97Qph_Fm2UiiCqxjXcDwofTsM"
+                className="nav-link ml-3 my-1"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Resume
+              </a>
+
+              <a
                 href="#contactMe"
                 onClick={() => "contactMe"}
                 className="nav-link ml-3 my-1"
