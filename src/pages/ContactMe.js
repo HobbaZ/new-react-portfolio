@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import emailjs from "@emailjs/browser";
-
+import { FormButton } from "../components/BaseSettings";
 import { Container, Button, Form } from "react-bootstrap";
 
 let emailRegex =
@@ -60,6 +60,8 @@ function ContactMe({ ...props }) {
 
   return (
     <Container id="contactMe">
+      <hr style={{ backgroundColor: `${props.h1Color}` }} />
+
       <h1 style={{ color: `${props.h1Color}` }}>Contact Me</h1>
 
       <Form
@@ -81,14 +83,16 @@ function ContactMe({ ...props }) {
           />
         </Form.Group>
 
-        {nameInput !== "" && nameInput?.length < 2 && (
-          <div
-            style={{ color: `${props.pColor}` }}
-            className="text-center text-red"
-          >
-            {"Name must be at least 2 characters"}
-          </div>
-        )}
+        <div style={{ height: "0em" }}>
+          {nameInput !== "" && nameInput?.length < 2 && (
+            <div
+              style={{ color: `${props.pColor}` }}
+              className="text-center text-red"
+            >
+              {"Name must be at least 2 characters"}
+            </div>
+          )}
+        </div>
         <br />
 
         <Form.Group>
@@ -99,19 +103,21 @@ function ContactMe({ ...props }) {
             name="user_email"
             value={emailInput || ""}
             placeholder="Enter email"
-            onChange={(e) => setEmailInput(e.target.value)}
+            onChange={(e) => setEmailInput(e.target.value.trim())}
             required
           />
         </Form.Group>
 
-        {emailInput != null && !emailRegex.test(emailInput) && (
-          <div
-            style={{ color: `${props.pColor}` }}
-            className="text-center text-red"
-          >
-            {"Invalid email address entered"}
-          </div>
-        )}
+        <div style={{ height: "0em" }}>
+          {emailInput !== "" && !emailRegex.test(emailInput) && (
+            <div
+              style={{ color: `${props.pColor}` }}
+              className="text-center text-red"
+            >
+              {"Invalid email address entered"}
+            </div>
+          )}
+        </div>
         <br />
 
         <Form.Group>
@@ -148,21 +154,23 @@ function ContactMe({ ...props }) {
           />
         </Form.Group>
 
-        {messageInput !== "" && messageInput?.length < 2 && (
-          <div
-            style={{ color: `${props.pColor}` }}
-            className="text-center text-red"
-          >
-            {"Message is required"}
-          </div>
-        )}
+        <div style={{ height: "0em" }}>
+          {messageInput !== "" && messageInput?.length < 2 && (
+            <div
+              style={{ color: `${props.pColor}` }}
+              className="text-center text-red"
+            >
+              {"Message is required"}
+            </div>
+          )}
+        </div>
         <br />
 
-        <div className="text-center">
+        <div className="text-center pt-2">
           <Button
             type="submit"
             style={{
-              background: `linear-gradient(${props.buttonGradientAngle}deg, ${props.buttonGradientColor1}, ${props.buttonGradientColor2}`,
+              border: `4px solid ${props.buttonGradientColor2}`,
             }}
             className="form-btn-primary"
             disabled={!(emailInput && nameInput && messageInput)}

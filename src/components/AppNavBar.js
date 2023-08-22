@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Nav, Container, Form } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 import EditValuesForm from "../components/EditValuesForm";
 import About from "../pages/About";
@@ -13,21 +13,21 @@ function AppNavbar() {
 
     //get values from form with localstorage
     greyscale: false,
-    h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#ffffff",
+    h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#FFAD05",
     pColor: JSON.parse(localStorage.getItem("pColor")) || "#ffffff",
     linkColor: JSON.parse(localStorage.getItem("linkColor")) || "#ffffff",
     backgroundGradientAngle:
       JSON.parse(localStorage.getItem("backgroundGradientAngle")) || 0,
     backgroundGradientColor1:
-      JSON.parse(localStorage.getItem("backgroundGradientColor1")) || "#30253C",
+      JSON.parse(localStorage.getItem("backgroundGradientColor1")) || "#07090E",
     backgroundGradientColor2:
-      JSON.parse(localStorage.getItem("backgroundGradientColor2")) || "#13213F",
+      JSON.parse(localStorage.getItem("backgroundGradientColor2")) || "#2A3950",
     buttonGradientAngle:
       JSON.parse(localStorage.getItem("buttonGradientAngle")) || 0,
     buttonGradientColor1:
-      JSON.parse(localStorage.getItem("buttonGradientColor1")) || "#000000",
+      JSON.parse(localStorage.getItem("buttonGradientColor1")) || "#ffffff",
     buttonGradientColor2:
-      JSON.parse(localStorage.getItem("buttonGradientColor2")) || "#000000",
+      JSON.parse(localStorage.getItem("buttonGradientColor2")) || "#ffffff",
     labelColor: JSON.parse(localStorage.getItem("labelColor")) || "#ffffff",
     buttonTextColor:
       JSON.parse(localStorage.getItem("buttonTextColor")) || "#ffffff",
@@ -132,7 +132,7 @@ function AppNavbar() {
                 >
                   <div style={{ color: `${userInputs.linkColor}` }}>
                     Customise Page
-                    {showEditForm ? " x" : "  "}
+                    {showEditForm ? " x" : "   "}
                   </div>
                 </button>
                 <div className="form">

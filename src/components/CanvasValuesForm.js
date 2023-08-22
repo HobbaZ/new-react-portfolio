@@ -277,7 +277,13 @@ function CanvasValuesForm({
             buttonGradientAngle={props.buttonGradientAngle}
             buttonGradientColor1={props.buttonGradientColor1}
             buttonGradientColor2={props.buttonGradientColor2}
-            text={showModelOptions ? "Edit Model x" : "Edit Model "}
+            text={
+              showModelOptions ? (
+                <div className="buttonText">Edit Model x </div>
+              ) : (
+                <div className="buttonText">Edit Model </div>
+              )
+            }
             colour={props.buttonTextColor}
             onClick={() => setShowModelOptions(!showModelOptions)}
           ></FormButton>
@@ -373,7 +379,13 @@ function CanvasValuesForm({
             buttonGradientAngle={props.buttonGradientAngle}
             buttonGradientColor1={props.buttonGradientColor1}
             buttonGradientColor2={props.buttonGradientColor2}
-            text={showLightOptions ? "Edit Lights x" : "Edit Lights "}
+            text={
+              showLightOptions ? (
+                <div className="buttonText">Edit Lights x </div>
+              ) : (
+                <div className="buttonText">Edit Lights </div>
+              )
+            }
             colour={props.buttonTextColor}
             type="button"
             onClick={() => setShowLightOptions(!showLightOptions)}

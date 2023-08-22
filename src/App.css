@@ -12,6 +12,11 @@ a {
 
 #about {
   width: 100vw;
+  padding: 60px;
+}
+
+.aboutBox {
+  margin-top: 100px;
 }
 
 .active {
@@ -26,7 +31,8 @@ a {
   position: relative;
 }
 
-.buttonText:hover {
+.buttonText:hover,
+button:hover {
   text-decoration: underline;
 }
 
@@ -47,10 +53,10 @@ a {
 }
 
 #canvasContainer {
-  width: 80%;
+  width: 70%;
   margin: auto;
   height: 40vh;
-  margin-top: 100px;
+  margin-top: 20px;
 }
 
 #canvasContainer:hover {
@@ -94,11 +100,13 @@ form {
   border: 0;
   pointer-events: none;
   background-color: var(--transparent);
-  color: var(--dark);
+  border: 1px solid var(--light);
+  color: var(--light);
 }
 
 .formContainer {
   position: relative;
+  margin-top: 10px;
   width: 100%;
   z-index: 2;
 }
@@ -132,6 +140,7 @@ body {
   margin: 0%;
   overflow-x: hidden;
   background-blend-mode: color;
+  /*background-image: url("./images/abstract_image.png");*/
 }
 
 .htmlEditForm {
@@ -218,7 +227,7 @@ p {
 
 .modelFormButton {
   position: relative;
-  bottom: 40px;
+  bottom: 60px;
   margin: auto;
   width: 100%;
   z-index: 1;
@@ -277,6 +286,11 @@ p {
   background-color: var(--transparent);
 }
 
+select {
+  width: 100%;
+  height: 40px;
+}
+
 .sliderPos {
   width: 100%;
   height: 10px;
@@ -290,6 +304,22 @@ p {
 
 table {
   width: 100%;
+}
+
+.title {
+  font-size: 100px;
+}
+
+@media screen and (max-width: 990px) {
+  .title {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 60px;
+  }
 }
 
 tr {

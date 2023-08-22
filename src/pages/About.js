@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-
 import { Container } from "react-bootstrap";
-
 import CanvasContainer from "./threeJS/CanvasContainer";
-
 import Projects from "./Projects";
 import ContactMe from "./ContactMe";
 
-import photo from "../images/profile pic cutout.jpg";
+//import photo from "../images/profile pic cutout.jpg";
 
 let iconArray = [
   "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
@@ -59,7 +56,31 @@ function About({ ...props }) {
 
   return (
     <>
-      <Container id="about">
+      <Container id="about" className="m-auto p-2">
+        <div className="aboutBox p-2">
+          <div className="row">
+            <div className="col-12 col-lg-6">
+              <h2 style={{ color: `${props.h1Color}` }} className="title">
+                Hi, I'm Zac
+              </h2>
+              {/*<p style={{ color: `${props.pColor}` }}>
+                Full Stack Web Developer
+              </p>
+              <p style={{ color: `${props.pColor}` }}>Greater Sydney Area</p>*/}
+            </div>
+            <div className="col-12 col-lg-6">
+              <p style={{ color: `${props.pColor}` }}>
+                I'm a Full stack web developer based in Sydney, Australia. I
+                currently work as a ServiceNow developer and volunteer web
+                developer for non-profits and charities. <br />
+                <br /> My day to day consists of developing user documentation,
+                and implementing web solutions that are both user friendly and
+                aesthetically pleasing.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/*send data to three.js canvas model*/}
         <CanvasContainer
           pColor={props.pColor}
@@ -86,46 +107,23 @@ function About({ ...props }) {
           lightPositiony={userInputs.lightPositiony}
           lightPositionz={userInputs.lightPositionz}
         />
-        <div className="aboutTextBox">
-          <div className="d-flex flex-column flex-md-row mt-5 justify-content-space-between">
-            <div className="d-flex align-items-center col-12 col-md-6 profilePicBox justify-content-space-between">
-              <div className="d-flex flex-column flex-shrink-0 ">
-                <h1 style={{ color: `${props.h1Color}` }}>Hi, I'm Zac</h1>
-                <p style={{ color: `${props.pColor}` }}>Full Stack Developer</p>
-                <p style={{ color: `${props.pColor}` }}>Greater Sydney Area</p>
-              </div>
-              <div className="m-auto">
-                <img className="profilePic" src={photo} alt="Zac Hobba"></img>
-              </div>
-            </div>
-
-            <div className="align-items-center p-2 col-12 col-md-6">
-              <h3 style={{ color: `${props.h1Color}` }}>About Me</h3>
-              <p style={{ color: `${props.pColor}` }}>
-                I enjoy finding stylistic solutions to problems, working on
-                interesting projects and experimenting with different
-                technologies. Currently I'm exploring the use of webXR, AR, as
-                well as Three.js for web projects.
-              </p>
-            </div>
-          </div>
-
-          <br />
-          <br />
-
+        <div className="m-auto p-2">
           <br />
           <h3 style={{ color: `${props.h1Color}` }}>
             Not an ordinary Portfolio site ...
           </h3>
           <p style={{ color: `${props.pColor}` }}>
             You can customise the colours of this website by clicking the
-            <b> Customise Page</b> button in the navigation bar and customise
-            the spinning model with the <b>Customise Model</b> button, you can
-            also rotate the camera and zoom in/zoom out with your mouse. Once
-            you're done playing with my website, feel free to check out some of
-            my other projects, shoot me an email, or look at my social media
-            links.
+            <b style={{ color: `${props.h1Color}` }}> Customise Page</b> button
+            in the navigation bar and customise the spinning model with the{" "}
+            <b style={{ color: `${props.h1Color}` }}>Customise Model</b> button,
+            you can also rotate the camera and zoom in/zoom out with your mouse.
+            Once you're done playing with my website, feel free to check out
+            some of my other projects, shoot me an email, or look at my social
+            media links.
           </p>
+
+          <hr style={{ backgroundColor: `${props.h1Color}` }} />
 
           <h1 className="experienceTitle" style={{ color: `${props.h1Color}` }}>
             Experience
@@ -160,6 +158,8 @@ function About({ ...props }) {
               <tr>
                 <td colSpan="3">
                   <br />
+                  <hr style={{ backgroundColor: `${props.h1Color}` }} />
+
                   <h1 style={{ color: `${props.h1Color}` }}>Education</h1>
                 </td>
               </tr>
@@ -202,6 +202,7 @@ function About({ ...props }) {
           </table>
           <br />
 
+          <hr style={{ backgroundColor: `${props.h1Color}` }} />
           <h1 style={{ color: `${props.h1Color}` }}>Skills</h1>
 
           <div className="text-center">
@@ -212,6 +213,8 @@ function About({ ...props }) {
         </div>
 
         <br />
+
+        <hr style={{ backgroundColor: `${props.h1Color}` }} />
 
         {/* Make every page child of about page to pass values easier (probably not best or proper way but it works)*/}
         <Projects

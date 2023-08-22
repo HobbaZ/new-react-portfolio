@@ -56,7 +56,7 @@ function Projects({ ...props }) {
             })
 
             .then(function (data) {
-              //loop through all github repos and match repo names to project names you've listed in project names array, push the marching array data to another array
+              //loop through all github repos and match repo names to project names
               // refactor to use map and reduce later
               for (let i = 0; i < data.length; i++) {
                 for (let j = 0; j < projectNames.length; j++) {
@@ -128,10 +128,10 @@ function Projects({ ...props }) {
 
   return (
     <>
-      <Container id="projects" className="p-0 m-0">
+      <Container id="projects" className="m-auto p-0">
         <h1 style={{ color: `${props.h1Color}` }}>Projects</h1>
 
-        <div className="d-flex flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-content-left">
           {repoData.map((repo, index) => (
             <>
               <Card
@@ -146,7 +146,7 @@ function Projects({ ...props }) {
 
                 <Card.Header>
                   <Card.Title style={{ color: `${props.h1Color}` }}>
-                    {repo.name.replace(/-/g, " ")}{" "}
+                    {repo.name.replace(/[-_]+/g, " ")}{" "}
                     {/*replace all dashes in repo name (-) with spaces*/}
                   </Card.Title>
                 </Card.Header>
@@ -217,10 +217,12 @@ function Projects({ ...props }) {
 
         <br />
 
+        <hr style={{ backgroundColor: `${props.h1Color}` }} />
+
         <h1 style={{ color: `${props.h1Color}` }}>Volunteer Projects</h1>
 
-        <div className="d-flex flex-wrap justify-content-center">
-          <Card className="col-12 p-2 border-0">
+        <div className="d-flex flex-wrap justify-content-left">
+          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
               <Card.Title style={{ color: `${props.h1Color}` }}>
                 {" "}
@@ -231,12 +233,8 @@ function Projects({ ...props }) {
             <Card.Body>
               <Card.Text style={{ color: `${props.pColor}` }}>
                 Prisoners Aid has been operating as a community organisation in
-                Canberra since 1963. Over the years they have assisted thousands
-                of clients - including prisoners, released prisoners, families
-                of prisoners, and those involved in the court system. The
-                project was to modernise and make Prisoners Aid ACT's website
-                more engaging for potential clients, partners and the general
-                public.
+                Canberra since 1963. I assissted with updating stylistic aspects
+                of the website and uploading forms to the website.
               </Card.Text>
             </Card.Body>
 
@@ -249,13 +247,13 @@ function Projects({ ...props }) {
                   aria-label={`If clicked this will open to https://www.paact.org.au/`}
                 >
                   <FormButton
-                    className="form-btn-primary col-sm-12 col-md-6 col-lg-4"
+                    className="form-btn-primary"
                     buttonGradientAngle={props.buttonGradientAngle}
                     buttonGradientColor1={props.buttonGradientColor1}
                     buttonGradientColor2={props.buttonGradientColor2}
                     text={
                       <div className="buttonText">
-                        <i className="fab fa-github"></i> PAACT Website
+                        <i className="fas fa-globe"></i> PAACT Website
                       </div>
                     }
                     colour={props.buttonTextColor}
@@ -264,10 +262,8 @@ function Projects({ ...props }) {
               </div>
             </Card.Footer>
           </Card>
-        </div>
 
-        <div className="d-flex flex-wrap justify-content-center">
-          <Card className="col-12 p-2 border-0">
+          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
               <Card.Title style={{ color: `${props.h1Color}` }}>
                 {" "}
@@ -277,34 +273,10 @@ function Projects({ ...props }) {
 
             <Card.Body>
               <Card.Text style={{ color: `${props.pColor}` }}>
-                Assist in the development of Code.Sydney's junior developer
+                Assisting in the development of Code.Sydney's junior developer
                 resume review website. Not deployed yet.
               </Card.Text>
             </Card.Body>
-
-            {/*} <Card.Footer>
-              <div className="text-center">
-                <a
-                  href="https://www.paact.org.au/"
-                  rel="noreferrer"
-                  target="_blank"
-                  aria-label={`If clicked this will open to https://www.paact.org.au/`}
-                >
-                  <FormButton
-                    className="form-btn-primary col-sm-12 col-md-6 col-lg-4"
-                    buttonGradientAngle={props.buttonGradientAngle}
-                    buttonGradientColor1={props.buttonGradientColor1}
-                    buttonGradientColor2={props.buttonGradientColor2}
-                    text={
-                      <div className="buttonText">
-                        <i className="fab fa-github"></i> PAACT Website
-                      </div>
-                    }
-                    colour={props.buttonTextColor}
-                  ></FormButton>
-                </a>
-              </div>
-            </Card.Footer> */}
           </Card>
         </div>
       </Container>
