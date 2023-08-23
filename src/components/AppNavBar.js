@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-
 import EditValuesForm from "../components/EditValuesForm";
 import About from "../pages/About";
-import resume from "../files/ZACHARY_HOBBA_TECH_RESUME.pdf";
 
 function AppNavbar() {
   //edit form
@@ -116,15 +114,6 @@ function AppNavbar() {
                 className="nav-link ml-3 my-1"
               >
                 Projects
-              </a>
-
-              <a
-                href={`${resume}`}
-                className="nav-link ml-3 my-1"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Resume
               </a>
 
               <a
