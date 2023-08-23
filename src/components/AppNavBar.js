@@ -3,7 +3,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 
 import EditValuesForm from "../components/EditValuesForm";
 import About from "../pages/About";
-import resume from "../files/ZACHARY_HOBBA_TECH_RESUME .pdf";
+import resume from "../files/ZACHARY_HOBBA_TECH_RESUME.pdf";
 
 function AppNavbar() {
   //edit form
