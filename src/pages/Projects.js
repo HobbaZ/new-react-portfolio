@@ -29,11 +29,7 @@ function Projects({ ...props }) {
   useEffect(() => {
     function getGithubData() {
       let requestUrl = "https://api.github.com/users/HobbaZ/repos?per_page=40";
-
-      let storedRepoArray = [];
-
       const repoArray = [];
-
       const projectNames = [
         "CryptoWorld",
         "job_search_website",
@@ -46,34 +42,23 @@ function Projects({ ...props }) {
       //Put the repo title names you want displayed here (must match exactly)
 
       try {
-        if (localStorage.getItem("repoArray")) {
-          storedRepoArray = JSON.parse(localStorage.getItem("repoArray"));
-          setRepoData(storedRepoArray);
-        } else {
-          fetch(requestUrl)
-            .then(function (response) {
-              return response.json();
-            })
+        fetch(requestUrl)
+          .then(function (response) {
+            return response.json();
+          })
 
-            .then(function (data) {
-              //loop through all github repos and match repo names to project names
-              // refactor to use map and reduce later
-              for (let i = 0; i < data.length; i++) {
-                for (let j = 0; j < projectNames.length; j++) {
-                  if (data[i].name === projectNames[j]) {
-                    repoArray.push(data[i]);
-                    localStorage.setItem(
-                      "repoArray",
-                      JSON.stringify(repoArray)
-                    );
-                    storedRepoArray = repoArray;
-                  }
+          .then(function (data) {
+            //loop through all github repos and match repo names to project names
+            // refactor to use map and reduce later
+            for (let i = 0; i < data.length; i++) {
+              for (let j = 0; j < projectNames.length; j++) {
+                if (data[i].name === projectNames[j]) {
+                  repoArray.push(data[i]);
                 }
               }
-
-              setRepoData(repoArray);
-            });
-        }
+            }
+            setRepoData(repoArray);
+          });
       } catch (err) {
         setInfoMessage("Error getting Github repo data", err);
         throw new Error(err);
@@ -187,7 +172,9 @@ function Projects({ ...props }) {
                       href={getWebsiteLink(index)}
                       rel="noreferrer"
                       target="_blank"
-                      aria-label={`If clicked this will open to" ${repo.html_url}`}
+                      aria-label={`If clicked this will open to" ${getWebsiteLink(
+                        index
+                      )}`}
                     >
                       <FormButton
                         className="form-btn-primary"
