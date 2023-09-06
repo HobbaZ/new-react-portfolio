@@ -60,8 +60,6 @@ function ContactMe({ ...props }) {
 
   return (
     <Container id="contactMe">
-      <hr style={{ backgroundColor: `${props.h1Color}` }} />
-
       <h1 style={{ color: `${props.h1Color}` }}>Contact Me</h1>
 
       <Form
@@ -109,14 +107,16 @@ function ContactMe({ ...props }) {
         </Form.Group>
 
         <div style={{ height: "0em" }}>
-          {emailInput !== "" && !emailRegex.test(emailInput) && (
-            <div
-              style={{ color: `${props.pColor}` }}
-              className="text-center text-red"
-            >
-              {"Invalid email address entered"}
-            </div>
-          )}
+          {emailInput !== "" &&
+            emailInput?.length > 0 &&
+            !emailRegex.test(emailInput) && (
+              <div
+                style={{ color: `${props.pColor}` }}
+                className="text-center text-red"
+              >
+                {"Invalid email address entered"}
+              </div>
+            )}
         </div>
         <br />
 

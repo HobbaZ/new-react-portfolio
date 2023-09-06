@@ -201,10 +201,7 @@ function Projects({ ...props }) {
             {infoMessage}
           </div>
         )}
-
         <br />
-
-        <hr style={{ backgroundColor: `${props.h1Color}` }} />
 
         <h1 style={{ color: `${props.h1Color}` }}>Volunteer Projects</h1>
 

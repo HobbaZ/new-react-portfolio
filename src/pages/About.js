@@ -123,8 +123,6 @@ function About({ ...props }) {
             media links.
           </p>
 
-          <hr style={{ backgroundColor: `${props.h1Color}` }} />
-
           <h1 className="experienceTitle" style={{ color: `${props.h1Color}` }}>
             Experience
           </h1>
@@ -158,7 +156,6 @@ function About({ ...props }) {
               <tr>
                 <td colSpan="3">
                   <br />
-                  <hr style={{ backgroundColor: `${props.h1Color}` }} />
 
                   <h1 style={{ color: `${props.h1Color}` }}>Education</h1>
                 </td>
@@ -202,7 +199,6 @@ function About({ ...props }) {
           </table>
           <br />
 
-          <hr style={{ backgroundColor: `${props.h1Color}` }} />
           <h1 style={{ color: `${props.h1Color}` }}>Skills</h1>
 
           <div className="text-center">
@@ -213,8 +209,6 @@ function About({ ...props }) {
         </div>
 
         <br />
-
-        <hr style={{ backgroundColor: `${props.h1Color}` }} />
 
         {/* Make every page child of about page to pass values easier (probably not best or proper way but it works)*/}
         <Projects
