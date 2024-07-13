@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Card, Container } from "react-bootstrap";
 import { FormButton } from "../components/BaseSettings";
 import image1 from "../images/cryptoworld.png";
@@ -7,8 +7,10 @@ import image3 from "../images/graphql-template.png";
 import image4 from "../images/vehicle.jpg";
 import image5 from "../images/weather-api-app.png";
 import image6 from "../images/worthly.png";
+import { AppContext } from "../components/AppContext";
 
-function Projects({ ...props }) {
+function Projects() {
+  const { userInputs } = useContext(AppContext);
   // state for messages
   const [infoMessage, setInfoMessage] = useState("");
 
@@ -25,7 +27,7 @@ function Projects({ ...props }) {
 
   const projectImages = [image1, image2, image3, image4, image5, image6];
 
-  //Get my github repo data when component loads
+  // Get my GitHub repo data when component loads
   useEffect(() => {
     function getGithubData() {
       let requestUrl = "https://api.github.com/users/HobbaZ/repos?per_page=40";
@@ -39,17 +41,10 @@ function Projects({ ...props }) {
         "Worthly",
       ];
 
-      //Put the repo title names you want displayed here (must match exactly)
-
       try {
         fetch(requestUrl)
-          .then(function (response) {
-            return response.json();
-          })
-
-          .then(function (data) {
-            //loop through all github repos and match repo names to project names
-            // refactor to use map and reduce later
+          .then((response) => response.json())
+          .then((data) => {
             for (let i = 0; i < data.length; i++) {
               for (let j = 0; j < projectNames.length; j++) {
                 if (data[i].name === projectNames[j]) {
@@ -60,7 +55,7 @@ function Projects({ ...props }) {
             setRepoData(repoArray);
           });
       } catch (err) {
-        setInfoMessage("Error getting Github repo data", err);
+        setInfoMessage("Error getting GitHub repo data", err);
         throw new Error(err);
       }
     }
@@ -77,194 +72,152 @@ function Projects({ ...props }) {
 
   function getWebsiteLink(index) {
     let website = "";
-    switch (index) {
-      case 0:
-        website = projectWebsites[0];
-        break;
-      case 1:
-        website = projectWebsites[1];
-        break;
-      case 2:
-        website = projectWebsites[2];
-        break;
-      case 3:
-        website = projectWebsites[3];
-        break;
-      case 4:
-        website = projectWebsites[4];
-        break;
-      case 5:
-        website = projectWebsites[5];
-        break;
-      case 6:
-        website = projectWebsites[6];
-        break;
-      default:
-        break;
-    }
-
-    if (index === 1) {
-      website = projectWebsites[1];
-    } else if (index === 2) {
-      website = projectWebsites[2];
+    if (index >= 0 && index < projectWebsites.length) {
+      website = projectWebsites[index];
     }
     return website;
   }
 
   return (
-    <>
-      <Container id="projects" className="m-auto p-0">
-        <h1 style={{ color: `${props.h1Color}` }}>Projects</h1>
-
-        <div className="d-flex flex-wrap justify-content-left">
-          {repoData.map((repo, index) => (
-            <>
-              <Card
-                className="col-sm-12 col-md-6 col-lg-4 p-2 border-0"
-                key={index}
-              >
-                <img
-                  className="card-img-top projectImage"
-                  src={getImage(index)}
-                  alt={`${repo.name} website`}
-                />
-
-                <Card.Header>
-                  <Card.Title style={{ color: `${props.h1Color}` }}>
-                    {repo.name.replace(/[-_]+/g, " ")}{" "}
-                    {/*replace all dashes in repo name (-) with spaces*/}
-                  </Card.Title>
-                </Card.Header>
-
-                <Card.Body>
-                  <Card.Text style={{ color: `${props.pColor}` }}>
-                    {repo.description}
-                  </Card.Text>
-                </Card.Body>
-
-                <Card.Footer>
-                  <div className="text-center">
-                    <a
-                      href={repo.html_url}
-                      rel="noreferrer"
-                      target="_blank"
-                      aria-label={`If clicked this will open to" ${repo.html_url}`}
-                    >
-                      <FormButton
-                        className="form-btn-primary"
-                        buttonGradientAngle={props.buttonGradientAngle}
-                        buttonGradientColor1={props.buttonGradientColor1}
-                        buttonGradientColor2={props.buttonGradientColor2}
-                        text={
-                          <div className="buttonText">
-                            <i className="fab fa-github"></i> Github
-                          </div>
-                        }
-                        colour={props.buttonTextColor}
-                      ></FormButton>
-                    </a>
-                  </div>
-
-                  <br></br>
-
-                  <div className="text-center">
-                    <a
-                      href={getWebsiteLink(index)}
-                      rel="noreferrer"
-                      target="_blank"
-                      aria-label={`If clicked this will open to" ${getWebsiteLink(
-                        index
-                      )}`}
-                    >
-                      <FormButton
-                        className="form-btn-primary"
-                        buttonGradientAngle={props.buttonGradientAngle}
-                        buttonGradientColor1={props.buttonGradientColor1}
-                        buttonGradientColor2={props.buttonGradientColor2}
-                        text={
-                          <div className="buttonText">
-                            <i className="fas fa-globe"></i> Website
-                          </div>
-                        }
-                        colour={props.buttonTextColor}
-                      ></FormButton>
-                    </a>
-                  </div>
-                </Card.Footer>
-              </Card>
-            </>
-          ))}
-        </div>
-
-        {infoMessage && (
-          <div style={{ color: `${props.pColor}` }} className="text-center">
-            {infoMessage}
-          </div>
-        )}
-        <br />
-
-        <h1 style={{ color: `${props.h1Color}` }}>Volunteer Projects</h1>
-
-        <div className="d-flex flex-wrap justify-content-left">
-          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+    <Container id="projects" className="m-auto p-0">
+      <h1 style={{ color: `${userInputs.h1Color}` }}>Projects</h1>
+      <div className="d-flex flex-wrap justify-content-left">
+        {repoData.map((repo, index) => (
+          <Card
+            className="col-sm-12 col-md-6 col-lg-4 p-2 border-0"
+            key={repo.id} // Ensure each Card has a unique key
+          >
+            <img
+              className="card-img-top projectImage"
+              src={getImage(index)}
+              alt={`${repo.name} website`}
+            />
             <Card.Header>
-              <Card.Title style={{ color: `${props.h1Color}` }}>
-                {" "}
-                Prisoners Aid (ACT) Website Revamp
+              <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+                {repo.name.replace(/[-_]+/g, " ")}
               </Card.Title>
             </Card.Header>
-
             <Card.Body>
-              <Card.Text style={{ color: `${props.pColor}` }}>
-                Prisoners Aid has been operating as a community organisation in
-                Canberra since 1963. I assissted with updating stylistic aspects
-                of the website and uploading forms to the website.
+              <Card.Text style={{ color: `${userInputs.pColor}` }}>
+                {repo.description}
               </Card.Text>
             </Card.Body>
-
             <Card.Footer>
               <div className="text-center">
                 <a
-                  href="https://www.paact.org.au/"
+                  href={repo.html_url}
                   rel="noreferrer"
                   target="_blank"
-                  aria-label={`If clicked this will open to https://www.paact.org.au/`}
+                  aria-label={`If clicked this will open to ${repo.html_url}`}
                 >
                   <FormButton
                     className="form-btn-primary"
-                    buttonGradientAngle={props.buttonGradientAngle}
-                    buttonGradientColor1={props.buttonGradientColor1}
-                    buttonGradientColor2={props.buttonGradientColor2}
+                    type="button"
+                    buttonGradientAngle={userInputs.buttonGradientAngle}
+                    buttonGradientColor1={userInputs.buttonGradientColor1}
+                    buttonGradientColor2={userInputs.buttonGradientColor2}
+                    buttonOutlineColor={userInputs.buttonOutlineColor}
                     text={
                       <div className="buttonText">
-                        <i className="fas fa-globe"></i> PAACT Website
+                        <i className="fab fa-github"></i> GitHub
                       </div>
                     }
-                    colour={props.buttonTextColor}
+                    colour={userInputs.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+              <br />
+              <div className="text-center">
+                <a
+                  href={getWebsiteLink(index)}
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label={`If clicked this will open to ${getWebsiteLink(
+                    index
+                  )}`}
+                >
+                  <FormButton
+                    className="form-btn-primary"
+                    type="button"
+                    buttonGradientAngle={userInputs.buttonGradientAngle}
+                    buttonGradientColor1={userInputs.buttonGradientColor1}
+                    buttonGradientColor2={userInputs.buttonGradientColor2}
+                    buttonOutlineColor={userInputs.buttonOutlineColor}
+                    text={
+                      <div className="buttonText">
+                        <i className="fas fa-globe"></i> Website
+                      </div>
+                    }
+                    colour={userInputs.buttonTextColor}
                   ></FormButton>
                 </a>
               </div>
             </Card.Footer>
           </Card>
-
-          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
-            <Card.Header>
-              <Card.Title style={{ color: `${props.h1Color}` }}>
-                {" "}
-                Code.Sydney JrDev website
-              </Card.Title>
-            </Card.Header>
-
-            <Card.Body>
-              <Card.Text style={{ color: `${props.pColor}` }}>
-                Assisting in the development of Code.Sydney's junior developer
-                resume review website. Not deployed yet.
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        ))}
+      </div>
+      {infoMessage && (
+        <div style={{ color: `${userInputs.pColor}` }} className="text-center">
+          {infoMessage}
         </div>
-      </Container>
-    </>
+      )}
+      <br />
+      <h1 style={{ color: `${userInputs.h1Color}` }}>Volunteer Projects</h1>
+      <div className="d-flex flex-wrap justify-content-left">
+        <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+          <Card.Header>
+            <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+              Prisoners Aid (ACT) Website Revamp
+            </Card.Title>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text style={{ color: `${userInputs.pColor}` }}>
+              Prisoners Aid has been operating as a community organisation in
+              Canberra since 1963. I assisted with updating stylistic aspects of
+              the website and uploading forms to the website.
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <div className="text-center">
+              <a
+                href="https://www.paact.org.au/"
+                rel="noreferrer"
+                target="_blank"
+                aria-label={`If clicked this will open to https://www.paact.org.au/`}
+              >
+                <FormButton
+                  className="form-btn-primary"
+                  type="button"
+                  buttonGradientAngle={userInputs.buttonGradientAngle}
+                  buttonGradientColor1={userInputs.buttonGradientColor1}
+                  buttonGradientColor2={userInputs.buttonGradientColor2}
+                  buttonOutlineColor={userInputs.buttonOutlineColor}
+                  text={
+                    <div className="buttonText">
+                      <i className="fas fa-globe"></i> PAACT Website
+                    </div>
+                  }
+                  colour={userInputs.buttonTextColor}
+                ></FormButton>
+              </a>
+            </div>
+          </Card.Footer>
+        </Card>
+        <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+          <Card.Header>
+            <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+              Code.Sydney JrDev website
+            </Card.Title>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text style={{ color: `${userInputs.pColor}` }}>
+              Assisting in the development of Code.Sydney's junior developer
+              resume review website. Not deployed yet.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+    </Container>
   );
 }
 

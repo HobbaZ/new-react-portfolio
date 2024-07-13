@@ -1,25 +1,25 @@
-function Lights({ lightColor, lightIntensity, lightPositionx, lightPositiony, lightPositionz, ambientLightColor }) {
-    return (
-        <>
-            <ambientLight
-                intensity={0.3}
-                position={[20, 20, 20]}
-                color={ambientLightColor}
-            />
+import React from "react";
 
-            <directionalLight
-                castShadow
-                shadow-mapSize-height={512}
-                shadow-mapSize-width={512}
-                shadow-radius={10}
-                shadow-bias={0.0001}
+function Lights({
+  lightColor,
+  lightIntensity,
+  lightPositionx,
+  lightPositiony,
+  lightPositionz,
+  ambientLightColor,
+}) {
+  return (
+    <>
+      <ambientLight intensity={0.3} color={ambientLightColor} />
 
-                position={[lightPositiony, lightPositionz, lightPositionx]}
-                intensity={lightIntensity / 100} //divide by the max value, too bright otherwise
-                color={lightColor}
-            />
-        </>
-    );
+      <pointLight
+        position={[lightPositionx, lightPositiony, lightPositionz]}
+        castShadow={true}
+        intensity={lightIntensity / 100} // Divide by 100 to control brightness
+        color={lightColor}
+      />
+    </>
+  );
 }
 
-export default Lights
+export default Lights;

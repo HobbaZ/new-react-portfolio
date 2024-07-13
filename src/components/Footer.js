@@ -1,5 +1,6 @@
-import React from "react";
 import Container from "react-bootstrap/Container";
+import { AppContext } from "./AppContext";
+import { useContext } from "react";
 
 //Change year automatically and keep created date for future references
 function year() {
@@ -16,14 +17,18 @@ function year() {
 }
 
 const Footer = () => {
+  const { userInputs } = useContext(AppContext);
   return (
     <>
       <Container>
         <footer>
-          <p className="footerText">Zachary Hobba, {year()}</p>
+          <p style={{ color: `${userInputs.pColor}` }} className="footerText">
+            Zachary Hobba, {year()}
+          </p>
 
           <div className="iconDiv">
             <a
+              style={{ color: `${userInputs.linkColor}` }}
               className="footerLink"
               href="https://www.linkedin.com/in/zachary-hobba-52aaa182/"
               title="Zac Hobba LinkedIn"
@@ -31,6 +36,7 @@ const Footer = () => {
               <i className="fab fa-linkedin footerIcon"></i>
             </a>
             <a
+              style={{ color: `${userInputs.linkColor}` }}
               className="footerLink"
               href="https://github.com/HobbaZ"
               title="Zac Hobba Github link"

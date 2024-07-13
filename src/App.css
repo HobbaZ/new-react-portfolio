@@ -16,7 +16,7 @@ a {
 }
 
 .aboutBox {
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .active {
@@ -29,6 +29,15 @@ a {
 
 .appContainer {
   position: relative;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.buttonText {
+  font-weight: 500;
 }
 
 .buttonText:hover,
@@ -53,14 +62,20 @@ button:hover {
 }
 
 #canvasContainer {
-  width: 70%;
+  width: 100%;
   margin: auto;
-  height: 40vh;
-  margin-top: 20px;
+
+  left: 0;
+  height: 400px;
+  top: 0;
 }
 
 #canvasContainer:hover {
   border: 1px solid red;
+}
+
+.content {
+  margin-top: 40px;
 }
 
 .errMessage {
@@ -76,16 +91,15 @@ form {
 }
 
 .form-btn-primary {
-  border: 2px solid var(--transparent);
+  /*outline: 1px solid var(--transparent);*/
+  /*border: none;*/
   color: var(--dark);
   background-color: var(--transparent);
-  outline: none;
-  font-size: 20px;
   width: 100%;
 }
 
 .form-btn-primary:hover {
-  border-top: 2px solid var(--transparent);
+  /*border-top: 1px solid var(--transparent);*/
   background-color: var(--transparent);
   color: var(--dark);
 }
@@ -100,7 +114,7 @@ form {
   border: 0;
   pointer-events: none;
   background-color: var(--transparent);
-  border: 1px solid var(--light);
+  /*border: 1px solid var(--light);*/
   color: var(--light);
 }
 
@@ -145,6 +159,7 @@ body {
 
 .htmlEditForm {
   width: 100%;
+  height: 400px;
 }
 
 .htmlEditForm input,
@@ -276,6 +291,10 @@ p {
   position: relative;
 }
 
+.noButton:focus {
+  border: none;
+}
+
 .noEffect,
 .noEffect:hover {
   position: absolute;
@@ -296,6 +315,10 @@ select {
   height: 40px;
 }
 
+.servicesIcon {
+  font-size: 40px;
+}
+
 .sliderPos {
   width: 100%;
   height: 10px;
@@ -313,6 +336,7 @@ table {
 
 .title {
   font-size: 100px;
+  font-family: Tahoma;
 }
 
 @media screen and (max-width: 990px) {

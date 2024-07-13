@@ -21,18 +21,19 @@ function FormButton({
   buttonGradientAngle,
   buttonGradientColor1,
   buttonGradientColor2,
+  buttonOutlineColor,
   text,
   className,
   onClick,
   colour,
-  type,
 }) {
   return (
     <>
       <Button
         style={{
-          //background: `linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`,
-          border: `4px solid ${buttonGradientColor2}`,
+          background: `linear-gradient(${buttonGradientAngle}deg, ${buttonGradientColor1}, ${buttonGradientColor2}`,
+          outline: `${buttonOutlineColor} solid 2px`,
+          border: "none",
         }}
         onClick={onClick}
         //type={type}

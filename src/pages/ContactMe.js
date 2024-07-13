@@ -1,36 +1,38 @@
-import React, { useState, useRef, useEffect } from "react";
-
+import React, { useState, useRef, useContext } from "react";
 import emailjs from "@emailjs/browser";
 import { FormButton } from "../components/BaseSettings";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
+import { AppContext } from "../components/AppContext";
 
 let emailRegex =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-function ContactMe({ ...props }) {
+function ContactMe() {
   const formRef = useRef();
+  const { userInputs } = useContext(AppContext);
 
-  const [subjectInput, setSubjectInput] = useState();
-  const [nameInput, setNameInput] = useState();
-  const [emailInput, setEmailInput] = useState();
-  const [messageInput, setMessageInput] = useState();
+  const [subjectInput, setSubjectInput] = useState("");
+  const [nameInput, setNameInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [messageInput, setMessageInput] = useState("");
 
-  const [validated] = useState(false);
-
-  // state for messages
+  const [validated, setValidated] = useState(false);
   const [infoMessage, setInfoMessage] = useState("");
-
   const [emailSent, setEmailSent] = useState(false);
+  const [sendingEmail, setSendingEmail] = useState(false);
 
   // submit form
   const submitForm = async (event) => {
     event.preventDefault();
-
     const form = event.currentTarget;
+
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+
+    setValidated(true);
+    setSendingEmail(true);
 
     //send details to email provider
     emailjs
@@ -44,13 +46,18 @@ function ContactMe({ ...props }) {
         (result) => {
           console.log("Email Sent", result);
           setEmailSent(true);
+          setSendingEmail(false);
+          setInfoMessage("Email sent successfully!");
           setTimeout(() => {
             setEmailSent(false);
+            setInfoMessage("");
           }, 3000);
         },
         (error) => {
           console.log("Email failed: ", error);
           setEmailSent(false);
+          setSendingEmail(false);
+          setInfoMessage("Email failed to send.");
           setTimeout(() => {
             setInfoMessage("");
           }, 3000);
@@ -60,68 +67,69 @@ function ContactMe({ ...props }) {
 
   return (
     <Container id="contactMe">
-      <h1 style={{ color: `${props.h1Color}` }}>Contact Me</h1>
+      <h1 style={{ color: `${userInputs.h1Color}` }}>Contact Me</h1>
 
       <Form
+        noValidate
         validated={validated}
         onSubmit={submitForm}
         className="col-sm-12 col-md-6 m-auto"
         ref={formRef}
       >
         <Form.Group>
-          <label style={{ color: `${props.labelColor}` }}>Name</label>
+          <label style={{ color: `${userInputs.labelColor}` }}>Name</label>
           <input
             className="form-control"
             type="text"
             name="from_name"
-            value={nameInput || ""}
+            value={nameInput}
             placeholder="Your Name"
             onChange={(e) => setNameInput(e.target.value)}
             required
           />
+          <div style={{ height: "0em" }}>
+            {nameInput !== "" && nameInput.length < 2 && (
+              <div
+                style={{ color: `${userInputs.pColor}` }}
+                className="text-center text-red"
+              >
+                {"Name must be at least 2 characters"}
+              </div>
+            )}
+          </div>
         </Form.Group>
-
-        <div style={{ height: "0em" }}>
-          {nameInput !== "" && nameInput?.length < 2 && (
-            <div
-              style={{ color: `${props.pColor}` }}
-              className="text-center text-red"
-            >
-              {"Name must be at least 2 characters"}
-            </div>
-          )}
-        </div>
         <br />
 
         <Form.Group>
-          <label style={{ color: `${props.labelColor}` }}>Email address</label>
+          <label style={{ color: `${userInputs.labelColor}` }}>
+            Email address
+          </label>
           <input
             className="form-control"
             type="email"
             name="user_email"
-            value={emailInput || ""}
+            value={emailInput}
             placeholder="Enter email"
             onChange={(e) => setEmailInput(e.target.value.trim())}
             required
           />
+          <div style={{ height: "0em" }}>
+            {emailInput !== "" &&
+              emailInput.length > 0 &&
+              !emailRegex.test(emailInput) && (
+                <div
+                  style={{ color: `${userInputs.pColor}` }}
+                  className="text-center text-red"
+                >
+                  {"Invalid email address entered"}
+                </div>
+              )}
+          </div>
         </Form.Group>
-
-        <div style={{ height: "0em" }}>
-          {emailInput !== "" &&
-            emailInput?.length > 0 &&
-            !emailRegex.test(emailInput) && (
-              <div
-                style={{ color: `${props.pColor}` }}
-                className="text-center text-red"
-              >
-                {"Invalid email address entered"}
-              </div>
-            )}
-        </div>
         <br />
 
         <Form.Group>
-          <label style={{ color: `${props.labelColor}` }}>Subject</label>
+          <label style={{ color: `${userInputs.labelColor}` }}>Subject</label>
           <select
             className="form-control"
             value={subjectInput}
@@ -141,43 +149,54 @@ function ContactMe({ ...props }) {
         <br />
 
         <Form.Group>
-          <label style={{ color: `${props.labelColor}` }}>Message</label>
+          <label style={{ color: `${userInputs.labelColor}` }}>Message</label>
           <textarea
             className="form-control"
             type="text"
             rows="7"
             name="message"
-            value={messageInput || ""}
+            value={messageInput}
             placeholder="Type your message (required)"
             onChange={(e) => setMessageInput(e.target.value)}
             required
           />
+          <div style={{ height: "0em" }}>
+            {messageInput !== "" && messageInput.length < 2 && (
+              <div
+                style={{ color: `${userInputs.pColor}` }}
+                className="text-center text-red"
+              >
+                {"Message is required"}
+              </div>
+            )}
+          </div>
         </Form.Group>
-
-        <div style={{ height: "0em" }}>
-          {messageInput !== "" && messageInput?.length < 2 && (
-            <div
-              style={{ color: `${props.pColor}` }}
-              className="text-center text-red"
-            >
-              {"Message is required"}
-            </div>
-          )}
-        </div>
         <br />
 
         <div className="text-center pt-2">
-          <Button
+          <FormButton
             type="submit"
+            buttonGradientAngle={userInputs.buttonGradientAngle}
+            buttonGradientColor1={userInputs.buttonGradientColor1}
+            buttonGradientColor2={userInputs.buttonGradientColor2}
+            buttonOutlineColor={userInputs.buttonOutlineColor}
+            text={
+              <div className="buttonText">
+                <i className="fas fa-envelope"></i> Send Email
+              </div>
+            }
+            colour={userInputs.buttonTextColor}
             style={{
-              border: `4px solid ${props.buttonGradientColor2}`,
+              border: `4px solid ${userInputs.buttonGradientColor2}`,
             }}
             className="form-btn-primary"
-            disabled={!(emailInput && nameInput && messageInput)}
+            disabled={
+              !(emailInput && nameInput && messageInput) || sendingEmail
+            }
           >
-            <div style={{ color: props.buttonTextColor }}>
-              {!emailSent ? (
-                "Send Email"
+            <div style={{ color: userInputs.buttonTextColor }}>
+              {sendingEmail ? (
+                "Sending ..."
               ) : emailSent ? (
                 <>
                   Email Sent <i className="fas fa-check"></i>
@@ -188,9 +207,14 @@ function ContactMe({ ...props }) {
                 </>
               )}
             </div>
-          </Button>
+          </FormButton>
         </div>
       </Form>
+      {infoMessage && (
+        <div className="text-center pt-2" style={{ color: userInputs.pColor }}>
+          {infoMessage}
+        </div>
+      )}
     </Container>
   );
 }

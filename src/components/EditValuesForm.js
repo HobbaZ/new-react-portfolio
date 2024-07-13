@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import { ColorInput } from "../components/BaseSettings";
 
 function EditValuesForm({ ...props }) {
@@ -33,6 +32,10 @@ function EditValuesForm({ ...props }) {
       "buttonGradientColor2",
       JSON.stringify(props.buttonGradientColor2)
     );
+    localStorage.setItem(
+      "buttonOutlineColor",
+      JSON.stringify(props.buttonOutlineColor)
+    );
     localStorage.setItem("labelColor", JSON.stringify(props.labelColor));
     localStorage.setItem(
       "buttonTextColor",
@@ -51,154 +54,135 @@ function EditValuesForm({ ...props }) {
     props.buttonGradientColor2,
     props.labelColor,
     props.buttonTextColor,
+    props.buttonOutlineColor,
   ]);
 
   return (
-    <>
-      <div className="htmlFormBackground">
-        <form className="htmlEditForm">
-          {/*<label style={{ color: `${props.labelColor}` }}>
-            {props.greyscale ? "Enable Greyscale" : "Disable Greyscale"}
-          </label>
-
-          <input type={"checkbox"}
-            name={"greyscale"}
-            onChange={props.handleChange}
-            checked={props.greyscale || false}
-          />
-          <br />*/}
-
-          <label style={{ color: `${props.labelColor}` }}>Heading Colour</label>
-
-          <ColorInput
-            colourValue={props.h1Color}
-            defaultValue={"#FFAD05"}
-            fieldName={"h1Color"}
-            handleChange={props.handleChange}
-          />
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>
-            Paragraph Colour
-          </label>
-
-          <ColorInput
-            colourValue={props.pColor}
-            defaultValue={"#ffffff"}
-            fieldName={"pColor"}
-            handleChange={props.handleChange}
-          />
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>Label Colour</label>
-
-          <ColorInput
-            colourValue={props.labelColor}
-            defaultValue={"#ffffff"}
-            fieldName={"labelColor"}
-            handleChange={props.handleChange}
-          />
-
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>Link Colour</label>
-
-          <ColorInput
-            colourValue={props.linkColor}
-            defaultValue={"#ffffff"}
-            fieldName={"linkColor"}
-            handleChange={props.handleChange}
-          />
-
-          <br />
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>
-            <b>Background Gradient</b>
-          </label>
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>Angle</label>
-
-          <input
-            type={"number"}
-            placeholder="0"
-            name={"backgroundGradientAngle"}
-            onChange={props.handleChange}
-            value={props.backgroundGradientAngle || ""}
-          />
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>Colours</label>
-
-          <ColorInput
-            colourValue={props.backgroundGradientColor2}
-            defaultValue={"#2A3950"}
-            fieldName={"backgroundGradientColor2"}
-            handleChange={props.handleChange}
-          />
-
-          <br />
-
-          <ColorInput
-            colourValue={props.backgroundGradientColor1}
-            defaultValue={"#07090E"}
-            fieldName={"backgroundGradientColor1"}
-            handleChange={props.handleChange}
-          />
-
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>
-            <b>Button Gradient</b>
-          </label>
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>Angle</label>
-
-          <input
-            type={"number"}
-            name={"buttonGradientAngle"}
-            placeholder="0"
-            onChange={props.handleChange}
-            value={props.buttonGradientAngle || ""}
-          />
-          <br />
-
-          <label style={{ color: `${props.labelColor}` }}>Colours</label>
-
-          <ColorInput
-            colourValue={props.buttonGradientColor2}
-            defaultValue={"#ffffff"}
-            fieldName={"buttonGradientColor2"}
-            handleChange={props.handleChange}
-          />
-
-          <br />
-
-          {/*<ColorInput
-            colourValue={props.buttonGradientColor1}
-            defaultValue={"#000000"}
-            fieldName={"buttonGradientColor1"}
-            handleChange={props.handleChange}
+    <div className="htmlFormBackground">
+      <form className="htmlEditForm">
+        <label style={{ color: `${props.labelColor}` }}>Heading Colour</label>
+        <ColorInput
+          colourValue={props.h1Color}
+          defaultValue={"#ffffff"}
+          fieldName={"h1Color"}
+          handleChange={props.handleChange}
         />
+        <br />
 
-          <br />*/}
-          <br />
+        <label style={{ color: `${props.labelColor}` }}>Paragraph Colour</label>
+        <ColorInput
+          colourValue={props.pColor}
+          defaultValue={"#ffffff"}
+          fieldName={"pColor"}
+          handleChange={props.handleChange}
+        />
+        <br />
 
-          <label style={{ color: `${props.labelColor}` }}>
-            Button Text Colour
-          </label>
+        <label style={{ color: `${props.labelColor}` }}>Label Colour</label>
+        <ColorInput
+          colourValue={props.labelColor}
+          defaultValue={"#ffffff"}
+          fieldName={"labelColor"}
+          handleChange={props.handleChange}
+        />
+        <br />
 
-          <ColorInput
-            colourValue={props.buttonTextColor}
-            defaultValue={"#ffffff"}
-            fieldName={"buttonTextColor"}
-            handleChange={props.handleChange}
-          />
-        </form>
-      </div>
-    </>
+        <label style={{ color: `${props.labelColor}` }}>Link Colour</label>
+        <ColorInput
+          colourValue={props.linkColor}
+          defaultValue={"#ffffff"}
+          fieldName={"linkColor"}
+          handleChange={props.handleChange}
+        />
+        <br />
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>
+          <b>Background Gradient</b>
+        </label>
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>Angle</label>
+        <input
+          type="number"
+          placeholder="30"
+          name="backgroundGradientAngle"
+          onChange={props.handleChange}
+          value={props.backgroundGradientAngle || ""}
+        />
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>Colours</label>
+        <ColorInput
+          colourValue={props.backgroundGradientColor2}
+          defaultValue={"#454545"}
+          fieldName={"backgroundGradientColor2"}
+          handleChange={props.handleChange}
+        />
+        <br />
+        <ColorInput
+          colourValue={props.backgroundGradientColor1}
+          defaultValue={"#000000"}
+          fieldName={"backgroundGradientColor1"}
+          handleChange={props.handleChange}
+        />
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>
+          <b>Button Gradient</b>
+        </label>
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>Angle</label>
+        <input
+          type="number"
+          name="buttonGradientAngle"
+          placeholder="30"
+          onChange={props.handleChange}
+          value={props.buttonGradientAngle || ""}
+        />
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>Colours</label>
+        <ColorInput
+          colourValue={props.buttonGradientColor2}
+          defaultValue={"#ff0000"}
+          fieldName={"buttonGradientColor2"}
+          handleChange={props.handleChange}
+        />
+        <br />
+
+        <ColorInput
+          colourValue={props.buttonGradientColor1}
+          defaultValue={"#ff0000"}
+          fieldName={"buttonGradientColor1"}
+          handleChange={props.handleChange}
+        />
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>
+          <b>Buttons</b>
+        </label>
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>Outline Colour</label>
+        <ColorInput
+          colourValue={props.buttonOutlineColor}
+          defaultValue={"#000000"}
+          fieldName={"buttonOutlineColor"}
+          handleChange={props.handleChange}
+        />
+        <br />
+
+        <label style={{ color: `${props.labelColor}` }}>Text Colour</label>
+        <ColorInput
+          colourValue={props.buttonTextColor}
+          defaultValue={"#ffffff"}
+          fieldName={"buttonTextColor"}
+          handleChange={props.handleChange}
+        />
+      </form>
+    </div>
   );
 }
 

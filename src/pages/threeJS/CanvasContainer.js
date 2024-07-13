@@ -30,6 +30,7 @@ function CanvasContainer({
     localStorage.getItem("buttonGradientColor2")
   ),
   buttonTextColor = JSON.parse(localStorage.getItem("buttonTextColor")),
+  buttonOutlineColor = JSON.parse(localStorage.getItem("buttonOutlineColor")),
   handleChange,
   ambientLightColor = JSON.parse(localStorage.getItem("ambientLightColour")),
   lightPositionx = JSON.parse(localStorage.getItem("lightPositionx")),
@@ -96,6 +97,7 @@ function CanvasContainer({
               buttonGradientAngle={buttonGradientAngle}
               buttonGradientColor1={buttonGradientColor1}
               buttonGradientColor2={buttonGradientColor2}
+              buttonOutlineColor={buttonOutlineColor}
               text={
                 showEditModelForm ? (
                   <div className="buttonText">Customise Model x </div>
