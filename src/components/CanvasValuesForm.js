@@ -301,13 +301,14 @@ function CanvasValuesForm({
               onChange={props.handleChange}
             >
               <option value="cube">Cube</option>
-              <option value="sphere">Sphere</option>
-              <option value="torus">Torus</option>
-              <option value="tube">Tube</option>
               <option value="cylinder">Cylinder</option>
-              <option value="torusKnot">Torus Knot</option>
               <option value="dodecahedron">Dodecahedron</option>
+              <option value="generated">Generated Terrain</option>
+              <option value="sphere">Sphere</option>
               <option value="text">Text</option>
+              <option value="torus">Torus</option>
+              <option value="torusKnot">Torus Knot</option>
+              <option value="tube">Tube</option>
 
               {/*Upload model to page (not working yet)*/}
               {/*<option value="customModel">Custom Model</option>*/}
@@ -338,35 +339,39 @@ function CanvasValuesForm({
               Model Material
             </label>
             <br />
+            <option value="meshBasicMaterial">MeshBasicMaterial</option>
             <select
               value={props.modelMat || "meshNormalMaterial"}
               name={"modelMat"}
               onChange={props.handleChange}
             >
-              <option value="meshStandardMaterial">MeshStandardMaterial</option>
-              <option value="meshBasicMaterial">MeshBasicMaterial</option>
-              <option value="meshPhongMaterial">MeshPhongMaterial</option>
-              <option value="meshToonMaterial">MeshToonMaterial</option>
               <option value="meshNormalMaterial">MeshNormalMaterial</option>
+              <option value="meshPhongMaterial">MeshPhongMaterial</option>
+              <option value="meshStandardMaterial">MeshStandardMaterial</option>
+              <option value="meshToonMaterial">MeshToonMaterial</option>
               <option value="pointsMaterial">PointsMaterial</option>
             </select>
             {materialOptions()} {/*call function*/}
             {/* Show wireframe option for any materials other than points material */}
-            {/*{props.modelMat !== "pointsMaterial" ?
+            {
+              props.modelMat !== "pointsMaterial" ? (
                 <>
+                  <br />
                   <br />
                   <label style={{ color: `${props.labelColor}` }}>
                     Wireframe
                   </label>
 
-                  <input type={"checkbox"}
+                  <input
+                    type={"checkbox"}
                     name={"wireframe"}
                     className="wireframe"
                     onChange={props.handleChange}
-                    value={props.wireframe || ""}
+                    value={props.wireframe || false}
                   />
-                </> : null //if false don't show anything
-              }*/}
+                </>
+              ) : null //if false don't show anything
+            }
           </div>
         )}
 

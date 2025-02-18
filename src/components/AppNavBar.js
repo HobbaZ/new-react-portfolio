@@ -14,16 +14,9 @@ function AppNavbar() {
         id="navbar-nav"
       >
         <Container fluid>
-          <Navbar.Brand>
-            <a
-              className="nav-link noEffect brand"
-              href="#about"
-              onClick={() => "about"}
-            >
-              Zachary Hobba<br></br>
-              <div className="subtitle text-center">Web Developer</div>
-            </a>
-          </Navbar.Brand>
+          <a className="nav-link noEffect" href="/" onClick={() => "about"}>
+            Zachary Hobba
+          </a>
 
           <button
             className="navbar-toggler"
@@ -41,7 +34,7 @@ function AppNavbar() {
           <div className="collapse navbar-collapse" id="navBarResponsive">
             <Nav className="navbar-nav ml-auto mb-2 mb-lg-0">
               <a
-                href="#about"
+                href="/"
                 onClick={() => "about"}
                 className="nav-link ml-3 my-1"
               >
@@ -49,38 +42,14 @@ function AppNavbar() {
               </a>
 
               <a
-                href="#services"
-                onClick={() => "services"}
-                className="nav-link ml-3 my-1"
-              >
-                Services
-              </a>
-
-              <a
-                href="#projects"
+                href="/#projects"
                 onClick={() => "projects"}
                 className="nav-link ml-3 my-1"
               >
                 Projects
               </a>
 
-              {/*<a
-                href="/games"
-                onClick={() => "games"}
-                className="nav-link ml-3 my-1"
-              >
-                Games
-  </a>*/}
-
-              <a
-                href="#contactMe"
-                onClick={() => "contactMe"}
-                className="nav-link ml-3 my-1"
-              >
-                Contact Me
-              </a>
-
-              <div className="html">
+              <div>
                 <button
                   type="button"
                   className="nav-link ml-3 my-1 noButton"

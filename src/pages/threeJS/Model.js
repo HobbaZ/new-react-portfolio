@@ -4,7 +4,6 @@ import fontFace from "./fonts/helvetiker_regular.typeface.json";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import React, { useRef } from "react";
-import Floor from "./Floor";
 
 function ModelSettings({
   modelColor,
@@ -20,7 +19,7 @@ function ModelSettings({
 
   useFrame(() => {
     mesh.current.geometry.center();
-    mesh.current.rotation.y += 0.01;
+    mesh.current.rotation.y += 0.005;
   });
 
   const standardMat = (
@@ -92,23 +91,27 @@ function ModelSettings({
     />
   );
 
+  const generated = <planeGeometry args={[2, 2]} />;
+
   function modelSelector() {
     if (modelType === "cube") {
       return cube;
-    } else if (modelType === "torus") {
-      return torus;
-    } else if (modelType === "tube") {
-      return tube;
-    } else if (modelType === "sphere") {
-      return sphere;
     } else if (modelType === "cylinder") {
       return cylinder;
-    } else if (modelType === "torusKnot") {
-      return torusKnot;
     } else if (modelType === "dodecahedron") {
       return dodecahedron;
+    } else if (modelType === "generated") {
+      return generated;
+    } else if (modelType === "sphere") {
+      return sphere;
     } else if (modelType === "text") {
       return customText;
+    } else if (modelType === "torus") {
+      return torus;
+    } else if (modelType === "torusKnot") {
+      return torusKnot;
+    } else if (modelType === "tube") {
+      return tube;
     }
   }
 
@@ -129,15 +132,25 @@ function ModelSettings({
   }
 
   if (modelMat !== "pointsMaterial") {
-    return (
-      <>
-        <mesh ref={mesh} castShadow position={[0, 0, 0]}>
-          {modelSelector()}
-          {materialSelector()}
-        </mesh>
-        <Floor />
-      </>
-    );
+    if (modelType !== "generated") {
+      return (
+        <>
+          <mesh ref={mesh} castShadow position={[0, 0, 0]}>
+            {modelSelector()}
+            {materialSelector()}
+          </mesh>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <mesh ref={mesh} rotation={[-Math.PI / 2, 0, 0]}>
+            {modelSelector()}
+            {materialSelector()}
+          </mesh>
+        </>
+      );
+    }
   } else {
     return (
       <>
@@ -145,7 +158,6 @@ function ModelSettings({
           {modelSelector()}
           {materialSelector()}
         </points>
-        <Floor />
       </>
     );
   }

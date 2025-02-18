@@ -43,6 +43,15 @@ const Footer = () => {
             >
               <i className="fab fa-github footerIcon"></i>
             </a>
+
+            <a
+              style={{ color: `${userInputs.linkColor}` }}
+              className="footerLink"
+              href="mailto:zachobba@gmail.com"
+              title="Zachobba@gmail.com"
+            >
+              <i className="fas fa-envelope footerIcon"></i>
+            </a>
           </div>
         </footer>
       </Container>
