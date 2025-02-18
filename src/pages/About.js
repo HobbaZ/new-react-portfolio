@@ -68,18 +68,20 @@ function About() {
           </h2>
 
           <p style={{ color: `${userInputs.pColor}` }}>
-            I'm a front end web developer based in Sydney, Australia. I
-            specialise in 3D and interactive experiences and this site is no
-            exception. Customise the colours of this page by by clicking the
+            I'm a web developer based in Sydney, Australia. I specialise in 3D
+            and interactive experiences, customise the colours of this page by
+            clicking the
             <b style={{ color: `${userInputs.h1Color}` }}>
               {" "}
               Customise Page
             </b>{" "}
-            button in the navigation bar. Change up the model by clicking{" "}
+            button in the navigation bar. You can also change the model by
+            clicking the{" "}
             <b style={{ color: `${userInputs.h1Color}` }}>
               {" "}
               Customise Model
             </b>{" "}
+            button.
           </p>
 
           <br />

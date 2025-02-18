@@ -272,7 +272,7 @@ function CanvasValuesForm({
         {/*Click to show or hide model options form*/}
         <div className="text-center w-100 m-auto">
           <FormButton
-            className="form-btn-primary w-100 my-2"
+            className="form-btn-primary col-xs-12 col-sm-10 col-md-10 col-lg-8 my-2"
             type="button"
             buttonGradientAngle={props.buttonGradientAngle}
             buttonGradientColor1={props.buttonGradientColor1}
@@ -380,7 +380,7 @@ function CanvasValuesForm({
         {/*Click to show or hide light options form*/}
         <div className="text-center h-100 w-100 m-auto">
           <FormButton
-            className="form-btn-primary w-100 my-2"
+            className="form-btn-primary col-xs-12 col-sm-10 col-md-10 col-lg-8 my-2"
             buttonGradientAngle={props.buttonGradientAngle}
             buttonGradientColor1={props.buttonGradientColor1}
             buttonGradientColor2={props.buttonGradientColor2}

@@ -89,9 +89,9 @@ function CanvasContainer({
       </Canvas>
 
       {/*Click to show or hide edit form*/}
-      <div className="formContainer">
-        <div className="position-absolute w-100 m-auto">
-          <div className="text-center col-12 col-md-8 col-lg-6 m-auto modelFormButton">
+      <div className="formContainer col-xs-12 col-sm-10 col-md-10 col-lg-6 mx-auto p-0">
+        <div className="position-absolute w-100">
+          <div className="text-center col-xs-12 col-sm-10 col-md-10 col-lg-6 modelFormButton">
             <FormButton
               className="form-btn-primary buttonText"
               buttonGradientAngle={buttonGradientAngle}
