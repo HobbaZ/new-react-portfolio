@@ -40,10 +40,13 @@ const AppProvider = ({ children }) => {
   const handleChange = (event) => {
     const value =
       event.target.type === "checkbox"
-        ? event.target.checked
+        ? !event.target.checked
         : event.target.value;
-    setUserInputs((previousState) => {
-      return { ...previousState, [event.target.name]: value };
+
+    setUserInputs((prevState) => {
+      const updatedState = { ...prevState, [event.target.name]: value };
+
+      return updatedState;
     });
   };
 

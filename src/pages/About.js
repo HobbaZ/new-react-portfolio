@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import CanvasContainer from "./threeJS/CanvasContainer";
 import { AppContext } from "../components/AppContext";
@@ -26,34 +26,41 @@ function About() {
   //edit form
   const { userInputs } = useContext(AppContext);
 
-  const [modelInputs, setmodelInputs] = useState({
-    //model variables
-    modelMat:
-      JSON.parse(localStorage.getItem("modelMat")) || "meshNormalMaterial",
-    modelType: JSON.parse(localStorage.getItem("modelType")) || "cube",
-    modelColor: JSON.parse(localStorage.getItem("modelColor")) || "#ff0000",
-    specularColor:
-      JSON.parse(localStorage.getItem("specularColor")) || "#ffffff",
-    roughness: JSON.parse(localStorage.getItem("roughness")) || 0,
-    metalness: JSON.parse(localStorage.getItem("metalness")) || 0,
-    shininess: JSON.parse(localStorage.getItem("shininess")) || 0,
-    wireframe: JSON.parse(localStorage.getItem("wireframe")) || false,
+  const getStoredValue = (key, defaultValue) => {
+    const stored = localStorage.getItem(key);
+    return stored !== null ? JSON.parse(stored) : defaultValue;
+  };
 
-    //Lighting variables
-    ambientLightColor:
-      JSON.parse(localStorage.getItem("ambientLightColor")) || "#ffffff",
-    lightColor: JSON.parse(localStorage.getItem("lightColor")) || "#ffffff",
-    lightIntensity: JSON.parse(localStorage.getItem("lightIntensity")) || 50,
-    lightPositionx: JSON.parse(localStorage.getItem("lightPositionx")) || 0,
-    lightPositiony: JSON.parse(localStorage.getItem("lightPositiony")) || 10,
-    lightPositionz: JSON.parse(localStorage.getItem("lightPositionz")) || 0,
+  const [modelInputs, setModelInputs] = useState({
+    modelMat: getStoredValue("modelMat", "meshNormalMaterial"),
+    modelType: getStoredValue("modelType", "sphere"),
+    modelColor: getStoredValue("modelColor", "#ff0000"),
+    specularColor: getStoredValue("specularColor", "#ffffff"),
+    roughness: getStoredValue("roughness", 0),
+    metalness: getStoredValue("metalness", 0),
+    shininess: getStoredValue("shininess", 0),
+    wireframe: getStoredValue("wireframe", true),
+
+    ambientLightColor: getStoredValue("ambientLightColor", "#ffffff"),
+    lightColor: getStoredValue("lightColor", "#ffffff"),
+    lightIntensity: getStoredValue("lightIntensity", 50),
+    lightPositionx: getStoredValue("lightPositionx", 0),
+    lightPositiony: getStoredValue("lightPositiony", 10),
+    lightPositionz: getStoredValue("lightPositionz", 0),
   });
 
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setmodelInputs((previousState) => {
-      return { ...previousState, [event.target.name]: value };
+  useEffect(() => {
+    Object.keys(modelInputs).forEach((key) => {
+      localStorage.setItem(key, JSON.stringify(modelInputs[key]));
     });
+  }, [modelInputs]);
+
+  const handleChange = (event) => {
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+    setModelInputs((prev) => ({ ...prev, [event.target.name]: value }));
   };
 
   return (

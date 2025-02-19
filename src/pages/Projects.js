@@ -6,6 +6,7 @@ import worthlyPic from "../images/worthly.png";
 import prisonersAid from "../images/prisonersAid.png";
 import mayfield from "../images/mayfield.png";
 import { AppContext } from "../components/AppContext";
+import Services from "./Services";
 
 function Projects() {
   const { userInputs } = useContext(AppContext);

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { FormButton } from "../components/BaseSettings";
 
-import { useGLTF } from "@react-three/drei";
-
 function CanvasValuesForm({
   // data from canvas Container
   ...props
@@ -34,24 +32,32 @@ function CanvasValuesForm({
     localStorage.setItem("metalness", JSON.stringify(props.metalness));
     localStorage.setItem("modelMat", JSON.stringify(props.modelMat));
     localStorage.setItem("specularColor", JSON.stringify(props.specularColor));
-    localStorage.setItem("wireframe", JSON.stringify(props.wireframe));
+    localStorage.setItem("wireframe", JSON.stringify(isChecked));
     localStorage.setItem("shininess", JSON.stringify(props.shininess));
     localStorage.setItem("modelType", JSON.stringify(props.modelType));
     localStorage.setItem("modelColor", JSON.stringify(props.modelColor));
-    localStorage.setItem("rotateSpeed", JSON.stringify(props.rotateSpeed));
   });
+
+  const [isChecked, setIsChecked] = useState(
+    JSON.parse(localStorage.getItem("wireframe")) ?? false
+  );
+
+  const handleCheckboxChange = () => {
+    const newWireframeValue = !isChecked;
+    setIsChecked(newWireframeValue);
+
+    if (props.handleChange) {
+      props.handleChange({
+        target: { name: "wireframe", value: newWireframeValue },
+      });
+    }
+  };
 
   //Model submenu form
   const [showModelOptions, setShowModelOptions] = useState(false);
 
   //lights submenu form
   const [showLightOptions, setShowLightOptions] = useState(false);
-
-  const [filesToUpload, setFilesToUpload] = useState("");
-
-  const handleFileUpload = (event) => {
-    setFilesToUpload(event.target.files[0]);
-  };
 
   //Populate material options
   function materialOptions() {
@@ -104,20 +110,6 @@ function CanvasValuesForm({
           />
 
           <br />
-
-          {/*<label style={{color: `${props.labelColor}`}}>
-                valueToChange={props.rotateSpeed}
-                Rotation Speed"
-                </label>
-                <input type={"range"}
-                name={"rotateSpeed"}
-                min={0}
-                max={0.05}
-                step={0.005}
-                onChange={props.handleChange}
-                value= {props.rotateSpeed || ""}
-                />*/}
-
           <br />
 
           <label style={{ color: `${props.labelColor}` }}>
@@ -292,7 +284,6 @@ function CanvasValuesForm({
         {/*Model options*/}
         {showModelOptions && (
           <div className="p-2">
-            {/* Might refactor to less model options in the future*/}
             <label style={{ color: `${props.labelColor}` }}>Model Type</label>
             <br />
             <select
@@ -309,42 +300,19 @@ function CanvasValuesForm({
               <option value="torus">Torus</option>
               <option value="torusKnot">Torus Knot</option>
               <option value="tube">Tube</option>
-
-              {/*Upload model to page (not working yet)*/}
-              {/*<option value="customModel">Custom Model</option>*/}
             </select>
-            {/*{props.modelType === "customModel" && (
-              <>
-                <br />
-                <label style={{ color: `${props.labelColor}` }}>
-                  Upload Model (.fbx, .glb, .blend)"
-                </label>
-
-                <br />
-                <input
-                  type="file"
-                  name={"filesToUpload"}
-                  value={filesToUpload}
-                  accept=".fbx, .glb"
-                  onChange={handleFileUpload}
-                ></input>
-
-                <button className=" btn btn-primary w-25">
-                  <div className="buttonText">Submit</div>
-                </button>
-              </>
-            )} */}
+            <br />
             <br />
             <label style={{ color: `${props.labelColor}` }}>
               Model Material
             </label>
             <br />
-            <option value="meshBasicMaterial">MeshBasicMaterial</option>
             <select
               value={props.modelMat || "meshNormalMaterial"}
               name={"modelMat"}
               onChange={props.handleChange}
             >
+              <option value="meshBasicMaterial">MeshBasicMaterial</option>
               <option value="meshNormalMaterial">MeshNormalMaterial</option>
               <option value="meshPhongMaterial">MeshPhongMaterial</option>
               <option value="meshStandardMaterial">MeshStandardMaterial</option>
@@ -366,8 +334,8 @@ function CanvasValuesForm({
                     type={"checkbox"}
                     name={"wireframe"}
                     className="wireframe"
-                    onChange={props.handleChange}
-                    value={props.wireframe || false}
+                    onChange={handleCheckboxChange}
+                    checked={isChecked}
                   />
                 </>
               ) : null //if false don't show anything

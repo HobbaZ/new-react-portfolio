@@ -14,7 +14,8 @@ function Services() {
           <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
               <Card.Title style={{ color: `${userInputs.h1Color}` }}>
-                <i className="servicesIcon fas fa-code"></i> Website Development
+                <i className="servicesIcon fas fa-code mr-1"></i> Website
+                Development
               </Card.Title>
             </Card.Header>
 
@@ -30,16 +31,16 @@ function Services() {
           <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
               <Card.Title style={{ color: `${userInputs.h1Color}` }}>
-                <i className="servicesIcon fas fa-layer-group"></i> Website
+                <i className="servicesIcon fas fa-layer-group mr-1"></i> Website
                 Design
               </Card.Title>
             </Card.Header>
 
             <Card.Body>
               <Card.Text style={{ color: `${userInputs.pColor}` }}>
-                Creating visually appealing and user-friendly designs is my
-                passion. I ensure that your website not only looks great but
-                also provides an exceptional user experience.
+                I create visually appealing and user-friendly designs. I ensure
+                that your website not only looks great but also provides an
+                exceptional user experience.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -47,8 +48,8 @@ function Services() {
           <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
               <Card.Title style={{ color: `${userInputs.h1Color}` }}>
-                <i className="servicesIcon fas fa-circle-check"></i> Website
-                Deployment
+                <i className="servicesIcon fas fa-circle-check mr-1"></i>{" "}
+                Website Deployment
               </Card.Title>
             </Card.Header>
 

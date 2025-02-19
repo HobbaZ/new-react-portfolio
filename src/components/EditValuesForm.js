@@ -4,7 +4,6 @@ import { ColorInput } from "../components/BaseSettings";
 function EditValuesForm({ ...props }) {
   //set values in localStorage
   useEffect(() => {
-    localStorage.setItem("greyscale", JSON.stringify(props.greyscale));
     localStorage.setItem("h1Color", JSON.stringify(props.h1Color));
     localStorage.setItem("pColor", JSON.stringify(props.pColor));
     localStorage.setItem("linkColor", JSON.stringify(props.linkColor));
@@ -42,7 +41,6 @@ function EditValuesForm({ ...props }) {
       JSON.stringify(props.buttonTextColor)
     );
   }, [
-    props.greyscale,
     props.h1Color,
     props.pColor,
     props.linkColor,
