@@ -4,7 +4,6 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [userInputs, setUserInputs] = useState({
-    greyscale: false,
     h1Color: JSON.parse(localStorage.getItem("h1Color")) || "#ffffff",
     pColor: JSON.parse(localStorage.getItem("pColor")) || "#ffffff",
     linkColor: JSON.parse(localStorage.getItem("linkColor")) || "#ffffff",

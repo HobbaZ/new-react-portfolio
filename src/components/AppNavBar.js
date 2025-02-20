@@ -64,7 +64,6 @@ function AppNavbar() {
                   {showEditForm && (
                     <EditValuesForm
                       handleChange={handleChange}
-                      greyscale={userInputs.greyscale}
                       h1Color={userInputs.h1Color}
                       pColor={userInputs.pColor}
                       linkColor={userInputs.linkColor}
