@@ -69,8 +69,9 @@ function Projects() {
           </Card.Header>
           <Card.Body>
             <Card.Text style={{ color: `${userInputs.pColor}` }}>
-              Developed a custom Google Maps supplier map for Mayfield Vineyard
-              in Orange, NSW.
+              Designed and developed a custom Google Maps supplier map for
+              Mayfield Vineyard in Orange, NSW, showcasing supplier locations
+              with interactive features for an enhanced user experience.
             </Card.Text>
           </Card.Body>
           <Card.Footer>
@@ -113,9 +114,9 @@ function Projects() {
           </Card.Header>
           <Card.Body>
             <Card.Text style={{ color: `${userInputs.pColor}` }}>
-              Keeping track of your interesting and collectable things can be a
-              challenge. Worthly allows you to search for your item and see the
-              average sale price.
+              Tracking your valuable and collectible items can be challenging.
+              Worthly simplifies the process by allowing you to search for your
+              item and instantly view its average sale price.
             </Card.Text>
           </Card.Body>
           <Card.Footer>
@@ -172,15 +173,14 @@ function Projects() {
         <Card className="col-sm-12 col-md-6 col-lg-3 p-1 border-0">
           <Card.Header>
             <Card.Title style={{ color: `${userInputs.h1Color}` }}>
-              Job Site
+              Job Search Site
             </Card.Title>
             <img className="card-img-top projectImage" src={jobsite} alt="" />
           </Card.Header>
           <Card.Body>
             <Card.Text style={{ color: `${userInputs.pColor}` }}>
-              Keeping track of your interesting and collectable things can be a
-              challenge. Worthly allows you to search for your item and see the
-              average sale price.
+              Developed a job search website utilizing the JSearch API, enabling
+              users to efficiently find and filter job listings.
             </Card.Text>
           </Card.Body>
           <Card.Footer>
