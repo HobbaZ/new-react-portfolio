@@ -77,7 +77,7 @@ function About() {
 
           <div className="text-center">
             <a
-              href="/Software_Engineer_Resume.pdf"
+              href="./Software_Engineer_Resume.pdf"
               target="blank"
               rel="noreferrer"
             >
