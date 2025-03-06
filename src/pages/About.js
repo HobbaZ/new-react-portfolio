@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import CanvasContainer from "./threeJS/CanvasContainer";
 import { AppContext } from "../components/AppContext";
 import { FormButton } from "../components/BaseSettings";
-import resume from "../Software_Engineer_Resume.pdf";
 
 function About() {
   //edit form
@@ -77,7 +76,11 @@ function About() {
           <br />
 
           <div className="text-center">
-            <a href={resume} target="blank" rel="noreferrer">
+            <a
+              href="/Software_Engineer_Resume.pdf"
+              target="blank"
+              rel="noreferrer"
+            >
               <FormButton
                 className="form-btn-primary col-sm-12 col-md-4 col-lg-3"
                 type="button"
