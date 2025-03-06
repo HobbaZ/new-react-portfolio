@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import CanvasContainer from "./threeJS/CanvasContainer";
 import { AppContext } from "../components/AppContext";
 import { FormButton } from "../components/BaseSettings";
-import resume from "../files/Zachary_Hobba_Software_Engineer_Resume.pdf";
+import resume from "../files/Software_Engineer_Resume.pdf";
 
 //import photo from "../images/profile pic cutout.jpg";
 
