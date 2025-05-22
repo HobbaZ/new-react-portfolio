@@ -1,11 +1,11 @@
-import { useState, useEffect, React } from "react";
+import { React } from "react";
 import Footer from "./components/Footer.js";
 import AppNavBar from "./components/AppNavBar.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from "./pages/About.js";
 import Projects from "./pages/Projects.js";
-import Services from "./pages/Services.js";
 import "./App.css";
+import Affiliates from "./pages/AffiliatesLinks.js";
 
 function App() {
   return (
@@ -20,6 +20,16 @@ function App() {
               <About />
 
               <Projects />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/Affiliate-links"
+          element={
+            <>
+              <Affiliates />
               <Footer />
             </>
           }
