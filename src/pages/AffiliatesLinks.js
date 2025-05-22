@@ -33,7 +33,7 @@ function Affiliates() {
             <Card.Footer>
               <div className="text-center">
                 <a
-                  href="https://amazon.to/4jX8zs6"
+                  href="https://amzn.to/4jX8zs6"
                   rel="noreferrer"
                   target="_blank"
                   aria-label="Opens Lego Icons 10330 Ayrton Senna McLaren MP4/4 Amazon product page in a new tab"
