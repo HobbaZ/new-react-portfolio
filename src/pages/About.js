@@ -5,23 +5,6 @@ import { AppContext } from "../components/AppContext";
 import { FormButton } from "../components/BaseSettings";
 import resume from "../files/Software_Engineer_Resume.pdf";
 
-//import photo from "../images/profile pic cutout.jpg";
-
-let iconArray = [
-  "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/bootstrap.svg",
-  "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/git.svg",
-  "https://raw.githubusercontent.com/jmnote/z-icons/master/svg/javascript.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
-  // "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg",
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
-];
-
 function About() {
   //edit form
   const { userInputs } = useContext(AppContext);

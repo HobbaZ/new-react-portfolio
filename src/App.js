@@ -26,9 +26,10 @@ function App() {
         />
 
         <Route
-          path="/Affiliate-links"
+          path="/affiliate-links"
           element={
             <>
+              <AppNavBar />
               <Affiliates />
               <Footer />
             </>

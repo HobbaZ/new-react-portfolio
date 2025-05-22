@@ -14,7 +14,12 @@ function AppNavbar() {
         id="navbar-nav"
       >
         <Container fluid>
-          <a className="nav-link noEffect" href="/" onClick={() => "about"}>
+          <a
+            className="nav-link noEffect"
+            href="/"
+            style={{ color: `${userInputs.linkColor}` }}
+            onClick={() => "about"}
+          >
             Zachary Hobba
           </a>
 
@@ -37,6 +42,7 @@ function AppNavbar() {
                 href="/"
                 onClick={() => "about"}
                 className="nav-link ml-3 my-1"
+                style={{ color: `${userInputs.linkColor}` }}
               >
                 About
               </a>
@@ -45,6 +51,7 @@ function AppNavbar() {
                 href="/#projects"
                 onClick={() => "projects"}
                 className="nav-link ml-3 my-1"
+                style={{ color: `${userInputs.linkColor}` }}
               >
                 Projects
               </a>

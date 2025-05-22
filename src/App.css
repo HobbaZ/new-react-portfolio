@@ -282,6 +282,14 @@ p {
   background-color: var(--transparent);
 }
 
+@media screen and (min-width: 990px) {
+  .noEffect,
+  .noEffect:hover {
+    position: absolute;
+    top: 15px;
+  }
+}
+
 .resumeButton {
   margin: auto;
   align-self: center;

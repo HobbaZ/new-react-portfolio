@@ -10,7 +10,7 @@ function Affiliates() {
 
   return (
     <>
-      <Container id="services" className="m-auto p-0">
+      <Container id="affiliates" className="m-auto p-0">
         <h1 style={{ color: `${userInputs.h1Color}` }}>Affiliate Links</h1>
 
         <div className="d-flex flex-wrap justify-content-left">
