@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Nav, Container } from "react-bootstrap";
 import EditValuesForm from "../components/EditValuesForm";
 import { AppContext } from "./AppContext";
 
@@ -54,6 +54,15 @@ function AppNavbar() {
                 style={{ color: `${userInputs.linkColor}` }}
               >
                 Projects
+              </a>
+
+              <a
+                href="/affiliate-links"
+                onClick={() => "affiliate"}
+                className="nav-link ml-3 my-1"
+                style={{ color: `${userInputs.linkColor}` }}
+              >
+                Affiliate Links
               </a>
 
               <div>

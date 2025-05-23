@@ -3,7 +3,7 @@ import { Container, Card } from "react-bootstrap";
 import { AppContext } from "../components/AppContext";
 import { FormButton } from "../components/BaseSettings";
 import crocs from "../images/crocs-amazon-sale.png";
-import lego1 from "../images/lego1.jpg";
+import lego5 from "../images/lego5.jpg";
 
 function Affiliates() {
   const { userInputs } = useContext(AppContext);
@@ -19,7 +19,11 @@ function Affiliates() {
               <Card.Title style={{ color: `${userInputs.h1Color}` }}>
                 Lego Icons 10330 Ayrton Senna McLaren MP4/4
               </Card.Title>
-              <img className="card-img-top projectImage" src={lego1} alt="" />
+              <img
+                className="card-img-top projectImage"
+                src={lego5}
+                alt="An aerial view of the Ayrton Senna McLaren"
+              />
             </Card.Header>
 
             <Card.Body>
@@ -58,7 +62,11 @@ function Affiliates() {
               <Card.Title style={{ color: `${userInputs.h1Color}` }}>
                 Crocs
               </Card.Title>
-              <img className="card-img-top projectImage" src={crocs} alt="" />
+              <img
+                className="card-img-top projectImage"
+                src={crocs}
+                alt="A pair of white Croc clog style shoes"
+              />
             </Card.Header>
 
             <Card.Body>
