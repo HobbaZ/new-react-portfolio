@@ -4,6 +4,7 @@ import { AppContext } from "../components/AppContext";
 import { FormButton } from "../components/BaseSettings";
 import crocs from "../images/crocs-amazon-sale.png";
 import lego5 from "../images/lego5.jpg";
+import lego2 from "../images/lego2.JPG";
 import filament1 from "../images/filament1.JPG";
 
 function Affiliates() {
@@ -43,6 +44,51 @@ function Affiliates() {
               <div className="text-center">
                 <a
                   href="https://amzn.to/4jX8zs6"
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label="Opens Lego Icons 10330 Ayrton Senna McLaren MP4/4 Amazon product page in a new tab"
+                >
+                  <FormButton
+                    className="form-btn-primary"
+                    type="button"
+                    buttonGradientAngle={userInputs.buttonGradientAngle}
+                    buttonGradientColor1={userInputs.buttonGradientColor1}
+                    buttonGradientColor2={userInputs.buttonGradientColor2}
+                    buttonOutlineColor={userInputs.buttonOutlineColor}
+                    text={<div className="buttonText">Buy on Amazon</div>}
+                    colour={userInputs.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+            </Card.Footer>
+          </Card>
+
+          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+            <Card.Header>
+              <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+                Lego Speed Champions 76917 Brian's Nissan Skyline GT-R 2 Fast 2
+                Furious
+              </Card.Title>
+              <img
+                className="card-img-top projectImage"
+                src={lego2}
+                alt="An aerial view of the Ayrton Senna McLaren"
+              />
+            </Card.Header>
+
+            <Card.Body>
+              <Card.Text style={{ color: `${userInputs.pColor}` }}>
+                This 8-stud wide, 319-piece build of Brian’s iconic R34 GT-R
+                from 2 Fast 2 Furious is a must-have for Fast & Furious fans.
+                Now just $25 (24% off), don’t miss your chance to grab this
+                legendary ride at a discounted price. click the link to grab one
+                for yourself.
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <div className="text-center">
+                <a
+                  href="https://amzn.to/45oegea"
                   rel="noreferrer"
                   target="_blank"
                   aria-label="Opens Lego Icons 10330 Ayrton Senna McLaren MP4/4 Amazon product page in a new tab"
