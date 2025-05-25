@@ -4,13 +4,18 @@ import { AppContext } from "../components/AppContext";
 import { FormButton } from "../components/BaseSettings";
 import crocs from "../images/crocs-amazon-sale.png";
 import lego5 from "../images/lego5.jpg";
+import filament1 from "../images/filament1.JPG";
 
 function Affiliates() {
   const { userInputs } = useContext(AppContext);
 
   return (
     <>
-      <Container id="affiliates" className="m-auto p-0">
+      <Container
+        id="affiliates"
+        className="m-auto"
+        style={{ paddingTop: "90px" }}
+      >
         <h1 style={{ color: `${userInputs.h1Color}` }}>Affiliate Links</h1>
 
         <div className="d-flex flex-wrap justify-content-left">
@@ -83,6 +88,51 @@ function Affiliates() {
                   rel="noreferrer"
                   target="_blank"
                   aria-label="Opens Crocs Amazon product page in a new tab"
+                >
+                  <FormButton
+                    className="form-btn-primary"
+                    type="button"
+                    buttonGradientAngle={userInputs.buttonGradientAngle}
+                    buttonGradientColor1={userInputs.buttonGradientColor1}
+                    buttonGradientColor2={userInputs.buttonGradientColor2}
+                    buttonOutlineColor={userInputs.buttonOutlineColor}
+                    text={<div className="buttonText">Buy on Amazon</div>}
+                    colour={userInputs.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+            </Card.Footer>
+          </Card>
+
+          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+            <Card.Header>
+              <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+                eSUN 3D printer Filament Sale ends midnight 25/05
+              </Card.Title>
+              <img
+                className="card-img-top projectImage"
+                src={filament1}
+                alt="Printing possibilities with eSUN filament"
+              />
+            </Card.Header>
+
+            <Card.Body>
+              <Card.Text style={{ color: `${userInputs.pColor}` }}>
+                <p className="text-center" style={{ backgroundColor: "red" }}>
+                  Flash Sale Alert!
+                </p>{" "}
+                <br></br> Get up to 25% off select single roll filaments, but
+                hurry, this sale ends at midnight!
+                <br></br>Perfect time to stock up for your next print!
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <div className="text-center">
+                <a
+                  href="https://amzn.to/4mB0kUA"
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label="Opens eSUN filament product page in a new tab"
                 >
                   <FormButton
                     className="form-btn-primary"
