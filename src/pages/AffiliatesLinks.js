@@ -6,7 +6,7 @@ import crocs from "../images/crocs-amazon-sale.png";
 import lego5 from "../images/lego5.jpg";
 import lego2 from "../images/lego2.JPG";
 import lego3 from "../images/lego3.JPG";
-import filament1 from "../images/dashcam.JPG";
+import filament1 from "../images/amazon.JPG";
 
 function Affiliates() {
   const { userInputs } = useContext(AppContext);
@@ -36,7 +36,7 @@ function Affiliates() {
             <Card.Body>
               <Card.Text style={{ color: `${userInputs.pColor}` }}>
                 <p className="text-center" style={{ backgroundColor: "red" }}>
-                  26% off!
+                  26% off! Now $74
                 </p>{" "}
                 This 693 piece tribute to F1 legend Ayrton Senna and the iconic
                 McLaren MP4/4 is a must-have for racing fans and LEGO lovers
@@ -83,7 +83,7 @@ function Affiliates() {
             <Card.Body>
               <Card.Text style={{ color: `${userInputs.pColor}` }}>
                 <p className="text-center" style={{ backgroundColor: "red" }}>
-                  24% off!
+                  24% off! Now $25
                 </p>{" "}
                 This 8-stud wide, 319-piece build of Brian’s iconic R34 GT-R
                 from 2 Fast 2 Furious is a must-have for Fast & Furious fans.
@@ -130,7 +130,7 @@ function Affiliates() {
             <Card.Body>
               <Card.Text style={{ color: `${userInputs.pColor}` }}>
                 <p className="text-center" style={{ backgroundColor: "red" }}>
-                  5% off!
+                  5% off! Now $665
                 </p>{" "}
                 This 5,471-piece LEGO Icons set brings the dark tower of
                 Barad-dûr to life, a true centerpiece for any Lord of the Rings
@@ -205,7 +205,7 @@ function Affiliates() {
             </Card.Footer>
           </Card>
 
-          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+          {/*<Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
               <Card.Title style={{ color: `${userInputs.h1Color}` }}>
                 GKU 6900 PRO Front and Rear Dash Cam
@@ -253,6 +253,53 @@ function Affiliates() {
                   rel="noreferrer"
                   target="_blank"
                   aria-label="Opens GKU 6900 PRO Front and Rear Dash Cam product page in a new tab"
+                >
+                  <FormButton
+                    className="form-btn-primary"
+                    type="button"
+                    buttonGradientAngle={userInputs.buttonGradientAngle}
+                    buttonGradientColor1={userInputs.buttonGradientColor1}
+                    buttonGradientColor2={userInputs.buttonGradientColor2}
+                    buttonOutlineColor={userInputs.buttonOutlineColor}
+                    text={<div className="buttonText">Buy on Amazon</div>}
+                    colour={userInputs.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+            </Card.Footer>
+          </Card>*/}
+
+          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+            <Card.Header>
+              <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+                Amazon Fire TV Stick 4K streaming device
+              </Card.Title>
+              <img
+                className="card-img-top projectImage"
+                src={filament1}
+                alt="Amazon Fire TV Stick 4K streaming device"
+              />
+            </Card.Header>
+
+            <Card.Body>
+              <Card.Text style={{ color: `${userInputs.pColor}` }}>
+                <p className="text-center" style={{ backgroundColor: "red" }}>
+                  30% off! Now $69
+                </p>{" "}
+                The newest Fire TV Stick, now with Wi-Fi 6 support for smoother
+                streaming and Dolby Vision/Atmos for immersive sound and
+                picture. Stream over 350,000+ movies and shows from top apps
+                like Netflix, Prime Video, YouTube, and more — all from one
+                compact device.
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <div className="text-center">
+                <a
+                  href="https://amzn.to/4mznYAH"
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label="Opens Amazon Fire TV Stick 4K streaming device product page in a new tab"
                 >
                   <FormButton
                     className="form-btn-primary"
