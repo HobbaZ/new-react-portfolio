@@ -6,7 +6,7 @@ import crocs from "../images/crocs-amazon-sale.png";
 import lego5 from "../images/lego5.jpg";
 import lego2 from "../images/lego2.JPG";
 import lego3 from "../images/lego3.JPG";
-import filament1 from "../images/filament1.JPG";
+import filament1 from "../images/dashcam.JPG";
 
 function Affiliates() {
   const { userInputs } = useContext(AppContext);
@@ -208,6 +208,70 @@ function Affiliates() {
           <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
               <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+                GKU 6900 PRO Front and Rear Dash Cam
+              </Card.Title>
+              <img
+                className="card-img-top projectImage"
+                src={filament1}
+                alt="GKU 6900 PRO Front and Rear Dash Cam"
+              />
+            </Card.Header>
+
+            <Card.Body>
+              <Card.Text style={{ color: `${userInputs.pColor}` }}>
+                <p className="text-center" style={{ backgroundColor: "red" }}>
+                  29% off ($113.99, RRP $159.99 ) ends midnight 27/05/2025
+                </p>{" "}
+                Drive with confidence with crisp 4K front + 1080P rear footage
+                for complete coverage on the road. Equipped with 5.8GHz WiFi,
+                built-in GPS, and app control, it's easy to review, download,
+                and manage your footage anytime.
+                <ul>
+                  <li>
+                    Includes 64GB SD card (supports up to 256GB), you need to
+                    format the card before first use
+                  </li>
+                  <li>Super Night Vision for clear low-light recordings</li>
+
+                  <li>
+                    Loop recording: 64GB SD card can hold 4 hours of footage,
+                    the oldest video will be overwritten automatically, videos
+                    can be locked to prevent overwriting
+                  </li>
+                  <li>USB charging (Type C USB cable not included)</li>
+                </ul>
+                Perfect for commuters, rideshare drivers, and road trippers who
+                want safety, clarity, and convenience in one sleek dashcam.
+                <br></br>
+                <b>Note: A Hardwire kit is required for 24 hr recording</b>
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <div className="text-center">
+                <a
+                  href="https://amzn.to/43MAXaH"
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label="Opens GKU 6900 PRO Front and Rear Dash Cam product page in a new tab"
+                >
+                  <FormButton
+                    className="form-btn-primary"
+                    type="button"
+                    buttonGradientAngle={userInputs.buttonGradientAngle}
+                    buttonGradientColor1={userInputs.buttonGradientColor1}
+                    buttonGradientColor2={userInputs.buttonGradientColor2}
+                    buttonOutlineColor={userInputs.buttonOutlineColor}
+                    text={<div className="buttonText">Buy on Amazon</div>}
+                    colour={userInputs.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+            </Card.Footer>
+          </Card>
+
+          {/*<Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+            <Card.Header>
+              <Card.Title style={{ color: `${userInputs.h1Color}` }}>
                 eSUN 3D printer Filament Sale ends midnight 25/05
               </Card.Title>
               <img
@@ -248,7 +312,7 @@ function Affiliates() {
                 </a>
               </div>
             </Card.Footer>
-          </Card>
+          </Card>*/}
         </div>
       </Container>
     </>

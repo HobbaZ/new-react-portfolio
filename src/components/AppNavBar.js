@@ -48,6 +48,15 @@ function AppNavbar() {
               </a>
 
               <a
+                href="/#services"
+                onClick={() => "services"}
+                className="nav-link ml-3 my-1"
+                style={{ color: `${userInputs.linkColor}` }}
+              >
+                Services
+              </a>
+
+              <a
                 href="/#projects"
                 onClick={() => "projects"}
                 className="nav-link ml-3 my-1"

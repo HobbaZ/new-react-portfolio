@@ -6,6 +6,7 @@ import About from "./pages/About.js";
 import Projects from "./pages/Projects.js";
 import "./App.css";
 import Affiliates from "./pages/AffiliatesLinks.js";
+import Services from "./pages/Services.js";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
             <>
               <AppNavBar />
               <About />
-
+              <Services />
               <Projects />
               <Footer />
             </>
