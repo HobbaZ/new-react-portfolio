@@ -289,7 +289,7 @@ function Affiliates() {
                 The newest Fire TV Stick, now with Wi-Fi 6 support for smoother
                 streaming and Dolby Vision/Atmos for immersive sound and
                 picture. Stream over 350,000+ movies and shows from top apps
-                like Netflix, Prime Video, YouTube, and more — all from one
+                like Netflix, Prime Video, YouTube, and more all from one
                 compact device.
               </Card.Text>
             </Card.Body>
