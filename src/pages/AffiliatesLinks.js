@@ -7,6 +7,7 @@ import lego5 from "../images/lego5.jpg";
 import lego2 from "../images/lego2.JPG";
 import lego3 from "../images/lego3.JPG";
 import filament1 from "../images/amazon.JPG";
+import foam from "../images/foam.JPG";
 
 function Affiliates() {
   const { userInputs } = useContext(AppContext);
@@ -268,6 +269,61 @@ function Affiliates() {
               </div>
             </Card.Footer>
           </Card>*/}
+
+          <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
+            <Card.Header>
+              <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+                Hertber Black Acoustic Foam Panels 24 Pack
+              </Card.Title>
+              <img
+                className="card-img-top projectImage"
+                src={foam}
+                alt="Hertber Acoustic Panels"
+              />
+            </Card.Header>
+
+            <Card.Body>
+              <Card.Text style={{ color: `${userInputs.pColor}` }}>
+                <p className="text-center" style={{ backgroundColor: "red" }}>
+                  $39.19 Limited time deal
+                </p>{" "}
+                Enhance the sound quality of any room with the Hertber Acoustic
+                Panels. Each panel measures 30 x 30 x 5 cm and features a
+                high-density pyramid design that effectively absorbs unwanted
+                echoes, background noise, and reverberations. Ideal for
+                recording studios, home theaters, offices, gaming rooms, or
+                podcast setups.
+                <br />
+                <br />
+                - 5 cm pyramid profile for maximum sound absorption
+                <br />
+                - Reduces echoes, background noise, and reverberations
+                <br />- Easy to install on walls or ceilings with spray adhesive
+                or double-sided tape (not included)
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <div className="text-center">
+                <a
+                  href="https://amzn.to/4ju4drE"
+                  rel="noreferrer"
+                  target="_blank"
+                  aria-label="Opens Amazon Fire TV Stick 4K streaming device product page in a new tab"
+                >
+                  <FormButton
+                    className="form-btn-primary"
+                    type="button"
+                    buttonGradientAngle={userInputs.buttonGradientAngle}
+                    buttonGradientColor1={userInputs.buttonGradientColor1}
+                    buttonGradientColor2={userInputs.buttonGradientColor2}
+                    buttonOutlineColor={userInputs.buttonOutlineColor}
+                    text={<div className="buttonText">Buy on Amazon</div>}
+                    colour={userInputs.buttonTextColor}
+                  ></FormButton>
+                </a>
+              </div>
+            </Card.Footer>
+          </Card>
 
           <Card className="col-sm-12 col-md-6 col-lg-4 p-2 border-0">
             <Card.Header>
