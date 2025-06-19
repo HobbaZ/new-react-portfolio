@@ -59,8 +59,8 @@ function About() {
 
           <p style={{ color: `${userInputs.pColor}` }}>
             I'm a web developer based in Sydney, Australia. I specialise in 3D
-            and interactive experiences, customise the colours of this page by
-            clicking the
+            and interactive experiences, you can customise the colours of this
+            page by clicking the
             <b style={{ color: `${userInputs.h1Color}` }}>
               {" "}
               Customise Page

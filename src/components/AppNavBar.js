@@ -65,14 +65,14 @@ function AppNavbar() {
                 Projects
               </a>
 
-              <a
+              {/*<a
                 href="/affiliate-links"
                 onClick={() => "affiliate"}
                 className="nav-link ml-3 my-1"
                 style={{ color: `${userInputs.linkColor}` }}
               >
                 Affiliate Links
-              </a>
+              </a>*/}
 
               <div>
                 <button
