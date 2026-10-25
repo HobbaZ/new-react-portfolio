@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from "./pages/About.js";
 import Projects from "./pages/Projects.js";
 import "./App.css";
-import Affiliates from "./pages/AffiliatesLinks.js";
 import Services from "./pages/Services.js";
 
 function App() {
@@ -21,17 +20,6 @@ function App() {
               <About />
               <Services />
               <Projects />
-              <Footer />
-            </>
-          }
-        />
-
-        <Route
-          path="/affiliate-links"
-          element={
-            <>
-              <AppNavBar />
-              <Affiliates />
               <Footer />
             </>
           }

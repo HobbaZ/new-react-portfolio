@@ -3,10 +3,9 @@ import { Card, Container } from "react-bootstrap";
 import { FormButton } from "../components/BaseSettings";
 import jobsite from "../images/filter.png";
 import worthlyPic from "../images/worthly.png";
-import prisonersAid from "../images/prisonersAid.png";
+import sydTrains from "../images/sydTrains.png";
 import mayfield from "../images/mayfield.png";
 import { AppContext } from "../components/AppContext";
-import Services from "./Services";
 
 function Projects() {
   const { userInputs } = useContext(AppContext);
@@ -15,7 +14,7 @@ function Projects() {
     <Container id="projects" className="mx-auto">
       <h1 style={{ color: `${userInputs.h1Color}` }}>Projects</h1>
       <div className="row">
-        <Card className="col-sm-12 col-md-6 col-lg-3 p-1 border-0">
+        {/*<Card className="col-sm-12 col-md-6 col-lg-3 p-1 border-0">
           <Card.Header>
             <Card.Title style={{ color: `${userInputs.h1Color}` }}>
               Prisoners Aid (ACT) Website Revamp
@@ -40,6 +39,70 @@ function Projects() {
                 rel="noreferrer"
                 target="_blank"
                 aria-label={`If clicked this will open to https://www.paact.org.au/`}
+              >
+                <FormButton
+                  className="form-btn-primary"
+                  type="button"
+                  buttonGradientAngle={userInputs.buttonGradientAngle}
+                  buttonGradientColor1={userInputs.buttonGradientColor1}
+                  buttonGradientColor2={userInputs.buttonGradientColor2}
+                  buttonOutlineColor={userInputs.buttonOutlineColor}
+                  text={
+                    <div className="buttonText">
+                      <i className="fas fa-globe"></i> Website
+                    </div>
+                  }
+                  colour={userInputs.buttonTextColor}
+                ></FormButton>
+              </a>
+            </div>
+          </Card.Footer>
+        </Card>*/}
+
+        <Card className="col-sm-12 col-md-6 col-lg-3 p-1 border-0">
+          <Card.Header>
+            <Card.Title style={{ color: `${userInputs.h1Color}` }}>
+              Sydney Train Tracker
+            </Card.Title>
+            <img className="card-img-top projectImage" src={sydTrains} alt="" />
+          </Card.Header>
+          <Card.Body>
+            <Card.Text style={{ color: `${userInputs.pColor}` }}>
+              Made a small train tracker website to test NSW government open
+              data realtime train api.
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <div className="text-center">
+              <a
+                href="https://github.com/HobbaZ/sydney-transport-map"
+                rel="noreferrer"
+                target="_blank"
+                aria-label={`If clicked this will open to https://github.com/HobbaZ/sydney-transport-map`}
+              >
+                <FormButton
+                  className="form-btn-primary"
+                  type="button"
+                  buttonGradientAngle={userInputs.buttonGradientAngle}
+                  buttonGradientColor1={userInputs.buttonGradientColor1}
+                  buttonGradientColor2={userInputs.buttonGradientColor2}
+                  buttonOutlineColor={userInputs.buttonOutlineColor}
+                  text={
+                    <div className="buttonText">
+                      <i className="fab fa-github"></i> GitHub
+                    </div>
+                  }
+                  colour={userInputs.buttonTextColor}
+                ></FormButton>
+              </a>
+            </div>
+            <br />
+            <div className="text-center">
+              <a
+                href="https://sydney-transport-map.fly.dev/"
+                rel="noreferrer"
+                target="_blank"
+                aria-label={`If clicked this will open to https://sydney-transport-map.fly.dev/`}
               >
                 <FormButton
                   className="form-btn-primary"
